@@ -9,7 +9,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="ds_spSampleOrderLinesCreditNonUnion">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
         <QueryParameters>
@@ -539,7 +539,7 @@ set nocount off</CommandText>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>ds_spSampleOrderLinesCreditNonUnion</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
             <Width>6.76042in</Width>

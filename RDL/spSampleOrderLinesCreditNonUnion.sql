@@ -42,7 +42,7 @@ set @sql = '
 
 		WHERE SHHEAD.SHIDAT = current_date - ' + @DaysBack +
 		
-		' days and SHOTYP in (''''SA'''',''''DP'''',''''SR'''')
+		' days and SHOTYP in (''''SA'''',''''DP'''',''''SR'''',''''SD'''')
 		
 		'') 
 		
