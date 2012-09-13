@@ -22,8 +22,8 @@ Add count on sales order per YTD column and rolling 12 month
 ---------------------------------------------------------------------------------------------------------
 */
 -- James	09/12/2012
--- Talked with Jeff and wnt over v3
--- He wants the YTD fields romoved and keep the rolling 12 months.
+-- Talked with Jeff and went over v3
+-- He wants the YTD fields removed and keep the rolling 12 months.
 -- Also he arange how he would like the fields to layed out now.
 --
 alter PROC JT_BO_Report_Stock_Items_v3 AS 
