@@ -20,6 +20,7 @@ ALTER PROC [dbo].[JT_cancelled_skus] AS
 --------------------------------------------------------------------------
 
 
+
 SELECT *
 FROM OPENQUERY (GSFL2K, 'SELECT imbuyr as buyer,
 								month(olcdte) || ''/'' || day(olcdte) || ''/'' || year(olcdte) as cancel_date,
