@@ -15,7 +15,14 @@ ALTER PROC [dbo].[JT_new_claims_v2] AS
 ** 	Report is for new claims writen the prior day		*
 **														*
 **------------------------------------------------------*
-*/
+-- 
+-- James Tuttle		09/26/2012
+--
+-- Any claims with a negative number should not come up 
+--     on the new claims report; those claims with a 
+--    negative have been resolved and credited. - Dawn M
+--
+---------------------------------------------------------*/
 
 -- Drop table
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[JAMEST].[dbo].[#ClaimComments]') AND TYPE in (N'U'))
@@ -56,6 +63,7 @@ FROM OPENQUERY (GSFL2K, 'SELECT ohcust as Customer,
 								JOIN custmast ON ohcust = cmcust
 							WHERE ohotyp = ''CL''
 								AND ohodat = (CURRENT_DATE - 1 DAYS)
+								
 						')
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[JAMEST].[dbo].[#ClaimCommentSummary]') AND TYPE in (N'U'))
@@ -139,6 +147,7 @@ FROM OPENQUERY (GSFL2K, 'SELECT olco as Company,
 								olDIV AS Division
 						FROM ooline JOIN vendmast ON olvend = vmvend
 						WHERE olvend != 40000
+							AND olqshp > 0.00
 						')
 --SELECT * FROM #LineDetails
 -- ======================================================================================================
