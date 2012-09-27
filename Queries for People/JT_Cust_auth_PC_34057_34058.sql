@@ -1,0 +1,7 @@
+
+
+SELECT *
+FROM OPENQUERY(GSFL2K,'SELECT *
+						FROM CUSTAUTH
+						WHERE caupcd IN (34057, 34058)
+						')
