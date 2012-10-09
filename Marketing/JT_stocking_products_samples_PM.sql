@@ -32,19 +32,30 @@ GO
 James Tuttle
 08/13/2012
 SR-3860
-
+===========================================================================================================
 
 Mary Harchuck needs a report of all stocking samples, displays as well as her separate list, 
 with qty available.  IMFCRG="S" AND IMSI="Y" AND IMCOLIMIT=2 or  IMSEARCH="PMPRO" AND IMCOLIMIT=2
 -George 
+===========================================================================================================
 */
 /*
 --- Removed columns per Mary H
 imcolimit as Company
 		  ,imsamp as Parent_Sku
+===========================================================================================================
+*/
+/*
+James Tuttle
+10/09/2012
+SR# - 4702
+--
+ADD Fields: Vendor Number and Buyer Number
+
+===========================================================================================================
 */
 
-CREATE PROC [dbo].[JT_stocking_products_samples_PM] AS
+ALTER PROC [dbo].[JT_stocking_products_samples_PM] AS
 BEGIN
 	SELECT *
 	FROM OPENQUERY(GSFL2K,
@@ -54,6 +65,8 @@ BEGIN
 			WHEN imdrop = ''D'' THEN ''Drop''
 			ELSE '' ''
 		   END as Drops
+		   ,imvend AS Vendor#
+		   ,imbuyr AS Buyer#
 	/*------- Contiguous US locations ----------------------------------------------------------------------------------*/				
 		  ,(SELECT COALESCE(SUM(itembal.ibqoh),0) FROM itembal WHERE itembal.ibco = 2 
 				AND itembal.ibloc NOT IN(84,81) AND itembal.ibitem = im.imitem) AS Stock_QOH
