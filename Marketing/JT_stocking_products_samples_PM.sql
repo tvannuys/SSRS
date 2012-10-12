@@ -1,12 +1,3 @@
-USE [JAMEST]
-GO
-
-/****** Object:  StoredProcedure [dbo].[JT_products_displays_samples_PM]    Script Date: 08/16/2012 08:45:08 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 
 /********************************************
