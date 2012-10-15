@@ -3,6 +3,11 @@
 -- SR-4059
 
 -------------> ADD THE REQUIRED FIELDS THAT IS NEEDED FOR THE DATA MINNING <----------------
+--=================================================================================================================
+-- James Tuttle		10/12/2012
+-- Added CustName after Cust#
+-- Created User friendly field names
+--=================================================================================================================
 
 -------------------------------------------------------------------------------------------------------------------
 -- INVOICED ORDERS
@@ -19,6 +24,7 @@ CREATE TABLE #BO (			-----------------------------------------------
 	,slloc int				-- Location
 	,slord# int				-- Order#
 	,slcust varchar(15)		-- Customer#
+	,cmname varchar(25)		-- Customer Name
 	,shodat date			-- Order date
 	,shsdat date			-- Ship date
 	,slitem varchar(30)		-- Item
@@ -48,23 +54,24 @@ SELECT * FROM OPENQUERY(GSFL2K,'
 					,h.shord#
 					,h.shcust
 			HAVING SUM(h.shtotl) >= 5000)            
-	SELECT slco a
-			,slloc
-			,slord# 
-			,slcust
-			,shodat
-			,shsdat
-			,slitem
-			,slpric
-			,slblus
-			,slum2
-			,shquot
-			,sleprc
-			,shstnm
-			,shsta1
-			,shsta2
-			,shsta3
-			,shzip
+	SELECT slco as co
+			,slloc as loc
+			,slord# as order# 
+			,slcust as cust#
+			,cmname as cust_name
+			,shodat as date_created
+			,shsdat as date_shipped
+			,slitem as item
+			,slpric as price
+			,slblus as billable_units
+			,slum2 as um
+			,shquot as quote#
+			,sleprc as sub_total
+			,shstnm as shipto
+			,shsta1 as address1
+			,shsta2 as address2
+			,shsta3 as city_state
+			,shzip as zip
 	FROM shline
 	LEFT JOIN shhead ON (shhead.shco = shline.slco
 							AND shhead.shloc = shline.slloc
@@ -72,6 +79,7 @@ SELECT * FROM OPENQUERY(GSFL2K,'
 							AND shhead.shrel# = shline.slrel#
 							AND shhead.shinv# = shline.slinv#
 							AND shhead.shcust = shline.slcust)
+	LEFT JOIN custmast on cmcust = slcust
 	WHERE shhead.shord# in (select OrderNum from BO)
 		AND shhead.shidat >= ''01/01/2011'' 
 	ORDER BY slord#                                      
@@ -92,6 +100,7 @@ CREATE TABLE #OO (			-----------------------------------------------
 	,olloc int				-- Location
 	,olord# int				-- Order#
 	,olcust varchar(15)		-- Customer#
+	,cmname varchar(25)		-- Customer Name
 	,ohodat date			-- Order date
 	,ohsdat date			-- Ship date
 	,olitem varchar(30)		-- Item
@@ -121,23 +130,24 @@ SELECT * FROM OPENQUERY(GSFL2K,'
 					,h.ohord#
 					,h.ohcust
 			HAVING SUM(h.ohtotl) >= 5000)            
-	SELECT olco a
-			,olloc
-			,olord# 
-			,olcust
-			,ohodat
-			,ohsdat
-			,olitem
-			,olpric
-			,olblus
-			,olum2
-			,ohquot
-			,oleprc
-			,ohstnm
-			,ohsta1
-			,ohsta2
-			,ohsta3
-			,ohzip
+	SELECT olco as co
+			,olloc as loc
+			,olord# as order# 
+			,olcust as cust#
+			,cmname as cust_name
+			,ohodat as date_created
+			,ohsdat as date_shipped
+			,olitem as item
+			,olpric as price
+			,olblus as billable_units
+			,olum2 as um
+			,ohquot as quote#
+			,oleprc as sub_total
+			,ohstnm as shipto
+			,ohsta1 as address1
+			,ohsta2 as address2
+			,ohsta3 as city_state
+			,ohzip as zip
 	FROM ooline
 	LEFT JOIN oohead ON (oohead.ohco = ooline.olco
 							AND oohead.ohloc = ooline.olloc
@@ -145,6 +155,7 @@ SELECT * FROM OPENQUERY(GSFL2K,'
 							AND oohead.ohrel# = ooline.olrel#
 						/*	AND oohead.ohinv# = ooline.olinv#	*/
 							AND oohead.ohcust = ooline.olcust)
+	LEFT JOIN custmast on cmcust = olcust
 	WHERE oohead.ohord# in (select OrderNum from OO)
 		AND oohead.ohodat >= ''01/01/2011'' 
 	ORDER BY olord#                                    
