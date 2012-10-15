@@ -1,18 +1,20 @@
 
 
 -- SR-4112
-CREATE PROC JT_get_emp_hours_by_date 
-	 @StartDate date
-	,@EndDate date
-	,@EmpNum int
+ ALTER PROC JT_get_emp_hours_by_date 
+
+	 @StartDate as varchar(10)	= '01/01/2012'
+	,@EndDate as  varchar(10)	= '01/01/2012'
+	,@EmpNum as VARCHAR(4)		= '0'
+	
 AS
-DECLARE @sql VARCHAR(4000)
+DECLARE @sql VARCHAR(3000)
 SET @sql = '
 	SELECT *		
 	FROM OPENQUERY (GSFL2K, ''SELECT ptrun#,
 									ptemp#,
 									ptcksq,
-									month(ptdate) || ''/'' || day(ptdate) || ''/'' || year(ptdate) as ptdate,
+									ptdate,
 									ptseq#,
 									ptco,
 									ptloc,
@@ -32,13 +34,15 @@ SET @sql = '
 									ptothr,
 									ptotor,
 									ptot,
-									month(ptdatets) || ''/'' || day(ptdatets) || ''/'' || year(ptdatets) || '' '' ||
-										hour(ptdatets) ||'':'' || minute(ptdatets) || '':'' || second(ptdatets) as ptdatets
+									ptdatets
 							FROM prtimecd
-							WHERE ptdate BETWEEN ''''' +  @StartDate  + ''''' AND  ''''' +   @EndDate  + '''''
-								AND ptemp# = ' + @EmpNum + '
+							WHERE ptdate >= ' + '''' + '''' + @StartDate + '''' + '''' + '
+								 AND  ptdate <=  ' + '''' + '''' + @EndDate + '''' + '''' + '
+								AND ptemp# = ' + '''' + '''' + @EmpNum + '''' + '''' + '
 							ORDER BY ptemp#, ptdatets
 						'')'
 
 EXEC(@sql)
 GO
+
+-- JT_get_emp_hours_by_date '10/15/2012','10/15/2012', 7013
