@@ -2,10 +2,13 @@
 
 -- SR 4158
 -- Full pallet quantity orders
+--============================================================================================
+-- James Tuttle	10/12/12
+-- Per Jeff take out the customers - View the ITEM
+--============================================================================================
+
 --INSERT INTO [JAMEST].[dbo].[FullPallet]
-SELECT shcust 
-		,cmname 
-		,slitem 
+SELECT  slitem 
 		,COALESCE(CASE WHEN MONTH(sldate) = 1 THEN COUNT(slqshp) END,0) as Jan
 		,COALESCE(CASE WHEN MONTH(sldate) = 2 THEN COUNT(slqshp) END,0) as Feb
 		,COALESCE(CASE WHEN MONTH(sldate) = 3 THEN COUNT(slqshp) END,0) as Mar
@@ -37,8 +40,8 @@ WHERE shidat >= ''01/01/2012''
 	AND (sl.slvend IN (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'')
 		OR (sl.slvend = ''21861'' AND im.imprcd IN (''34057'',''34058'')))
 
-	AND shcust = ''1001341''
-		AND slitem = ''LOLG1039''	
+	/* AND shcust = ''1001341''
+		AND slitem = ''LOLG1039''	*/
 
 ')
 	GROUP BY shcust
