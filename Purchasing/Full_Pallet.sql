@@ -48,9 +48,10 @@ WHERE shidat >= ''01/01/2012''
 			,cmname
 			,slitem
 			,sldate
-	ORDER BY shcust
-			,slitem
-			,sldate
+	ORDER BY 
+			slitem
+		--  ,shcust
+		--	,sldate
 			
 			--CREATE TABLE FullPallet 
 			--(
