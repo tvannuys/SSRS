@@ -1,12 +1,13 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spImport_PO_Past_Production_No_Ship]    Script Date: 10/16/2012 08:49:28 ******/
+/****** Object:  StoredProcedure [dbo].[spImport_PO_Past_Production_No_Ship]    Script Date: 10/16/2012 09:23:14 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -24,7 +25,7 @@ GO
 -- Added five vendors per SR request
 --==================================
 
-ALTER PROC [dbo].[spImport_PO_Past_Production_No_Ship] AS
+ ALTER PROC [dbo].[spImport_PO_Past_Production_No_Ship] AS
 
 select Buyer,
 OQ.VendorName,
@@ -103,7 +104,7 @@ and PLPDAT <> ''0001-01-01''
 and FMFMCD not in (''L2'',''YI'')
 and IMSI = ''Y''
 and (poline.plvend in (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'',''22179'',''24077'')
-	or (poline.plvend in(''21861'',''16037'',''10131'',''16006'') and imprcd in (''34057'',''34058'',''4906'',''6392'',''32608'')))
+	or (poline.plvend in(''21861'',''17000'',''10131'',''16006'') and imprcd in (''34057'',''4906'',''4906'',''6392'',''32608'')))
 
 Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
 ') OQ
@@ -112,6 +113,7 @@ Group by Buyer,OQ.VendorName,ProductCode,SKU,[Description],Color,Company,Locatio
 PO,VendorRefNum,IssueDate,ProductionDate,ShipDate,Confirmed,DueDate,manifest
 
 Order by Buyer,Company,VendorName,ProductCode,SKU,IssueDate
+
 
 GO
 
