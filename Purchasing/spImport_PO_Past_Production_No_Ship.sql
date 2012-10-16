@@ -10,14 +10,20 @@ GO
 
 
 
----------------------------------
+----------------------------------
 -- Created by: Thomas V
 -- Date: 7/30/2012
-----------------------------------
+-----------------------------------
 -- Modifed by: James T
 -- Date: 8/3/12
-----------------------------------
---================================
+-----------------------------------
+--=================================
+-- SR#: 4765
+-- Modifed Date: 10/16/2012
+-- Modified by: James Tuttle		
+-- Added five vendors per SR request
+--==================================
+
 ALTER PROC [dbo].[spImport_PO_Past_Production_No_Ship] AS
 
 select Buyer,
@@ -96,8 +102,8 @@ and PLSHIPDATE = ''0001-01-01''
 and PLPDAT <> ''0001-01-01''
 and FMFMCD not in (''L2'',''YI'')
 and IMSI = ''Y''
-and (poline.plvend in (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'')
-	or (poline.plvend = ''21861'' and imprcd in (''34057'',''34058'')))
+and (poline.plvend in (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'',''22179'',''24077'')
+	or (poline.plvend in(''21861'',''16037'',''10131'',''16006'') and imprcd in (''34057'',''34058'',''4906'',''6392'',''32608'')))
 
 Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
 ') OQ
