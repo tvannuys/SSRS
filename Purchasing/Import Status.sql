@@ -68,7 +68,7 @@ Where Pohead.PHDOI > ''12/31/2005''
 and FMFMCD not in (''L2'',''YI'')
 and IMSI = ''Y''
 and (poline.plvend in (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'',''22179'',''24077'')
-	or (poline.plvend in(''21861'',''16037'',''10131'',''16006'') and imprcd in (''34057'',''34058'',''4906'',''6392'',''32608'')))
+	or (poline.plvend in(''21861'',''17000'',''10131'',''16006'') and imprcd in (''34057'',''4906'',''4906'',''6392'',''32608'')))
 
 Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
 ') OQ
