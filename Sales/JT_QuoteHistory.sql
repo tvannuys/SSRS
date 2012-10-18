@@ -1,8 +1,9 @@
 
+----------------- THIS IS ON THE TSGSFL2K ------------------------------------------------
 
 -- SR# 4585
 
--- ALTER PROC JT_QuoteHistory
+--ALTER PROC JT_QuoteHistory
 
 		@cust as varchar(10)		= '%'
 		,@qt as varchar(6)			= '000000'
@@ -16,13 +17,15 @@ DECLARE @sql varchar(3000)
 SET @sql = '		
 SELECT *
 FROM OPENQUERY(TSGSFL2K,
-''SELECT ohco
-		,ohloc
-		,ohord#
-		,ohrel#
-		,ohcust
-		,olitem
-		,olpric
+''SELECT ohco		AS Company#
+		,ohloc		AS Quote_Loc
+		,ohord#		AS Quote#
+		,ohpo#		AS PO#	
+		,ohcont		AS Cust_Contact
+		,olitem		AS Product
+		,olpric		AS Price
+		,olqord		AS Quantity
+		,ohodat		AS Orig_Qt_Date
  FROM hqshead hqh 
  JOIN hqsline hql ON 
 	( hqh.ohco = hql.olco
@@ -40,4 +43,4 @@ EXEC(@sql)
 
 
 
--- JT_QuoteHistory 1021405,NULL
+-- JT_QuoteHistory 1021405,0
