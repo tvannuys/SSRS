@@ -1,12 +1,24 @@
 
------------------ THIS IS ON THE TSGSFL2K ------------------------------------------------
+-------------------------------------------------------------------------------------------
 
 -- SR# 4585
+-- James Tuttle
+-- Date: 10/12/2012
+--
+-- Purpose:
+-- Create a PARM driven look-up query
+-- so Tami in sales can look-up any
+-- quotes that get purged to the 
+-- history files in Gartman if expired
+---------------------------------------------------------------------------------------------
 
---ALTER PROC JT_QuoteHistory
+
+
+
+ --ALTER PROC JT_QuoteHistory
 
 		@cust as varchar(10)		= '%'
-		,@qt as varchar(6)			= '000000'
+		,@qt as varchar(6)			= '0'
 		--,@BeginDate as varchar(10)
 		--,@EndDate as varchar(10)
 AS
@@ -16,7 +28,7 @@ DECLARE @sql varchar(3000)
 
 SET @sql = '		
 SELECT *
-FROM OPENQUERY(TSGSFL2K,
+FROM OPENQUERY(GSFL2K,
 ''SELECT ohco		AS Company#
 		,ohloc		AS Quote_Loc
 		,ohord#		AS Quote#
