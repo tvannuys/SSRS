@@ -18,7 +18,7 @@ BEGIN
 			,idbin						AS Bin_Loc
 			,idqoh						AS QOH
 			,imfc2a						AS Plt_Recv_Qty
-			,CEILING(idqoh / imfc2a)	AS Ttl_Plts
+			,CEILING(idqoh / imfc2a)	AS Ttl_Plts			-- Divide the QOH by the pallet recv. Qty and round up by 1 whole
 			,imdiv						AS Div
 			,imfmcd						AS Family
 			,imprcd						AS Prd_Code	
