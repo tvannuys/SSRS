@@ -15,10 +15,10 @@
 
 
 
- --ALTER PROC JT_QuoteHistory
+  --ALTER PROC JT_QuoteHistory
 
 		@cust as varchar(10)		= '%'
-		,@qt as varchar(6)			= '0'
+		,@qt as varchar(6)			= '%'
 		--,@BeginDate as varchar(10)
 		--,@EndDate as varchar(10)
 AS
