@@ -13,7 +13,6 @@ SELECT *
 FROM OPENQUERY (GSFL2K,
 	'SELECT rtrout
 	FROM route
-	WHERE rtco = 1
-		AND rtrout NOT LIKE ''%-%''
+	WHERE rtrout NOT LIKE ''%-%''
 	ORDER BY rtrout
 	')
