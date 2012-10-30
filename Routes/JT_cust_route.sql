@@ -24,8 +24,8 @@ SET @SQL ='
 			,cmvia AS Via_Code
 			,cmdrt1 AS Route_1
 			,cmdrt2 AS Route_2
-			,rtrim(reverse(substring(reverse(CMADR3),3,len(CMADR3)))) AS City
-			,reverse(left(reverse(CMADR3),2)) AS State
+			,RTRIM(REVERSE(SUBSTRING(REVERSE(CMADR3),3,LEN(CMADR3)))) AS City
+			,REVERSE(LEFT(REVERSE(CMADR3),2)) AS State
 			,cmzip AS Zip
 	FROM OPENQUERY(GSFL2K,
 		''SELECT cmname
@@ -36,8 +36,7 @@ SET @SQL ='
 				,cmadr3
 				,cmzip
 	FROM custmast cm
-	JOIN routeconrt rc ON cm.cmdrt1 = rc.rtcroute
-	WHERE rc.rtcrt = ' + '''' + '''' + @Route + '''' + '''' + '
+	WHERE cm.cmdrt1 = ' + '''' + '''' + @Route + '''' + '''' + '
 	ORDER BY cm.cmname
 	
 	'')
@@ -45,5 +44,11 @@ SET @SQL ='
 	
 	EXEC (@SQL)
 	
-	-- JT_cust_route 281
+	-- JT_cust_route ORCC2
 	
+-------------------------
+--
+-- need to allow lookup
+-- for non-cons. routes
+--
+-------------------------
