@@ -799,7 +799,7 @@
         </Values>
       </DefaultValue>
       <AllowBlank>true</AllowBlank>
-      <Prompt>Select a Route and Enter:</Prompt>
+      <Prompt>Select a Route and Click 'View Report' button on the right:</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>route_lookup</DataSetName>
