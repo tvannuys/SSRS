@@ -8,7 +8,7 @@
 -- for import skus
 --==================================================================
 
--- CREATE Import_bin_report AS
+CREATE PROC Import_bin_report AS
 BEGIN
 	SELECT iditem						AS Item
 			,imdesc						AS [Description]
