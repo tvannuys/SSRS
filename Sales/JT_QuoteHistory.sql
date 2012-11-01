@@ -4,23 +4,29 @@
 -- SR# 4585
 -- James Tuttle
 -- Date: 10/12/2012
---
+---------------------------------------------------------------------------------------------
 -- Purpose:
 -- Create a PARM driven look-up query
 -- so Tami in sales can look-up any
 -- quotes that get purged to the 
 -- history files in Gartman if expired
 ---------------------------------------------------------------------------------------------
+-- James Tuttle  11/1/12
+-- Per Joe F 11/1/12
+-- Adding PARMS ITEM and JobName
+-- Adding fields PO# and Due Date
+---------------------------------------------------------------------------------------------
 
 
 
 
-  --ALTER PROC JT_QuoteHistory
-
-		@cust as varchar(10)		= '%'
-		,@qt as varchar(6)			= '%'
-		--,@BeginDate as varchar(10)
-		--,@EndDate as varchar(10)
+ ALTER PROC JT_QuoteHistory
+--==========================================================================
+		@cust as varchar(10)		= '%'		-- PARMS to search by
+		,@qt as varchar(6)			= '%'		-- but as 'OR'. only of one
+		,@item as varchar(25)		='%'		-- and only one.
+		,@jobName as varchar(15)	='%'
+--==========================================================================
 AS
 
 DECLARE @sql varchar(3000)
@@ -38,14 +44,27 @@ FROM OPENQUERY(GSFL2K,
 		,olpric		AS Price
 		,olqord		AS Quantity
 		,ohodat		AS Orig_Qt_Date
+		,ohddat		AS Exp_Date
+		,ohpo#		AS PO#
+		,otcmt1		AS Sidemark
  FROM hqshead hqh 
  JOIN hqsline hql ON 
 	( hqh.ohco = hql.olco
 		AND hqh.ohloc = hql.olloc
 		AND hqh.ohord# = hql.olord#
 		AND hqh.ohrel# = hql.olrel#)
+ JOIN hqstext hqt ON 
+ 	( hqh.ohco = hqt.otco
+		AND hqh.ohloc = hqt.otloc
+		AND hqh.ohord# = hqt.otord#
+		AND hqh.ohrel# = hqt.otrel#)
  
- WHERE ((ohcust = ' + '''' + '''' + @cust + '''' + '''' + ') OR ( ohord# = ' + '''' + '''' + @qt + '''' + '''' + ' ))	
+ WHERE ((ohcust = ' + '''' + '''' + @cust + '''' + '''' + ')
+	 OR ( ohord# = ' + '''' + '''' + @qt + '''' + '''' + ' ))	
+	 OR ( olitem = ' + '''' + '''' + @item + '''' + '''' + ' ))	
+	 OR ( otcmt1 = ' + '''' + '''' + @jobName + '''' + '''' + '  
+			AND itseq# = 1 ))	
+
 '')
 
 
