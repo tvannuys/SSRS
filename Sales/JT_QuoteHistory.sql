@@ -23,9 +23,9 @@
  ALTER PROC JT_QuoteHistory
 --==========================================================================
 		@cust as varchar(10)		= '%'		-- PARMS to search by
-		,@qt as varchar(6)			= '%'		-- but as 'OR'. only of one
-	--	,@item as varchar(25)		= '%'		-- and only one.
-	--	,@jobName as varchar(15)	= '%'
+ 		,@qt as varchar(6)			= '%'		-- but as 'OR'. only of one
+ 		,@item as varchar(25)		= '%'		-- and only one.
+		,@jobName as varchar(15)	= '%'
 --==========================================================================
 AS
 
@@ -45,7 +45,7 @@ FROM OPENQUERY(GSFL2K,
 		,ohodat		AS Orig_Qt_Date
 		,ohddat		AS Exp_Date
 		,ohpo#		AS PO#
-		/*,otcmt1		AS Sidemark */
+		,otcmt1		AS Sidemark 
  FROM hqshead hqh 
  JOIN hqsline hql ON 
 	( hqh.ohco = hql.olco
@@ -53,29 +53,23 @@ FROM OPENQUERY(GSFL2K,
 		AND hqh.ohord# = hql.olord#
 		AND hqh.ohrel# = hql.olrel#
 		AND hqh.ohcust = hql.olcust)
+ JOIN hqstext hqt ON 
+ 	( hqh.ohco = hqt.otco
+		AND hqh.ohloc = hqt.otloc
+		AND hqh.ohord# = hqt.otord#
+		AND hqh.ohrel# = hqt.otrel#
+		AND hqh.ohcust = hqt.otcust)
 
- 
  WHERE ((ohcust = ' + '''' + '''' + @cust + '''' + '''' + ')
-	 OR ( ohord# = ' + '''' + '''' + @qt + '''' + '''' + ' ))	
-
-'')
-
-
+	 OR ( ohord# = ' + '''' + '''' + @qt + '''' + '''' + ' )	
+	 OR ( olitem = ' + '''' + '''' + @item + '''' + '''' + ' )	
+	 OR ( otcmt1 = ' + '''' + '''' + @jobName + '''' + '''' + '  
+			AND otseq# = 1 ))	
+	'')
 '
 
 
 EXEC(@sql)
 
 
--- JT_QuoteHistory '1000001',0,'',''
-
-
- /*JOIN hqstext hqt ON 
- 	( hqh.ohco = hqt.otco
-		AND hqh.ohloc = hqt.otloc
-		AND hqh.ohord# = hqt.otord#
-		AND hqh.ohrel# = hqt.otrel#)*/
-
-	/* OR ( olitem = ' + '''' + '''' + @item + '''' + '''' + ' )	*/
-	/* OR ( otcmt1 = ' + '''' + '''' + @jobName + '''' + '''' + '  */
-	/*		AND otseq# = 1 ))	*/
+-- JT_QuoteHistory '4120100',0,'',''
