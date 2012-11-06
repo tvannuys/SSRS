@@ -24,12 +24,12 @@
 --==========================================================================
 		@cust as varchar(10)		= '%'		-- PARMS to search by
 		,@qt as varchar(6)			= '%'		-- but as 'OR'. only of one
-		,@item as varchar(25)		='%'		-- and only one.
-		,@jobName as varchar(15)	='%'
+	--	,@item as varchar(25)		= '%'		-- and only one.
+	--	,@jobName as varchar(15)	= '%'
 --==========================================================================
 AS
 
-DECLARE @sql varchar(3000)
+DECLARE @sql varchar(max)
 
 
 SET @sql = '		
@@ -38,7 +38,6 @@ FROM OPENQUERY(GSFL2K,
 ''SELECT ohco		AS Company#
 		,ohloc		AS Quote_Loc
 		,ohord#		AS Quote#
-		,ohpo#		AS PO#	
 		,ohcont		AS Cust_Contact
 		,olitem		AS Product
 		,olpric		AS Price
@@ -46,32 +45,37 @@ FROM OPENQUERY(GSFL2K,
 		,ohodat		AS Orig_Qt_Date
 		,ohddat		AS Exp_Date
 		,ohpo#		AS PO#
-		,otcmt1		AS Sidemark
+		/*,otcmt1		AS Sidemark */
  FROM hqshead hqh 
  JOIN hqsline hql ON 
 	( hqh.ohco = hql.olco
 		AND hqh.ohloc = hql.olloc
 		AND hqh.ohord# = hql.olord#
-		AND hqh.ohrel# = hql.olrel#)
- JOIN hqstext hqt ON 
- 	( hqh.ohco = hqt.otco
-		AND hqh.ohloc = hqt.otloc
-		AND hqh.ohord# = hqt.otord#
-		AND hqh.ohrel# = hqt.otrel#)
+		AND hqh.ohrel# = hql.olrel#
+		AND hqh.ohcust = hql.olcust)
+
  
  WHERE ((ohcust = ' + '''' + '''' + @cust + '''' + '''' + ')
 	 OR ( ohord# = ' + '''' + '''' + @qt + '''' + '''' + ' ))	
-	 OR ( olitem = ' + '''' + '''' + @item + '''' + '''' + ' ))	
-	 OR ( otcmt1 = ' + '''' + '''' + @jobName + '''' + '''' + '  
-			AND itseq# = 1 ))	
 
 '')
 
 
 '
 
+
 EXEC(@sql)
 
 
+-- JT_QuoteHistory '1000001',0,'',''
 
--- JT_QuoteHistory 1021405,0
+
+ /*JOIN hqstext hqt ON 
+ 	( hqh.ohco = hqt.otco
+		AND hqh.ohloc = hqt.otloc
+		AND hqh.ohord# = hqt.otord#
+		AND hqh.ohrel# = hqt.otrel#)*/
+
+	/* OR ( olitem = ' + '''' + '''' + @item + '''' + '''' + ' )	*/
+	/* OR ( otcmt1 = ' + '''' + '''' + @jobName + '''' + '''' + '  */
+	/*		AND otseq# = 1 ))	*/
