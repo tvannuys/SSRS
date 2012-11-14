@@ -23,7 +23,7 @@ SELECT ohotyp		AS Order_Type
 	  ,cmname		AS Customer
 	  ,olitem		AS Item
 	  ,oldesc		AS [Description]
-	  ,oliloc		AS loc
+	  ,oliloc		AS Loc
 	  ,olqshp		AS QTY_Ship
 	  ,olqbo		AS QTY_BO
 	  ,Ship_Date	AS Ship_Date
