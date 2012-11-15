@@ -74,6 +74,15 @@
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=CStr(Fields!Salesman.Value) = CStr(Parameters!prmCmslmn.Value) OrElse CStr(Fields!Customer_.Value) = CStr(Parameters!prmCust.Value)</FilterExpression>
+          <Operator>Equal</Operator>
+          <FilterValues>
+            <FilterValue DataType="Boolean">true</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -111,7 +120,7 @@
                   <Width>1.41667in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.54167in</Width>
+                  <Width>2.82292in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.41667in</Width>
@@ -519,7 +528,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>loc</Value>
+                                  <Value>Loc</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -1192,7 +1201,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>14.80208in</Width>
+            <Width>15.08334in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1270,7 +1279,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>14.80208in</Width>
+      <Width>15.08334in</Width>
       <Page>
         <PageFooter>
           <Height>0.45in</Height>
@@ -1293,8 +1302,11 @@
   <ReportParameters>
     <ReportParameter Name="prmCmslmn">
       <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>Rep Number</Prompt>
+      <Prompt>prmCmslmn</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="prmCust">
+      <DataType>String</DataType>
+      <Prompt>prmCust</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
