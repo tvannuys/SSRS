@@ -4,14 +4,15 @@
 -- James Tuttle
 -- 11/07/2012
 --
--- Purpose:
---
---
+-- PURPOSE:
+--    Query all open orders that are 'SA' and 'DP' order types
+--	Then Email out by subscriptions which uses the PARM of the 
+--	SAlesRep# and Account # for sample account for them.
 --
 --
 --==============================================================================*/
 
---CREATE PROC JT_Open_Order_MKTG_Displays_Samples AS
+--ALTER PROC JT_Open_Order_MKTG_Displays_Samples AS
 BEGIN
 SELECT ohotyp		AS Order_Type
 	  ,cmslmn		AS Salesman
@@ -52,6 +53,9 @@ SELECT ohotyp		AS Order_Type
 		JOIN salesman sm ON cm.cmslmn = sm.smno
 		WHERE oh.ohotyp IN(''DP'',''SA'')
 			AND ol.olico = 1
+		/*	AND (cm.cmslmn = 11
+				OR cm.cmcust = ''1002128'')	*/
+	
 		ORDER BY oh.ohodat DESC
 		')
 
