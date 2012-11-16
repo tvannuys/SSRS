@@ -7,7 +7,7 @@
 --
 --	PURPOSE:  Run query to check on shipments and report on
 --	those shipments with the order status and any routing.
---
+--  ** The Bill To Account is: 4100000 **
 --
 --
 ----------------------------------------------------------------------
@@ -15,17 +15,27 @@
 --CREATE PROC JT_ANW_Order_Status_Updates AS
 SELECT *
 FROM OPENQUERY(GSFL2K,
-	'SELECT ohord#
-			,ohrel#
-			,ohvia
-			,ohrout
-			,ohsdat
+	'SELECT ohord# AS Order#
+			,ohrel# AS Rel#
+			,ohvia AS Via
+			,ortrt AS Route
+			,rtdesc AS Description
+			,MONTH(ortsdt) || ''/'' || DAY(ortsdt) || ''/'' || YEAR(ortsdt) AS Ship_Date
+			,MONTH(ortadt) || ''/'' || DAY(ortadt) || ''/'' || YEAR(ortadt) AS Arrive_Date
 	FROM oohead oh
-	JOIN ooline ol ON (ol.olco = oh.ohco
-						ol.olloc = oh.ohloc
-						ol.olord# = oh.ohord#
-						ol.olrel# = oh.ohrel#
-						ol.olcust = oh.ohcust)
-	WHERE
+/*	JOIN ooline ol ON (oh.ohco = ol.olco
+							AND oh.ohloc = ol.olloc
+							AND oh.ohord# = ol.olord#
+							AND oh.ohrel# = ol.olrel#
+							AND oh.ohcust = ol.olcust)	*/
+	JOIN ooroute rt ON (oh.ohco = rt.ortco
+							AND oh.ohloc = rt.ortloc
+							AND oh.ohord# = rt.ortord
+							AND oh.ohrel# = rt.ortrel
+							AND oh.ohcust = rt.ortcus)
+	JOIN route rte ON rt.ortrt = rte.rtrout
+	WHERE oh.ohbil# = ''4100000''
+		/*	AND ol.olinvu	*/
+		/* AND oh.ohord# = 264021	*/
 	')
 	
