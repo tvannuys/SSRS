@@ -23,3 +23,19 @@ SELECT CONVERT(datetime, SYSDATETIME())      -- 2016-10-23 19:02:19.547
     ,CONVERT(datetime, CURRENT_TIMESTAMP)   -- 2016-10-23 19:02:19.543 
     ,CONVERT(datetime, GETDATE())              -- 2016-10-23 19:02:19.543 
     ,CONVERT (datetime, GETUTCDATE());        -- 2016-10-23 23:02:19.543
+    
+-- Go back 6 days and getdat() today ------------------------------------------------------------------------------------------
+
+DECLARE @BeginDate varchar(10)  
+		,@EndDate varchar(10)  
+
+---- Get first day of the week 
+SET @BeginDate = CONVERT(VARCHAR(10),dateadd(dd,-6,datediff(dd,0,getdate())),101)	-- Last Saturday's date 
+
+
+---- Get end of week
+SET @EndDate = CONVERT(VARCHAR(10),GETDATE(),101)	-- Today's date
+
+select @BeginDate AS BeginDate
+		,@EndDate AS EndDate
+--------------------------------------------------------------------------------------------------------------------------------		
