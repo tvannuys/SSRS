@@ -47,7 +47,8 @@ SELECT ohotyp		AS Order_Type
 		JOIN ooline ol ON (oh.ohco = ol.olco
 							AND oh.ohloc = ol.olloc
 							AND oh.ohord# = ol.olord#
-							AND oh.ohrel# = ol.olrel#)
+							AND oh.ohrel# = ol.olrel#
+							AND oh.ohcust = ol.olcust)
 		JOIN itemmast im ON im.imitem = ol.olitem
 		JOIN custmast cm ON cm.cmcust = ol.olcust 
 		JOIN salesman sm ON cm.cmslmn = sm.smno
