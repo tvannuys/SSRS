@@ -64,7 +64,9 @@ FROM OPENQUERY(GSFL2K,
 	 OR ( ohord# = ' + '''' + '''' + @qt + '''' + '''' + ' )	
 	 OR ( olitem = ' + '''' + '''' + @item + '''' + '''' + ' )	
 	 OR ( otcmt1 = ' + '''' + '''' + @jobName + '''' + '''' + '  
-			AND otseq# = 1 ))	
+			AND otseq# = 1 ))
+	AND hqt.ottseq = 1
+	AND hqt.otseq# = 0		
 	'')
 '
 
@@ -72,4 +74,5 @@ FROM OPENQUERY(GSFL2K,
 EXEC(@sql)
 
 
--- JT_QuoteHistory '4120100',0,'',''
+-- JT_QuoteHistory '1000001',0,'',''
+--4120100
