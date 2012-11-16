@@ -21,6 +21,7 @@ SELECT ohotyp		AS Order_Type
 	  ,ohvia		AS Via
 	  ,olord#		AS Order#
 	  ,cmcust		AS Customer#
+	  ,RIGHT(test,3) AS Test
 	  ,cmname		AS Customer
 	  ,olitem		AS Item
 	  ,oldesc		AS [Description]
@@ -36,6 +37,11 @@ SELECT ohotyp		AS Order_Type
 			  ,ohvia
 			  ,olord#
 			  ,cmcust
+			  ,(SELECT cmname FROM custmast cm1
+								JOIN salesman sm1 ON cm1.cmslmn = sm1.smno)as test
+			  
+			  
+			  ,cmname 
 			  ,cmname
 			  ,olitem
 			  ,oldesc
@@ -59,7 +65,7 @@ SELECT ohotyp		AS Order_Type
 	
 		ORDER BY oh.ohodat DESC
 		')
-
+WHERE cmslmn = 99
 END
 
 
