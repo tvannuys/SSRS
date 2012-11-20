@@ -1,5 +1,5 @@
 
-
+----------------------------------------------------------------------------------------------
 -- SR 4158
 -- Full pallet quantity orders
 --============================================================================================
@@ -12,7 +12,7 @@
 --ADDED: company to query so the report can
 -- use company as a PARM to split companys
 -----------------------------------------------------------------------------------------------
-CREATE PROC JT_Full_Pallet AS
+ALTER PROC JT_Full_Pallet AS
 BEGIN
 	SELECT  slco
 			,slitem 
@@ -62,3 +62,6 @@ BEGIN
 			--  ,shcust
 			--	,sldate		
 END
+
+
+-- JT_Full_Pallet
