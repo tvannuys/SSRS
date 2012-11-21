@@ -36,10 +36,15 @@ SET @SQL ='
 				,olitem		AS Product
 				,olpric		AS Price
 				,olqord		AS Quantity
+				,olbluo		AS Bill_Units_Order
+				,olpric		AS BIll_Unit_Price
 				,ohodat		AS Orig_Qt_Date
 				,ohddat		AS Exp_Date
 				,ohpo#		AS PO#
 				,otcmt1		AS Sidemark 
+				,oleprc		AS Unit_SubTotal
+				,ohemds		AS QT_SubTotal
+	
 		 FROM qshead qh 
 		 JOIN qsline ql ON 
 			( qh.ohco = ql.olco
