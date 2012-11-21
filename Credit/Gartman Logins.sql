@@ -1,3 +1,5 @@
+/* used in Gartman Logins RDL report - embedded SQL  */
+
 select *
 from openquery(GSFL2K,'
 select u.usid,x.usxid, x.usxeml,p.emdept,p.emname
