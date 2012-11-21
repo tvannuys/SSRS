@@ -11,8 +11,7 @@
 --
 --
 ----------------------------------------------------------------------
-
---ALTER PROC JT_ANW_Order_Status_Updates AS
+ --ALTER PROC JT_ANW_Order_Status_Updates AS
 SELECT *
 FROM OPENQUERY(GSFL2K,
 	'SELECT ohord# AS Order#
@@ -36,7 +35,7 @@ FROM OPENQUERY(GSFL2K,
 	JOIN route rte ON rt.ortrt = rte.rtrout
 	WHERE oh.ohbil# = ''4100000''
 		/*	AND ol.olinvu	*/
-		/* AND oh.ohord# = 264021	*/
+		/* AND oh.ohord# = 279943	*/
 	ORDER BY oh.ohord#
 			
 	')
