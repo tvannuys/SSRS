@@ -1,3 +1,5 @@
+/* Embedded SQL in CCI Extract RDL File */
+
 select * from openquery(gsfl2k,'
 select ''C'' as RecordCode,
 ''49924'' as MemberID,
