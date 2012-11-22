@@ -1,3 +1,5 @@
+/*  test comments */
+
 USE [msdb]
 GO
 
