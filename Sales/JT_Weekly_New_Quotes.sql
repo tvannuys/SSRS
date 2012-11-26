@@ -31,6 +31,8 @@ SET @SQL ='
 	FROM OPENQUERY(GSFL2K,
 		''SELECT ohco		AS Company#
 				,ohloc		AS Quote_Loc
+				,ohslsm		AS Rep
+				,ohcust		AS Cust_Number
 				,cmname		AS Customer
 				,ohord#		AS Quote#
 				,ohcont		AS Cust_Contact
