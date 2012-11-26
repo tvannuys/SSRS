@@ -74,4 +74,5 @@ SET @SQL ='
 	EXEC (@SQL)
 END
 
+
 --	JT_Weekly_New_Quotes 11102012, 11162012
