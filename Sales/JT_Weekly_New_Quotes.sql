@@ -21,7 +21,7 @@ BEGIN
 
 	-- Last Saturday's date
 	SET @BeginDate = CONVERT(VARCHAR(10),dateadd(dd,-6,datediff(dd,0,getdate())),101)	
-	-- Today's date
+	-- Today's date [Friday]
 	SET @EndDate = CONVERT(VARCHAR(10),GETDATE(),101)	
  
 DECLARE @SQL AS varchar(4000)
@@ -31,6 +31,9 @@ SET @SQL ='
 	FROM OPENQUERY(GSFL2K,
 		''SELECT ohco		AS Company#
 				,ohloc		AS Quote_Loc
+				,ohslsm		AS Rep
+				,ohcust		AS Cust_Number
+				,cmname		AS Customer
 				,ohord#		AS Quote#
 				,ohcont		AS Cust_Contact
 				,olitem		AS Product
@@ -58,6 +61,7 @@ SET @SQL ='
 				AND qh.ohord# = qt.otord#
 				AND qh.ohrel# = qt.otrel#
 				AND qh.ohcust = qt.otcust)
+		JOIN custmast cm ON cm.cmcust = qh.ohcust
 		WHERE qh.ohodat >=  ' + '''' + '''' +@BeginDate + '''' + ''''+ '   
 			AND qh.ohodat <=  ' + '''' + '''' + @EndDate + '''' + ''''+ '
 			AND qt.ottseq = 1
@@ -69,5 +73,6 @@ SET @SQL ='
 	'
 	EXEC (@SQL)
 END
+
 
 --	JT_Weekly_New_Quotes 11102012, 11162012
