@@ -2,16 +2,16 @@
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="Pubs">
-      <DataSourceReference>/Pubs</DataSourceReference>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>/GartmanReports</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>53a6bb1b-025d-47b5-95a9-e8a5c99520d8</rd:DataSourceID>
+      <rd:DataSourceID>c9fba277-3fd4-45d4-8cce-f7637985bc2b</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="ProductionTable">
       <Query>
-        <DataSourceName>Pubs</DataSourceName>
+        <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@TableName">
             <Value>=Parameters!TableName.Value</Value>
@@ -649,6 +649,6 @@
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://thomasvsrv/ReportServer</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>a8a14abf-b1be-4821-8e66-2b2079d36c7b</rd:ReportID>
 </Report>
