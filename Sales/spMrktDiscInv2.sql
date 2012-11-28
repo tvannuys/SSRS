@@ -14,7 +14,7 @@ GO
 
 
 
-CREATE proc [dbo].[spMrktDiscInv2]
+ALTER proc [dbo].[spMrktDiscInv2]
 
 @SearchTerm varchar(20) = '%'
 
@@ -115,7 +115,6 @@ and itemmast.imitem in (
 ''''LO890153'''',
 ''''LO80072'''',
 ''''QC7640GPS142CYB'''',
-''''QC7640GPS142HZN'''',
 ''''QC7620ICL142CMS'''',
 ''''QC7620ICL142BAM'''',
 ''''QC7620ICL142RKO'''',
