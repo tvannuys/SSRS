@@ -1,2 +1,4 @@
 test file
-removed lines - after SmartGit
+changed lines - after SmartGit
+
+Added line
