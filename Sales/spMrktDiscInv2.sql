@@ -1,12 +1,13 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spMrktDiscInv2]    Script Date: 11/27/2012 16:31:31 ******/
+/****** Object:  StoredProcedure [dbo].[spMrktDiscInv2]    Script Date: 11/30/2012 08:56:49 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -156,7 +157,11 @@ and itemmast.imitem in (
 ''''BBCAOK95BEHDF'''',
 ''''BBCAOK95BUHDF'''',
 ''''BBCAOK95NAHDF'''',
-''''BBCOBI955ABHDF2'''')
+''''BBCOBI955ABHDF2'''',
+''''QC76600CL142CPM'''',
+''''QC76600CL142GMA'''',
+''''QC76600CL142HOM'''',
+''''QC76600CL142SIM'''')
 
 order by itemmast.imitem
 
@@ -165,6 +170,7 @@ order by itemmast.imitem
 
 --select @sql
 exec (@sql)
+
 
 
 
