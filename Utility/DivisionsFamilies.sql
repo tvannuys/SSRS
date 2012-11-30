@@ -1,3 +1,5 @@
+/* Part of reporting for OE and sales team */
+
 select d.Division,d.DivisionDesc, d.FamilyCode,d.FamilyCodeDesc
 from customersalesdetail d
 where d.InvoiceDate > '12/31/2010'
