@@ -1,3 +1,5 @@
+/* pulled for Will Crites on in person request */
+
 select * from openquery(gsfl2k,'
 select 
 vendmast.vmvend,
