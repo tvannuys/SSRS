@@ -5,4 +5,4 @@ Added line
 
 test with merge option
 
-line added on web
+line deleted on web
