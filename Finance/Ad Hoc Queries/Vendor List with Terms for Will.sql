@@ -7,7 +7,7 @@ vmname,
 vmterm,
 pudesc,
 vmgl,
-vsys$,
+vsys$ as SalesDollars,
 vsyc$
 
 
