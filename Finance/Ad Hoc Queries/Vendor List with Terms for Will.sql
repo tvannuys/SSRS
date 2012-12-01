@@ -6,7 +6,7 @@ vendmast.vmvend,
 vmname,
 vmterm,
 pudesc,
-vmgl,
+vmgl as GL,
 vsys$ as SalesDollars,
 vsyc$
 
