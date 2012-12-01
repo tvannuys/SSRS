@@ -2,3 +2,5 @@ test file
 changed lines - after SmartGit
 
 Added line
+
+test with merge option
