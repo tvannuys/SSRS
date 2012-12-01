@@ -1,1 +1,2 @@
 line 1 from James
+line 2 from Thomas
