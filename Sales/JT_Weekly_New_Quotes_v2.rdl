@@ -98,6 +98,15 @@
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!COMPANY_.Value</FilterExpression>
+          <Operator>Equal</Operator>
+          <FilterValues>
+            <FilterValue>=Parameters!Co.Value</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -114,7 +123,7 @@
                   <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.52083in</Width>
+                  <Width>1.92708in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.22917in</Width>
@@ -1389,7 +1398,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!QT_SUBTOTAL.Value)</Value>
+                                  <Value>=(Fields!QT_SUBTOTAL.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>'$'#,0.00;('$'#,0.00)</Format>
@@ -1907,7 +1916,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PO_.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -1941,7 +1950,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SIDEMARK.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -2159,7 +2168,6 @@
                     <TablixMember>
                       <Group Name="Details" />
                       <Visibility>
-                        <Hidden>true</Hidden>
                         <ToggleItem>QUOTE_1</ToggleItem>
                       </Visibility>
                     </TablixMember>
@@ -2170,7 +2178,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.95208in</Top>
             <Height>0.75in</Height>
-            <Width>25.01042in</Width>
+            <Width>26.41666in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2277,7 +2285,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>25.01042in</Width>
+      <Width>26.41666in</Width>
       <Page>
         <PageFooter>
           <Height>0.45in</Height>
@@ -2303,22 +2311,41 @@
       <Nullable>true</Nullable>
       <DefaultValue>
         <Values>
-          <Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
+          <Value />
         </Values>
       </DefaultValue>
       <AllowBlank>true</AllowBlank>
-      <Prompt>Begin Date</Prompt>
+      <Prompt>BeginDate</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="EndDate">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <DefaultValue>
         <Values>
-          <Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
+          <Value />
         </Values>
       </DefaultValue>
       <AllowBlank>true</AllowBlank>
-      <Prompt>End Date</Prompt>
+      <Prompt>EndDate</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Co">
+      <DataType>Integer</DataType>
+      <Prompt>Co</Prompt>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>1</Value>
+            <Label>TA</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>2</Value>
+            <Label>PM</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
