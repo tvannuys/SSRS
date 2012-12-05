@@ -62,6 +62,7 @@ SET @SQL ='
 				AND qh.ohrel# = qt.otrel#
 				AND qh.ohcust = qt.otcust)
 		JOIN custmast cm ON cm.cmcust = qh.ohcust
+		JOIN salesman sm ON sm.smno = qh.ohslsm
 		WHERE qh.ohodat >=  ' + '''' + '''' +@BeginDate + '''' + ''''+ '   
 			AND qh.ohodat <=  ' + '''' + '''' + @EndDate + '''' + ''''+ '
 			AND qt.ottseq = 1
