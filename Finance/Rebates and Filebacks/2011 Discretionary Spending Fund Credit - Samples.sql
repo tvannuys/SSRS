@@ -8,8 +8,8 @@ Now in SSRS - http://sql01/Reports/Pages/Folder.aspx?ItemPath=%2fFinance%2fRebat
 
 alter proc spManningtonQuarterlyRebateSamples
 
-@StartDate varchar(10) = '08/01/2012',
-@EndDate varchar(10) = '10/31/2012'
+@StartDate varchar(10) = '10/01/2012',
+@EndDate varchar(10) = '11/31/2012'
 
 as
 
@@ -27,7 +27,7 @@ SELECT
  shline.slinv# as InvoiceNumber,
  shline.slitem as Product,
  SHLINE.SLDESC as SampleProvided,
-/*  sum(SHLINE.SLBLUS) as BillableUnitsShipped, */
+ SHLINE.SLBLUS as BillableUnitsShipped,
  SHLINE.SLECST as LandedCost,
  itemmast.imrcst as NetCost,
  ''''50%'''' as PercentageOfDistSupport,
