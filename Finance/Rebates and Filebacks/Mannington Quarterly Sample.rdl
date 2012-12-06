@@ -23,7 +23,7 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>spManningtonQuarterlyRebateSamples</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spManningtonQuarterlyRebateSamples"><Parameter Name="@StartDate"><Value>01/01/2012</Value></Parameter><Parameter Name="@EndDate"><Value>01/31/2012</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="DATE" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="SHOTYP" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="MMIRTLNUM" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="RETAILERNAME" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="INVOICENUMBER" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="PRODUCT" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="SAMPLEPROVIDED" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="LANDEDCOST" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="NETCOST" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="PERCENTAGEOFDISTSUPPORT" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="AMOUNTALLOCATEDTODISCRETIONARYFUND" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="COMMRESFLAG" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spManningtonQuarterlyRebateSamples"><Parameter Name="@StartDate"><Value>01/01/2012</Value></Parameter><Parameter Name="@EndDate"><Value>01/31/2012</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="DATE" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="SHOTYP" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="MMIRTLNUM" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="RETAILERNAME" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="INVOICENUMBER" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="PRODUCT" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="SAMPLEPROVIDED" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="BILLABLEUNITSSHIPPED" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="LANDEDCOST" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="NETCOST" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="PERCENTAGEOFDISTSUPPORT" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="AMOUNTALLOCATEDTODISCRETIONARYFUND" /><ColumnExpression ColumnOwner="spManningtonQuarterlyRebateSamples" ColumnName="COMMRESFLAG" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="DATE">
@@ -56,6 +56,10 @@
         </Field>
         <Field Name="LANDEDCOST">
           <DataField>LANDEDCOST</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="BILLABLEUNITSSHIPPED">
+          <DataField>BILLABLEUNITSSHIPPED</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="NETCOST">
@@ -101,6 +105,12 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.28125in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -400,6 +410,82 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>UNITS SHIPPED</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Extended Cost</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -809,6 +895,79 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="BILLABLEUNITSSHIPPED">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!BILLABLEUNITSSHIPPED.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>BILLABLEUNITSSHIPPED</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!BILLABLEUNITSSHIPPED.Value*Fields!NETCOST.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="PERCENTAGEOFDISTSUPPORT">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -930,6 +1089,8 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -944,7 +1105,7 @@
             </TablixRowHierarchy>
             <DataSetName>dsInlineQuery</DataSetName>
             <Height>0.63542in</Height>
-            <Width>13.69792in</Width>
+            <Width>15.69792in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -959,7 +1120,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>13.69792in</Width>
+      <Width>15.69792in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
@@ -984,7 +1145,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>4/1/2012</Value>
+          <Value>01/01/2012</Value>
         </Values>
       </DefaultValue>
       <Prompt>Start Date</Prompt>
@@ -993,7 +1154,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>6/30/2012</Value>
+          <Value>01/31/2012</Value>
         </Values>
       </DefaultValue>
       <Prompt>End Date</Prompt>
