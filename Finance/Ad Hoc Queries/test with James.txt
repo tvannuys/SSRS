@@ -1,41 +1,7 @@
 test file
 changed lines - after SmartGit
 
-Added line
 
-test with merge option
-
-line deleted on web
-
-james added 12/1/12  
-
-thomas added 12/1/12 @ 2:45p
-
-james 3p
-
-
-Edit via client (did a web edit first but not synced)
-
-
-
-????????????????????
-=======
-
-
-WEB EDIT
-
-
-
-
-12/6/2012
-=======
-12/5/2012
-
----------------------------------------------------------------------------------
-
-hhhhh
-
-lllll
 
 
 
