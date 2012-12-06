@@ -2,6 +2,12 @@ test file
 changed lines - after SmartGit
 
 
+Files are added by web user
+ffffffffffffffffffffffffff
+iiiiiiiiiiiiiiiiiiiiiiiiii
+llllllllllllllllllllllllll
+eeeeeeeeeeeeeeeeeeeeeeeeee
+
 
 Local client add to file
 
