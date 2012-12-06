@@ -31,15 +31,17 @@ SET @SQL ='
 	FROM OPENQUERY(GSFL2K,
 		''SELECT ohco		AS Company#
 				,ohloc		AS Quote_Loc
-				,ohslsm		AS Rep
+				,smname		AS Rep
 				,ohcust		AS Cust_Number
 				,cmname		AS Customer
 				,ohord#		AS Quote#
 				,ohcont		AS Cust_Contact
+				,vmname		AS Vendor
 				,olitem		AS Product
 				,olpric		AS Price
 				,olqord		AS Quantity
 				,olbluo		AS Bill_Units_Order
+				,olum2		AS UM
 				,olpric		AS BIll_Unit_Price
 				,ohodat		AS Orig_Qt_Date
 				,ohddat		AS Exp_Date
@@ -63,6 +65,7 @@ SET @SQL ='
 				AND qh.ohcust = qt.otcust)
 		JOIN custmast cm ON cm.cmcust = qh.ohcust
 		JOIN salesman sm ON sm.smno = qh.ohslsm
+		JOIN vendmast vm ON vm.vmvend = ql.olvend
 		WHERE qh.ohodat >=  ' + '''' + '''' +@BeginDate + '''' + ''''+ '   
 			AND qh.ohodat <=  ' + '''' + '''' + @EndDate + '''' + ''''+ '
 			AND qt.ottseq = 1
