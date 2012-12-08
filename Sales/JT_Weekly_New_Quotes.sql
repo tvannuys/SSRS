@@ -24,7 +24,7 @@ BEGIN
 	-- Today's date [Friday]
 	SET @EndDate = CONVERT(VARCHAR(10),GETDATE(),101)	
  
-DECLARE @SQL AS varchar(4000)
+DECLARE @SQL AS varchar(MAX)
 SET @SQL ='
 
 	SELECT *
@@ -57,19 +57,21 @@ SET @SQL ='
 				AND qh.ohord# = ql.olord#
 				AND qh.ohrel# = ql.olrel#
 				AND qh.ohcust = ql.olcust)
-		 JOIN qstext qt ON 
+		LEFT JOIN qstext qt ON 
  			( qh.ohco = qt.otco
 				AND qh.ohloc = qt.otloc
 				AND qh.ohord# = qt.otord#
 				AND qh.ohrel# = qt.otrel#
-				AND qh.ohcust = qt.otcust)
+				AND qh.ohcust = qt.otcust
+				AND otseq# = 0 AND ottseq = 1)
 		JOIN custmast cm ON cm.cmcust = qh.ohcust
-		JOIN salesman sm ON sm.smno = qh.ohslsm
+		LEFT JOIN salesman sm ON sm.smno = qh.ohslsm
 		JOIN vendmast vm ON vm.vmvend = ql.olvend
 		WHERE qh.ohodat >=  ' + '''' + '''' +@BeginDate + '''' + ''''+ '   
 			AND qh.ohodat <=  ' + '''' + '''' + @EndDate + '''' + ''''+ '
-			AND qt.ottseq = 1
-			AND qt.otseq# = 0
+			
+			/*AND qt.ottseq = 1
+			AND qt.otseq# = 0 */
 		ORDER BY qh.ohco
 				,qh.ohloc
 				,qh.ohord#
@@ -79,4 +81,4 @@ SET @SQL ='
 END
 
 
---	JT_Weekly_New_Quotes 11102012, 11162012
+--	JT_Weekly_New_Quotes 12032012, 12072012
