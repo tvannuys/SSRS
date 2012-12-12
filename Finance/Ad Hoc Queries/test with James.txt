@@ -19,8 +19,27 @@ web
 
 1
 
--- No need for the Web change
---Edit Web 12/12/12
+Edit Web 12/12/12
+test file
+changed lines - after SmartGit
 
---edit local over web edit
-code...
+
+Files are added by web user
+ffffffffffffffffffffffffff
+iiiiiiiiiiiiiiiiiiiiiiiiii
+llllllllllllllllllllllllll
+eeeeeeeeeeeeeeeeeeeeeeeeee
+
+
+Local client add to file
+
+
+local
+
+
+web
+
+1
+----------------------------------------------
+-- Edit back to the web edit from 12/12 7:55am
+Edit Web 12/12/12
