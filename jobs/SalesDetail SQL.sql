@@ -1,3 +1,7 @@
+insert CustomerSalesDetail
+
+--drop table CustomerSalesDetail
+
 select InvoiceNbr, 
 CONVERT(varchar(10),convert(datetime,shidat),101) AS InvoiceDate, 
 CreditMemo, 
@@ -39,7 +43,7 @@ Profit
 
 --into CustomerSalesDetail
 
-		from openquery(gsfl2k,''
+		from openquery(gsfl2k,'
 
 		SELECT SHLINE.SLINV# AS InvoiceNbr, 
 		SHIDAT, 
@@ -102,7 +106,6 @@ Profit
 		left join salesman on shhead.SHSLSM = salesman.smno
 
 		WHERE vmvend <> 40000
-		AND SHHEAD.SHIDAT >= ''''01/01/2010''''
+		AND SHHEAD.SHIDAT >= ''01/01/2010''
 		And SHHEAD.SHIDAT < current_date
-		'')
-
+		')
