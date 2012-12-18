@@ -16,7 +16,7 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>GartmanReports</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@BeginDate">
             <Value>=Parameters!BeginDate.Value</Value>
@@ -27,7 +27,6 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>JT_Weekly_New_Quotes</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_Weekly_New_Quotes"><Parameter Name="@BeginDate"><Null /></Parameter><Parameter Name="@EndDate"><Null /></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="COMPANY#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="QUOTE_LOC" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="REP" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="CUST_NUMBER" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="CUSTOMER" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="QUOTE#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="CUST_CONTACT" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="VENDOR" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="PRODUCT" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="PRICE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="QUANTITY" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="BILL_UNITS_ORDER" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="UM" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="BILL_UNIT_PRICE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="ORIG_QT_DATE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="EXP_DATE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="PO#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="SIDEMARK" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="UNIT_SUBTOTAL" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes" ColumnName="QT_SUBTOTAL" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="COMPANY_">
@@ -40,7 +39,7 @@
         </Field>
         <Field Name="REP">
           <DataField>REP</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CUST_NUMBER">
           <DataField>CUST_NUMBER</DataField>
@@ -58,12 +57,16 @@
           <DataField>CUST_CONTACT</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="VENDOR">
+          <DataField>VENDOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="PRODUCT">
           <DataField>PRODUCT</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="VENDOR">
-          <DataField>VENDOR</DataField>
+        <Field Name="DESCRIPTION">
+          <DataField>DESCRIPTION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="PRICE">
@@ -78,16 +81,16 @@
           <DataField>BILL_UNITS_ORDER</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="UM">
+          <DataField>UM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="BILL_UNIT_PRICE">
           <DataField>BILL_UNIT_PRICE</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="ORIG_QT_DATE">
           <DataField>ORIG_QT_DATE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UM">
-          <DataField>UM</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="EXP_DATE">
@@ -111,15 +114,6 @@
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
-      <Filters>
-        <Filter>
-          <FilterExpression>=Fields!COMPANY_.Value</FilterExpression>
-          <Operator>Equal</Operator>
-          <FilterValues>
-            <FilterValue>=Parameters!Co.Value</FilterValue>
-          </FilterValues>
-        </Filter>
-      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -154,7 +148,7 @@
                   <Width>1.625in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83333in</Width>
+                  <Width>2.34375in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -498,14 +492,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox17">
+                        <Textbox Name="Textbox14">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>PRICE</Value>
+                                  <Value>DESCRIPTION</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -517,7 +511,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -1153,7 +1147,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox49">
+                        <Textbox Name="Textbox16">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1172,7 +1166,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox49</rd:DefaultName>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -1797,17 +1791,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PRICE">
+                        <Textbox Name="DESCRIPTION">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!PRICE.Value)</Value>
+                                  <Value>=Fields!DESCRIPTION.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -1817,7 +1810,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PRICE</rd:DefaultName>
+                          <rd:DefaultName>DESCRIPTION</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -2295,7 +2288,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.75in</Height>
-            <Width>22.73958in</Width>
+            <Width>24.25in</Width>
             <Style>
               <Border>
                 <Style>None</Style>

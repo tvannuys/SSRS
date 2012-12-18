@@ -29,6 +29,7 @@ BEGIN
 		,shodat date			-- Order date
 		,shsdat date			-- Ship date
 		,slitem varchar(30)		-- Item
+		,sldesc varchar(40)		-- Item description
 		,slpric float			-- Unit price
 		,slblus float			-- Billable units ship
 		,slum2 varchar(5)		-- Billable units of measure
@@ -63,6 +64,7 @@ BEGIN
 				,shodat as date_created
 				,shsdat as date_shipped
 				,slitem as item
+				,sldesc as description
 				,slpric as price
 				,slblus as billable_units
 				,slum2 as um
@@ -105,6 +107,7 @@ BEGIN
 		,ohodat date			-- Order date
 		,ohsdat date			-- Ship date
 		,olitem varchar(30)		-- Item
+		,oldesc varchar(40)		-- Item Description
 		,olpric float			-- Unit price
 		,olblus float			-- Billable units ship
 		,olum2 varchar(5)		-- Billable units of measure
@@ -139,6 +142,7 @@ BEGIN
 				,ohodat as date_created
 				,ohsdat as date_shipped
 				,olitem as item
+				,oldesc as description
 				,olpric as price
 				,olblus as billable_units
 				,olum2 as um
@@ -176,6 +180,7 @@ BEGIN
 			,shodat as date_created
 			,shsdat as date_shipped
 			,slitem as item
+			,sldesc AS [description]
 			,slpric as price
 			,slblus as billable_units
 			,slum2 as um
@@ -196,6 +201,7 @@ BEGIN
 			,ohodat as date_created
 			,ohsdat as date_shipped
 			,olitem as item
+			,oldesc AS [description]
 			,olpric as price
 			,olblus as billable_units
 			,olum2 as um
