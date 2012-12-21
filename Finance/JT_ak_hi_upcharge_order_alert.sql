@@ -1,4 +1,4 @@
---CREATE PROC JT_ak_hi_upcharge_order_alert AS
+ALTER PROC JT_ak_hi_upcharge_order_alert AS
 
 /********************************************************
 **	From the VFP Server									*
@@ -10,6 +10,12 @@
 **	are not equal to eachother.							*
 **														*
 *********************************************************/
+--
+-- SR# 6406
+-- James Tuttle		Date: 12/21/2012
+--
+-- Added SAF and Pacmat locations for AK and HI
+-----------------------------------------------------------
 
 
 SELECT *
@@ -24,5 +30,5 @@ FROM OPENQUERY(GSFL2K, 'SELECT olco,
 						WHERE olcust NOT LIKE ''IRR%''
 							AND olinvu = ''T''
 							AND olloc != oliloc
-							AND olloc IN (80, 85)
+							AND olloc IN (80, 85, 81, 53, 54)
 ')
