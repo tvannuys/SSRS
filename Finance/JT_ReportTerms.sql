@@ -33,7 +33,6 @@ BEGIN
 		art.tmterm = sh.shterm
 		
 	WHERE sh.shidat >= ''01/01/2012''
-		AND sh.shidat <= CURRENT_DATE
 		AND sh.shotyp = ''FO''
 		AND sh.shsam4 != 0
 		AND art.tmdsc1 > .0000
