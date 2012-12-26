@@ -114,6 +114,15 @@
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
+      <Filters>
+        <Filter>
+          <FilterExpression>=Fields!COMPANY_.Value</FilterExpression>
+          <Operator>Equal</Operator>
+          <FilterValues>
+            <FilterValue>=Parameters!Co.Value</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -2340,8 +2349,12 @@
     </ReportParameter>
     <ReportParameter Name="Co">
       <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Co</Prompt>
-      <Hidden>true</Hidden>
       <ValidValues>
         <ParameterValues>
           <ParameterValue>
