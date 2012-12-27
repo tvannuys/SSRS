@@ -19,13 +19,13 @@ ALTER PROC JT_ak_hi_upcharge_order_alert AS
 
 
 SELECT *
-FROM OPENQUERY(GSFL2K, 'SELECT olco,
-								olloc,
-								oliloc,
-								olord#,
-								olrel#,
-								olcust,
-								olinvu
+FROM OPENQUERY(GSFL2K, 'SELECT olco
+								,olloc
+								,oliloc
+								,olord#
+								,olrel#
+								,olcust
+								, CASE WHEN olinvu = ''T'' THEN ''Shipped'' ELSE olinvu END AS Status
 						FROM ooline
 						WHERE olcust NOT LIKE ''IRR%''
 							AND olinvu = ''T''
