@@ -24,6 +24,7 @@ SELECT 	SHLINE.SLINV# AS InvoiceNum,
 		SHLINE.SLITEM as ItemNum, 
 		SHLINE.SLDESC as ItemDesc, 
 		SHLINE.SLQSHP as ShipQty,
+		shline.sleprc as ExtAmt,
 		shline.slslmn as RepNum,
 		salesman.smname as RepName	
 
@@ -94,6 +95,10 @@ ORDER BY SHLINE.SLINV# asc,shline.slcust asc
           <DataField>REPNUM</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="EXTAMT">
+          <DataField>EXTAMT</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="REPNAME">
           <DataField>REPNAME</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -140,6 +145,9 @@ ORDER BY SHLINE.SLINV# asc,shline.slcust asc
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.52083in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.80208in</Width>
@@ -534,6 +542,42 @@ ORDER BY SHLINE.SLINV# asc,shline.slcust asc
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox21</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>ExtAmt</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -990,6 +1034,39 @@ ORDER BY SHLINE.SLINV# asc,shline.slcust asc
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="EXTAMT">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!EXTAMT.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>EXTAMT</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="REPNUM">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1073,6 +1150,7 @@ ORDER BY SHLINE.SLINV# asc,shline.slcust asc
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1088,7 +1166,7 @@ ORDER BY SHLINE.SLINV# asc,shline.slcust asc
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>15.15625in</Width>
+            <Width>16.15625in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1103,7 +1181,7 @@ ORDER BY SHLINE.SLINV# asc,shline.slcust asc
           </Border>
         </Style>
       </Body>
-      <Width>15.15625in</Width>
+      <Width>16.15625in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
