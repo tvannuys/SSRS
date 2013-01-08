@@ -767,7 +767,7 @@
                         <Actions>
                           <Action>
                             <Drillthrough>
-                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_AVG_Time_Details_loc50</ReportName>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc50</ReportName>
                             </Drillthrough>
                           </Action>
                         </Actions>
@@ -3334,7 +3334,7 @@
                       <Actions>
                         <Action>
                           <Drillthrough>
-                            <ReportName>/JAMEST/Warehouse/Chris/WCC Details/JT_WCC_AVG_Time_Details_loc50</ReportName>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc50</ReportName>
                           </Drillthrough>
                         </Action>
                       </Actions>
