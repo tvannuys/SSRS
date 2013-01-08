@@ -61,11 +61,11 @@ gsfl2k.POLINE.PLDELT,
 gsfl2k.POHEAD.PHOTYP, 
 gsfl2k.ITEMMAST.IMCLAS
 
-having gsfl2k.POHEAD.PHDOI < current_Date - 2 days 
+having gsfl2k.POHEAD.PHDOI < current_Date - 4 days 
 and gsfl2k.POLINE.PLDDAT < ''''10/10/2001''''
 AND gsfl2k.POLINE.PLDELT = ''''A'''' 
-AND gsfl2k.POHEAD.PHOTYP != ''''CL'''' 
-And gsfl2k.POHEAD.PHOTYP != ''''RA''''
+AND gsfl2k.POHEAD.PHOTYP NOT IN (''''CL'''',''''RA'''',''''FC'''')
+/*---- And gsfl2k.POHEAD.PHOTYP != ''''RA''''   ------*/
 AND gsfl2k.ITEMMAST.IMCLAS != ''''SA''''
 
 ORDER BY gsfl2k.POLINE.PLBUYR, 
