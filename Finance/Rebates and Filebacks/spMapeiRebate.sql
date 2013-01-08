@@ -8,7 +8,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE proc [dbo].[spMapeiRebate] 
+alter proc [dbo].[spMapeiRebate] 
 
 @StartDate varchar(10),
 @EndDate varchar(10)
@@ -19,8 +19,6 @@ declare @sql varchar(4000)
 declare @Vendor varchar(6)
 
 set @Vendor = '16106'
-set @StartDate = '07/01/2012'
-set @EndDate = '09/30/2012'
 
 
 /*
