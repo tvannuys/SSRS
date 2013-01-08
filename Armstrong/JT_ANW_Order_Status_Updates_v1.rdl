@@ -14,7 +14,7 @@
         <DataSourceName>GartmanReports</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>JT_ANW_Order_Status_Updates</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_ANW_Order_Status_Updates" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="ORDER#" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="REL#" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="VIA" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="ROUTE" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="DESCRIPTION" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="SHIP_DATE" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="ARRIVE_DATE" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_ANW_Order_Status_Updates" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="ORDER#" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="REL#" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="VIA" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="ROUTE" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="DESCRIPTION" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="SHIP_DATE" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="ARRIVE_DATE" /><ColumnExpression ColumnOwner="JT_ANW_Order_Status_Updates" ColumnName="SIDEMARK" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="ORDER_">
@@ -45,6 +45,10 @@
           <DataField>ARRIVE_DATE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SIDEMARK">
+          <DataField>SIDEMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -69,6 +73,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.15625in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>3.71875in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -251,6 +258,44 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>SIDEMARK</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -460,6 +505,40 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -646,6 +725,40 @@
                             <Border>
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -935,12 +1048,68 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="SIDEMARK">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SIDEMARK.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>SIDEMARK</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <BackgroundColor>WhiteSmoke</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -1234,7 +1403,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.69167in</Top>
             <Height>1in</Height>
-            <Width>8.98958in</Width>
+            <Width>12.70833in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1344,7 +1513,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>10.625in</Width>
+      <Width>12.84375in</Width>
       <Page>
         <PageFooter>
           <Height>0.45in</Height>
