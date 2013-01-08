@@ -75,7 +75,7 @@
                   <Width>1.15625in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.58333in</Width>
+                  <Width>3.71875in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1065,7 +1065,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1403,7 +1403,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.69167in</Top>
             <Height>1in</Height>
-            <Width>12.57291in</Width>
+            <Width>12.70833in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
