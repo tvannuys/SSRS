@@ -11,7 +11,7 @@
 --
 --
 ----------------------------------------------------------------------
- --ALTER PROC JT_ANW_Order_Status_Updates AS
+--ALTER PROC JT_ANW_Order_Status_Updates AS
  BEGIN
 	SELECT DISTINCT *
 	FROM OPENQUERY(GSFL2K,
@@ -22,6 +22,7 @@
 				,rtdesc AS Description
 				,MONTH(ortsdt) || ''/'' || DAY(ortsdt) || ''/'' || YEAR(ortsdt) AS Ship_Date
 				,MONTH(ortadt) || ''/'' || DAY(ortadt) || ''/'' || YEAR(ortadt) AS Arrive_Date
+				,otcmt1 AS Sidemark
 		FROM oohead oh
 		JOIN ooline ol ON (oh.ohco = ol.olco
 								AND oh.ohloc = ol.olloc
@@ -34,6 +35,14 @@
 								AND oh.ohrel# = rt.ortrel
 								AND oh.ohcust = rt.ortcus)
 		JOIN route rte ON rt.ortrt = rte.rtrout
+		LEFT JOIN ootext ot ON		
+ 			( oh.ohco = ot.otco
+				AND oh.ohloc = ot.otloc
+				AND oh.ohord# = ot.otord#
+				AND oh.ohrel# = ot.otrel#
+				AND oh.ohcust = ot.otcust
+				AND otseq# = 0 AND ottseq = 1)
+				
 		WHERE oh.ohbil# = ''4100000''
 			AND ol.olinvu != ''T''
 		ORDER BY oh.ohord#
