@@ -12,7 +12,7 @@ GO
 	Requested by Greg Szalay Oct-2011
 */
 
-create proc [dbo].[spStoreSundriesSales] as
+alter proc [dbo].[spStoreSundriesSales] as
 
 select *
 from openquery (GSFL2K,'
@@ -37,7 +37,7 @@ left join itemmast I on I.IMITEM = SHLINE.SLITEM
 left join division D on I.imdiv = D.dvdiv
 LEFT join location L on (L.lcco = slco and L.lcloc = slloc)
 
-where year(SHiDAT) in (year(CURDATE()),year(CURDATE()) - 1)
+where year(SHiDAT) in (year(CURDATE()),year(CURDATE()) - 1,year(CURDATE()) - 2)
 and D.DVDIV in (6,7,8,9)
 
 group by d.dvdiv,
