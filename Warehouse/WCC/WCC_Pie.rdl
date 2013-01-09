@@ -331,6 +331,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc12</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>Khaki</Color>
                       </Style>
@@ -1310,7 +1319,7 @@
                         <Actions>
                           <Action>
                             <Drillthrough>
-                              <ReportName>/JAMEST/Warehouse/Chris/WCC Details/JT_WCC_AVG_Time_Details_loc60</ReportName>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc60</ReportName>
                             </Drillthrough>
                           </Action>
                         </Actions>
@@ -1888,6 +1897,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -2390,6 +2408,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc4</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -2892,6 +2919,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc80</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -3469,7 +3505,7 @@
                       <Actions>
                         <Action>
                           <Drillthrough>
-                            <ReportName>/JAMEST/Warehouse/Chris/WCC Details/JT_WCC_AVG_Time_Details_loc60</ReportName>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc60</ReportName>
                           </Drillthrough>
                         </Action>
                       </Actions>
@@ -3602,6 +3638,15 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc41")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc41</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -3730,6 +3775,15 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc04")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc4</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -3858,6 +3912,15 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc80")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc80</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -4140,6 +4203,15 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc12")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc12</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
