@@ -1,6 +1,6 @@
 
 
-CREATE PROC JT_qtr_pi_lines
+ALTER PROC JT_qtr_pi_lines
 	@StartDate VARCHAR(10)
 	,@EndDate VARCHAR(10)
 	,@co VARCHAR(3)
@@ -27,3 +27,5 @@ SET @sql = '
 	'')'
 EXEC(@sql)
 GO
+
+-- JT_qtr_pi_lines '12012012','12312012',1,50
