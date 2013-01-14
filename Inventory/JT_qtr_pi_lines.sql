@@ -28,4 +28,4 @@ SET @sql = '
 EXEC(@sql)
 GO
 
--- JT_qtr_pi_lines '12012012','12312012',1,50
+-- JT_qtr_pi_lines '12/01/2012','12/31/2012',1,50
