@@ -789,7 +789,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>=Left(DateAdd("m",-3,Today()),10)</Value>
+          <Value>10/13/2012</Value>
         </Values>
       </DefaultValue>
       <Prompt>Start Date</Prompt>
@@ -798,7 +798,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>=Left(Today(),10)</Value>
+          <Value>10/15/2012</Value>
         </Values>
       </DefaultValue>
       <Prompt>End Date</Prompt>
