@@ -1,18 +1,6 @@
 
-/*********************************************************
-**														**
-** SR# nnnn												**
-** Programmer: James Tuttle		Date: 06/05/2012		**
-** ---------------------------------------------------- **
-** Purpose:		Count the tranaction code of 'I' and	**
-**		not the recount code of 'Y'. This will give		**
-**		the lines cycle counted for the given time		**
-**		period and co/loc.								**
-**														**
-**														**
-**********************************************************/
 
-ALTER PROC JT_cycle_count_query
+ALTER PROC JT_qtr_pi_lines
 	@StartDate VARCHAR(10)
 	,@EndDate VARCHAR(10)
 	,@co VARCHAR(3)
@@ -39,3 +27,5 @@ SET @sql = '
 	'')'
 EXEC(@sql)
 GO
+
+-- JT_qtr_pi_lines '12/01/2012','12/31/2012',1,50
