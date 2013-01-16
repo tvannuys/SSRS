@@ -19,6 +19,7 @@ BEGIN
 							,ohord#
 							,ohrel#
 							,ohrout
+							
 						FROM oohead oh
 						JOIN ooline ol ON ( ol.olco = oh.ohco
 											AND ol.olloc = oh.ohloc
@@ -27,6 +28,13 @@ BEGIN
 											AND ol.olcust = oh.ohcust)
 						WHERE ohrout LIKE ''%X%''
 							AND ol.olINVU != ''T''
+						
+						GROUP BY oh.ohco
+								,oh.ohloc
+								,oh.ohotyp
+								,oh.ohord#
+								,oh.ohrel#
+								,oh.ohrout
 						ORDER BY oh.ohotyp DESC
 				')
 END
