@@ -19,9 +19,15 @@ BEGIN
 							,ohord#
 							,ohrel#
 							,ohrout
-						FROM oohead
+						FROM oohead oh
+						JOIN ooline ol ON ( ol.olco = oh.ohco
+											AND ol.olloc = oh.ohloc
+											AND ol.olord# = oh.ohord#
+											AND ol.olrel# = oh.ohrel#
+											AND ol.olcust = oh.ohcust)
 						WHERE ohrout LIKE ''%X%''
-						ORDER BY ohotyp DESC
+							AND ol.olINVU != ''T''
+						ORDER BY oh.ohotyp DESC
 				')
 END
 			
