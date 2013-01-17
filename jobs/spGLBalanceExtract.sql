@@ -10,7 +10,7 @@ GO
 
 
 
-CREATE proc [dbo].[GLBalanceExtract] as
+alter proc [dbo].[GLBalanceExtract] as
 
 drop table glBalance
 
@@ -44,7 +44,7 @@ left join location on (glbal.gbco = location.lcco
 left join glmast on (glbal.gbco = glmast.glco
 	and glbal.gbgl# = glmast.glgl#)
 
-where gbyr in (2010,2011,2012)
+where gbyr >= 2010
 ')
 
 
