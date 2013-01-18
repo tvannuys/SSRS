@@ -23,25 +23,28 @@ Direct ship orders from vendor:
  where slco=ibco 
  and slloc=ibloc 
  and slitem=ibitem 
+ and SLDIRS <> ''Y''
  and sldate >= current_date - 12 months)) AS Profit,
  
  sum((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) from shline
  where slco=ibco
  and slloc=ibloc
  and slitem=ibitem
+ and SLDIRS <> ''Y''
  and sldate >= current_date - 12 months)) AS COGS,
  
  sum((select sum(sleprc) from shline
  where slco=ibco
  and slloc=ibloc
  and slitem=ibitem
+ and SLDIRS <> ''Y''
  and sldate >= current_date - 12 months)) AS Sales,
  
  sum((IB$I1+IB$I2+IB$I3+IB$I4+IB$I5+IB$I6+IB$I7+IB$I8+IB$I9+IB$I10+IB$I11+IB$I12)/12) as AvgInv,
  
  sum(IBQOH*IBLCST) as OnHand,
  sum((IBQOH-IBQAL-IBQOO)*IBLCST) as Avail,
- sum(IBORDQ) as OnPO
+ sum(IBQOOV*IMACST) as OnPO
  
  from  itemmast
  left join itembal on ibitem = IMITEM
