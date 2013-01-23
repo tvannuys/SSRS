@@ -1,4 +1,27 @@
 
+/*********************************************************
+**														**
+** SR# 3845 and SR# 7083								**
+** Programmer: James Tuttle		Date: 01/15/2013		**
+** ---------------------------------------------------- **
+** Purpose:		Create an automated report for Inventory**
+**	Control (Colleen B) so she is not having to collect	**
+**	all the data. SQL will run a SP JT_CC_QTR to get 	**
+**	the data from the SQL table that has a nightly Job	**
+**	that runs to fill the tanle with the data:			**
+**	JT_CycleCountReport_BuildTableData_sp				**
+**********************************************************/
+
+CREATE PROC JT_aaaaa AS
+BEGIN
+ SELECT *
+ FROM OPENQUERY(GSFL2K,	
+	'SELECT 
+		,
+		,
+	FROM
+	')
+END
 
 
 ALTER PROC JT_CC_QTR 
