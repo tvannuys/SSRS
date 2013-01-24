@@ -8,14 +8,14 @@ SELECT irco				AS Co
 	,irloc				AS Loc
 	,irdate				AS [Date]
 	,'Net'				AS Measurement
-	,ExceptionCountColumn
+	,NetColumn
 	
 FROM OPENQUERY(GSFL2K,'
  
 SELECT irco
 	,irloc 
 	,irdate
-	,COUNT(iritem) AS NetColumn
+	,SUM(irqty * ircost) AS NetColumn
 FROM itemrech ir
 WHERE ir.irsrc = ''I''
 	  AND ir.irdate = CURRENT_DATE
