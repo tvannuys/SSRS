@@ -138,6 +138,22 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="DataSet2SalesPeople">
+      <Query>
+        <DataSourceName>GartmanReports</DataSourceName>
+        <CommandText>select * from openquery(gsfl2k,'
+select distinct(smname)
+from salesman
+order by 1
+')</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SMNAME">
+          <DataField>SMNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -2248,7 +2264,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>32.40833in</Width>
+            <Width>32.40834in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2263,7 +2279,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>32.40833in</Width>
+      <Width>32.40834in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
@@ -2287,9 +2303,16 @@
     <ReportParameter Name="SalesPerson">
       <DataType>String</DataType>
       <Prompt>Sales Person</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSet2SalesPeople</DataSetName>
+          <ValueField>SMNAME</ValueField>
+          <LabelField>SMNAME</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01/reportserver</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>66cf464b-ac3e-4bb0-97c3-d575f1efebeb</rd:ReportID>
 </Report>
