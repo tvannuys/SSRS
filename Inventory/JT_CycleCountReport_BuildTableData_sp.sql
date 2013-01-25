@@ -102,6 +102,7 @@ WHERE ir.irsrc = ''I''
 	  AND ir.irdate = CURRENT_DATE
 	  AND ir.irco IN (1,2)
 	  AND ir.irloc IN (4,44,64,50,52,41,57,60,42,59,80,81,84)
+	  AND ir.irbin NOT LIKE ''SHW%''
 GROUP BY irco
 	,irloc
 	,irdate
