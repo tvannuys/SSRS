@@ -39,7 +39,8 @@ FROM itemrech ir
 WHERE ir.irsrc = ''I''
 	  AND ir.irdate = CURRENT_DATE
 	  AND ir.irco IN (1,2)
-	  AND ir.irloc IN (4,44,64,50,52,41,57,60,42,59,80,81,84)
+	  AND ir.irloc IN (4,44,64,50,52,41,57,60,42,59,80,81,84,12,22,69)
+	  AND ir.irbin NOT LIKE ''SHW%''
 GROUP BY irco
 	,irloc
 	,irdate
@@ -71,7 +72,7 @@ SELECT olrico
 	  AND hst.olrcyrc != ''Y''
 	  AND hst.olrdat = CURRENT_DATE
 	  AND hst.olrico IN (1,2)
-	  AND hst.olrilo IN (4,44,64,50,52,41,57,60,42,59,80,81,84)
+	  AND hst.olrilo IN (4,44,64,50,52,41,57,60,42,59,80,81,84,12,22,69)
 GROUP BY olrico
 		,olrilo	 
 		,olrdat 
@@ -100,7 +101,8 @@ FROM itemrech ir
 WHERE ir.irsrc = ''I''
 	  AND ir.irdate = CURRENT_DATE
 	  AND ir.irco IN (1,2)
-	  AND ir.irloc IN (4,44,64,50,52,41,57,60,42,59,80,81,84)
+	  AND ir.irloc IN (4,44,64,50,52,41,57,60,42,59,80,81,84,12,22,69)
+	  AND ir.irbin NOT LIKE ''SHW%''
 GROUP BY irco
 	,irloc
 	,irdate
@@ -110,5 +112,9 @@ GROUP BY irco
 -- SELECT * FROM CycleCountReport
 
 -- TRUNCATE TABLE dbo.CycleCountReport
+
+-- >= ''01/01/2012''
+
+-- = CURRENT_DATE
 
 ------------------------------------------------------------------------------------------------------------
