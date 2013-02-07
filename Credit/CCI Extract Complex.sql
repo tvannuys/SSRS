@@ -98,10 +98,13 @@ CMO90 as OverNinetyBalance,
 from custmast
 
 where cmcust in (select b.cmcust
-from custmast B 
-where ((b.cmcust = b.cmbill) or cmbill = '' '')
-and b.cmco = 1
-and b.cmdelt <> ''H'')
+				 from custmast B 
+				 left join custextn x on cmcust=cexcust
+				 where ((b.cmcust = b.cmbill) or cmbill = '' '')
+				 and b.cmco = 1
+				 and b.cmdelt <> ''H''
+				 and x.cexnacm = ''Y'' 
+				  )
 ')
 
 -- ===========================================================
@@ -118,7 +121,9 @@ from openitem
 
 /* where OICUST = ''1001089'' */
 /* and oidsd1 <> ''0001-01-01''  */
-where OIOTYP not in (''RA'',''RI'',''CS'',''CL'')
+where OIOTYP not in (''RA'',''RI'',''CS'',''CL'',''FC'')
+and oitype <> 5
+and OICRCD not in (''MX'',''MC'',''FC'',''VC'',''RA'')
 
 group by oicust,oiref#, current_date
 having sum(oiamt) > 0
@@ -141,7 +146,9 @@ from openitem
 
 /* where OICUST = ''1001089''  */
 where oidsd1 <> ''0001-01-01'' 
-and OIOTYP not in (''RA'',''RI'',''CS'',''CL'')
+and oitype <> 5
+and OIOTYP not in (''RA'',''RI'',''CS'',''CL'',''FC'')
+and OICRCD not in (''MX'',''MC'',''FC'',''VC'',''RA'')
 
 group by oicust,oiref#
 having sum(oiamt) > 0
@@ -196,3 +203,4 @@ where DaysSlow < 6
 
 
 select * from #TempCCI where cmcust = '1001089'
+--select * from #TempCCI
