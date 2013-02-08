@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropDatabase</Title>
+      <Shortcut>DropDatabase</Shortcut>
+      <Description>Drop a database if it is already exists.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>database_name</ID>
+          <Default>database_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[USE master
+GO
+
+IF  EXISTS (
+	SELECT name 
+		FROM sys.databases 
+		WHERE name = N'$database_name$'
+)
+DROP DATABASE $database_name$
+GO
+
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -13,18 +13,17 @@
 **********************************************************/
 
 
-CREATE PROC uspBuild_Gartman_Views AS
-BEGIN
+ALTER PROC uspBuild_Gartman_Views AS
+
 ---------------------------------------------------------------------------
 	
 -- Drop View if EXIST
-	
-IF OBJECT_ID ('dbo.OOHEAD', 'V') IS NOT NULL
-	
-DROP VIEW dbo.OOHEAD ;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'OOHEAD')
+   DROP VIEW OOHEAD
 GO
 -- Create View
-CREATE VIEW [dbo].[oohead]
+CREATE VIEW [dbo].[OOHEAD]
 AS
 SELECT
 	*
@@ -33,12 +32,13 @@ FROM OPENQUERY(GSFL2K, '
 	from OOHEAD
 	fetch first 1 row only
 	')
-GO;
+GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.OOLINE', 'V') IS NOT NULL
-	DROP VIEW dbo.OOLINE;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'OOLINE')
+   DROP VIEW OOLINE
 GO
 -- Create View
 CREATE VIEW [dbo].[OOLINE]
@@ -54,8 +54,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTBGRP', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTBGRP;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTBGRP')
+   DROP VIEW CUSTBGRP
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTBGRP]
@@ -71,8 +72,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTBILL', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTBILL;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTBILL')
+   DROP VIEW CUSTBILL
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTBILL]
@@ -88,8 +90,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTCLAS', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTCLAS;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTCLAS')
+   DROP VIEW CUSTCLAS
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTCLAS]
@@ -105,8 +108,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTCNDTL', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTCNDTL;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTCNDTL')
+   DROP VIEW CUSTCNDTL
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTCNDTL]
@@ -122,8 +126,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTCONT', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTCONT;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTCONT')
+   DROP VIEW CUSTCONT
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTCONT]
@@ -139,8 +144,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTEPR', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTEPR;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTEPR')
+   DROP VIEW CUSTEPR
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTEPR]
@@ -156,8 +162,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTEXTN', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTEXTN;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTEXTN')
+   DROP VIEW CUSTEXTN
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTEXTN]
@@ -173,8 +180,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTMAST', 'V') IS NOT NULL
-	DROP VIEW dbo.custmast;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTMAST')
+   DROP VIEW CUSTMAST
 GO
 -- Create View
 CREATE VIEW [dbo].[custmast]
@@ -190,8 +198,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTMKTG', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTMKTG;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTMKTG')
+   DROP VIEW CUSTMKTG
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTMKTG]
@@ -207,8 +216,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTVEND', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTVEND;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTVEND')
+   DROP VIEW CUSTVEND
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTVEND]
@@ -224,8 +234,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.CUSTXTRA', 'V') IS NOT NULL
-	DROP VIEW dbo.CUSTXTRA;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'CUSTXTRA')
+   DROP VIEW CUSTXTRA
 GO
 -- Create View
 CREATE VIEW [dbo].[CUSTXTRA]
@@ -241,8 +252,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.ITEMMAST', 'V') IS NOT NULL
-	DROP VIEW dbo.ITEMMAST;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'ITEMMAST')
+   DROP VIEW ITEMMAST
 GO
 -- Create View
 CREATE VIEW [dbo].[ITEMMAST]
@@ -258,8 +270,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.ITEMRECH', 'V') IS NOT NULL
-	DROP VIEW dbo.ITEMRECH;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'ITEMRECH')
+   DROP VIEW ITEMRECH
 GO
 -- Create View
 CREATE VIEW [dbo].[ITEMRECH]
@@ -275,8 +288,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.ITEMXTRA', 'V') IS NOT NULL
-	DROP VIEW dbo.ITEMXTRA;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'ITEMXTRA')
+   DROP VIEW ITEMXTRA
 GO
 -- Create View
 CREATE VIEW [dbo].[ITEMXTRA]
@@ -289,45 +303,13 @@ FROM OPENQUERY(GSFL2K, '
 	fetch first 1 row only
 	')
 GO
+
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.OOHEAD', 'V') IS NOT NULL
-	DROP VIEW dbo.oohead;
-GO
--- Create View
-CREATE VIEW [dbo].[oohead]
-AS
-SELECT
-	*
-FROM OPENQUERY(GSFL2K, '
-	select *
-	from OOHEAD
-	fetch first 1 row only
-	')
-GO
---------------------------------------------------------------------------
----------------------------------------------------------------------------
--- Drop View if EXIST
-IF OBJECT_ID('dbo.OOLINE', 'V') IS NOT NULL
-	DROP VIEW dbo.OOLINE;
-GO
--- Create View
-CREATE VIEW [dbo].[OOLINE]
-AS
-SELECT
-	*
-FROM OPENQUERY(GSFL2K, '
-	select *
-	from OOLINE
-	fetch first 1 row only
-	')
-GO
---------------------------------------------------------------------------
----------------------------------------------------------------------------
--- Drop View if EXIST
-IF OBJECT_ID('dbo.OOLRFHST', 'V') IS NOT NULL
-	DROP VIEW dbo.OOLRFHST;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'OOLRFHST')
+   DROP VIEW OOLRFHST
 GO
 -- Create View
 CREATE VIEW [dbo].[OOLRFHST]
@@ -343,8 +325,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.POHEAD', 'V') IS NOT NULL
-	DROP VIEW dbo.POHEAD;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'POHEAD')
+   DROP VIEW POHEAD
 GO
 -- Create View
 CREATE VIEW [dbo].[POHEAD]
@@ -360,8 +343,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.POLINE', 'V') IS NOT NULL
-	DROP VIEW dbo.POLINE;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'POLINE')
+   DROP VIEW POLINE
 GO
 -- Create View
 CREATE VIEW [dbo].[POLINE]
@@ -377,8 +361,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.SHHEAD', 'V') IS NOT NULL
-	DROP VIEW dbo.SHHEAD;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'SHHEAD')
+   DROP VIEW SHHEAD
 GO
 -- Create View
 CREATE VIEW [dbo].[SHHEAD]
@@ -394,8 +379,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.SHLINE', 'V') IS NOT NULL
-	DROP VIEW dbo.SHLINE;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'SHLINE')
+   DROP VIEW SHLINE
 GO
 -- Create View
 CREATE VIEW [dbo].[SHLINE]
@@ -411,8 +397,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.VENDMAST', 'V') IS NOT NULL
-	DROP VIEW dbo.VENDMAST;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'VENDMAST')
+   DROP VIEW VENDMAST
 GO
 -- Create View
 CREATE VIEW [dbo].[VENDMAST]
@@ -428,8 +415,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.[ROUTE]', 'V') IS NOT NULL
-	DROP VIEW dbo.[ROUTE];
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'ROUTE')
+   DROP VIEW [ROUTE]
 GO
 -- Create View
 CREATE VIEW [dbo].[ROUTE]
@@ -438,15 +426,16 @@ SELECT
 	*
 FROM OPENQUERY(GSFL2K, '
 	select *
-	from [ROUTE]
+	from ROUTE
 	fetch first 1 row only
 	')
 GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.OOROUTE', 'V') IS NOT NULL
-	DROP VIEW dbo.OOROUTE;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'OOROUTE')
+   DROP VIEW OOROUTE
 GO
 -- Create View
 CREATE VIEW [dbo].[OOROUTE]
@@ -462,8 +451,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.QSHEAD', 'V') IS NOT NULL
-	DROP VIEW dbo.QSHEAD;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'QSHEAD')
+   DROP VIEW QSHEAD
 GO
 -- Create View
 CREATE VIEW [dbo].[QSHEAD]
@@ -479,8 +469,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.HQSHEAD', 'V') IS NOT NULL
-	DROP VIEW dbo.HQSHEAD;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'HQSHEAD')
+   DROP VIEW HQSHEAD
 GO
 -- Create View
 CREATE VIEW [dbo].[HQSHEAD]
@@ -496,8 +487,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.HQSLINE', 'V') IS NOT NULL
-	DROP VIEW dbo.HQSLINE;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'HQSLINE')
+   DROP VIEW HQSLINE
 GO
 -- Create View
 CREATE VIEW [dbo].[HQSLINE]
@@ -513,8 +505,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.QSLINE', 'V') IS NOT NULL
-	DROP VIEW dbo.QSLINE;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'QSLINE')
+   DROP VIEW QSLINE
 GO
 -- Create View
 CREATE VIEW [dbo].[QSLINE]
@@ -530,8 +523,9 @@ GO
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.QSTEXT', 'V') IS NOT NULL
-	DROP VIEW dbo.QSTEXT;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'QSTEXT')
+   DROP VIEW QSTEXT
 GO
 -- Create View
 CREATE VIEW [dbo].[QSTEXT]
@@ -547,8 +541,9 @@ GO
 --------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 -- Drop View if EXIST
-IF OBJECT_ID('dbo.HQSTEXT', 'V') IS NOT NULL
-	DROP VIEW dbo.HQSTEXT;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS
+         WHERE TABLE_NAME = 'HQSTEXT')
+   DROP VIEW HQSTEXT
 GO
 -- Create View
 CREATE VIEW [dbo].[HQSTEXT]
@@ -563,4 +558,4 @@ FROM OPENQUERY(GSFL2K, '
 GO
 --------------------------------------------------------------------------
 
-END
+
