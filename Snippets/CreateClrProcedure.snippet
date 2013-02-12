@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateClrProcedure</Title>
+      <Shortcut>clrp</Shortcut>
+      <Description>Create a CLR stored procedure.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>procedure_name</ID>
+          <Default>procedure_name</Default>
+        </Literal>
+        <Literal>
+          <ID>assembly_name</ID>
+          <Default>assembly_name</Default>
+        </Literal>
+        <Literal>
+          <ID>class_name</ID>
+          <Default>class_name</Default>
+        </Literal>
+        <Literal>
+          <ID>method_name</ID>
+          <Default>method_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[-- Date $DATE$ $TIME$
+-- Database '$DB$'
+
+CREATE PROCEDURE $schema$.$procedure_name$ 
+(
+	$CARET$--@parameter_name AS data_type ( = default_value ), ...
+-- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
+AS
+  EXTERNAL NAME $assembly_name$.$class_name$.$method_name$
+GO
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
