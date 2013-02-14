@@ -12,16 +12,6 @@
 **	JT_CycleCountReport_BuildTableData_sp				**
 **********************************************************/
 
-CREATE PROC JT_aaaaa AS
-BEGIN
- SELECT *
- FROM OPENQUERY(GSFL2K,	
-	'SELECT 
-		,
-		,
-	FROM
-	')
-END
 
 
 ALTER PROC JT_CC_QTR 
