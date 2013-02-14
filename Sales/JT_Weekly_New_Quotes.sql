@@ -38,6 +38,7 @@ SET @SQL ='
 				,ohcont		AS Cust_Contact
 				,vmname		AS Vendor
 				,olitem		AS Product
+				,oldesc		AS Description
 				,olpric		AS Price
 				,olqord		AS Quantity
 				,olbluo		AS Bill_Units_Order
@@ -81,4 +82,4 @@ SET @SQL ='
 END
 
 
---	JT_Weekly_New_Quotes 12032012, 12072012
+--	JT_Weekly_New_Quotes 12082012, 12142012

@@ -213,6 +213,84 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="JT_WCC_Cust_CNT_loc50">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_WCC_Cust_CNT_loc50</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CUST_CNT">
+          <DataField>CUST_CNT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="JT_WCC_Cust_CNT_loc41">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_WCC_Cust_CNT_loc41</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CUST_CNT">
+          <DataField>CUST_CNT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="JT_WCC_Cust_CNT_loc60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_WCC_Cust_CNT_loc60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CUST_CNT">
+          <DataField>CUST_CNT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="JT_WCC_Cust_CNT_loc4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_WCC_Cust_CNT_loc4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CUST_CNT">
+          <DataField>CUST_CNT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="JT_WCC_Cust_CNT_loc80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_WCC_Cust_CNT_loc80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CUST_CNT">
+          <DataField>CUST_CNT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="JT_WCC_Cust_CNT_loc12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_WCC_Cust_CNT_loc12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CUST_CNT">
+          <DataField>CUST_CNT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -253,6 +331,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc12</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>Khaki</Color>
                       </Style>
@@ -689,7 +776,7 @@
                         <Actions>
                           <Action>
                             <Drillthrough>
-                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_AVG_Time_Details_loc50</ReportName>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc50</ReportName>
                             </Drillthrough>
                           </Action>
                         </Actions>
@@ -1143,7 +1230,7 @@
             <Top>2.45556in</Top>
             <Left>1.04167in</Left>
             <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Width>0.69792in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1232,7 +1319,7 @@
                         <Actions>
                           <Action>
                             <Drillthrough>
-                              <ReportName>/JAMEST/Warehouse/Chris/WCC Details/JT_WCC_AVG_Time_Details_loc60</ReportName>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc60</ReportName>
                             </Drillthrough>
                           </Action>
                         </Actions>
@@ -1729,7 +1816,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.38611in</Top>
-            <Left>5.21528in</Left>
+            <Left>5.34028in</Left>
             <Height>0.40625in</Height>
             <Width>1in</Width>
             <ZIndex>8</ZIndex>
@@ -1761,7 +1848,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>2.45556in</Top>
-            <Left>6.24306in</Left>
+            <Left>6.36806in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>9</ZIndex>
@@ -1810,6 +1897,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -2231,7 +2327,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.38611in</Top>
-            <Left>7.88369in</Left>
+            <Left>8.00869in</Left>
             <Height>0.40625in</Height>
             <Width>1in</Width>
             <ZIndex>11</ZIndex>
@@ -2263,7 +2359,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>2.45556in</Top>
-            <Left>8.91147in</Left>
+            <Left>9.03647in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>12</ZIndex>
@@ -2312,6 +2408,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc4</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -2732,8 +2837,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>2.38611in</Top>
-            <Left>10.52952in</Left>
+            <Top>2.4in</Top>
+            <Left>10.67188in</Left>
             <Height>0.40625in</Height>
             <Width>1in</Width>
             <ZIndex>14</ZIndex>
@@ -2764,8 +2869,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>2.45556in</Top>
-            <Left>11.5573in</Left>
+            <Top>2.46945in</Top>
+            <Left>11.71354in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>15</ZIndex>
@@ -2814,6 +2919,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc80</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -3223,11 +3337,13 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.18126in</Top>
+            <Top>3.2889in</Top>
             <Left>1.04167in</Left>
             <Height>0.25in</Height>
             <Width>0.55208in</Width>
@@ -3254,7 +3370,7 @@
                       <Actions>
                         <Action>
                           <Drillthrough>
-                            <ReportName>/JAMEST/Warehouse/Chris/WCC Details/JT_WCC_AVG_Time_Details_loc50</ReportName>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc50</ReportName>
                           </Drillthrough>
                         </Action>
                       </Actions>
@@ -3264,11 +3380,13 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>3.16737in</Top>
+            <Top>3.29237in</Top>
             <Height>0.25in</Height>
             <Width>0.47917in</Width>
             <ZIndex>18</ZIndex>
@@ -3298,8 +3416,8 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.86181in</Top>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Height>0.39583in</Height>
+            <Width>0.59375in</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -3328,8 +3446,8 @@
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.86181in</Top>
             <Left>1.04167in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Height>0.39583in</Height>
+            <Width>0.55208in</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -3354,13 +3472,15 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.16737in</Top>
-            <Left>3.72917in</Left>
-            <Height>0.25in</Height>
+            <Top>3.2889in</Top>
+            <Left>3.71528in</Left>
+            <Height>0.26042in</Height>
             <Width>0.55208in</Width>
             <ZIndex>21</ZIndex>
             <Style>
@@ -3385,7 +3505,7 @@
                       <Actions>
                         <Action>
                           <Drillthrough>
-                            <ReportName>/JAMEST/Warehouse/Chris/WCC Details/JT_WCC_AVG_Time_Details_loc60</ReportName>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc60</ReportName>
                           </Drillthrough>
                         </Action>
                       </Actions>
@@ -3395,13 +3515,15 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>3.15348in</Top>
+            <Top>3.27848in</Top>
             <Left>2.6875in</Left>
-            <Height>0.25in</Height>
+            <Height>0.26042in</Height>
             <Width>0.47917in</Width>
             <ZIndex>22</ZIndex>
             <Style>
@@ -3431,8 +3553,8 @@
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.84792in</Top>
             <Left>2.6875in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Height>0.3889in</Height>
+            <Width>0.58333in</Width>
             <ZIndex>23</ZIndex>
             <Style>
               <Border>
@@ -3459,10 +3581,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.84792in</Top>
+            <Top>2.83403in</Top>
             <Left>3.72917in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Height>0.40279in</Height>
+            <Width>0.55208in</Width>
             <ZIndex>24</ZIndex>
             <Style>
               <Border>
@@ -3487,12 +3609,14 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.18126in</Top>
-            <Left>6.24306in</Left>
+            <Top>3.32015in</Top>
+            <Left>6.36806in</Left>
             <Height>0.25in</Height>
             <Width>0.55208in</Width>
             <ZIndex>25</ZIndex>
@@ -3514,17 +3638,28 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc41")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc41</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>3.18126in</Top>
-            <Left>5.21528in</Left>
+            <Top>3.30626in</Top>
+            <Left>5.34028in</Left>
             <Height>0.25in</Height>
             <Width>0.47917in</Width>
             <ZIndex>26</ZIndex>
@@ -3554,9 +3689,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.8757in</Top>
-            <Left>5.21528in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Left>5.34028in</Left>
+            <Height>0.36112in</Height>
+            <Width>0.65625in</Width>
             <ZIndex>27</ZIndex>
             <Style>
               <Border>
@@ -3584,9 +3719,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.8757in</Top>
-            <Left>6.25695in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Left>6.38195in</Left>
+            <Height>0.36112in</Height>
+            <Width>0.53819in</Width>
             <ZIndex>28</ZIndex>
             <Style>
               <Border>
@@ -3611,12 +3746,14 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.19515in</Top>
-            <Left>8.92536in</Left>
+            <Top>3.32709in</Top>
+            <Left>9.05036in</Left>
             <Height>0.25in</Height>
             <Width>0.55208in</Width>
             <ZIndex>29</ZIndex>
@@ -3638,17 +3775,28 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc04")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc4</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>3.18126in</Top>
-            <Left>7.88369in</Left>
+            <Top>3.30626in</Top>
+            <Left>8.00869in</Left>
             <Height>0.25in</Height>
             <Width>0.47917in</Width>
             <ZIndex>30</ZIndex>
@@ -3678,9 +3826,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.8757in</Top>
-            <Left>7.88369in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Left>8.00869in</Left>
+            <Height>0.375in</Height>
+            <Width>0.61458in</Width>
             <ZIndex>31</ZIndex>
             <Style>
               <Border>
@@ -3708,9 +3856,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.8757in</Top>
-            <Left>8.92536in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Left>9.05036in</Left>
+            <Height>0.38194in</Height>
+            <Width>0.55208in</Width>
             <ZIndex>32</ZIndex>
             <Style>
               <Border>
@@ -3735,12 +3883,14 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.19515in</Top>
-            <Left>11.57119in</Left>
+            <Top>3.32709in</Top>
+            <Left>11.6823in</Left>
             <Height>0.25in</Height>
             <Width>0.55208in</Width>
             <ZIndex>33</ZIndex>
@@ -3762,17 +3912,28 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc80")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc80</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>3.18126in</Top>
-            <Left>10.52952in</Left>
+            <Top>3.32709in</Top>
+            <Left>10.71008in</Left>
             <Height>0.25in</Height>
             <Width>0.47917in</Width>
             <ZIndex>34</ZIndex>
@@ -3801,10 +3962,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>2.8757in</Top>
-            <Left>10.52952in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Top>2.88959in</Top>
+            <Left>10.71008in</Left>
+            <Height>0.375in</Height>
+            <Width>0.60417in</Width>
             <ZIndex>35</ZIndex>
             <Style>
               <Border>
@@ -3832,9 +3993,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.8757in</Top>
-            <Left>11.57119in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Left>11.69619in</Left>
+            <Height>0.36112in</Height>
+            <Width>0.55208in</Width>
             <ZIndex>36</ZIndex>
             <Style>
               <Border>
@@ -3883,9 +4044,9 @@
             </Style>
           </Textbox>
           <Line Name="Line1">
-            <Top>3.57014in</Top>
+            <Top>4.07014in</Top>
             <Height>0in</Height>
-            <Width>15.93142in</Width>
+            <Width>16.19184in</Width>
             <ZIndex>38</ZIndex>
             <Style>
               <Border>
@@ -3896,19 +4057,32 @@
           <Line Name="Line2">
             <Top>2.83403in</Top>
             <Height>0in</Height>
-            <Width>15.93142in</Width>
+            <Width>16.19184in</Width>
             <ZIndex>39</ZIndex>
             <Style>
               <Border>
+                <Color>Silver</Color>
                 <Style>Solid</Style>
               </Border>
+              <TopBorder>
+                <Color>Silver</Color>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Silver</Color>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Silver</Color>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Silver</Color>
+              </RightBorder>
             </Style>
           </Line>
           <Line Name="Line3">
             <Top>2.42854in</Top>
             <Left>0.05903in</Left>
             <Height>0in</Height>
-            <Width>15.87239in</Width>
+            <Width>16.13281in</Width>
             <ZIndex>40</ZIndex>
             <Style>
               <Border>
@@ -3941,9 +4115,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.38611in</Top>
-            <Left>13.52119in</Left>
+            <Left>13.39619in</Left>
             <Height>0.40625in</Height>
-            <Width>1.125in</Width>
+            <Width>0.94792in</Width>
             <ZIndex>41</ZIndex>
             <Style>
               <Border>
@@ -3973,9 +4147,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>2.45556in</Top>
-            <Left>14.66008in</Left>
+            <Left>14.53508in</Left>
             <Height>0.25in</Height>
-            <Width>1.125in</Width>
+            <Width>0.94792in</Width>
             <ZIndex>42</ZIndex>
             <Style>
               <Border>
@@ -4000,12 +4174,14 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.16737in</Top>
-            <Left>14.70174in</Left>
+            <Top>3.29237in</Top>
+            <Left>14.32674in</Left>
             <Height>0.25in</Height>
             <Width>0.67708in</Width>
             <ZIndex>43</ZIndex>
@@ -4027,17 +4203,28 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!t_cnt.Value, "Loc12")</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>/Warehouse/WCC/WCC Details/JT_WCC_Time_Details_loc12</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>3.15348in</Top>
-            <Left>13.5073in</Left>
+            <Top>3.27848in</Top>
+            <Left>13.3823in</Left>
             <Height>0.25in</Height>
             <Width>0.60417in</Width>
             <ZIndex>44</ZIndex>
@@ -4067,9 +4254,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>2.84792in</Top>
-            <Left>13.5073in</Left>
-            <Height>0.25in</Height>
-            <Width>1.125in</Width>
+            <Left>13.3823in</Left>
+            <Height>0.40278in</Height>
+            <Width>0.60417in</Width>
             <ZIndex>45</ZIndex>
             <Style>
               <Border>
@@ -4097,9 +4284,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.84792in</Top>
-            <Left>14.70174in</Left>
-            <Height>0.25in</Height>
-            <Width>1.08333in</Width>
+            <Left>14.32674in</Left>
+            <Height>0.40278in</Height>
+            <Width>0.55208in</Width>
             <ZIndex>46</ZIndex>
             <Style>
               <Border>
@@ -4111,6 +4298,540 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox37">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Customers Serviced:</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox37</rd:DefaultName>
+            <Top>2.86181in</Top>
+            <Left>1.87375in</Left>
+            <Height>0.37501in</Height>
+            <Width>0.76167in</Width>
+            <ZIndex>47</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox38">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!CUST_CNT.Value, "JT_WCC_Cust_CNT_loc50")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox38</rd:DefaultName>
+            <Top>3.30626in</Top>
+            <Left>1.87375in</Left>
+            <Height>0.25in</Height>
+            <Width>0.51042in</Width>
+            <ZIndex>48</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line4">
+            <Top>2.45556in</Top>
+            <Left>2.63542in</Left>
+            <Height>1.61458in</Height>
+            <Width>0in</Width>
+            <ZIndex>49</ZIndex>
+            <Style>
+              <Border>
+                <Color>Silver</Color>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Silver</Color>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Silver</Color>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Silver</Color>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Silver</Color>
+              </RightBorder>
+            </Style>
+          </Line>
+          <Line Name="Line5">
+            <Top>2.42854in</Top>
+            <Left>5.27084in</Left>
+            <Height>1.61458in</Height>
+            <Width>0in</Width>
+            <ZIndex>50</ZIndex>
+            <Style>
+              <Border>
+                <Color>Silver</Color>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Silver</Color>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Silver</Color>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Silver</Color>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Silver</Color>
+              </RightBorder>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox39">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Customers Serviced:</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox37</rd:DefaultName>
+            <Top>2.83403in</Top>
+            <Left>4.38417in</Left>
+            <Height>0.37501in</Height>
+            <Width>0.73389in</Width>
+            <ZIndex>51</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox40">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!CUST_CNT.Value, "JT_WCC_Cust_CNT_loc60")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox40</rd:DefaultName>
+            <Top>3.30626in</Top>
+            <Left>4.38417in</Left>
+            <Height>0.25in</Height>
+            <Width>0.58806in</Width>
+            <ZIndex>52</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line6">
+            <Top>2.45556in</Top>
+            <Left>7.98611in</Left>
+            <Height>1.61458in</Height>
+            <Width>0in</Width>
+            <ZIndex>53</ZIndex>
+            <Style>
+              <Border>
+                <Color>Silver</Color>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Silver</Color>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Silver</Color>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Silver</Color>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Silver</Color>
+              </RightBorder>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox41">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Customers Serviced:</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox37</rd:DefaultName>
+            <Top>2.88263in</Top>
+            <Left>7.03844in</Left>
+            <Height>0.37501in</Height>
+            <Width>0.73389in</Width>
+            <ZIndex>54</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox42">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!CUST_CNT.Value, "JT_WCC_Cust_CNT_loc41")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox42</rd:DefaultName>
+            <Top>3.29931in</Top>
+            <Left>7.03844in</Left>
+            <Height>0.25in</Height>
+            <Width>0.52083in</Width>
+            <ZIndex>55</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox43">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Customers Serviced:</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox37</rd:DefaultName>
+            <Top>2.84792in</Top>
+            <Left>9.72594in</Left>
+            <Height>0.37501in</Height>
+            <Width>0.73389in</Width>
+            <ZIndex>56</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox44">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!CUST_CNT.Value, "JT_WCC_Cust_CNT_loc4")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox44</rd:DefaultName>
+            <Top>3.32015in</Top>
+            <Left>9.72594in</Left>
+            <Height>0.25in</Height>
+            <Width>0.54441in</Width>
+            <ZIndex>57</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line7">
+            <Top>2.42854in</Top>
+            <Left>10.64063in</Left>
+            <Height>1.61458in</Height>
+            <Width>0in</Width>
+            <ZIndex>58</ZIndex>
+            <Style>
+              <Border>
+                <Color>Silver</Color>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Silver</Color>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Silver</Color>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Silver</Color>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Silver</Color>
+              </RightBorder>
+            </Style>
+          </Line>
+          <Line Name="Line8">
+            <Top>2.45556in</Top>
+            <Left>13.2691in</Left>
+            <Height>1.61458in</Height>
+            <Width>0in</Width>
+            <ZIndex>59</ZIndex>
+            <Style>
+              <Border>
+                <Color>Silver</Color>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Silver</Color>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Silver</Color>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Silver</Color>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Silver</Color>
+              </RightBorder>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox45">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Customers Serviced:</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox37</rd:DefaultName>
+            <Top>2.88263in</Top>
+            <Left>12.46577in</Left>
+            <Height>0.37501in</Height>
+            <Width>0.73389in</Width>
+            <ZIndex>60</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox46">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!CUST_CNT.Value, "JT_WCC_Cust_CNT_loc80")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox46</rd:DefaultName>
+            <Top>3.32015in</Top>
+            <Left>12.46577in</Left>
+            <Height>0.25in</Height>
+            <Width>0.46827in</Width>
+            <ZIndex>61</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox47">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!CUST_CNT.Value, "JT_WCC_Cust_CNT_loc12")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox46</rd:DefaultName>
+            <Top>3.2889in</Top>
+            <Left>15.08815in</Left>
+            <Height>0.25in</Height>
+            <Width>0.46827in</Width>
+            <ZIndex>62</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox48">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Customers Serviced:</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox37</rd:DefaultName>
+            <Top>2.87569in</Top>
+            <Left>15.07253in</Left>
+            <Height>0.37501in</Height>
+            <Width>0.73389in</Width>
+            <ZIndex>63</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line9">
+            <Top>2.45556in</Top>
+            <Left>16.19184in</Left>
+            <Height>1.57291in</Height>
+            <Width>0in</Width>
+            <ZIndex>64</ZIndex>
+            <Style>
+              <Border>
+                <Color>Silver</Color>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Silver</Color>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Silver</Color>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Silver</Color>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Silver</Color>
+              </RightBorder>
+            </Style>
+          </Line>
         </ReportItems>
         <Height>4.95708in</Height>
         <Style>

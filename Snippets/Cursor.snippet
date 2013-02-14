@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Cursor</Title>
+      <Shortcut>Cursor</Shortcut>
+      <Description>Read-only cursor.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>variable</ID>
+          <Default>@var1</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>cursor_name</ID>
+          <Default>cursor_name</Default>
+        </Literal>
+        <Literal>
+          <ID>statement</ID>
+          <Default>* FROM</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[DECLARE $variable$ $type$;
+
+DECLARE $cursor_name$ CURSOR FAST_FORWARD READ_ONLY FOR
+SELECT $statement$
+
+OPEN $cursor_name$;
+
+FETCH NEXT FROM $cursor_name$ INTO $variable$;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+
+$CARET$
+
+FETCH NEXT FROM $cursor_name$ INTO $variable$;
+
+END
+
+CLOSE $cursor_name$;
+DEALLOCATE $cursor_name$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
