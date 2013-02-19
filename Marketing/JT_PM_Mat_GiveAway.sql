@@ -50,7 +50,6 @@ BEGIN
 		SELECT slco
 				,slloc
 				,slord#
-				,slrel#
 				,slcust
 				,cmname
 				,shodat
@@ -103,7 +102,6 @@ BEGIN
 		SELECT olco
 				,olloc
 				,olord#
-				,olrel#
 				,olcust
 				,cmname
 				,ohodat
@@ -114,14 +112,14 @@ BEGIN
 				,olblus
 				,olum2
 				,oleprc
-		FROM ooline
-		LEFT JOIN shhead ON (oohead.ohco = ooline.olco
+		FROM ooline 
+		LEFT JOIN oohead ON (oohead.ohco = ooline.olco
 								AND oohead.ohloc = ooline.olloc
-								AND oohead.ohord# = ohline.olord#
-								AND ohhead.ohrel# = ohline.olrel#
-								AND ohhead.ohinv# = ohline.olinv#
-								AND ohhead.ohcust = ohline.olcust)
-		LEFT JOIN custmast on cmcust = olcust
+								AND oohead.ohord# = ooline.olord#
+								AND ohhead.ohrel# = ooline.olrel#
+								AND ohhead.ohinv# = ooline.olinv#
+								AND ohhead.ohcust = ooline.olcust)
+		LEFT JOIN custmast cm on cm.cmcust = ooline.olcust
 		WHERE oohead.ohodat  = ''2/4/2013''
 			AND ooline.olprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)
 	')
