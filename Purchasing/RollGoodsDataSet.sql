@@ -31,6 +31,11 @@ SELECT idco					AS Co
 		,vmname				AS Vendor_Name
 		,Feet_Sold_Last_4_Months
 		,Total_$_Last_4_Months
+		,imfmcd				AS Family_Code
+		,imcls#				AS Class
+		,imprcd				AS Product_Code
+		,imsi				AS Master_Stock
+		,ibprio				AS Location_Stock
 				
 FROM OPENQUERY(GSFL2K,'
 	SELECT idco
@@ -55,12 +60,20 @@ FROM OPENQUERY(GSFL2K,'
 /*-------------------------------------------------------------------------------------------------------------------*/
 			,(SELECT SUM(sleprc) FROM shline sl2 WHERE sl2.sldate >= CURRENT_DATE -120 DAYS
 													AND sl2.slitem = id.iditem) AS Total_$_Last_4_Months
+			,imfmcd
+			,imcls#
+			,imprcd
+			,imsi
+			,ibprio
 					
 	FROM ITEMDETL id
 	LEFT JOIN ITEMMAST im ON im.imitem = id.iditem
 	LEFT JOIN VENDMAST vm ON vm.vmvend = id.idvend
 	LEFT JOIN SHLINE sl ON sl.slitem = id.iditem
 	LEFT JOIN BINLOC bl ON bl.blbin = id.idbin
+	LEFT JOIN ITEMBAL ib ON (ib.ibitem = id.iditem
+								AND ib.ibco = id.idco
+								AND ib.ibloc = idloc)
 	
 	WHERE sl.sldate >=  ''02/01/2013''
 		AND id.idfcrg = ''Y''
@@ -81,6 +94,11 @@ GROUP BY idco
 		,idqoo
 		,Feet_Sold_Last_4_Months
 		,Total_$_Last_4_Months
+		,imfmcd
+		,imcls#
+		,imprcd
+		,imsi
+		,ibprio
 			
 HAVING (idqoh - idqoo) <= 30.00
 	AND (idqoh - idqoo) > 0.00
