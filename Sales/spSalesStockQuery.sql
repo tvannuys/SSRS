@@ -1,7 +1,7 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 02/19/2013 16:15:59 ******/
+/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 01/07/2013 14:49:15 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,7 +11,7 @@ GO
 
 
 
-CREATE proc [dbo].[spSalesStockQuery]
+alter proc [dbo].[spSalesStockQuery]
 
 @SeachTerm varchar(20) = '%'
 
