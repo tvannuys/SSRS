@@ -564,7 +564,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!SALESUOM.Value, "DataSet1")</Value>
+                                  <Value>=Fields!SALESUOM.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
