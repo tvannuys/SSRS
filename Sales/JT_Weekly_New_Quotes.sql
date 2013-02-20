@@ -82,4 +82,4 @@ SET @SQL ='
 END
 
 
---	JT_Weekly_New_Quotes 12082012, 12142012
+--	JT_Weekly_New_Quotes 02082012, 02192013
