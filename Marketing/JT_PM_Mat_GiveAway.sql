@@ -4,7 +4,7 @@
 ** SR# 7881																		**
 ** Programmer: James Tuttle		Date: 02/14/2013								**
 ** ---------------------------------------------------------------------------- **
-** Purpose:		For Pacmat's Promotion " Mat Give-A-Way"						**
+** Purpose:		For Pacmat's Promotion "Mat Give-A-Way"							**
 **				A report for Mary H that gives her the prior week's				**
 **				Orders if the Qty was a full pallet.							**
 **																				**
@@ -12,13 +12,18 @@
 **																				**
 **********************************************************************************/
 
-------------CREATE PROC JT_PM_Mat_GiveAway @StartDate varchar(10)
-------------	,@EndDate varchar(10)
-------------	 AS
-------------DECLARE @sql
-------------SET @sql = 
-------------SET NOCOUNT ON
+ALTER PROC JT_PM_Mat_GiveAway @StartDate varchar(10)
+	,@EndDate varchar(10)
+	 AS
+
+SET NOCOUNT ON
 BEGIN
+
+-- Last Saturday's date
+	SET @StartDate = CONVERT(varchar(10), DATEADD(dd, -7, DATEDIFF(dd, 0, GETDATE())), 101)	
+-- Today's date [Friday]
+	SET @EndDate = CONVERT(varchar(10), DATEADD(dd, -1, DATEDIFF(dd, 0, GETDATE())), 101)	
+	
 --=================================================================================================================
 -- INVOICED ORDERS
 --=================================================================================================================
@@ -77,7 +82,7 @@ BEGIN
 		LEFT JOIN custmast on cmcust = slcust
 		LEFT JOIN itemfact imf ON imf.ifitem = sl.slitem
 
-		WHERE sh.shodat BETWEEN ''2/4/2013'' AND ''2/8/2013''
+		WHERE sh.shodat BETWEEN '' + @StartDate  + '' AND '' + @EndDate + ''
 			
 			AND sl.slitem IN (''GR030BP4503'',''GR031BP4503'',''GR104BP4503'',''GR105BP4503'',''GR106BP4503'',''GR107BP4503''
 				,''GR004HS5005'',''GR020HS5005'',''EWLWC4810'',''EWLWC4811'',''EWLWC4812'',''EWLWC4813'',''EWLWC4814'',''EWLWC4815''
@@ -90,8 +95,7 @@ BEGIN
 
 			AND imf.ifumc = ''1''
 			AND imf.iffaca <= sl.slqshp
-	')
-	--''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
+	') 
 	/*AND sl.slprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621) Going by Item */
 --=================================================================================================================
 -- OPEN ORDERS
@@ -150,7 +154,7 @@ BEGIN
 		LEFT JOIN custmast cm on cm.cmcust = ol.olcust
 		LEFT JOIN itemfact imf ON imf.ifitem = ol.olitem
 								
-		WHERE oh.ohodat BETWEEN ''2/4/2013'' AND ''2/8/2013''
+		WHERE oh.ohodat BETWEEN '' + @StartDate  + '' AND '' + @EndDate + ''
 			
 			AND ol.olitem IN (''GR030BP4503'',''GR031BP4503'',''GR104BP4503'',''GR105BP4503'',''GR106BP4503'',''GR107BP4503''
 				,''GR004HS5005'',''GR020HS5005'',''EWLWC4810'',''EWLWC4811'',''EWLWC4812'',''EWLWC4813'',''EWLWC4814'',''EWLWC4815''
@@ -163,8 +167,7 @@ BEGIN
 
 			AND imf.ifumc = ''1''
 			AND imf.iffaca <= ol.olqshp
-	')
-	--''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
+	') 
 	/* AND ol.olprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)Going by Item */
 --=================================================================================================================
 -- Union TEMP Tables together for one data set and labeled into laymen terms
