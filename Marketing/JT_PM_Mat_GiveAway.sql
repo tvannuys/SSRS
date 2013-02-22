@@ -43,6 +43,8 @@ BEGIN
 		,slblus float			-- Billable units ship
 		,slum2 varchar(5)		-- Billable units of measure
 		,sleprc float			-- Sub total
+		,slqshp INT				-- Qty shipped
+		,slum1	varchar(5)		-- Unit of measure
 	)							--=============================================
 
 	INSERT #SH
@@ -60,16 +62,23 @@ BEGIN
 				,slblus
 				,slum2
 				,sleprc
-		FROM shline
-		LEFT JOIN shhead ON (shhead.shco = shline.slco
-								AND shhead.shloc = shline.slloc
-								AND shhead.shord# = shline.slord#
-								AND shhead.shrel# = shline.slrel#
-								AND shhead.shinv# = shline.slinv#
-								AND shhead.shcust = shline.slcust)
+				,slqshp
+				,slum1
+		FROM shline sl
+		LEFT JOIN shhead sh ON (sh.shco = sl.slco
+								AND sh.shloc = sl.slloc
+								AND sh.shord# = sl.slord#
+								AND sh.shrel# = sl.slrel#
+								AND sh.shinv# = sl.slinv#
+								AND sh.shcust = sl.slcust)
 		LEFT JOIN custmast on cmcust = slcust
-		WHERE shhead.shodat  = ''2/4/2013''
-			AND shline.slprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)
+		LEFT JOIN itemfact imf ON (imf.ifitem = sl.slitem
+									)
+		WHERE sh.shodat  = ''2/4/2013''
+
+			AND sl.slprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)
+				AND imf.ifumc = ''1''
+				AND imf.iffaca >= sl.slqshp
 	')
 	 --between ''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
 --=================================================================================================================
@@ -95,6 +104,9 @@ BEGIN
 		,olpric float			-- Unit price
 		,olblus float			-- Billable units ship
 		,olum2 varchar(5)		-- Billable units of measure
+		,oleprc FLOAT			-- Sub total
+		,olqshp	INT				-- Qty shipped
+		,olum1 varchar(5)		-- Unit of measure
 	)							--=============================================
 
 	INSERT #OO
@@ -112,16 +124,17 @@ BEGIN
 				,olblus
 				,olum2
 				,oleprc
-		FROM ooline 
-		LEFT JOIN oohead ON (oohead.ohco = ooline.olco
-								AND oohead.ohloc = ooline.olloc
-								AND oohead.ohord# = ooline.olord#
-								AND ohhead.ohrel# = ooline.olrel#
-								AND ohhead.ohinv# = ooline.olinv#
-								AND ohhead.ohcust = ooline.olcust)
-		LEFT JOIN custmast cm on cm.cmcust = ooline.olcust
-		WHERE oohead.ohodat  = ''2/4/2013''
-			AND ooline.olprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)
+				,olqshp
+				,olum1
+		FROM ooline ol
+		LEFT JOIN oohead oh ON (oh.ohco = ol.olco
+								AND oh.ohloc = ol.olloc
+								AND oh.ohord# = ol.olord#
+								AND oh.ohrel# = ol.olrel#
+								AND oh.ohcust = OL.olcust)
+		LEFT JOIN custmast cm on cm.cmcust = ol.olcust
+		WHERE oh.ohodat  = ''2/4/2013''
+			AND ol.olprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)
 	')
 	--between ''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
 --=================================================================================================================
@@ -143,6 +156,9 @@ BEGIN
 			,slpric as price
 			,slblus as billable_units
 			,slum2 as um
+			,sleprc AS ext_price
+			,slqshp AS Qty_Shp
+			,slum1	AS	U_M
 	FROM #SH
 	UNION ALL
 	SELECT	olco as co
@@ -157,6 +173,9 @@ BEGIN
 			,olpric as price
 			,olblus as billable_units
 			,olum2 as um
+			,oleprc AS ext_price
+			,olqshp AS Qty_Shp
+			,olum1	AS U_M
 	FROM #OO
 SET NOCOUNT OFF
 
