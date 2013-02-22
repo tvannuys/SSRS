@@ -4,9 +4,9 @@
 ** SR# 7881																		**
 ** Programmer: James Tuttle		Date: 02/14/2013								**
 ** ---------------------------------------------------------------------------- **
-** Purpose:																		**
-**																				**
-**																				**
+** Purpose:		For Pacmat's Promotion " Mat Give-A-Way"						**
+**				A report for Mary H that gives her the prior week's				**
+**				Orders if the Qty was a full pallet.							**
 **																				**
 **																				**
 **																				**
@@ -28,7 +28,7 @@ BEGIN
 		DROP TABLE #SH
 	END
 								--=============================================
-								-- FIELDS NAMES FROM THE TABLES IN GARTMAN	---
+								-- FIELD NAMES FROM THE TABLES IN GARTMAN	---
 	CREATE TABLE #SH (			--=============================================
 		slco int				-- Compnay
 		,slloc int				-- Location
@@ -45,6 +45,7 @@ BEGIN
 		,sleprc float			-- Sub total
 		,slqshp INT				-- Qty shipped
 		,slum1	varchar(5)		-- Unit of measure
+		,iffaca INT				-- Full pallet qty
 	)							--=============================================
 
 	INSERT #SH
@@ -64,6 +65,8 @@ BEGIN
 				,sleprc
 				,slqshp
 				,slum1
+				,iffaca 
+				
 		FROM shline sl
 		LEFT JOIN shhead sh ON (sh.shco = sl.slco
 								AND sh.shloc = sl.slloc
@@ -72,15 +75,24 @@ BEGIN
 								AND sh.shinv# = sl.slinv#
 								AND sh.shcust = sl.slcust)
 		LEFT JOIN custmast on cmcust = slcust
-		LEFT JOIN itemfact imf ON (imf.ifitem = sl.slitem
-									)
-		WHERE sh.shodat  = ''2/4/2013''
+		LEFT JOIN itemfact imf ON imf.ifitem = sl.slitem
 
-			AND sl.slprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)
-				AND imf.ifumc = ''1''
-				AND imf.iffaca >= sl.slqshp
+		WHERE sh.shodat BETWEEN ''2/4/2013'' AND ''2/8/2013''
+			
+			AND sl.slitem IN (''GR030BP4503'',''GR031BP4503'',''GR104BP4503'',''GR105BP4503'',''GR106BP4503'',''GR107BP4503''
+				,''GR004HS5005'',''GR020HS5005'',''EWLWC4810'',''EWLWC4811'',''EWLWC4812'',''EWLWC4813'',''EWLWC4814'',''EWLWC4815''
+				,''EWLWC4816'',''EWLWC4817'',''EWLWC4818'',''EWLWC4819'',''EWLWA3629'',''EWLWA1251'',''EWLWA1252'',''EWLWA1253''
+				,''EWLWA1254'',''EWLWA3620'',''EWLWA3621'',''EWLWA3622'',''EWLWA3623'',''EWLWA3624'',''EWLWA3625'',''EWLWA3626''
+				,''EWLWA3627'',''EWLWA3628'',''LOGVTL21112P'',''LOGVTL30312P'',''LOGVTL40112P'',''LOGVTL50512P'',''LOGVTL67912P''
+				,''LOGVTL10312P'',''GR1020961B'',''GR10209611B'',''GR1020963B'',''GAGVTT10910P'',''GAGVTT21610P'',''GAGVTT32410P''
+				,''GAGVTT40210P'',''GAGVTT53110P'',''GR820961B'',''GR820963B'',''LOGVWC10208P'',''LOGVWC20208P'',''LOGVWC20508P''
+				,''LOGVWC21408P'',''LOGVWC30108P'',''LOGVWC40208P'',''LOGVWC50208P'',''LOGVWC60208P'',''LOGVWC61208P'',''LOGVWC70208P'')
+
+			AND imf.ifumc = ''1''
+			AND imf.iffaca <= sl.slqshp
 	')
-	 --between ''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
+	--''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
+	/*AND sl.slprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621) Going by Item */
 --=================================================================================================================
 -- OPEN ORDERS
 --=================================================================================================================
@@ -90,7 +102,7 @@ BEGIN
 		DROP TABLE #OO
 	END
 								--=============================================
-								-- FIELDS NAMES FROM THE TABLES IN GARTMAN	---
+								-- FIELD NAMES FROM THE TABLES IN GARTMAN	---
 	CREATE TABLE #OO (			--=============================================
 		olco int				-- Compnay
 		,olloc int				-- Location
@@ -107,6 +119,7 @@ BEGIN
 		,oleprc FLOAT			-- Sub total
 		,olqshp	INT				-- Qty shipped
 		,olum1 varchar(5)		-- Unit of measure
+		,iffaca INT				-- Full pallet qty
 	)							--=============================================
 
 	INSERT #OO
@@ -126,6 +139,8 @@ BEGIN
 				,oleprc
 				,olqshp
 				,olum1
+				,iffaca 
+				
 		FROM ooline ol
 		LEFT JOIN oohead oh ON (oh.ohco = ol.olco
 								AND oh.ohloc = ol.olloc
@@ -133,19 +148,29 @@ BEGIN
 								AND oh.ohrel# = ol.olrel#
 								AND oh.ohcust = OL.olcust)
 		LEFT JOIN custmast cm on cm.cmcust = ol.olcust
-		WHERE oh.ohodat  = ''2/4/2013''
-			AND ol.olprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)
-	')
-	--between ''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
---=================================================================================================================
--- Union temp tables together for one data set and labeled into laymen terms
---=================================================================================================================
---SELECT * FROM #SH
---UNION ALL
---SELECT * FROM #OO 
+		LEFT JOIN itemfact imf ON imf.ifitem = ol.olitem
+								
+		WHERE oh.ohodat BETWEEN ''2/4/2013'' AND ''2/8/2013''
+			
+			AND ol.olitem IN (''GR030BP4503'',''GR031BP4503'',''GR104BP4503'',''GR105BP4503'',''GR106BP4503'',''GR107BP4503''
+				,''GR004HS5005'',''GR020HS5005'',''EWLWC4810'',''EWLWC4811'',''EWLWC4812'',''EWLWC4813'',''EWLWC4814'',''EWLWC4815''
+				,''EWLWC4816'',''EWLWC4817'',''EWLWC4818'',''EWLWC4819'',''EWLWA3629'',''EWLWA1251'',''EWLWA1252'',''EWLWA1253''
+				,''EWLWA1254'',''EWLWA3620'',''EWLWA3621'',''EWLWA3622'',''EWLWA3623'',''EWLWA3624'',''EWLWA3625'',''EWLWA3626''
+				,''EWLWA3627'',''EWLWA3628'',''LOGVTL21112P'',''LOGVTL30312P'',''LOGVTL40112P'',''LOGVTL50512P'',''LOGVTL67912P''
+				,''LOGVTL10312P'',''GR1020961B'',''GR10209611B'',''GR1020963B'',''GAGVTT10910P'',''GAGVTT21610P'',''GAGVTT32410P''
+				,''GAGVTT40210P'',''GAGVTT53110P'',''GR820961B'',''GR820963B'',''LOGVWC10208P'',''LOGVWC20208P'',''LOGVWC20508P''
+				,''LOGVWC21408P'',''LOGVWC30108P'',''LOGVWC40208P'',''LOGVWC50208P'',''LOGVWC60208P'',''LOGVWC61208P'',''LOGVWC70208P'')
 
-	SELECT	slco as co
-			,slloc as loc
+			AND imf.ifumc = ''1''
+			AND imf.iffaca <= ol.olqshp
+	')
+	--''''' + @StartDate  + ''''' AND ''''' + @EndDate + ''''' 
+	/* AND ol.olprcd IN (13430, 13431, 32604, 32602, 32600, 13635 , 13420, 13619, 13411, 13621)Going by Item */
+--=================================================================================================================
+-- Union TEMP Tables together for one data set and labeled into laymen terms
+--=================================================================================================================
+	SELECT	slco	as co
+			,slloc	as loc
 			,slord# as order# 
 			,slcust as cust#
 			,cmname as cust_name
@@ -155,14 +180,15 @@ BEGIN
 			,sldesc AS [description]
 			,slpric as price
 			,slblus as billable_units
-			,slum2 as um
+			,slum2	as um
 			,sleprc AS ext_price
 			,slqshp AS Qty_Shp
 			,slum1	AS	U_M
+			,iffaca AS Plt_Qty
 	FROM #SH
 	UNION ALL
-	SELECT	olco as co
-			,olloc as loc
+	SELECT	olco	as co
+			,olloc	as loc
 			,olord# as order# 
 			,olcust as cust#
 			,cmname as cust_name
@@ -172,10 +198,11 @@ BEGIN
 			,oldesc AS [description]
 			,olpric as price
 			,olblus as billable_units
-			,olum2 as um
+			,olum2	as um
 			,oleprc AS ext_price
 			,olqshp AS Qty_Shp
 			,olum1	AS U_M
+			,iffaca AS Plt_Qty
 	FROM #OO
 SET NOCOUNT OFF
 
