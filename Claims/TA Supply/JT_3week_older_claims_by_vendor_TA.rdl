@@ -15,7 +15,7 @@
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>JT_3week_older_claims_by_vendor_TA</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_3week_older_claims_by_vendor_TA" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="VEND#" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="VENDOR_NAME" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="DATE" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="CLAIM#" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="CUSTOMER" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="EXT_COST" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_3week_older_claims_by_vendor_TA" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="VEND#" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="VENDOR_NAME" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="DATE" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="CLAIM#" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="VENDOR_CLAIM#" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="CUSTOMER" /><ColumnExpression ColumnOwner="JT_3week_older_claims_by_vendor_TA" ColumnName="EXT_COST" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="VEND_">
@@ -38,6 +38,10 @@
           <DataField>CUSTOMER</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="VENDOR_CLAIM_">
+          <DataField>VENDOR_CLAIM#</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="EXT_COST">
           <DataField>EXT_COST</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -56,10 +60,13 @@
                   <Width>2.29167in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.41667in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.13542in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.25in</Width>
@@ -96,6 +103,44 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>VENDOR CLAIM# </Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -157,7 +202,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CLAIM  #</Value>
+                                  <Value>TA CLAIM#</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -289,6 +334,42 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>VENDOR_NAME1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SkyBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="VENDOR_CLAIM_">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>VENDOR_CLAIM_</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -489,6 +570,41 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="VENDOR_CLAIM_1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!VENDOR_CLAIM_.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>VENDOR_CLAIM_1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="DATE">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -670,6 +786,41 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox69">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -822,6 +973,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -935,7 +1087,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.82708in</Top>
             <Height>1in</Height>
-            <Width>8.54167in</Width>
+            <Width>10.09375in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1115,7 +1267,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>9.15625in</Width>
+      <Width>10.09375in</Width>
       <Page>
         <PageFooter>
           <Height>0.45in</Height>
