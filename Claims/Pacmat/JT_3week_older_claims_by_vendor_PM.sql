@@ -1,5 +1,3 @@
-USE [JAMEST]
-GO
 
 /****** Object:  StoredProcedure [dbo].[JT_3week_older_claims_by_vendor_PM]    Script Date: 08/23/2012 07:16:20 ******/
 SET ANSI_NULLS ON
@@ -16,6 +14,13 @@ GO
 Create a SSRS for all Claims and Freight Claims
 older than 3 weeks to date ran
 -----------------------------------------------------------------*/
+--	James Tuttle		Date: 02/25/2013
+--	SR# 8140
+--	Add the field for Vendor Claim number that gets entered
+--	by the claim person per Dawn M and Steve U
+--
+--  FIELD:: oohead.ohreq#
+--=================================================================
 
 ALTER PROC [dbo].[JT_3week_older_claims_by_vendor_PM] AS
 SELECT *
@@ -25,6 +30,7 @@ FROM OPENQUERY(GSFL2K,
 		,olvend AS Vend#
 		,vmname AS Vendor_Name
 		,cmname AS Customer
+		,ohreq# AS Vendor_Claim#
 		,SUM(olecst) AS ext_cost
  FROM oohead oh
  JOIN ooline ol
@@ -40,6 +46,7 @@ WHERE oh.ohodat < CURRENT_DATE - 21 DAYS
 	AND oh.ohco != 1
 GROUP BY oh.ohodat
 		,oh.ohord#
+		,oh.ohreq#
 		,ol.olvend
 		,vm.vmname
 		,cmname

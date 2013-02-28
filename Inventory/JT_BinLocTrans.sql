@@ -1,4 +1,15 @@
-
+/*********************************************************************************
+**																				**
+** SR# nnnn																		**
+** Programmer: James Tuttle	Date: 02/25/2013									**
+** ---------------------------------------------------------------------------- **
+** Purpose:			Have Colleen put in a date range comapny and bin location	**
+**					then query the transactions that happenedwithin the PARMS	**
+**																				**
+**																				**
+**																				**
+**																				**
+**********************************************************************************/
 
 ALTER PROC JT_BinLocTrans @StartDate varchar(10)
 , @EndDate varchar(10)
@@ -11,7 +22,7 @@ AS
 
 SELECT *
 FROM OPENQUERY(GSFL2K,''
-	SELECT MONTH(irdate) || ''/'' || DAY(irdate) || ''/'' ||YEAR(irdate) as Date
+	SELECT irdate
 			,iritem
 			,irdesc
 			,irco
@@ -30,9 +41,11 @@ FROM OPENQUERY(GSFL2K,''
 	FROM itemrech ir
 	WHERE ir.irdate BETWEEN ''''' + @StartDate + ''''' AND ''''' + @EndDate + '''''
 		AND ir.irloc = ' + @Loc + '
-		AND ir.irbin = ' + @Bin + '
+		AND ir.irbin = ''''' + @Bin + '''''
 	'')
 '
 	EXEC (@sql)
 GO
--- JT_BinLocTrans '2/06/2013','2/06/2013',50,'PM705'
+-- JT_BinLocTrans '2/22/2013','2/22/2013',41,'99F2A'
+
+			
