@@ -27,7 +27,7 @@
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>JT_Weekly_New_Quotes</CommandText>
+        <CommandText>JT_Weekly_New_Quotes_SteveMiller</CommandText>
       </Query>
       <Fields>
         <Field Name="COMPANY_">
