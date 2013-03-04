@@ -25,12 +25,19 @@ left join shhead on (shhead.shco = shline.slco
 	and shhead.shrel# = shline.slrel#
 	and shhead.shinv# = shline.slinv#
 	and shhead.shcust = shline.slcust)
-left join salesman on shhead.SHSLSM = salesman.smno
+left join salesman on shline.SLSLMN = salesman.smno
 LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
 
-where year(shidat) in (year(current_date),year(current_date)-1)
-and month(shidat) = month(current_date)
-and day(shidat) &lt;= day(current_date)
+where (
+	(shidat &lt;= (current_date - 3 days) - 1 year 
+	and year(shidat) = year(current_date) - 1
+	and month(shidat) = month(current_date)) 
+or (shidat &lt;= current_date 
+	and year(shidat) = year(current_date)
+	and month(shidat) = month(current_date))
+	)
+
+and shco = 1
 
 group by smname,dvdesc,year(shidat)
 
@@ -81,12 +88,19 @@ left join shhead on (shhead.shco = shline.slco
 	and shhead.shrel# = shline.slrel#
 	and shhead.shinv# = shline.slinv#
 	and shhead.shcust = shline.slcust)
-left join salesman on shhead.SHSLSM = salesman.smno
+left join salesman on shline.SLSLMN = salesman.smno
 
 
-where year(shidat) in (year(current_date),year(current_date)-1)
-and month(shidat) = month(current_date)
-and day(shidat) &lt;= day(current_date)
+where (
+	(shidat &lt;= (current_date - 3 days) - 1 year 
+	and year(shidat) = year(current_date) - 1
+	and month(shidat) = month(current_date)) 
+or (shidat &lt;= current_date 
+	and year(shidat) = year(current_date)
+	and month(shidat) = month(current_date))
+	)
+
+and shco = 1
 
 group by smname,year(shidat)
 
