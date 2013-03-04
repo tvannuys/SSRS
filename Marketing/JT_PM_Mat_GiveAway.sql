@@ -12,17 +12,18 @@
 **																				**
 **********************************************************************************/
 
-ALTER PROC JT_PM_Mat_GiveAway @StartDate varchar(10)
-	,@EndDate varchar(10)
+ALTER PROC JT_PM_Mat_GiveAway
+	-- @StartDate varchar(10)
+	--,@EndDate varchar(10)
 	 AS
 
-SET NOCOUNT ON
+SET NOCOUNT ON18
 BEGIN
 
--- Last Saturday's date
-	SET @StartDate = CONVERT(varchar(10), DATEADD(dd, -7, DATEDIFF(dd, 0, GETDATE())), 101)	
--- Today's date [Friday]
-	SET @EndDate = CONVERT(varchar(10), DATEADD(dd, -1, DATEDIFF(dd, 0, GETDATE())), 101)	
+---- Last Saturday's date
+--	SET @StartDate = CONVERT(varchar(10), DATEADD(dd, -7, DATEDIFF(dd, 0, GETDATE())), 101)	
+---- Today's date [Friday]
+--	SET @EndDate = CONVERT(varchar(10), DATEADD(dd, -1, DATEDIFF(dd, 0, GETDATE())), 101)	
 	
 --=================================================================================================================
 -- INVOICED ORDERS
@@ -81,18 +82,39 @@ BEGIN
 								AND sh.shcust = sl.slcust)
 		LEFT JOIN custmast on cmcust = slcust
 		LEFT JOIN itemfact imf ON imf.ifitem = sl.slitem
-
-		WHERE sh.shodat BETWEEN '' + @StartDate  + '' AND '' + @EndDate + ''
-			
-			AND sl.slitem IN (''GR030BP4503'',''GR031BP4503'',''GR104BP4503'',''GR105BP4503'',''GR106BP4503'',''GR107BP4503''
-				,''GR004HS5005'',''GR020HS5005'',''EWLWC4810'',''EWLWC4811'',''EWLWC4812'',''EWLWC4813'',''EWLWC4814'',''EWLWC4815''
-				,''EWLWC4816'',''EWLWC4817'',''EWLWC4818'',''EWLWC4819'',''EWLWA3629'',''EWLWA1251'',''EWLWA1252'',''EWLWA1253''
-				,''EWLWA1254'',''EWLWA3620'',''EWLWA3621'',''EWLWA3622'',''EWLWA3623'',''EWLWA3624'',''EWLWA3625'',''EWLWA3626''
-				,''EWLWA3627'',''EWLWA3628'',''LOGVTL21112P'',''LOGVTL30312P'',''LOGVTL40112P'',''LOGVTL50512P'',''LOGVTL67912P''
-				,''LOGVTL10312P'',''GR1020961B'',''GR10209611B'',''GR1020963B'',''GAGVTT10910P'',''GAGVTT21610P'',''GAGVTT32410P''
-				,''GAGVTT40210P'',''GAGVTT53110P'',''GR820961B'',''GR820963B'',''LOGVWC10208P'',''LOGVWC20208P'',''LOGVWC20508P''
-				,''LOGVWC21408P'',''LOGVWC30108P'',''LOGVWC40208P'',''LOGVWC50208P'',''LOGVWC60208P'',''LOGVWC61208P'',''LOGVWC70208P'')
-
+		
+		WHERE sh.shodat >= ''02/18/2013'' /* CURRENT_DATE -7 DAYS */
+			AND sh.shodat <= ''02/24/2013'' /*CURRENT_DATE -1 DAYS */
+			AND ((sl.slitem = ''GR030BP4503'' AND sl.slpric >= 1.79) OR (sl.slitem = ''GR031BP4503'' AND sl.slpric >= 1.79)
+				OR (sl.slitem = ''GR104BP4503'' AND sl.slpric >= 1.79) OR (sl.slitem = ''GR105BP4503'' AND sl.slpric >= 1.79)
+				OR (sl.slitem = ''GR106BP4503'' AND sl.slpric >= 1.79) OR (sl.slitem = ''GR107BP4503'' AND sl.slpric >= 1.79)
+				OR (sl.slitem = ''GR004HS5005'' AND sl.slpric >= 2.09) OR (sl.slitem = ''GR020HS5005'' AND sl.slpric >= 2.09)
+				OR (sl.slitem = ''EWLWC4810'' AND sl.slpric >= 2.69) OR (sl.slitem = ''EWLWC4811'' AND sl.slpric >= 2.69)
+				OR (sl.slitem = ''EWLWC4812'' AND sl.slpric >= 2.69) OR (sl.slitem = ''EWLWC4813'' AND sl.slpric >= 2.69)
+				OR (sl.slitem = ''EWLWC4814'' AND sl.slpric >= 2.69) OR (sl.slitem = ''EWLWC4815'' AND sl.slpric >= 2.69)
+				OR (sl.slitem = ''EWLWC4816'' AND sl.slpric >= 2.69) OR (sl.slitem = ''EWLWC4817'' AND sl.slpric >= 2.69)
+				OR (sl.slitem = ''EWLWC4818'' AND sl.slpric >= 2.69) OR (sl.slitem = ''EWLWC4819'' AND sl.slpric >= 2.69)
+				OR (sl.slitem = ''EWLWA3629'' AND sl.slpric >= 2.29) OR (sl.slitem = ''EWLWA1251'' AND sl.slpric >= 2.29)
+				OR (sl.slitem = ''EWLWA1252'' AND sl.slpric >= 2.29) OR (sl.slitem = ''EWLWA1253'' AND sl.slpric >= 2.29)
+				OR (sl.slitem = ''EWLWA1254'' AND sl.slpric >= 2.29) OR (sl.slitem = ''EWLWA3620'' AND sl.slpric >= 2.29)
+				OR (sl.slitem = ''EWLWA3621'' AND sl.slpric >= 2.29) OR (sl.slitem = ''EWLWA3622'' AND sl.slpric >= 2.29)
+				OR (sl.slitem = ''EWLWA3623'' AND sl.slpric >= 2.29) OR (sl.slitem = ''EWLWA3624'' AND sl.slpric >= 2.29)
+				OR (sl.slitem = ''EWLWA3625'' AND sl.slpric >= 2.29) OR (sl.slitem = ''EWLWA3626'' AND sl.slpric >= 2.29)
+				OR (sl.slitem = ''EWLWA3627'' AND sl.slpric >= 2.29) OR (sl.slitem = ''EWLWA3628'' AND sl.slpric >= 2.29)
+				OR (sl.slitem = ''LOGVTL21112P'' AND sl.slpric >= 1.51) OR (sl.slitem = ''LOGVTL30312P'' AND sl.slpric >= 1.51)
+				OR (sl.slitem = ''LOGVTL40112P'' AND sl.slpric >= 1.51) OR (sl.slitem = ''LOGVTL50512P'' AND sl.slpric >= 1.51)
+				OR (sl.slitem = ''LOGVTL67912P'' AND sl.slpric >= 1.51) OR (sl.slitem = ''LOGVTL10312P'' AND sl.slpric >= 1.51)
+				OR (sl.slitem = ''GR1020961B'' AND sl.slpric >= 1.36) OR (sl.slitem = ''GR10209611B'' AND sl.slpric >= 1.36)
+				OR (sl.slitem = ''GR1020963B'' AND sl.slpric >= 1.36) OR (sl.slitem = ''GAGVTT10910P'' AND sl.slpric >= 1.31)
+				OR (sl.slitem = ''GAGVTT21610P'' AND sl.slpric >= 1.31) OR (sl.slitem = ''GAGVTT32410P'' AND sl.slpric >= 1.31)
+				OR (sl.slitem = ''GAGVTT40210P'' AND sl.slpric >= 1.31) OR (sl.slitem = ''GAGVTT53110P'' AND sl.slpric >= 1.31)
+				OR (sl.slitem = ''GR820961B'' AND sl.slpric >= 1.19) OR (sl.slitem = ''GR820963B'' AND sl.slpric >= 1.19)
+				OR (sl.slitem = ''LOGVWC10208P'' AND sl.slpric >= 1.08) OR (sl.slitem = ''LOGVWC20208P'' AND sl.slpric >= 1.08)
+				OR (sl.slitem = ''LOGVWC20508P'' AND sl.slpric >= 1.08) OR (sl.slitem = ''LOGVWC21408P'' AND sl.slpric >= 1.08)
+				OR (sl.slitem = ''LOGVWC30108P'' AND sl.slpric >= 1.08) OR (sl.slitem = ''LOGVWC40208P'' AND sl.slpric >= 1.08)
+				OR (sl.slitem = ''LOGVWC50208P'' AND sl.slpric >= 1.08) OR (sl.slitem = ''LOGVWC60208P'' AND sl.slpric >= 1.08)
+				OR (sl.slitem = ''LOGVWC61208P'' AND sl.slpric >= 1.08) OR (sl.slitem = ''LOGVWC70208P'' AND sl.slpric >= 1.08)		
+			)
 			AND imf.ifumc = ''1''
 			AND imf.iffaca <= sl.slqshp
 	') 
@@ -154,17 +176,38 @@ BEGIN
 		LEFT JOIN custmast cm on cm.cmcust = ol.olcust
 		LEFT JOIN itemfact imf ON imf.ifitem = ol.olitem
 								
-		WHERE oh.ohodat BETWEEN '' + @StartDate  + '' AND '' + @EndDate + ''
-			
-			AND ol.olitem IN (''GR030BP4503'',''GR031BP4503'',''GR104BP4503'',''GR105BP4503'',''GR106BP4503'',''GR107BP4503''
-				,''GR004HS5005'',''GR020HS5005'',''EWLWC4810'',''EWLWC4811'',''EWLWC4812'',''EWLWC4813'',''EWLWC4814'',''EWLWC4815''
-				,''EWLWC4816'',''EWLWC4817'',''EWLWC4818'',''EWLWC4819'',''EWLWA3629'',''EWLWA1251'',''EWLWA1252'',''EWLWA1253''
-				,''EWLWA1254'',''EWLWA3620'',''EWLWA3621'',''EWLWA3622'',''EWLWA3623'',''EWLWA3624'',''EWLWA3625'',''EWLWA3626''
-				,''EWLWA3627'',''EWLWA3628'',''LOGVTL21112P'',''LOGVTL30312P'',''LOGVTL40112P'',''LOGVTL50512P'',''LOGVTL67912P''
-				,''LOGVTL10312P'',''GR1020961B'',''GR10209611B'',''GR1020963B'',''GAGVTT10910P'',''GAGVTT21610P'',''GAGVTT32410P''
-				,''GAGVTT40210P'',''GAGVTT53110P'',''GR820961B'',''GR820963B'',''LOGVWC10208P'',''LOGVWC20208P'',''LOGVWC20508P''
-				,''LOGVWC21408P'',''LOGVWC30108P'',''LOGVWC40208P'',''LOGVWC50208P'',''LOGVWC60208P'',''LOGVWC61208P'',''LOGVWC70208P'')
-
+		WHERE oh.ohodat >=  ''02/18/2013'' /*CURRENT_DATE -7 DAYS   */
+			AND oh.ohodat <=  ''02/24/2013'' /*CURRENT_DATE -1 DAYS */
+			AND ((ol.olitem  = ''GR030BP4503'' AND ol.olpric >= 1.79) OR (ol.olitem  = ''GR031BP4503'' AND ol.olpric >= 1.79)
+				OR (ol.olitem  = ''GR104BP4503'' AND ol.olpric >= 1.79) OR (ol.olitem  = ''GR105BP4503'' AND ol.olpric >= 1.79)
+				OR (ol.olitem  = ''GR106BP4503'' AND ol.olpric >= 1.79) OR (ol.olitem  = ''GR107BP4503'' AND ol.olpric >= 1.79)
+				OR (ol.olitem  = ''GR004HS5005'' AND ol.olpric >= 2.09) OR (ol.olitem  = ''GR020HS5005'' AND ol.olpric >= 2.09)
+				OR (ol.olitem  = ''EWLWC4810'' AND ol.olpric >= 2.69) OR (ol.olitem  = ''EWLWC4811'' AND ol.olpric >= 2.69)
+				OR (ol.olitem  = ''EWLWC4812'' AND ol.olpric >= 2.69) OR (ol.olitem  = ''EWLWC4813'' AND ol.olpric >= 2.69)
+				OR (ol.olitem  = ''EWLWC4814'' AND ol.olpric >= 2.69) OR (ol.olitem  = ''EWLWC4815'' AND ol.olpric >= 2.69)
+				OR (ol.olitem  = ''EWLWC4816'' AND ol.olpric >= 2.69) OR (ol.olitem  = ''EWLWC4817'' AND ol.olpric >= 2.69)
+				OR (ol.olitem  = ''EWLWC4818'' AND ol.olpric >= 2.69) OR (ol.olitem  = ''EWLWC4819'' AND ol.olpric >= 2.69)
+				OR (ol.olitem  = ''EWLWA3629'' AND ol.olpric >= 2.29) OR (ol.olitem  = ''EWLWA1251'' AND ol.olpric >= 2.29)
+				OR (ol.olitem  = ''EWLWA1252'' AND ol.olpric >= 2.29) OR (ol.olitem  = ''EWLWA1253'' AND ol.olpric >= 2.29)
+				OR (ol.olitem  = ''EWLWA1254'' AND ol.olpric >= 2.29) OR (ol.olitem  = ''EWLWA3620'' AND ol.olpric >= 2.29)
+				OR (ol.olitem  = ''EWLWA3621'' AND ol.olpric >= 2.29) OR (ol.olitem  = ''EWLWA3622'' AND ol.olpric >= 2.29)
+				OR (ol.olitem  = ''EWLWA3623'' AND ol.olpric >= 2.29) OR (ol.olitem  = ''EWLWA3624'' AND ol.olpric >= 2.29)
+				OR (ol.olitem  = ''EWLWA3625'' AND ol.olpric >= 2.29) OR (ol.olitem  = ''EWLWA3626'' AND ol.olpric >= 2.29)
+				OR (ol.olitem  = ''EWLWA3627'' AND ol.olpric >= 2.29) OR (ol.olitem  = ''EWLWA3628'' AND ol.olpric >= 2.29)
+				OR (ol.olitem  = ''LOGVTL21112P'' AND ol.olpric >= 1.51) OR (ol.olitem  = ''LOGVTL30312P'' AND ol.olpric >= 1.51)
+				OR (ol.olitem  = ''LOGVTL40112P'' AND ol.olpric >= 1.51) OR (ol.olitem  = ''LOGVTL50512P'' AND ol.olpric >= 1.51)
+				OR (ol.olitem  = ''LOGVTL67912P'' AND ol.olpric >= 1.51) OR (ol.olitem  = ''LOGVTL10312P'' AND ol.olpric >= 1.51)
+				OR (ol.olitem  = ''GR1020961B'' AND ol.olpric >= 1.36) OR (ol.olitem  = ''GR10209611B'' AND ol.olpric >= 1.36)
+				OR (ol.olitem  = ''GR1020963B'' AND ol.olpric >= 1.36) OR (ol.olitem  = ''GAGVTT10910P'' AND ol.olpric >= 1.31)
+				OR (ol.olitem  = ''GAGVTT21610P'' AND ol.olpric >= 1.31) OR (ol.olitem  = ''GAGVTT32410P'' AND ol.olpric >= 1.31)
+				OR (ol.olitem  = ''GAGVTT40210P'' AND ol.olpric >= 1.31) OR (ol.olitem  = ''GAGVTT53110P'' AND ol.olpric >= 1.31)
+				OR (ol.olitem  = ''GR820961B'' AND ol.olpric >= 1.19) OR (ol.olitem  = ''GR820963B'' AND ol.olpric >= 1.19)
+				OR (ol.olitem  = ''LOGVWC10208P'' AND ol.olpric >= 1.08) OR (ol.olitem  = ''LOGVWC20208P'' AND ol.olpric >= 1.08)
+				OR (ol.olitem  = ''LOGVWC20508P'' AND ol.olpric >= 1.08) OR (ol.olitem  = ''LOGVWC21408P'' AND ol.olpric >= 1.08)
+				OR (ol.olitem  = ''LOGVWC30108P'' AND ol.olpric >= 1.08) OR (ol.olitem  = ''LOGVWC40208P'' AND ol.olpric >= 1.08)
+				OR (ol.olitem  = ''LOGVWC50208P'' AND ol.olpric >= 1.08) OR (ol.olitem  = ''LOGVWC60208P'' AND ol.olpric >= 1.08)
+				OR (ol.olitem  = ''LOGVWC61208P'' AND ol.olpric >= 1.08) OR (ol.olitem  = ''LOGVWC70208P'' AND ol.olpric >= 1.08)		
+			)
 			AND imf.ifumc = ''1''
 			AND imf.iffaca <= ol.olqshp
 	') 
@@ -212,3 +255,19 @@ SET NOCOUNT OFF
 
 
 END
+
+
+
+-- JT_PM_Mat_GiveAway '02/04/2013', '02/24/2013'
+
+
+/* 
+IN (''GR030BP4503'',''GR031BP4503'',''GR104BP4503'',''GR105BP4503'',''GR106BP4503'',''GR107BP4503''
+				,''GR004HS5005'',''GR020HS5005'',''EWLWC4810'',''EWLWC4811'',''EWLWC4812'',''EWLWC4813'',''EWLWC4814'',''EWLWC4815''
+				,''EWLWC4816'',''EWLWC4817'',''EWLWC4818'',''EWLWC4819'',''EWLWA3629'',''EWLWA1251'',''EWLWA1252'',''EWLWA1253''
+				,''EWLWA1254'',''EWLWA3620'',''EWLWA3621'',''EWLWA3622'',''EWLWA3623'',''EWLWA3624'',''EWLWA3625'',''EWLWA3626''
+				,''EWLWA3627'',''EWLWA3628'',''LOGVTL21112P'',''LOGVTL30312P'',''LOGVTL40112P'',''LOGVTL50512P'',''LOGVTL67912P''
+				,''LOGVTL10312P'',''GR1020961B'',''GR10209611B'',''GR1020963B'',''GAGVTT10910P'',''GAGVTT21610P'',''GAGVTT32410P''
+				,''GAGVTT40210P'',''GAGVTT53110P'',''GR820961B'',''GR820963B'',''LOGVWC10208P'',''LOGVWC20208P'',''LOGVWC20508P''
+				,''LOGVWC21408P'',''LOGVWC30108P'',''LOGVWC40208P'',''LOGVWC50208P'',''LOGVWC60208P'',''LOGVWC61208P'',''LOGVWC70208P'')
+*/

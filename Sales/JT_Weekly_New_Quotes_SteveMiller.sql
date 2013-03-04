@@ -18,11 +18,12 @@ ALTER PROC JT_Weekly_New_Quotes_SteveMiller
 ,@EndDate varchar(10) 
 AS
 BEGIN 
+-->CONVERT(varchar(10), DATEADD(dd, -7, DATEDIFF(dd, 0, GETDATE())), 101)
 --------------------------------------------------------------------------------
 	-- Beginning day of the month
-	SET @BeginDate = dateadd(s,-1,dateadd(mm,datediff(mm,0,getdate())-1,0))	
+	SET @BeginDate = CONVERT(VARCHAR(10),DATEADD(m,-1, Dateadd(d,1-DATEPART(d,getdate()),GETDATE())), 101)
 	-- Last day of the prior month
-	SET @EndDate = dateadd(s,-1,dateadd(mm,datediff(mm,0,getdate()),0))
+	SET @EndDate = CONVERT(varchar(10), dateadd(mm,-1,DATEADD(dd,-DAY(getdate()),DATEADD(mm,1,getdate()))), 101)
  --------------------------------------------------------------------------------
 DECLARE @SQL AS varchar(MAX)
 SET @SQL ='
@@ -76,6 +77,7 @@ SET @SQL ='
 		ORDER BY qh.ohco
 				,qh.ohloc
 				,qh.ohord#
+				,qh.ohodat
 		'')
 	'
 	EXEC (@SQL)
