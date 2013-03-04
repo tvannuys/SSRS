@@ -1,11 +1,11 @@
 USE [msdb]
 GO
 
-/****** Object:  Job [Sales Detail]    Script Date: 11/26/2012 17:31:15 ******/
+/****** Object:  Job [Sales Detail]    Script Date: 03/04/2013 10:53:21 ******/
 BEGIN TRANSACTION
 DECLARE @ReturnCode INT
 SELECT @ReturnCode = 0
-/****** Object:  JobCategory [[Uncategorized (Local)]]]    Script Date: 11/26/2012 17:31:15 ******/
+/****** Object:  JobCategory [[Uncategorized (Local)]]]    Script Date: 03/04/2013 10:53:21 ******/
 IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]' AND category_class=1)
 BEGIN
 EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'[Uncategorized (Local)]'
@@ -26,7 +26,7 @@ EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'Sales Detail',
 		@owner_login_name=N'TASUPPLY\thomasv', 
 		@notify_email_operator_name=N'Thomas', @job_id = @jobId OUTPUT
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Truncate Table]    Script Date: 11/26/2012 17:31:15 ******/
+/****** Object:  Step [Truncate Table]    Script Date: 03/04/2013 10:53:21 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Truncate Table', 
 		@step_id=1, 
 		@cmdexec_success_code=0, 
@@ -41,7 +41,7 @@ EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Truncate
 		@database_name=N'GartmanReport', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Load Data]    Script Date: 11/26/2012 17:31:15 ******/
+/****** Object:  Step [Load Data]    Script Date: 03/04/2013 10:53:21 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Load Data', 
 		@step_id=2, 
 		@cmdexec_success_code=0, 
@@ -157,10 +157,10 @@ Profit
 		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD 
 		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
 		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
-		left join salesman on shhead.SHSLSM = salesman.smno
+		left join salesman on shline.SLSLMN = salesman.smno
 
 		WHERE vmvend <> 40000
-		AND SHHEAD.SHIDAT >= ''''01/01/2010''''
+		AND SHHEAD.SHIDAT >= ''''01/01/2011''''
 		And SHHEAD.SHIDAT < current_date
 		'')
 
