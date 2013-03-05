@@ -213,7 +213,7 @@ order by 1
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Last(Fields!SALES.value)-First(Fields!SALES.value)</Value>
+                                  <Value>=IIF(Inscope("tablix1_YEAR"),SUM(Fields!SALES.Value),SUM(cdec(IIF(Fields!YEAR.Value=year(today()),Fields!SALES.Value,0)))-SUM(cdec(IIF(Fields!YEAR.Value=(year(today())-1),Fields!SALES.Value,0))))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>'$'#,0.00;('$'#,0.00)</Format>
@@ -496,7 +496,7 @@ order by 1
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!SALES.Value)</Value>
+                                  <Value>=iif(isNothing(Sum(Fields!SALES.Value)),0,Sum(Fields!SALES.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>'$'#,0.00;('$'#,0.00)</Format>
@@ -530,7 +530,7 @@ order by 1
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Last(Fields!SALES.value)-First(Fields!SALES.value)</Value>
+                                  <Value>=IIF(Inscope("tablix2_Year"),SUM(Fields!SALES.Value),SUM(cdec(IIF(Fields!Year.Value=year(Today()),Fields!SALES.Value,0)))-SUM(cdec(IIF(Fields!Year.Value=(year(today())-1),Fields!SALES.Value,0))))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>'$'#,0.00;('$'#,0.00)</Format>
