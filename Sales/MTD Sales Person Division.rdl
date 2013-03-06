@@ -225,7 +225,11 @@ order by smname,year(shidat),dvdesc
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
+<<<<<<< HEAD
                                 <Value>DIVISION</Value>
+=======
+                                <Value>Division Desc</Value>
+>>>>>>> c707731... More changes to the design of the report
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontSize>11pt</FontSize>
@@ -243,7 +247,11 @@ order by smname,year(shidat),dvdesc
                             <Color>#7292cc</Color>
                             <Style>Solid</Style>
                           </Border>
+<<<<<<< HEAD
                           <BackgroundColor>#4c68a2</BackgroundColor>
+=======
+                          <BackgroundColor>#384c70</BackgroundColor>
+>>>>>>> c707731... More changes to the design of the report
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -258,10 +266,20 @@ order by smname,year(shidat),dvdesc
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
+<<<<<<< HEAD
                   <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
+=======
+                  <Width>1.14668in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.28125in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.71875in</Width>
+>>>>>>> c707731... More changes to the design of the report
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -277,10 +295,18 @@ order by smname,year(shidat),dvdesc
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
+<<<<<<< HEAD
                                   <Value>=Sum(Fields!SALES.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
+=======
+                                  <Value>=iif(isNothing(Sum(Fields!SALES.Value)),0,Sum(Fields!SALES.Value))</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                    <Color>=iif(Last(Fields!SALES.value)-First(Fields!SALES.value)&lt;0,"Red","4D4D4D")</Color>
+>>>>>>> c707731... More changes to the design of the report
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -313,8 +339,13 @@ order by smname,year(shidat),dvdesc
                                   <Value>=IIF(Inscope("tablix3_YEAR1"),SUM(Fields!SALES.Value),SUM(cdec(IIF(Fields!YEAR.Value=year(Today()),Fields!SALES.Value,0)))-SUM(cdec(IIF(Fields!YEAR.Value=(year(today())-1),Fields!SALES.Value,0))))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+<<<<<<< HEAD
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
+=======
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                    <Color>=iif(Last(Fields!SALES.value)-First(Fields!SALES.value)&lt;0,"Red","4D4D4D")</Color>
+>>>>>>> c707731... More changes to the design of the report
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -327,7 +358,44 @@ order by smname,year(shidat),dvdesc
                               <Color>#9eb6e4</Color>
                               <Style>Solid</Style>
                             </Border>
+<<<<<<< HEAD
                             <BackgroundColor>#7292cc</BackgroundColor>
+=======
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=(Last(Fields!SALES.value)-First(Fields!SALES.value))/First(Fields!SALES.value)</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Format>0.00%</Format>
+                                    <Color>=iif(Last(Fields!SALES.value)-First(Fields!SALES.value)&lt;0,"Red","4D4D4D")</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#9eb6e4</Color>
+                              <Style>Solid</Style>
+                            </Border>
+>>>>>>> c707731... More changes to the design of the report
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -354,6 +422,10 @@ order by smname,year(shidat),dvdesc
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
+<<<<<<< HEAD
+=======
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+>>>>>>> c707731... More changes to the design of the report
                                     <Color>White</Color>
                                   </Style>
                                 </TextRun>
@@ -385,10 +457,18 @@ order by smname,year(shidat),dvdesc
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
+<<<<<<< HEAD
                                   <Value>=Sum(Fields!SALES.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
+=======
+                                  <Value>=IIF(Inscope("tablix1_YEAR"),SUM(Fields!SALES.Value),SUM(cdec(IIF(Fields!YEAR.Value=year(today()),Fields!SALES.Value,0)))-SUM(cdec(IIF(Fields!YEAR.Value=(year(today())-1),Fields!SALES.Value,0))))</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+>>>>>>> c707731... More changes to the design of the report
                                     <Color>White</Color>
                                   </Style>
                                 </TextRun>
@@ -411,6 +491,45 @@ order by smname,year(shidat),dvdesc
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+<<<<<<< HEAD
+=======
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=(Last(Fields!SALES.value)-First(Fields!SALES.value))/First(Fields!SALES.value)</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#9eb6e4</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#7292cc</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+>>>>>>> c707731... More changes to the design of the report
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
@@ -443,7 +562,11 @@ order by smname,year(shidat),dvdesc
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontWeight>Bold</FontWeight>
+<<<<<<< HEAD
                                   <Color>#465678</Color>
+=======
+                                  <Color>White</Color>
+>>>>>>> c707731... More changes to the design of the report
                                 </Style>
                               </TextRun>
                             </TextRuns>
@@ -456,7 +579,11 @@ order by smname,year(shidat),dvdesc
                             <Color>#c6daf8</Color>
                             <Style>Solid</Style>
                           </Border>
+<<<<<<< HEAD
                           <BackgroundColor>#9eb6e4</BackgroundColor>
+=======
+                          <BackgroundColor>#949a7e</BackgroundColor>
+>>>>>>> c707731... More changes to the design of the report
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -488,7 +615,13 @@ order by smname,year(shidat),dvdesc
                                 </Style>
                               </TextRun>
                             </TextRuns>
+<<<<<<< HEAD
                             <Style />
+=======
+                            <Style>
+                              <TextAlign>Right</TextAlign>
+                            </Style>
+>>>>>>> c707731... More changes to the design of the report
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -497,7 +630,51 @@ order by smname,year(shidat),dvdesc
                             <Color>#9eb6e4</Color>
                             <Style>Solid</Style>
                           </Border>
+<<<<<<< HEAD
                           <BackgroundColor>#7292cc</BackgroundColor>
+=======
+                          <BackgroundColor>#949a7e</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.25in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox1">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>% Diff</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Right</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox1</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#9eb6e4</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#949a7e</BackgroundColor>
+>>>>>>> c707731... More changes to the design of the report
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -520,10 +697,18 @@ order by smname,year(shidat),dvdesc
                   <SortExpressions>
                     <SortExpression>
                       <Value>=Fields!DIVISION.Value</Value>
+<<<<<<< HEAD
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
                     <Size>1in</Size>
+=======
+                      <Direction>Descending</Direction>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>2.37499in</Size>
+>>>>>>> c707731... More changes to the design of the report
                     <CellContents>
                       <Textbox Name="DIVISION1">
                         <CanGrow>true</CanGrow>
@@ -536,7 +721,11 @@ order by smname,year(shidat),dvdesc
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontWeight>Bold</FontWeight>
+<<<<<<< HEAD
                                   <Color>#465678</Color>
+=======
+                                  <Color>White</Color>
+>>>>>>> c707731... More changes to the design of the report
                                 </Style>
                               </TextRun>
                             </TextRuns>
@@ -549,7 +738,11 @@ order by smname,year(shidat),dvdesc
                             <Color>#c6daf8</Color>
                             <Style>Solid</Style>
                           </Border>
+<<<<<<< HEAD
                           <BackgroundColor>#9eb6e4</BackgroundColor>
+=======
+                          <BackgroundColor>#949a7e</BackgroundColor>
+>>>>>>> c707731... More changes to the design of the report
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -564,7 +757,11 @@ order by smname,year(shidat),dvdesc
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
+<<<<<<< HEAD
                     <Size>1in</Size>
+=======
+                    <Size>2.37499in</Size>
+>>>>>>> c707731... More changes to the design of the report
                     <CellContents>
                       <Textbox Name="Textbox5">
                         <CanGrow>true</CanGrow>
@@ -590,7 +787,11 @@ order by smname,year(shidat),dvdesc
                             <Color>#9eb6e4</Color>
                             <Style>Solid</Style>
                           </Border>
+<<<<<<< HEAD
                           <BackgroundColor>#7292cc</BackgroundColor>
+=======
+                          <BackgroundColor>#384c70</BackgroundColor>
+>>>>>>> c707731... More changes to the design of the report
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -604,9 +805,15 @@ order by smname,year(shidat),dvdesc
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetYTD</DataSetName>
+<<<<<<< HEAD
             <Top>2.48889in</Top>
             <Height>0.75in</Height>
             <Width>3in</Width>
+=======
+            <Top>1.98055in</Top>
+            <Height>0.75in</Height>
+            <Width>5.52167in</Width>
+>>>>>>> c707731... More changes to the design of the report
             <Style>
               <Border>
                 <Style>None</Style>
@@ -964,7 +1171,7 @@ order by smname,year(shidat),dvdesc
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>'$'#,0.00;('$'#,0.00)</Format>
-                                    <Color>#4d4d4d</Color>
+                                    <Color>=iif(Last(Fields!Year.value)-First(Fields!Year.value)&lt;0,"Red","4D4D4D")</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1348,7 +1555,11 @@ order by smname,year(shidat),dvdesc
             </Paragraphs>
             <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
             <rd:DefaultName>ReportTitle</rd:DefaultName>
+<<<<<<< HEAD
             <Top>1.87722in</Top>
+=======
+            <Top>1.55277in</Top>
+>>>>>>> c707731... More changes to the design of the report
             <Left>0.02167in</Left>
             <Height>0.4in</Height>
             <Width>5.5in</Width>
@@ -1364,7 +1575,11 @@ order by smname,year(shidat),dvdesc
             </Style>
           </Textbox>
         </ReportItems>
+<<<<<<< HEAD
         <Height>3.45208in</Height>
+=======
+        <Height>2.73055in</Height>
+>>>>>>> c707731... More changes to the design of the report
         <Style>
           <Border>
             <Style>None</Style>
@@ -1374,7 +1589,11 @@ order by smname,year(shidat),dvdesc
       <Width>6.20833in</Width>
       <Page>
         <PageFooter>
+<<<<<<< HEAD
           <Height>0.40208in</Height>
+=======
+          <Height>0.99583in</Height>
+>>>>>>> c707731... More changes to the design of the report
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
