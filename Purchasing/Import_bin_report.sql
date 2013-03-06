@@ -8,21 +8,21 @@
 -- for import skus
 --==================================================================
 
-CREATE PROC Import_bin_report AS
+ALTER PROC Import_bin_report AS
 BEGIN
-	SELECT iditem						AS Item
-			,imdesc						AS [Description]
-			,imcolr						AS Color
-			,idco						AS Wh_Co
-			,idloc						AS Wh_Loc
-			,idbin						AS Bin_Loc
-			,idqoh						AS QOH
-			,imfc2a						AS Plt_Recv_Qty
-			,CEILING(idqoh / imfc2a)	AS Ttl_Plts			-- Divide the QOH by the pallet recv. Qty and round up by 1 whole
-			,imdiv						AS Div
-			,imfmcd						AS Family
-			,imprcd						AS Prd_Code	
-			,imclas						AS Class 
+	SELECT iditem								AS Item
+			,imdesc								AS [Description]
+			,imcolr								AS Color
+			,idco								AS Wh_Co
+			,idloc								AS Wh_Loc
+			,idbin								AS Bin_Loc
+			,idqoh								AS QOH
+			,imfc2a								AS Plt_Recv_Qty
+			,CEILING(idqoh / NULLIF(imfc2a,0))	AS Ttl_Plts			-- Divide the QOH by the pallet recv. Qty and round up by 1 whole
+			,imdiv								AS Div				--		[Used NULLIF(divisor,0) to prevent divide by 0 error]
+			,imfmcd								AS Family
+			,imprcd								AS Prd_Code	
+			,imclas								AS Class 
 	FROM OPENQUERY(GSFL2K,
 		'SELECT iditem
 				,imdesc
