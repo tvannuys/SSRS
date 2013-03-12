@@ -12,7 +12,7 @@
 --
 --==============================================================================*/
 
---ALTER PROC JT_Open_Order_MKTG_Displays_Samples AS
+ALTER PROC JT_Open_Order_MKTG_Displays_Samples AS
 BEGIN
 SELECT ohotyp		AS Order_Type
 	  ,cmslmn		AS Salesman
@@ -21,7 +21,7 @@ SELECT ohotyp		AS Order_Type
 	  ,ohvia		AS Via
 	  ,olord#		AS Order#
 	  ,cmcust		AS Customer#
-	  ,RIGHT(test,3) AS Test
+	--  ,RIGHT(test,3) AS Test
 	  ,cmname		AS Customer
 	  ,olitem		AS Item
 	  ,oldesc		AS [Description]
@@ -37,11 +37,9 @@ SELECT ohotyp		AS Order_Type
 			  ,ohvia
 			  ,olord#
 			  ,cmcust
-			  ,(SELECT cmname FROM custmast cm1
-								JOIN salesman sm1 ON cm1.cmslmn = sm1.smno)as test
+			/*  ,(SELECT cmname FROM custmast cm1
+								JOIN salesman sm1 ON cm1.cmslmn = sm1.smno)as test*/
 			  
-			  
-			  ,cmname 
 			  ,cmname
 			  ,olitem
 			  ,oldesc
@@ -63,9 +61,10 @@ SELECT ohotyp		AS Order_Type
 		/*	AND (cm.cmslmn = 11
 				OR cm.cmcust = ''1002128'')	*/
 	
-		ORDER BY oh.ohodat DESC
+		ORDER BY cm.cmname
+				,oh.ohodat DESC
 		')
-WHERE cmslmn = 99
+--WHERE cmslmn = 99
 END
 
 
