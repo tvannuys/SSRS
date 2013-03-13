@@ -905,7 +905,7 @@ order by smname,year(shidat)
             </Paragraphs>
             <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
             <rd:DefaultName>ReportTitle</rd:DefaultName>
-            <Height>0.4in</Height>
+            <Height>0.33056in</Height>
             <Width>5.5in</Width>
             <ZIndex>2</ZIndex>
             <Style>
@@ -972,8 +972,8 @@ order by smname,year(shidat)
             </Paragraphs>
             <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
             <rd:DefaultName>ReportTitle</rd:DefaultName>
-            <Top>1.57396in</Top>
-            <Height>0.4in</Height>
+            <Top>1.69896in</Top>
+            <Height>0.28542in</Height>
             <Width>5.5in</Width>
             <ZIndex>4</ZIndex>
             <Style>
@@ -1032,10 +1032,10 @@ order by smname,year(shidat)
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.25834in</Width>
+                  <Width>0.98334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.07917in</Width>
+                  <Width>0.975in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.95in</Width>
@@ -1043,7 +1043,7 @@ order by smname,year(shidat)
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.23438in</Height>
+                  <Height>0.19619in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1056,7 +1056,7 @@ order by smname,year(shidat)
                                 <TextRun>
                                   <Value>=Sum(Fields!SALES.Value)</Value>
                                   <Style>
-                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                    <Format>c0</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1088,7 +1088,7 @@ order by smname,year(shidat)
                                 <TextRun>
                                   <Value>=IIF(Inscope("tablix3_ColumnGroupYear"),SUM(Fields!SALES.Value),SUM(cdec(IIF(Fields!YEAR.Value=year(Today()),Fields!SALES.Value,0)))-SUM(cdec(IIF(Fields!YEAR.Value=(year(today())-1),Fields!SALES.Value,0))))</Value>
                                   <Style>
-                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                    <Format>c0</Format>
                                     <Color>=iif(Last(Fields!SALES.value)-First(Fields!SALES.value)&lt;0,"Red","4D4D4D")</Color>
                                   </Style>
                                 </TextRun>
@@ -1145,7 +1145,7 @@ order by smname,year(shidat)
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.21875in</Height>
+                  <Height>0.18056in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1160,7 +1160,7 @@ order by smname,year(shidat)
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>c2</Format>
+                                    <Format>c0</Format>
                                     <Color>White</Color>
                                   </Style>
                                 </TextRun>
@@ -1196,7 +1196,7 @@ order by smname,year(shidat)
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>'$'#,0.00;('$'#,0.00)</Format>
+                                    <Format>c0</Format>
                                     <Color>White</Color>
                                   </Style>
                                 </TextRun>
@@ -1273,7 +1273,7 @@ order by smname,year(shidat)
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.27604in</Size>
+                    <Size>0.23785in</Size>
                     <CellContents>
                       <Textbox Name="YTDYEAR">
                         <CanGrow>true</CanGrow>
@@ -1310,7 +1310,7 @@ order by smname,year(shidat)
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.27604in</Size>
+                    <Size>0.23785in</Size>
                     <CellContents>
                       <Textbox Name="Textbox9">
                         <CanGrow>true</CanGrow>
@@ -1350,7 +1350,7 @@ order by smname,year(shidat)
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.27604in</Size>
+                    <Size>0.23785in</Size>
                     <CellContents>
                       <Textbox Name="Textbox11">
                         <CanGrow>true</CanGrow>
@@ -1488,8 +1488,8 @@ order by smname,year(shidat)
             <FixedRowHeaders>true</FixedRowHeaders>
             <DataSetName>DataSet2</DataSetName>
             <Top>2.01562in</Top>
-            <Height>0.72917in</Height>
-            <Width>6.55417in</Width>
+            <Height>0.61459in</Height>
+            <Width>6.175in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -1497,15 +1497,31 @@ order by smname,year(shidat)
               </Border>
             </Style>
           </Tablix>
+          <Rectangle Name="Rectangle1">
+            <PageBreak>
+              <BreakLocation>End</BreakLocation>
+            </PageBreak>
+            <KeepTogether>true</KeepTogether>
+            <Top>1.54042in</Top>
+            <Left>0.03in</Left>
+            <Height>0.01042in</Height>
+            <Width>7.28125in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
         </ReportItems>
-        <Height>3.01667in</Height>
+        <Height>2.76667in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>8.68291in</Width>
+      <Width>7.31125in</Width>
       <Page>
         <PageFooter>
           <Height>0.34583in</Height>
@@ -1549,7 +1565,7 @@ order by smname,year(shidat)
               <Top>0.04667in</Top>
               <Left>0.03in</Left>
               <Height>0in</Height>
-              <Width>8.5175in</Width>
+              <Width>7.28125in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1575,7 +1591,7 @@ order by smname,year(shidat)
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
               <Top>0.07445in</Top>
-              <Left>6.77917in</Left>
+              <Left>5.52917in</Left>
               <Height>0.15902in</Height>
               <Width>1.77083in</Width>
               <ZIndex>2</ZIndex>
@@ -1596,8 +1612,6 @@ order by smname,year(shidat)
             </Border>
           </Style>
         </PageFooter>
-        <PageHeight>8.5in</PageHeight>
-        <PageWidth>11in</PageWidth>
         <InteractiveHeight>8.5in</InteractiveHeight>
         <InteractiveWidth>11in</InteractiveWidth>
         <LeftMargin>0.5in</LeftMargin>
