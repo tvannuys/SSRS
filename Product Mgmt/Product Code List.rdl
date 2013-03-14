@@ -13,11 +13,12 @@
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
         <CommandText>select * from openquery(GSFL2K,'
-select vmvend,vmname, vmgl,vmdelt
+select vmvend,vmname, vmgl,vmdelt, VMBUYR
 
 from vendmast v
 
-where vmgl = ''354500''
+where vmbuyr not in (''000'',''998'',''999'',''00'')
+and vmhold &lt;&gt; ''I''
 
 order by vmname
 
@@ -39,6 +40,10 @@ order by vmname
         <Field Name="VMGL">
           <DataField>VMGL</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="VMBUYR">
+          <DataField>VMBUYR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="VendNameNumber">
           <Value>=cstr(Fields!VMNAME.Value)+ " - " + cstr(Fields!VMVEND.Value)</Value>
@@ -515,7 +520,7 @@ order by vmname
             <DataSetName>DataSet1</DataSetName>
             <Top>0.40278in</Top>
             <Height>0.5in</Height>
-            <Width>9.03125in</Width>
+            <Width>9.03124in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
