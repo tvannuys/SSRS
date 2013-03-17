@@ -1,12 +1,13 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  View [dbo].[CustomerCurrentMonthSales]    Script Date: 03/17/2013 11:04:45 ******/
+/****** Object:  View [dbo].[CustomerCurrentMonthSales]    Script Date: 03/17/2013 13:11:13 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 CREATE VIEW [dbo].[CustomerCurrentMonthSales]
@@ -20,8 +21,20 @@ SELECT dbo.CustomerSalesDetail.InvoiceDate, dbo.CustomerSalesDetail.Company,
 FROM  dbo.CustomerSalesDetail LEFT OUTER JOIN
                dbo.SalesDivision ON dbo.CustomerSalesDetail.FamilyCode = dbo.SalesDivision.FamilyCode
 
-WHERE ((year(InvoiceDate) = YEAR(getdate())-1 and MONTH(InvoiceDate) = MONTH(getdate()) and DAY(InvoiceDate) <= DAY(getdate()-1)) or
-(year(InvoiceDate) = YEAR(getdate()) and MONTH(InvoiceDate) = MONTH(getdate()) and DAY(InvoiceDate) <= DAY(getdate()-1)))
+WHERE (
+		(
+		year(InvoiceDate) = YEAR(getdate())-1 
+		and MONTH(InvoiceDate) = MONTH(getdate()) 
+		and DAY(InvoiceDate) <= DAY(getdate()-3)
+		)
+or
+		(
+		year(InvoiceDate) = YEAR(getdate()) 
+		and MONTH(InvoiceDate) = MONTH(getdate()) 
+		and DAY(InvoiceDate) <= DAY(getdate()-3)
+		)
+	)
+	
 AND (dbo.CustomerSalesDetail.Company = 1)
 
 
@@ -31,6 +44,7 @@ GROUP BY dbo.CustomerSalesDetail.InvoiceDate, dbo.CustomerSalesDetail.Company,
                dbo.CustomerSalesDetail.Division, dbo.CustomerSalesDetail.DivisionDesc, dbo.CustomerSalesDetail.SalesName, dbo.SalesDivision.SalesDivision
 
 --select * from CustomerCurrentMonthSales
+
 GO
 
 
