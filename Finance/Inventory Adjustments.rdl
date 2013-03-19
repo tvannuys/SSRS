@@ -9,7 +9,19 @@
               <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
+              <Width>2.15in</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.85in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1in</Width>
@@ -48,19 +60,7 @@
               <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1in</Width>
+              <Width>2.48333in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1431,7 +1431,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.36in</Top>
         <Height>0.43in</Height>
-        <Width>19in</Width>
+        <Width>23.48333in</Width>
         <Style />
       </Tablix>
       <Textbox Name="textbox1">
@@ -1468,7 +1468,7 @@
     <Height>0.79in</Height>
     <Style />
   </Body>
-  <Width>19in</Width>
+  <Width>23.48333in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -1511,7 +1511,7 @@
 " left join itemmast on iritem=imitem" +
 " where irdate between ''" + Parameters!StartDate.Value + "''" +
 " and ''" + Parameters!EndDate.Value + "''" +
-" and irsrc = ''A''" +
+" and irsrc in ( ''A'',''B'')" +
 " order by irserl,irdate" +
 "')"</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
