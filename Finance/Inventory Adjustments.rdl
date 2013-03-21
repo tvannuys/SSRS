@@ -1511,7 +1511,7 @@
 " left join itemmast on iritem=imitem" +
 " where irdate between ''" + Parameters!StartDate.Value + "''" +
 " and ''" + Parameters!EndDate.Value + "''" +
-" and irsrc in ( ''A'',''B'')" +
+" and irsrc in ( ''A'',''B'',''I'')" +
 " order by irserl,irdate" +
 "')"</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
