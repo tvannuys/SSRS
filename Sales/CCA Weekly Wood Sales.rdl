@@ -15,7 +15,7 @@
               <Width>2.01667in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.45in</Width>
+              <Width>2.55417in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1in</Width>
@@ -91,7 +91,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CMNAME</Value>
+                              <Value>Customer</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -127,7 +127,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>MANFSKU</Value>
+                              <Value>Style</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -163,7 +163,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>IMDESC</Value>
+                              <Value>Style Description</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -288,44 +288,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>textbox9</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>SteelBlue</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox17">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Tahoma</FontFamily>
-                                <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox17</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -478,6 +440,44 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>SteelBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Unit Price</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -732,41 +732,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox18">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=cdec(replace(Fields!WEEKLYDOLLARS.Value/Fields!WEEKLYQTYSOLD.Value,"NaN",0))</Value>
-                              <Style>
-                                <FontFamily>Tahoma</FontFamily>
-                                <FontSize>9pt</FontSize>
-                                <Format>'$'0.00;('$'0.00)</Format>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox18</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="MTDQTYSOLD">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -901,6 +866,40 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox16">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=cdec(replace(Fields!YTDDOLLARS.Value/Fields!YTDQTYSOLD.Value,"NaN",0))</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <Format>c2</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox16</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -942,9 +941,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.38389in</Top>
+        <Top>0.50889in</Top>
         <Height>0.43in</Height>
-        <Width>15.46667in</Width>
+        <Width>15.57084in</Width>
         <Style />
       </Tablix>
       <Textbox Name="textbox1">
@@ -954,10 +953,11 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>CCA Weekly Wood Sales 3/10/2013 to 3/16/2013</Value>
+                <Value>="CCA Weekly Wood Sales " + FormatDateTime(dateadd("d",-8,today()),DateFormat.ShortDate) +
+ " to " + FormatDateTime(dateadd("d",-2,today()),DateFormat.ShortDate)</Value>
                 <Style>
                   <FontFamily>Tahoma</FontFamily>
-                  <FontSize>20pt</FontSize>
+                  <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>SteelBlue</Color>
                 </Style>
@@ -967,9 +967,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>textbox1</rd:DefaultName>
-        <Left>0.01667in</Left>
-        <Height>0.37in</Height>
-        <Width>8in</Width>
+        <Height>0.245in</Height>
+        <Width>8.57084in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <PaddingLeft>2pt</PaddingLeft>
@@ -978,72 +977,55 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox14">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Report Run Date: </Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox14</rd:DefaultName>
-        <Left>8.11333in</Left>
-        <Height>0.37in</Height>
-        <Width>1.45833in</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox15">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Globals!ExecutionTime</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox14</rd:DefaultName>
-        <Left>9.6625in</Left>
-        <Height>0.37in</Height>
-        <Width>1.45833in</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>0.81389in</Height>
+    <Height>0.93889in</Height>
     <Style />
   </Body>
-  <Width>15.46667in</Width>
+  <Width>15.57084in</Width>
   <Page>
+    <PageFooter>
+      <Height>0.41667in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox15">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Report Date: " + Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox14</rd:DefaultName>
+          <Top>0.19444in</Top>
+          <Left>12.57084in</Left>
+          <Height>0.21in</Height>
+          <Width>3in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
@@ -1066,13 +1048,16 @@
 
 CCA weekly sales reporting for the wood program
 
+This is coded to be run on a Tuesday in order to get the accurate sales 
+totals for the previous week.
+
 */
 
 
 select * from openquery(gsfl2k,'
-select distinct Right(billto.CMADR3,2) as State,
-billto.cmcust,
-billto.cmname,
+select distinct Right(linecust.CMADR3,2) as State,
+linecust.cmcust,
+linecust.cmname,
 
 imitem,
 IMSKEY as ManfSKU,
@@ -1087,14 +1072,14 @@ imdesc,
 	from shline l 
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
-	and l.sldate between (current_date - 10 days) and (current_date - 4 days))
+	and l.sldate between (current_date - 9 days) and (current_date - 3 days))
 	as WeeklyQtySold,
 
 (select sum(sleprc) 
 	from shline l 
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
-	and l.sldate between (current_date - 10 days) and (current_date - 4 days))
+	and l.sldate between (current_date - 9 days) and (current_date - 3 days))
 	as WeeklyDollars,
 
 
@@ -1104,7 +1089,7 @@ imdesc,
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
 	and month(l.sldate) = month(current_date)
-	and l.sldate &lt;= current_date - 4 days)
+	and l.sldate &lt;= current_date - 3 days)
 	as MTDQtySold,
 
 (select sum(sleprc) 
@@ -1113,7 +1098,7 @@ imdesc,
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
 	and month(l.sldate) = month(current_date)
-	and l.sldate &lt;= current_date - 4 days)
+	and l.sldate &lt;= current_date - 3 days)
 	as MTDDollars,
 
 (select sum(slblus) 
@@ -1121,7 +1106,7 @@ imdesc,
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
-	and l.sldate &lt;= current_date - 4 days)
+	and l.sldate &lt;= current_date - 3 days)
 	as YTDQtySold,
 
 (select sum(sleprc) 
@@ -1129,7 +1114,7 @@ imdesc,
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
-	and l.sldate &lt;= current_date - 4 days)
+	and l.sldate &lt;= current_date - 3 days)
 	as YTDDollars
 
 from shline
@@ -1139,26 +1124,28 @@ from shline
 									AND SHLINE.SLORD# = SHHEAD.SHORD# 
 									AND SHLINE.SLREL# = SHHEAD.SHREL# 
 									AND SHLINE.SLINV# = SHHEAD.SHINV#) 
-		left JOIN CUSTMAST billto ON SHHEAD.SHBIL# = billto.CMCUST 
-		left join custmast soldto on shhead.shcust = soldto.cmcust
+/* 		left JOIN CUSTMAST billto ON SHHEAD.SHBIL# = billto.CMCUST       */
+/*		left join custmast soldto on shhead.shcust = soldto.cmcust       */
+		left join custmast linecust on shline.slcust = linecust.cmcust
 		LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM 
-		left join vendmast on slvend = vmvend
-		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
-		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD 
-		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
-		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
-		left join salesman on shhead.SHSLSM = salesman.smno
+/*		left join vendmast on slvend = vmvend                            */
+/*		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
+/*		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD				*/
+/*		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS			*/
+/*		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV				*/
+		left join salesman on shhead.SHSLSM = salesman.smno              */
 
 where imdiv = 4
 
 and imcls# in (2001,2002,2003,4177,4022,4026)
 
-and shidat &gt;= ''2013-03-01''
-and shbil# in (select cmkcus from custmktg 
+and year(shidat) = year(current_date)
+and shidat &lt;= current_date - 4 days
+and slcust in (select cmkcus from custmktg 
 				where cmkmkc in (''C1'',''FA'',''PS''))
 				
-order by Right(billto.CMADR3,2),
-	billto.cmname,
+order by Right(linecust.CMADR3,2),
+	linecust.cmname,
 	imitem
 
 
