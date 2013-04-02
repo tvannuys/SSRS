@@ -54,7 +54,7 @@ CMHICR as HighCredit,
 /* Field 17 */
 ''0'' as AccountBalanceCode,
 /* Field 18 */
-CMCRAM as AccountBalance,
+CMCUR+CMU30+CMO30+CMO60+CMO90 as AccountBalance,
 /* Field 19 */
 ''0'' as AccountBalanceSign,
 /* Field 20 */
