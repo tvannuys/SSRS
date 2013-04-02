@@ -12,66 +12,221 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
-        <CommandText>select * from openquery(gsfl2k,'
-select ''C'' as RecordCode,
-''49924'' as MemberID,
-cmname as AccountName,
-cmname as DBA,
-cmadr1,
-cmadr2,
-Left(CMADR3,23) AS City, 
-CMZIP AS ZipCode, 
-Right(CMADR3,2) AS State, 
-current_date as ExtractDate,
-'' '' as Reserved1,
-CMPHON as Phone,
-CMLSAL as LastSale,
-CMTERM as Terms,
-''0'' as HighCreditCode,
-CMHICR as HighCredit,
-''0'' as AccountBalanceCode,
-CMCRAM as AccountBalance,
-''0'' as AccountBalanceSign,
-CMCUR as CurrentBalance,
-''0'' as CurrentBalanceSign,
-CMU30 as ThirtyDayBalance,
-''0'' as ThirtyDayBalanceSign,
-CMO30 as SixtyDayBalance,
-''0'' as SixtyDayBalanceSign,
-CMO60 as NinetyDayBalance,
-''0'' as NinetyDayBalanceSign,
-CMO90 as OverNinetyBalance,
-''0'' as OverNinetyBalanceSign,
-''05'' as PaymentHistory,
-CMPDAY as DaysSlow,
-''   '' as CountryCode,
-''   '' as CityCode,
-''    '' as Rerserved2,
-''              '' as Rerserved3,
-''                                '' as Rerserved4,
-'' '' as Rerserved5
+        <CommandText>/* Embedded SQL used in CCI Extract Report for Credit  */
 
+/* 
+drop table #TempCCI
+drop table #TempOpenAr
+drop table #TempMaxDaysOut
+*/
+
+select * 
+into #TempCCI
+from openquery(gsfl2k,'
+
+select 
+cmcust,
+
+/* FIELD 1 */
+''C'' as RecordCode,
+/* FIELD 2 */
+''49924'' as MemberID,
+/* FIELD 3 */
+cmname as AccountName,
+/* FIELD 4 */
+cmname as DBA,
+/* FIELD 5 */
+cmadr1,
+/* FIELD 6 */
+cmadr2,
+/* FIELD 7 */
+Left(CMADR3,23) AS City, 
+/* FIELD 8 */
+CMZIP AS ZipCode, 
+/* FIELD 9 */
+Right(CMADR3,2) AS State, 
+/* FIELD 10 */
+substring(char(current_date),6,2) || right(char(current_date),2) || substring(char(current_date),3,2) as ExtractDate,
+/* FIELD 11 */
+'' '' as Reserved1,
+/* FIELD 12 */
+CMPHON as Phone,
+/* FIELD 13 */
+substring(char(CMLSAL),6,2) || substring(char(CMLSAL),3,2) as LastSale,
+
+/* FIELD 14 */
+case CMTERM 
+	when ''2'' then ''COD''
+	when ''Y'' then ''CBD''
+	else ''   ''
+end as Terms,
+
+/* Field 15 */
+''0'' as HighCreditCode,
+/* Field 16 */
+CMHICR as HighCredit,
+/* Field 17 */
+''0'' as AccountBalanceCode,
+/* Field 18 */
+CMCUR+CMU30+CMO30+CMO60+CMO90 as AccountBalance,
+/* Field 19 */
+''0'' as AccountBalanceSign,
+/* Field 20 */
+CMCUR as CurrentBalance,
+/* Field 21 */
+''0'' as CurrentBalanceSign,
+/* Field 22 */
+CMU30 as ThirtyDayBalance,
+/* Field 23 */
+''0'' as ThirtyDayBalanceSign,
+/* Field 24 */
+CMO30 as SixtyDayBalance,
+/* Field 25 */
+''0'' as SixtyDayBalanceSign,
+/* Field 26 */
+CMO60 as NinetyDayBalance,
+/* Field 27 */
+''0'' as NinetyDayBalanceSign,
+/* Field 28 */
+CMO90 as OverNinetyBalance,
+/* Field 29 */
+''0'' as OverNinetyBalanceSign,
+
+/* Field 30 */
+''05'' as PaymentHistory,
+
+/* Field 31 */
+0 as DaysSlow,
+
+/* Field 32 */
+''000'' as CountryCode,
+/* Field 33 */
+''0000'' as CityCode,
+/* Field 34 */
+''00000000000000'' as Rerserved2,
+/* Field 35 */
+''               '' as Rerserved3,
+/* Field 36 */
+''0'' as Rerserved4
 
 from custmast
 
+where cmcust in (select b.cmcust
+				 from custmast B 
+				 left join custextn x on cmcust=cexcust
+				 where ((b.cmcust = b.cmbill) or cmbill = '' '')
+				 and b.cmco = 1
+				 and b.cmdelt &lt;&gt; ''H''
+				 and x.cexnacm = ''Y'' 
+				  )
+')
+
+-- ===========================================================
+select *
+into #TempOpenAr
+from openquery(gsfl2k,'
+select oicust,
+oiref#,
+current_date as DueDate,
+0 as DaysOut,
+sum(oiamt) as outstanding 
+
+from openitem
+
+/* where OICUST = ''1001089'' */
+/* and oidsd1 &lt;&gt; ''0001-01-01''  */
+where OIOTYP not in (''RA'',''RI'',''CS'',''CL'',''FC'')
+and oitype &lt;&gt; 5
+and OICRCD not in (''MX'',''MC'',''FC'',''VC'',''RA'')
+
+group by oicust,oiref#, current_date
+having sum(oiamt) &gt; 0
+order by oiref#
+')
 
 
-where cmcust in (
-''4112140'',
-''6100012'',
-''1006825'',
-''1012140'',
-''4106826'',
-''1006829'',
-''4106824'',
-''1006824'',
-''1006826'')
-')</CommandText>
+--select * from #TempOpenAr
+
+update #TempOpenAr 
+set #TempOpenAr.DueDate = OQ.ARDate
+from #TempOpenAR T
+inner join (select *
+from openquery(gsfl2k,'
+select oicust,
+oiref#,
+min(oidsd1) as ARDate
+
+from openitem
+
+/* where OICUST = ''1001089''  */
+where oidsd1 &lt;&gt; ''0001-01-01'' 
+and oitype &lt;&gt; 5
+and OIOTYP not in (''RA'',''RI'',''CS'',''CL'',''FC'')
+and OICRCD not in (''MX'',''MC'',''FC'',''VC'',''RA'')
+
+group by oicust,oiref#
+having sum(oiamt) &gt; 0
+order by oiref#
+')) OQ on (OQ.OICUST = T.OICUST and OQ.OIREF# = T.OIREF#)
+
+-- select * from #TempOpenAR
+
+
+delete #TempOpenAr
+where DueDate &gt; GETDATE()
+
+update #TempOpenAr
+set DaysOut = DATEDIFF(d,DueDate,getdate())
+
+-- select * from #TempOpenAR
+/* 
+select * from #TempOpenAr
+where LEFT(oicust,1) = '1'
+and left(oiref#,1) = 'c'
+*/
+-- =======================================================================
+
+select oicust,MAX(daysout) as MaxDaysOut
+into #TempMaxDaysOut
+from #TempOpenAr
+group by oicust
+
+-- select * from #TempMaxDaysOut
+
+update #TempCCI
+set #TempCCI.DaysSlow = M.MaxDaysOut
+from #TempCCI T
+join #TempMaxDaysOut M on (T.cmcust = M.oicust)
+
+-- =======================================================================
+
+--select * from #TempCCI
+
+
+update #TempCCI
+set PaymentHistory = '01'
+where DaysSlow &gt; 30
+
+update #TempCCI
+set PaymentHistory = '02'
+where DaysSlow between 6 and 30
+
+update #TempCCI
+set PaymentHistory = '05'
+where DaysSlow &lt; 6
+
+
+--select * from #TempCCI where cmcust = '1001089'
+select * from #TempCCI</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
         <Field Name="RECORDCODE">
           <DataField>RECORDCODE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CMCUST">
+          <DataField>CMCUST</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="MEMBERID">
@@ -192,7 +347,7 @@ where cmcust in (
         </Field>
         <Field Name="DAYSSLOW">
           <DataField>DAYSSLOW</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="COUNTRYCODE">
           <DataField>COUNTRYCODE</DataField>
@@ -214,10 +369,6 @@ where cmcust in (
           <DataField>RERSERVED4</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RERSERVED5">
-          <DataField>RERSERVED5</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -228,9 +379,6 @@ where cmcust in (
           <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
-                <TablixColumn>
-                  <Width>1in</Width>
-                </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
                 </TablixColumn>
@@ -497,7 +645,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CMADR1</Value>
+                                  <Value>ADDR1</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -533,7 +681,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CMADR2</Value>
+                                  <Value>ADDR2</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -594,6 +742,7 @@ where cmcust in (
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1109,7 +1258,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>THIRTYDAYBALANCE</Value>
+                                  <Value>1to30DAYBALANCE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1145,7 +1294,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>THIRTYDAYBALANCESIGN</Value>
+                                  <Value>1to30DAYBALANCESIGN</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1181,7 +1330,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>SIXTYDAYBALANCE</Value>
+                                  <Value>31to60DAYBALANCE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1217,7 +1366,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>SIXTYDAYBALANCESIGN</Value>
+                                  <Value>31to60DAYBALANCESIGN</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1253,7 +1402,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>NINETYDAYBALANCE</Value>
+                                  <Value>61to90DAYBALANCE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1289,7 +1438,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>NINETYDAYBALANCESIGN</Value>
+                                  <Value>61to90DAYBALANCESIGN</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1325,7 +1474,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>OVERNINETYBALANCE</Value>
+                                  <Value>Over90BALANCE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1361,7 +1510,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>OVERNINETYBALANCESIGN</Value>
+                                  <Value>Over90BALANCESIGN</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1541,7 +1690,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>RERSERVED2</Value>
+                                  <Value>RERSERVED34</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1577,7 +1726,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>RERSERVED3</Value>
+                                  <Value>RERSERVED35</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1613,7 +1762,7 @@ where cmcust in (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>RERSERVED4</Value>
+                                  <Value>RERSERVED36</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1626,42 +1775,6 @@ where cmcust in (
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox71</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#7292cc</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox73">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>RERSERVED5</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox73</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -2905,47 +3018,12 @@ where cmcust in (
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="RERSERVED5">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!RERSERVED5.Value</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <Color>#4d4d4d</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>RERSERVED5</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#e5e5e5</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -2996,7 +3074,7 @@ where cmcust in (
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>37in</Width>
+            <Width>36in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3011,7 +3089,7 @@ where cmcust in (
           </Border>
         </Style>
       </Body>
-      <Width>37in</Width>
+      <Width>36in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
