@@ -1,5 +1,5 @@
 
---CREATE PROC JT_intrans80 AS
+ALTER PROC JT_intrans80 AS
 
 /* -----------------------------------------------------*
 ** James Tuttle 5/4/2011								*
@@ -14,17 +14,20 @@
 --DECLARE @ShipDate datetime
 
 --SET @ShipDate = DATEADD(DD,-6,DATEDIFF(DD,0,GETDATE()))
+--
+--SR# 9523 Add Logic to check for Comapny 2 also - James Tuttle 4/3/2013
+--
 
 
 -- Query
-SELECT olloc 'Location',
-olsdat 'Ship Date',
-olord# 'Order',
-olrel# 'Release',
-olitem 'Item',
-olqshp 'Qty Ship',
-olrout 'Route',
-olinvu 'Invetory Status'
+SELECT olloc 'Location'
+,olsdat 'Ship Date'
+,olord# 'Order'
+,olrel# 'Release'
+,olitem 'Item'
+,olqshp 'Qty Ship'
+,olrout 'Route'
+,olinvu 'Invetory Status'
 
 FROM OPENQUERY (GSFL2K, '
 SELECT *
@@ -33,8 +36,8 @@ FROM oohead INNER JOIN ooline
 	AND ohloc=olloc
 	AND ohord#=olord#
 	AND ohrel#=olrel#
-WHERE oliloc = 50
-	AND ohrout = ''50-80''
+WHERE oliloc IN (50, 81, 84)
+	AND ohrout IN (''50-80'', ''41-80'', ''57-50'')
 	AND olinvu =''W''
 ')
 WHERE olsdat < DATEADD(DD,-6,DATEDIFF(DD,0,GETDATE()))
