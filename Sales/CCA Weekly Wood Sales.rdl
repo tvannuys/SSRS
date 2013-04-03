@@ -387,7 +387,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>YTD QTY</Value>
+                              <Value>PTD QTY</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -425,7 +425,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>YTD DOLLARS</Value>
+                              <Value>PTD DOLLARS</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -800,14 +800,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="YTDQTYSOLD">
+                    <Textbox Name="PTDQTYSOLD">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!YTDQTYSOLD.Value</Value>
+                              <Value>=Fields!PTDQTYSOLD.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -818,7 +818,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>YTDQTYSOLD</rd:DefaultName>
+                      <rd:DefaultName>PTDQTYSOLD</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -834,14 +834,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="YTDDOLLARS">
+                    <Textbox Name="PTDDOLLARS">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!YTDDOLLARS.Value</Value>
+                              <Value>=Fields!PTDDOLLARS.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -852,7 +852,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>YTDDOLLARS</rd:DefaultName>
+                      <rd:DefaultName>PTDDOLLARS</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -875,7 +875,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=cdec(replace(Fields!YTDDOLLARS.Value/Fields!YTDQTYSOLD.Value,"NaN",0))</Value>
+                              <Value>=cdec(replace(Fields!PTDDOLLARS.Value/Fields!PTDQTYSOLD.Value,"NaN",0))</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1051,6 +1051,8 @@ CCA weekly sales reporting for the wood program
 This is coded to be run on a Tuesday in order to get the accurate sales 
 totals for the previous week.
 
+Changed to pull Program to Date totals (from June 1 2012) instead of YTD totals
+
 */
 
 
@@ -1105,17 +1107,17 @@ imdesc,
 	from shline l 
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
-	and year(l.sldate) = year(current_date)
+	and l.sldate &gt;= ''06/01/2012''
 	and l.sldate &lt;= current_date - 3 days)
-	as YTDQtySold,
+	as PTDQtySold,
 
 (select sum(sleprc) 
 	from shline l 
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
-	and year(l.sldate) = year(current_date)
+	and l.sldate &gt;= ''06/01/2012''
 	and l.sldate &lt;= current_date - 3 days)
-	as YTDDollars
+	as PTDDollars
 
 from shline
 		
@@ -1139,7 +1141,7 @@ where imdiv = 4
 
 and imcls# in (2001,2002,2003,4177,4022,4026)
 
-and year(shidat) = year(current_date)
+/* and year(shidat) in (year(current_date),year(current_date)  */
 and shidat &lt;= current_date - 4 days
 and slcust in (select cmkcus from custmktg 
 				where cmkmkc in (''C1'',''FA'',''PS''))
@@ -1208,12 +1210,12 @@ imcls# in (2001,2001,2003,4177,4022,4026)
           <DataField>MTDDOLLARS</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="YTDQTYSOLD">
-          <DataField>YTDQTYSOLD</DataField>
+        <Field Name="PTDQTYSOLD">
+          <DataField>PTDQTYSOLD</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="YTDDOLLARS">
-          <DataField>YTDDOLLARS</DataField>
+        <Field Name="PTDDOLLARS">
+          <DataField>PTDDOLLARS</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
