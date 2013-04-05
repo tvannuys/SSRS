@@ -16,7 +16,7 @@ Now in SSRS - http://sql01/Reports/Pages/Folder.aspx?ItemPath=%2fFinance%2fRebat
 
 */
 
-CREATE proc [dbo].[spManningtonQuarterlyRebateSamples]
+alter proc [dbo].[spManningtonQuarterlyRebateSamples]
 
 @StartDate varchar(10) = '10/01/2012',
 @EndDate varchar(10) = '11/31/2012'
@@ -32,7 +32,7 @@ select * from openquery(gsfl2k,''
 SELECT 
  SHIDAT as Date,
  SHOTYP,
- BillTo.CMCUST AS MMIRTLNum,
+ VNCVCUST AS MMIRTLNum,
  BillTo.CMNAME AS RetailerName,
  shline.slinv# as InvoiceNumber,
  shline.slitem as Product,
@@ -55,6 +55,7 @@ INNER JOIN SHHEAD ON (SHLINE.SLCO = SHHEAD.SHCO
 LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM 
 left join ITEMXTRA on ITEMMAST.IMITEM = ITEMXTRA.IMXITM 
 INNER JOIN CUSTMAST BillTo ON SHHEAD.SHBIL# = BillTo.CMCUST
+left join vendcust on (billto.cmcust=VNCCUST and vncvend = ''''10131'''')
 
 WHERE SHHEAD.SHIDAT between ''''' + @StartDate + ''''' and ''''' + @EndDate + '''''
 
