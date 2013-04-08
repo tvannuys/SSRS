@@ -1,14 +1,14 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spClaims]    Script Date: 04/08/2013 14:38:32 ******/
+/****** Object:  StoredProcedure [dbo].[spClaims]    Script Date: 04/08/2013 14:31:24 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE proc [dbo].[spClaims] 
+alter proc [dbo].[spClaims] 
 
  @BeginDate varchar(10) = '2011-10-01',
  @EndDate varchar(10) = '2011-10-31'
@@ -74,9 +74,8 @@ SELECT SHLINE.SLINV# AS InvoiceNbr,
  SHLINE.SLESC5,
  slesc1+slesc2+slesc3+slesc4+slesc5 AS NetCost,
  SHLINE.SLSA,
- SHLINE.SLSLMN,
- CUSTMAST.CMSLMN,
- SHHEAD.SHSLSM,
+ SHHEAD.SHSLSM as SalesPersonNum,
+ salesman.smname as SalesPerson,
  ITEMMAST.IMUMD4,
  SHLINE.SLPROMO#,
  SHHEAD.SHUSER,
@@ -92,6 +91,7 @@ LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM
 left JOIN CUSTMAST ON SHLINE.SLCUST = CUSTMAST.CMCUST 
 left JOIN CUSTMAST BillTo ON SHHEAD.SHBIL# = BillTo.CMCUST 
 left JOIN VENDMAST ON SHLINE.SLVEND = VENDMAST.VMVEND
+left join salesman on SHHEAD.SHSLSM = salesman.smno
 
 WHERE SHHEAD.SHIDAT >= ' + '''' + '''' + @BeginDate + '''' + '''' +
 ' And SHHEAD.SHIDAT <= ' + '''' + '''' + @EndDate + '''' + '''' +
