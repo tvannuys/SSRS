@@ -1139,7 +1139,10 @@ from shline
 
 where imdiv = 4
 
-and imcls# in (2001,2002,2003,4177,4022,4026)
+and slitem in 	(select pefitm from PRICEXCP
+				where PECUST = ''CCATAWOOD''
+				and pefitm &lt;&gt; ''''
+				)
 
 /* and year(shidat) in (year(current_date),year(current_date)  */
 and shidat &lt;= current_date - 4 days
@@ -1158,7 +1161,6 @@ order by Right(linecust.CMADR3,2),
 imcls# in (2001,2001,2003,4177,4022,4026)
 
 */
-
 
 
 
