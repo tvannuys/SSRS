@@ -105,4 +105,5 @@ WHERE (((GSFL2K_CUSTBILL.CBBLCD)="PS"
 		Or (GSFL2K_CUSTBILL.CBBLCD)="65" 
 		Or (GSFL2K_CUSTBILL.CBBLCD)="77") 
 	AND ((GSFL2K_CUSTMAST.CMSLMN)=609));	<------------- Need as a PARM <<<<
+
 ------------------------------------------------------------------------------------------------------------------------------------*/
