@@ -17,6 +17,7 @@ from openquery(gsfl2k, '
 
 	select 	ooline.olloc as Location,
 		ooline.olord# as OrderNum,
+		ooline.olrel# as Release,
 		ooline.olinvu as LineStatus,
 		oohead.ohotyp as OrderType,
 		ooptauth.ptaaut as SquirrelCode
@@ -50,6 +51,10 @@ from openquery(gsfl2k, '
           <DataField>LINESTATUS</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="RELEASE">
+          <DataField>RELEASE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="ORDERTYPE">
           <DataField>ORDERTYPE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -73,6 +78,9 @@ from openquery(gsfl2k, '
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.21875in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.39583in</Width>
@@ -146,6 +154,42 @@ from openquery(gsfl2k, '
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>OrderRel</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -341,6 +385,40 @@ from openquery(gsfl2k, '
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="RELEASE">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!RELEASE.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>RELEASE</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="LINESTATUS">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -449,6 +527,7 @@ from openquery(gsfl2k, '
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -464,7 +543,7 @@ from openquery(gsfl2k, '
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>6.38542in</Width>
+            <Width>7.38542in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -511,7 +590,7 @@ from openquery(gsfl2k, '
           </Border>
         </Style>
       </Body>
-      <Width>6.38542in</Width>
+      <Width>7.38542in</Width>
       <Page>
         <PageFooter>
           <Height>0.45in</Height>
@@ -565,6 +644,6 @@ from openquery(gsfl2k, '
     </ReportSection>
   </ReportSections>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/reportserver</rd:ReportServerUrl>
   <rd:ReportID>5f5c8633-37ac-4673-890b-7d36f386bf64</rd:ReportID>
 </Report>

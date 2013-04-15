@@ -144,6 +144,7 @@
         <CommandText>select * from openquery(gsfl2k,'
 select distinct(smname)
 from salesman
+where smco=1
 order by 1
 ')</CommandText>
       </Query>
@@ -1795,6 +1796,6 @@ order by 1
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/reportserver</rd:ReportServerUrl>
   <rd:ReportID>66cf464b-ac3e-4bb0-97c3-d575f1efebeb</rd:ReportID>
 </Report>
