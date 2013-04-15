@@ -23,7 +23,10 @@ GO
 -- Modifed Date: 10/16/2012
 -- Modified by: James Tuttle		
 -- Added five vendors per SR request
---==================================
+--
+--==================================================
+-- SR# 9807 James T 04/15/2013 Added IMCLAS = 'IM' 
+----------------------------------------------------
 
  ALTER PROC [dbo].[spImport_PO_Past_Production_No_Ship] AS
 
@@ -101,10 +104,11 @@ Where Pohead.PHDOI > ''12/31/2005''
 and current_date > PLPDAT
 and PLSHIPDATE = ''0001-01-01''
 and PLPDAT <> ''0001-01-01''
-and FMFMCD not in (''L2'',''YI'')
+AND IMCLAS = ''IM''
+/* and FMFMCD not in (''L2'',''YI'') */
 and IMSI = ''Y''
-and (poline.plvend in (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'',''22179'',''24077'')
-	or (poline.plvend in(''21861'',''17000'',''10131'',''16006'') and imprcd in (''34057'',''4906'',''4906'',''6392'',''32608'')))
+/* and (poline.plvend in (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'',''22179'',''24077'')
+	or (poline.plvend in(''21861'',''17000'',''10131'',''16006'') and imprcd in (''34057'',''4906'',''4906'',''6392'',''32608''))) */
 
 Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
 ') OQ
