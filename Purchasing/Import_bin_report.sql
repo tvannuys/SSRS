@@ -6,9 +6,11 @@
 --
 -- Show bin location report
 -- for import skus
+-------------------------------------------------------------------
+-- SR# 9807 James Tuttlkte 04/15/2013 added IMCLAS = 'IM' 
 --==================================================================
 
-ALTER PROC Import_bin_report AS
+ALTER PROC [dbo].[Import_bin_report] AS
 BEGIN
 	SELECT iditem								AS Item
 			,imdesc								AS [Description]
@@ -19,7 +21,7 @@ BEGIN
 			,idqoh								AS QOH
 			,imfc2a								AS Plt_Recv_Qty
 			,CEILING(idqoh / NULLIF(imfc2a,0))	AS Ttl_Plts			-- Divide the QOH by the pallet recv. Qty and round up by 1 whole
-			,imdiv								AS Div				--		[Used NULLIF(divisor,0) to prevent divide by 0 error]
+			,imdiv								AS Div				--		[Used NULLIF(divisor,0) to prevent divid by 0 error]
 			,imfmcd								AS Family
 			,imprcd								AS Prd_Code	
 			,imclas								AS Class 
@@ -41,12 +43,8 @@ BEGIN
 		LEFT JOIN binloc bl ON (id.idbin = bl.blbin
 									AND id.idco = bl.blco
 									AND id.idloc = bl.blloc)
-		WHERE im.imfmcd NOT IN (''L2'',''YI'',''W2'',''VV'',''T1'',''YK'',''Y4'')
-			AND im.imsi = ''Y''
-			AND (im.imvend IN (''22666'',''22887'',''22674'',''22204''
-								,''22859'',''23306'',''22312'',''16006'',''22179'',''24077'')
-				OR (im.imvend IN(''21861'',''17000'',''10131'',''16006'') 
-					AND imprcd IN (''34057'',''4906'',''4906'',''6392'',''32608'')))
+		WHERE im.imsi = ''Y''
+			AND IMCLAS = ''IM''
 			AND im.imclas NOT IN (''SA'',''DP'')
 			AND id.idqoh > 0
 			AND bl.blgrp  != ''XXXXX''
@@ -56,5 +54,6 @@ BEGIN
 		
 		')
 END
+
 
 

@@ -36,3 +36,14 @@ hour(ptdatets) ||'':'' || minute(ptdatets) || '':'' || second(ptdatets) as ptdat
 
 -- Subtract DAYS in AS400 SQL
 DAYS(CURRENT_DATE) - DAYS(id.iddate) as age_in_days
+
+----------------------------------------------------------------------------------------------------------
+-- Time convert in SQL
+-- DECLARE @DB2Time NUMERIC(6, 0) = 104522
+
+SELECT CAST( SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),@DB2Time),6),1,2) + ':'
+       + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),@DB2Time),6),3,2) + ':'
+       + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),@DB2Time),6),5,2) AS TIME)
+       
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
