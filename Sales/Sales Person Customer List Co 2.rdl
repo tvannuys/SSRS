@@ -138,6 +138,23 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>GartmanReports</DataSourceName>
+        <CommandText>select * from openquery(gsfl2k,'
+select distinct(smname)
+from salesman
+where smco=2
+order by 1
+')</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SMNAME">
+          <DataField>SMNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -2287,6 +2304,13 @@
     <ReportParameter Name="SalesPerson">
       <DataType>String</DataType>
       <Prompt>Sales Person</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSet2</DataSetName>
+          <ValueField>SMNAME</ValueField>
+          <LabelField>SMNAME</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
