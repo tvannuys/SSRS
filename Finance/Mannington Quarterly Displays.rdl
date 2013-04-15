@@ -1138,7 +1138,7 @@
         <CommandText>="select * from openquery(gsfl2k,' " +
 "SELECT  " +
 " SHIDAT as Date, " +
-" BillTo.CMCUST AS MMIRTLNum, " +
+" VNCVCUST AS MMIRTLNum, " +
 " BillTo.CMNAME AS RetailerName, " +
 " shline.slinv# as InvoiceNumber, " +
 " shline.slitem as Product, " +
@@ -1163,8 +1163,8 @@
 "						AND SHLINE.SLINV# = SHHEAD.SHINV#) " +
 "LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM " +
 "left join ITEMXTRA on ITEMMAST.IMITEM = ITEMXTRA.IMXITM  " +
-"INNER JOIN CUSTMAST BillTo ON SHHEAD.SHBIL# = BillTo.CMCUST " +
-"/* left join itemrech RH on (RH.IRRECNBR = slrecnbr and rh.IRITEM = slitem and IRSRC = ''P'') */ " +
+"left JOIN CUSTMAST BillTo ON SHHEAD.SHBIL# = BillTo.CMCUST " +
+"left join vendcust on (billto.cmcust=VNCCUST and vncvend = ''10131'')" +
 
 "WHERE SHHEAD.SHIDAT between ''" + Parameters!pBeginDate.Value + "'' " +
 " and ''" + Parameters!pEndDate.Value + "'' " +
