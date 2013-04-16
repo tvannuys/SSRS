@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>BBos Spiff Promo from MS Access</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
@@ -14,10 +15,10 @@
         <DataSourceName>GartmanReports</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@StartDate">
-            <Value>=Format(Parameters!StartDate.Value, "dd/MM/yyyy")</Value>
+            <Value>=Format(Parameters!StartDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
           <QueryParameter Name="@EndDate">
-            <Value>=Format(Parameters!EndDate.Value, "dd/MM/yyyy")</Value>
+            <Value>=Format(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -2228,7 +2229,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>26.55208in</Width>
+            <Width>26.55207in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
