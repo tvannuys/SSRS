@@ -1,9 +1,7 @@
-/* Used in:  Previous Day Sample Orders v2.rdl */
-
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spSampleOrderLinesCreditNonUnion]    Script Date: 11/21/2012 18:10:17 ******/
+/****** Object:  StoredProcedure [dbo].[spSampleOrderLinesCreditNonUnion]    Script Date: 04/15/2013 11:54:35 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -16,7 +14,7 @@ GO
 
 
 
-CREATE proc [dbo].[spSampleOrderLinesCreditNonUnion]
+ALTER proc [dbo].[spSampleOrderLinesCreditNonUnion]
 
   @DaysBack as varchar(3) = '1'
 
@@ -31,7 +29,8 @@ set @sql = '
 		into #spSampleCredit
 		from openquery(gsfl2k,''
 
-		SELECT SHHEAD.SHINV# AS InvoiceNbr, 
+		SELECT shhead.shco as Company,
+		SHHEAD.SHINV# AS InvoiceNbr, 
 		SHHEAD.SHIDAT AS InvoiceDate, 
 		SHHEAD.SHCM AS CreditMemo, 
 		SHHEAD.SHPO# AS CustPO, 
@@ -53,7 +52,8 @@ insert #spSampleCredit
 
 select * from openquery(gsfl2k,''
 
-		SELECT h.SHINV# AS InvoiceNbr, 
+		SELECT h.shco as Company,
+		h.SHINV# AS InvoiceNbr, 
 		h.SHIDAT AS InvoiceDate, 
 		h.SHCM AS CreditMemo, 
 		h.SHPO# AS CustPO, 
