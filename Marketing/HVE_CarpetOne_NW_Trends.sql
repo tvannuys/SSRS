@@ -12,14 +12,14 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC HVE_CarpetOne_NW_Trends AS
+ALTER PROC HVE_CarpetOne_NW_Trends AS
 BEGIN
- SELECT cbcust									AS Cust#
-		,cmname									AS Name
+ SELECT cbcust									AS CustNbr 
+		,cmname									AS CustName
 		,cbblcd									AS Bill_Code
 		,bcdesc									AS [Description]
-		,cmslmn									AS Sales#
-		,smname									AS Name
+		,cmslmn									AS SalesNbr
+		,smname									AS SalesName
 		,cmadr1									AS Address1
 		,cmadr2									AS Address2		
 		,RTRIM(REVERSE(SUBSTRING(REVERSE						-- Split up the City and State since
