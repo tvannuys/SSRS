@@ -9,7 +9,7 @@
 select *, CMADR3, 
 	rtrim(reverse(substring(reverse(CMADR3),3,len(CMADR3)))) City,
 	reverse(left(reverse(CMADR3),2)) State
-from pubs.dbo.GSFL2K_CUSTMAST
+from custmast cm 
 
 
 -----------------------------------------------------------------------------------
