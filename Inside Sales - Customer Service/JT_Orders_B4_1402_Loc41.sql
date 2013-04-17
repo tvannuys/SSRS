@@ -61,6 +61,7 @@ BEGIN
 	WHERE oh.ohtime <= 140100
 		AND oh.ohdate = CURRENT_DATE 
 		AND oh.ohcrhl = ''Y''
+		AND oh.ohco = 2
 	')
 END
 
