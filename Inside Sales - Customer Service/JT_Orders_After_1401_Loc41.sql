@@ -11,7 +11,7 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC JT_Orders_After_1401_Loc41 AS
+ALTER PROC JT_Orders_After_1401_Loc41 AS
 BEGIN
  SELECT ohco		AS Co
 		,ohloc		AS Loc
@@ -23,12 +23,12 @@ BEGIN
 		,CAST( SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohtime),6),1,2) + ':'
 			 + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohtime),6),3,2) + ':'
 			 + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohtime),6),5,2) AS TIME)
-  		AS Created_Time
+  					AS Created_Time
 		---------------------------------------------
 		,oDt		AS Created_Date
 		---------------------------------------------
 		,CASE 
-			WHEN ohcrhl	= 'Y' THEN 'ON CREDIT HOLD'
+			WHEN ohcrhl	= 'Y' THEN 'ON CREDIT HOLD' ELSE ' '
 		 END		AS Credit_Hold
 		---------------------------------------------	
 		,ohcrus		AS Released_By
@@ -58,5 +58,6 @@ BEGIN
 	LEFT JOIN custmast cm ON cm.cmcust = oh.ohcust
 	WHERE oh.ohtime >= 140100
 		AND oh.ohdate = CURRENT_DATE 
+		AND oh.ohco = 2
 	')
 END
