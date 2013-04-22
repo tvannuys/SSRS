@@ -11,24 +11,25 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC JT_Orders_After_1401_Loc41 AS
+ALTER PROC JT_Orders_After_1401_Loc41 AS
 BEGIN
  SELECT ohco		AS Co
 		,ohloc		AS Loc
 		,ohord#		AS [Order]
 		,ohrel#		AS Rel
 		,cmname		AS Customer
+		,ortrt		AS [Route]
 		,ohuser		AS Created_By
 		---------------------------------------------
 		,CAST( SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohtime),6),1,2) + ':'
 			 + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohtime),6),3,2) + ':'
 			 + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohtime),6),5,2) AS TIME)
-  		AS Created_Time
+  					AS Created_Time
 		---------------------------------------------
 		,oDt		AS Created_Date
 		---------------------------------------------
 		,CASE 
-			WHEN ohcrhl	= 'Y' THEN 'ON CREDIT HOLD'
+			WHEN ohcrhl	= 'Y' THEN 'ON CREDIT HOLD' ELSE ' '
 		 END		AS Credit_Hold
 		---------------------------------------------	
 		,ohcrus		AS Released_By
@@ -47,6 +48,7 @@ BEGIN
 		,ohord# 
 		,ohrel# 
 		,cmname
+		,ortrt
 		,ohuser 
 	 	,ohtime
 		,MONTH(ohdate) || ''/'' || DAY(ohdate) || ''/''  ||	YEAR(ohdate) AS oDt
@@ -54,9 +56,17 @@ BEGIN
 		,ohcrus 
 		,ohcrtm
 		,MONTH(ohcrdt) || ''/'' || DAY(ohcrdt) || ''/''  ||	YEAR(ohcrdt) AS cDt
+		
 	FROM oohead oh
 	LEFT JOIN custmast cm ON cm.cmcust = oh.ohcust
+	LEFT JOIN ooroute ort ON (ort.ortco = oh.ohco
+							AND ort.ortloc = oh.ohloc
+							AND ort.ortord = oh.ohord#
+							AND ort.ortrel = oh.ohrel#)
+	
 	WHERE oh.ohtime >= 140100
 		AND oh.ohdate = CURRENT_DATE 
+		AND oh.ohco = 2
+		AND ort.ortrt != ''  ''
 	')
 END
