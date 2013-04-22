@@ -1053,6 +1053,8 @@ totals for the previous week.
 
 Changed to pull Program to Date totals (from June 1 2012) instead of YTD totals
 
+SR 10109 - request from Jason to limit to C1 dealers only
+
 */
 
 
@@ -1147,7 +1149,7 @@ and slitem in 	(select pefitm from PRICEXCP
 /* and year(shidat) in (year(current_date),year(current_date)  */
 and shidat &lt;= current_date - 4 days
 and slcust in (select cmkcus from custmktg 
-				where cmkmkc in (''C1'',''FA'',''PS''))
+				where cmkmkc in (''C1''))
 				
 order by Right(linecust.CMADR3,2),
 	linecust.cmname,
@@ -1161,7 +1163,6 @@ order by Right(linecust.CMADR3,2),
 imcls# in (2001,2001,2003,4177,4022,4026)
 
 */
-
 
 
 </CommandText>
