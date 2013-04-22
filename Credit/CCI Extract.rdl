@@ -32,9 +32,9 @@ cmcust,
 /* FIELD 2 */
 ''49924'' as MemberID,
 /* FIELD 3 */
-cmname as AccountName,
+replace(cmname, '','','' '') as AccountName,
 /* FIELD 4 */
-cmname as DBA,
+replace(cmname, '','','' '') as DBA,
 /* FIELD 5 */
 cmadr1,
 /* FIELD 6 */
@@ -742,7 +742,6 @@ select * from #TempCCI</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3065,6 +3064,9 @@ select * from #TempCCI</CommandText>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                  </Visibility>
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
