@@ -2,10 +2,19 @@
 -- James Tuttle		Date:10/16/2012
 -- Add five vendors to the list
 -- SR# 9807 James Tuttle 04/15/2013 Added IMCLAS = 'IM' 
+--------------------------------------------------------------------------------------------------------
+-- James Tuttle		Date:04/23/2013
+-- SR#10030
+-- 1. can review and see if you can have and po's that have been received to delete of report.
+-- 2. Also if you can add Div family field in last columns of report.
+-- 3. Also  Please add Qty on po.. 
+--------------------------------------------------------------------------------------------------------
 
-CREATE PROC spImportStatus AS 
+
+
+ALTER PROC spImportStatus AS 
 BEGIN 
-	select Buyer,OQ.VendorName,ProductCode,SKU,[Description],Color,Company,Location,PO,VendorRefNum,IssueDate,
+	select pldelt, Buyer,OQ.VendorName,ProductCode,SKU,[Description],Color,Company,Location,PO,POqty,VendorRefNum,IssueDate,
 	case ProductionDate
 		when '0001-01-01' then ''
 		else ProductionDate
@@ -27,7 +36,10 @@ BEGIN
 		then ''
 		else Manifest
 	end as Manifest
-
+	
+	,Division
+	,FamilyCode 
+	 
 	from openquery(GSFL2K,'
 
 	Select Poline.PLDDAT As DueDate, 
@@ -46,6 +58,7 @@ BEGIN
 	ProdCode.pcdesc as ProductCodeDesc,
 	Vendmast.VMNAME As VendorName, 
 	Poline.PLPO# As PO, 
+	Poline.plqord AS POqty,
 	Poline.PLITEM As SKU, 
 	Poline.PLDESC As Description, 
 	Itemmast.IMCOLR As Color, 
@@ -54,7 +67,9 @@ BEGIN
 							and mnpolo = poline.plloc
 							and mnitem = poline.plitem
 							and mnpoco = poline.plco) as Manifest
-
+	,imdiv AS Division
+	,pldelt
+	
 	FROM Poline
 
 	left join Itemmast on Itemmast.IMITEM = Poline.PLITEM
@@ -68,17 +83,15 @@ BEGIN
 	Left Join ProdCode On Itemmast.imprcd = ProdCode.pcprcd
 
 	Where Pohead.PHDOI > ''12/31/2005''
-	/* and FMFMCD not in (''L2'',''YI'') */
-	and IMSI = ''Y''
-	AND IMCLAS = ''IM'' 
-	/*and (poline.plvend in (''22666'',''22887'',''22674'',''22204'',''22859'',''23306'',''22312'',''16006'',''22179'',''24077'')
-		or (poline.plvend in(''21861'',''17000'',''10131'',''16006'') and imprcd in (''34057'',''4906'',''4906'',''6392'',''32608''))) */
+	  and IMSI = ''Y''
+	  AND IMCLAS = ''IM'' 
+	  AND Poline.pldelt = ''A''
 
 	Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
 	') OQ
 
 	Group by Buyer,OQ.VendorName,ProductCode,SKU,[Description],Color,Company,Location,
-	PO,VendorRefNum,IssueDate,ProductionDate,ShipDate,Confirmed,DueDate,manifest
+	PO,POqty,VendorRefNum,IssueDate,ProductionDate,ShipDate,Confirmed,DueDate,manifest,Division,FamilyCode,pldelt
 
 	Order by Buyer,Company,VendorName,ProductCode,SKU,IssueDate
 END
