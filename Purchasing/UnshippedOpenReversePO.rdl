@@ -12,41 +12,8 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
-        <CommandText>SELECT * 
-FROM OPENQUERY(GSFL2K,'
-	SELECT		POLINE.PLLOC as Location, 
-				POLINE.PLCO as Company,
-				POLINE.PLPO# as PONum, 
-				POHEAD.PHDOI as CreationDate, 
-				POHEAD.PHVEND as VendorNum, 
-				POHEAD.PHREF# as RefNum, 
-				POHEAD.PHRETURN as RPOFlag, 
-				POLINE.PLITEM as ItemNum, 
-				POLINE.PLDESC as ItemDesc, 
-				POLINE.PLQORD as QtyOrdered, 
-				POLINE.PLBLUO as BillUnitOrdered, 
-				POLINE.PLCOST as UnitCost, 
-				POTEXT.PTCMT1 as Text1, 
-				POTEXT.PTCMT2 as Text2,
-				POHEAD.PHULM as User
-
-
-FROM POLINE 
-INNER JOIN POHEAD ON (POLINE.PLCO = POHEAD.PHCO 
-AND POLINE.PLLOC = POHEAD.PHLOC 
-AND POLINE.PLPO# = POHEAD.PHPO#
-AND POLINE.PLREL# = POHEAD.PHREL#)
-
-INNER JOIN POTEXT ON (POLINE.PLCO = POTEXT.PTCO 
-AND POLINE.PLLOC = POTEXT.PTLOC 
-AND POLINE.PLPO# = POTEXT.PTPO# 
-AND POLINE.PLREL# = POTEXT.PTREL#)
-
-
-WHERE POHEAD.PHRETURN=''Y''
-ORDER BY POLINE.PLVEND
-
-')</CommandText>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>spUnshippedOpenReversePO</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
