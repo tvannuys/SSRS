@@ -53,7 +53,7 @@ AS
 	LEFT JOIN blcdmast bcm ON bcm.bcblcd = cb.cbblcd
 	LEFT JOIN salesman sm ON sm.smno = cm.cmslmn
 	')
-WHERE cbblcd IN (SELECT * FROM dbo.CSVToLIst(@CSV))
+WHERE cbblcd IN (SELECT * FROM dbo.udfCSVToLIst(@CSV))
 --END
 
 --EXEC(@sql)
