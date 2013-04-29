@@ -12,29 +12,31 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC  HVE_Carpet1_CCA_Buy_Group_Cust AS
+ALTER PROC  HVE_Carpet1_CCA_Buy_Group_Cust AS
 BEGIN
  SELECT cmdelt 
-		,cgcust								AS Cust#
-		,cgseq#								AS Seq#
-		,cmname								AS CustName
-		,cmloc								AS loc
-		,cmadr1								AS Address1
-		,cmadr2								AS Address2
+		,cgcust									AS Cust#
+		,cgseq#									AS Seq#
+		,cmname									AS CustName
+		,cmloc									AS loc
+		,cmadr1									AS Address1
+		,cmadr2									AS Address2
 		,RTRIM(REVERSE(SUBSTRING(REVERSE(
-				cmadr3),3,LEN(cmadr3))))	AS City
-		,REVERSE(LEFT(REVERSE(cmadr3),2))	AS [State]
-		,cmzip								AS Zip
-		,cmphone							AS Phone
-		,cmfax								AS Fax
-		,smno								AS SalesNbr
-		,smname								AS Name
-		,cgbgrp								AS BuyGrp
-		,cexclass							AS CustType
-		,ccldesc							AS [Description]
-		,cgffmc								AS FRMfm
-		,cgtfmc								AS TOfm
-		,cgcode								AS CBG
+				cmadr3),3,LEN(cmadr3))))		AS City			-- Seperate City and State since the DB2 stores as one
+		,REVERSE(LEFT(REVERSE(cmadr3),2))		AS [State]		-- Seperate City and State since the DB2 stores as one
+		,STUFF(cmzip,6,0,'-')					AS Zip			-- Format zip as 12345-1234
+		,cmphon									
+		,STUFF(STUFF(cmphon,4,0,'-'),8,0,'-')	AS Phone		-- Format with dashes for a phone number format
+		,STUFF(STUFF(cmfax,4,0,'-'),8,0,'-')	AS Fax			-- Format with dashes for a phone number format				
+		,smno									AS SalesNbr
+		,smname									AS Name
+		,cgbgrp									AS BuyGrp
+		,cexclass								AS CustType
+		,ccldesc								AS [Description]
+		,cgffmc									AS FRMfm
+		,cgtfmc									AS TOfm
+		,cgcode									AS CBG
+		
  FROM OPENQUERY(GSFL2K,	
 	'SELECT cmdelt 
 		,cgcust
@@ -43,8 +45,9 @@ BEGIN
 		,cmloc 
 		,cmadr1 
 		,cmadr2 
+		,cmadr3
 		,cmzip
-		,cmphone
+		,cmphon
 		,cmfax
 		,smname
 		,cgbgrp
@@ -57,7 +60,7 @@ BEGIN
 		
 	FROM custmast cm
 	LEFT JOIN custbgrp cbg ON cbg.cgcust = cm.cmcust
-	LEFT JOIN salesman sm ON sm.smno = cm.cmno
+	LEFT JOIN salesman sm ON sm.smno = cm.cmslmn
 	LEFT JOIN custextn cxt ON cxt.cexcust = cbg.cgcust
 	LEFT JOIN cuclmast clm ON clm.cclclass = cxt.cexclass
 	
@@ -70,7 +73,7 @@ END
 
 
 
--------------------------------------------------------------------------------------------------------------------------------------
+/*-------------------------------------------------------------------------------------------------------------------------------------
 SELECT GSFL2K_CUSTMAST.CMDELT, 
 		 GSFL2K_CUSTBGRP.CGCUST AS [Cust Nbr],
 		 GSFL2K_CUSTBGRP.[CGSEQ#], 
@@ -100,4 +103,4 @@ INNER JOIN GSFL2K_CUSTEXTN ON GSFL2K_CUSTBGRP.CGCUST = GSFL2K_CUSTEXTN.CEXCUST)
 INNER JOIN GSFL2K_CUCLMAST ON GSFL2K_CUSTEXTN.CEXCLASS = GSFL2K_CUCLMAST.CCLCLASS
 
 WHERE (((GSFL2K_CUSTBGRP.CGBGRP)="CARPET1" Or (GSFL2K_CUSTBGRP.CGBGRP)="CCA"));
--------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------*/
