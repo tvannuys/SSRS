@@ -1,0 +1,3 @@
+http://archive.msdn.microsoft.com/SQLExamples/Wiki/View.aspx?title=StringArrayInput
+
+CSV / Array() in SQL 2008
