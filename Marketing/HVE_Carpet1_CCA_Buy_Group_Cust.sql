@@ -24,8 +24,7 @@ BEGIN
 		,RTRIM(REVERSE(SUBSTRING(REVERSE(
 				cmadr3),3,LEN(cmadr3))))		AS City			-- Seperate City and State since the DB2 stores as one
 		,REVERSE(LEFT(REVERSE(cmadr3),2))		AS [State]		-- Seperate City and State since the DB2 stores as one
-		,STUFF(cmzip,6,0,'-')					AS Zip			-- Format zip as 12345-1234
-		,cmphon									
+		,STUFF(cmzip,6,0,'-')					AS Zip			-- Format zip as 12345-1234							
 		,STUFF(STUFF(cmphon,4,0,'-'),8,0,'-')	AS Phone		-- Format with dashes for a phone number format
 		,STUFF(STUFF(cmfax,4,0,'-'),8,0,'-')	AS Fax			-- Format with dashes for a phone number format				
 		,smno									AS SalesNbr
