@@ -12,11 +12,16 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC DA_Open_Orders_MKTG_Batch AS
+ALTER PROC DA_Open_Orders_MKTG_Batch 
+	@Item varchar(35)
+AS
 BEGIN
+ DECLARE @sql varchar(3000)
+ SET @sql ='	
+
  SELECT *
  FROM OPENQUERY(GSFL2K,	
-	'SELECT ohodat AS Order_Date
+	''SELECT MONTH(ohodat) || ''''/'''' || DAY(ohodat) || ''''/'''' || YEAR(ohodat) AS Order_Date
 		,ohvia AS Via
 		,ohotyp AS Order_Type
 		,olord# AS Order_Nbr
@@ -27,8 +32,9 @@ BEGIN
 		,oliloc AS Inv_Loc
 		,olqord AS Qty_Ordered
 		,olqbo AS Qty_BO
-		,cmslmn AS SalesPerson
-		,ohsdat	AS Ship_Date
+		,cmslmn AS SalesNbr
+		,smname AS SalesPerson
+		,MONTH(ohsdat) || ''''/'''' || DAY(ohsdat) || ''''/'''' || YEAR(ohsdat)	AS Ship_Date
 		
 	FROM oohead oh
 	LEFT JOIN ooline ol ON (oh.ohco = ol.olco
@@ -38,13 +44,21 @@ BEGIN
 						AND oh.ohcust = ol.olcust)
 	LEFT JOIN custmast cm ON cm.cmcust = oh.ohcust
 	LEFT JOIN Itemmast im ON im.imitem = ol.olitem
+	LEFT JOIN salesman sm ON sm.smno = cm.cmslmn
 	
-	WHERE oh.ohotyp = ''SA''
-		AND olico = 1
-		AND ol.olitem = ''''' + ''''' + ' + @Item + ''''' + '''''
-	')
+	WHERE oh.ohotyp = ''''SA''''
+		AND ol.olico = 1
+		AND ol.olitem = '+ '''' + '''' + @Item + '''' + '''' + ' 
+	'')'
 END
------------------------------------------------------------------------------------------------------------------------------------
+EXEC(@sql)
+GO
+
+-- DA_Open_Orders_MKTG_Batch GACRYSTALHANDSET
+
+/*-----------------------------------------------------------------------------------------------------------------------------------
+FROM MS Access
+
 SELECT GSFL2K_OOHEAD.OHODAT AS [Order Date], 
 		GSFL2K_OOHEAD.OHVIA, 
 		GSFL2K_OOHEAD.OHOTYP, 
@@ -68,4 +82,4 @@ ON GSFL2K_ITEMMAST.IMITEM = GSFL2K_OOLINE.OLITEM
 WHERE (((GSFL2K_OOHEAD.OHOTYP)="SA") 
 	AND ((GSFL2K_OOLINE.OLITEM)="GACRYSTALHANDSET") 
 	AND ((GSFL2K_OOLINE.OLICO)=1));
------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------*/
