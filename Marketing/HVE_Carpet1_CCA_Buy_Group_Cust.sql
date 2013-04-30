@@ -15,26 +15,46 @@
 ALTER PROC  HVE_Carpet1_CCA_Buy_Group_Cust AS
 BEGIN
  SELECT cmdelt 
-		,cgcust									AS Cust#
-		,cgseq#									AS Seq#
-		,cmname									AS CustName
-		,cmloc									AS loc
-		,cmadr1									AS Address1
-		,cmadr2									AS Address2
+		,cgcust														AS Cust#
+		,cgseq#														AS Seq#
+		,cmname														AS CustName
+		,cmloc														AS loc
+		,cmadr1														AS Address1
+		,cmadr2														AS Address2
 		,RTRIM(REVERSE(SUBSTRING(REVERSE(
-				cmadr3),3,LEN(cmadr3))))		AS City			-- Seperate City and State since the DB2 stores as one
-		,REVERSE(LEFT(REVERSE(cmadr3),2))		AS [State]		-- Seperate City and State since the DB2 stores as one
-		,STUFF(cmzip,6,0,'-')					AS Zip			-- Format zip as 12345-1234							
-		,STUFF(STUFF(cmphon,4,0,'-'),8,0,'-')	AS Phone		-- Format with dashes for a phone number format
-		,STUFF(STUFF(cmfax,4,0,'-'),8,0,'-')	AS Fax			-- Format with dashes for a phone number format				
-		,smno									AS SalesNbr
-		,smname									AS Name
-		,cgbgrp									AS BuyGrp
-		,cexclass								AS CustType
-		,ccldesc								AS [Description]
-		,cgffmc									AS FRMfm
-		,cgtfmc									AS TOfm
-		,cgcode									AS CBG
+				cmadr3),3,LEN(cmadr3))))							AS City			-- Seperate City and State since the DB2 stores as one
+		,REVERSE(LEFT(REVERSE(cmadr3),2))							AS [State]		-- Seperate City and State since the DB2 stores as one
+		,STUFF(cmzip,6,0,'-')										AS Zip			-- Format zip as 12345-1234							
+		,STUFF(STUFF(cmphon,4,0,'-'),8,0,'-')						
+-------------------------------------------------------------------------------------------------------------------------------------------		
+		,CASE LEN(cmphon)
+		WHEN 11 THEN LEFT(cmphon,1)+
+			STUFF(STUFF(STUFF(cmphon,1,1,' ('),6,0,') '),11,0,'-')
+		WHEN 10 THEN
+			STUFF(STUFF(STUFF(cmphon,1,0,' ('),6,0,') '),11,0,'-')
+		WHEN 7 THEN
+			STUFF(cmphon,4,0,'-')
+		ELSE 'No Number'
+		END															AS Phone		-- Format with dashes for a phone number format
+-------------------------------------------------------------------------------------------------------------------------------------------		
+		,CASE LEN(cmfax)
+		WHEN 11 THEN LEFT(cmfax,1)+
+			STUFF(STUFF(STUFF(cmfax,1,1,' ('),6,0,') '),11,0,'-')
+		WHEN 10 THEN
+			STUFF(STUFF(STUFF(cmfax,1,0,' ('),6,0,') '),11,0,'-')
+		WHEN 7 THEN
+			STUFF(cmfax,4,0,'-')
+		ELSE 'No Number'
+		END															AS Fax			-- Format with dashes for a phone number format	
+-------------------------------------------------------------------------------------------------------------------------------------------																
+		,smno														AS SalesNbr
+		,smname														AS Name
+		,cgbgrp														AS BuyGrp
+		,cexclass													AS CustType
+		,ccldesc													AS [Description]
+		,cgffmc														AS FRMfm
+		,cgtfmc														AS TOfm
+		,cgcode														AS CBG
 		
  FROM OPENQUERY(GSFL2K,	
 	'SELECT cmdelt 
