@@ -43,8 +43,8 @@ where ohord# in (select H2.ohord#
 				join itemmast I2 on L2.olitem = I2.imitem
 				where imfmcd in (''Y1'',''Y2'',''Y3'',''Y9'')
 				
-				and H2.ohtotl &gt;= 5000)
-and ohtotl &gt;= 5000
+				and H2.ohtotl &gt;= 4000)
+and ohtotl &gt;= 4000
 ')</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
