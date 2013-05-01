@@ -1,0 +1,6 @@
+-- In BIDS a PROC with a PARM does not bring
+-- the media tags over. This will allow that 
+
+ SET FMTONLY ON;
+ EXEC <Stored Procedure>
+ SET FMTONLY OFF;
