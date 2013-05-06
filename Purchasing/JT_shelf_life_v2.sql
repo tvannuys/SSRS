@@ -1,5 +1,5 @@
 
-CREATE PROC JT_shelf_life_v2 As
+ALTER PROC JT_shelf_life_v2 As
 
 /*==========================================================*
 ** James Tuttle												*
@@ -12,7 +12,9 @@ CREATE PROC JT_shelf_life_v2 As
 **															*
 **==========================================================*/ 
 
-
+-- SR# 10556
+-- Added Items to exclude and sorted by loc and date DESC
+-- James TUttle    05/06/2013
 
 
 SELECT *
@@ -35,9 +37,10 @@ FROM Openquery(GSFL2K, 'SELECT id.idloc as loc,
 							AND id.idqoh > 0
 							AND im.imprcd NOT IN (900, 905, 906)
 							AND im.imitem NOT IN (''CUDL75'', ''WATH115F12VDC'', ''TAUOBLACKLIGHT'',''CUC924OF'',
-								''MA4005KIT'', ''AQSAMAMPG'')
+								''MA4005KIT'', ''AQSAMAMPG'',''TAHAVSMDSTAPE '',''HAVSMDSTAPE'')
 							AND DAYS(id.iddate) < DAYS(CURRENT_DATE) - 365
 							AND im.imfmcd IN (''A1'', ''A4'', ''A3'',''A6'',''C7'',''U3'')
 						ORDER BY id.idloc
+								,DAYS(CURRENT_DATE) - DAYS(id.iddate) DESC
 						
 						')
