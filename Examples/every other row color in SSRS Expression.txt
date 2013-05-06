@@ -1,2 +1,2 @@
 /* Expression for ROW in BackGroundColor [every other row color]
-=iif(RowNumber(Nothing) Mod 2, "Gainsboro", "White")
+=iif(RowNumber(Nothing) Mod 2, "WhiteSmoke", "White")
