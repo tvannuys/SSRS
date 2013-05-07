@@ -5,6 +5,13 @@
 -- Added not to include reverse POs
 -- PHRETURN != ''Y''
 ------------------------------------------------------------*/
+-- SR# 8370
+-- James Tuttle 05/07/2013
+--  Rename a couple of columns
+--	Rearrange the display of fields
+--  Add columns:	@ Not Attached
+--					@ Avail
+----------------------------------------------------------------
 
 
 ALTER Proc [dbo].[InboundFrieghtPM] as
@@ -23,6 +30,9 @@ Poline.PLITEM As SKU,
 Poline.PLDESC As Description, 
 Itemmast.IMCOLR As Color, 
 Poline.PLQORD As UnitsOrder,
+Poboline.PBOQTY As QtySold,
+(Poline.PLQORD - Poboline.PBOQTY) As NotAttached,
+
 Itemfact.IFFACA, 
 Itemfact.IFUMC, 
 Poline.PLQORD/Itemfact.IFFACA As TotalPallets,
@@ -42,6 +52,10 @@ Left Join Pohead On (Poline.PLco = Pohead.PHco
 Left Join Itemfact On Poline.PLITEM = Itemfact.IFITEM 
 Left Join Vendmast On Poline.PLVEND = Vendmast.VMVEND 
 Left Join Family On Poline.PLFMCD = Family.FMFMCD 
+Left Join Poboline On (Poline.plco = Poboline.pbco
+					AND Poline.plloc = Poboline.pbloc
+					AND poline.plpo# = Poboline.pbpo#
+					AND Poline.plitem = Poboline.pbitem)
 
 Where Itemfact.IFUMC = ''P'' 
 AND Poline.PLITEM <> ''GENPROMO'' 
@@ -61,13 +75,36 @@ and ((poline.plvend in (22666,16088,22816,22887,22204,22949,22686,22674,22859)) 
 and Poline.PLDDAT <> ''0001-01-01''
 AND POhead.phreturn != ''Y''
 
+AND Poline.plitem = ''LOGVWC60208P''
+
+ GROUP BY Poline.PLDDAT
+,Poline.PLCO
+,Poline.PLLOC 
+,Family.FMDESC
+,Vendmast.VMNAME
+,Poline.PLPO#
+,Poline.PLITEM  
+,Poline.PLDESC
+,Itemmast.IMCOLR
+,Poline.PLQORD 
+,Poboline.PBOQTY
+,Itemfact.IFFACA
+,Itemfact.IFUMC
+,Poline.PLDDAT - 7 DAYS
+,(Poline.PLQORD - Poboline.PBOQTY)
+,Poline.PLQORD/Itemfact.IFFACA
+,(select max(mnman#) from manifest where mnpo# = poline.plpo#
+						and mnpolo = poline.plloc
+						and mnitem = poline.plitem
+						and mnpoco = poline.plco)
+,(select sum(ibqoh) from itembal where ibitem = itemmast.imitem) 
+
+
 Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
 ') OQ
 
 LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#
 
-
-END
 GO
 
 
