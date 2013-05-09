@@ -21,7 +21,15 @@ ALTER PROC JT_AdjustmentReport
 AS
 BEGIN
 DECLARE @sql varchar(4000) = '
- SELECT *
+ SELECT irco					AS Co
+		,irloc					AS Loc
+		,aDate					AS [Date]
+		,irreason				AS Code
+		,irqty					AS Qty
+		,ircost					AS Cost
+		,CAST((irqty * ircost)
+			AS DECIMAL(18,5))	AS TotalCost
+			
  FROM OPENQUERY(GSFL2K,	
 	''SELECT irco
 		,irloc
@@ -29,7 +37,7 @@ DECLARE @sql varchar(4000) = '
 		,irreason
 		,irqty
 		,ircost
-
+		
 	FROM itemrech ir
 	
 	WHERE ir.irco =  ' + '''' + '''' + @co + '''' + '''' + '
