@@ -31,8 +31,12 @@ Poline.PLDESC As Description,
 Itemmast.IMCOLR As Color, 
 Poline.PLQORD As UnitsOrder,
 Poboline.PBOQTY As QtySold,
-(Poline.PLQORD - Poboline.PBOQTY) As NotAttached,
-
+/*--------------------- Test if NULL and and display the correct Qty	------------------*/
+CASE
+	WHEN Poboline.pboqty IS NULL THEN Poline.PLQORD
+	ELSE (Poline.PLQORD - Poboline.PBOQTY)
+END As NotAttached,
+/*----------------------------------------------------------------------------------------*/
 Itemfact.IFFACA, 
 Itemfact.IFUMC, 
 Poline.PLQORD/Itemfact.IFFACA As TotalPallets,
@@ -40,7 +44,9 @@ Poline.PLQORD/Itemfact.IFFACA As TotalPallets,
 						and mnpolo = poline.plloc
 						and mnitem = poline.plitem
 						and mnpoco = poline.plco) as Manifest,
-(select sum(ibqoh) from itembal where ibitem = itemmast.imitem) as OnHand
+(select sum(ibqoh) from itembal where ibitem = itemmast.imitem) as OnHand,
+(select sum(ibqoh) - sum(ibqoo) from itembal where ibitem = itemmast.imitem) as Avail
+
 
 FROM Poline
 
@@ -75,11 +81,12 @@ and ((poline.plvend in (22666,16088,22816,22887,22204,22949,22686,22674,22859)) 
 and Poline.PLDDAT <> ''0001-01-01''
 AND POhead.phreturn != ''Y''
 
-AND Poline.plitem = ''LOGVWC60208P''
+AND Poline.plitem = ''LOGVWC60208P'' /* <----------------------------------- REMOVE   */
 
  GROUP BY Poline.PLDDAT
 ,Poline.PLCO
 ,Poline.PLLOC 
+,Poline.PLDDAT
 ,Family.FMDESC
 ,Vendmast.VMNAME
 ,Poline.PLPO#
@@ -87,7 +94,7 @@ AND Poline.plitem = ''LOGVWC60208P''
 ,Poline.PLDESC
 ,Itemmast.IMCOLR
 ,Poline.PLQORD 
-,Poboline.PBOQTY
+,Poboline.PBOQTY 
 ,Itemfact.IFFACA
 ,Itemfact.IFUMC
 ,Poline.PLDDAT - 7 DAYS
@@ -98,13 +105,38 @@ AND Poline.plitem = ''LOGVWC60208P''
 						and mnitem = poline.plitem
 						and mnpoco = poline.plco)
 ,(select sum(ibqoh) from itembal where ibitem = itemmast.imitem) 
-
+,(select sum(ibqoh) - sum(ibqoo) from itembal where ibitem = itemmast.imitem)
 
 Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
 ') OQ
 
 LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#
 
+ 
+
+--DUEDATE
+--		,ACTUALarrivalDUEdate
+--		,PLCO
+--		,LOC
+--		,PO
+--		,DUUEDATE
+--		,FMDESC
+--		,VENDORNAME
+--		,SKU
+--		,[DESCRIPTION]
+--		,COLOR
+--		,UNITSORDER
+--		,QTYSOLD
+--		,NOTATTACHED
+--		,IFFACA
+--		,IFUMC
+--		,TOTALPALLETS
+--		,MANIFEST
+--		,ONHAND
+--		,AVAIL
+--		,MTSTATUS
 GO
 
 
+/*
+*/
