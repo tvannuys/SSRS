@@ -40,8 +40,8 @@ Poline.PLQORD/Itemfact.IFFACA As TotalPallets,
 (select sum(ibqoh) - sum(ibqoo) from itembal where ibitem = itemmast.imitem) as Avail,
 
 sum(Poline.PLQORD) As UnitsOrder,
-sum(Poboline.PBOQTY) As QtySold,
-sum(Poline.PLQORD - Poboline.PBOQTY) as NotAttached 
+sum(ifnull(Poboline.PBOQTY,0)) As QtySold,
+sum(Poline.PLQORD - ifnull(Poboline.PBOQTY,0)) as NotAttached 
 
 FROM Poline
 
