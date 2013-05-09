@@ -29,14 +29,6 @@ Poline.PLPO# As PO,
 Poline.PLITEM As SKU, 
 Poline.PLDESC As Description, 
 Itemmast.IMCOLR As Color, 
-Poline.PLQORD As UnitsOrder,
-Poboline.PBOQTY As QtySold,
-/*--------------------- Test if NULL and and display the correct Qty	------------------*/
-CASE
-	WHEN Poboline.pboqty IS NULL THEN Poline.PLQORD
-	ELSE (Poline.PLQORD - Poboline.PBOQTY)
-END As NotAttached,
-/*----------------------------------------------------------------------------------------*/
 Itemfact.IFFACA, 
 Itemfact.IFUMC, 
 Poline.PLQORD/Itemfact.IFFACA As TotalPallets,
@@ -45,8 +37,11 @@ Poline.PLQORD/Itemfact.IFFACA As TotalPallets,
 						and mnitem = poline.plitem
 						and mnpoco = poline.plco) as Manifest,
 (select sum(ibqoh) from itembal where ibitem = itemmast.imitem) as OnHand,
-(select sum(ibqoh) - sum(ibqoo) from itembal where ibitem = itemmast.imitem) as Avail
+(select sum(ibqoh) - sum(ibqoo) from itembal where ibitem = itemmast.imitem) as Avail,
 
+sum(Poline.PLQORD) As UnitsOrder,
+sum(Poboline.PBOQTY) As QtySold,
+sum(Poline.PLQORD - Poboline.PBOQTY) as NotAttached 
 
 FROM Poline
 
@@ -93,12 +88,9 @@ AND Poline.plitem = ''LOGVWC60208P'' /* <----------------------------------- REM
 ,Poline.PLITEM  
 ,Poline.PLDESC
 ,Itemmast.IMCOLR
-,Poline.PLQORD 
-,Poboline.PBOQTY 
 ,Itemfact.IFFACA
 ,Itemfact.IFUMC
 ,Poline.PLDDAT - 7 DAYS
-,(Poline.PLQORD - Poboline.PBOQTY)
 ,Poline.PLQORD/Itemfact.IFFACA
 ,(select max(mnman#) from manifest where mnpo# = poline.plpo#
 						and mnpolo = poline.plloc
