@@ -1,5 +1,5 @@
 
---ALTER PROC JT_inv_adjustments AS
+ALTER PROC JT_inv_adjustments AS
 
 /* -----------------------------------------------------*
 ** James Tuttle 5/10/2011		Created: 10/09/2008		*
@@ -9,7 +9,10 @@
 **------------------------------------------------------*
 */
 --SET STATISTICS TIME ON
-
+--========================================================
+-- James Tuttle  Date:05/16/2013
+-- SR# 10886
+--========================================================
 -- Query
 SELECT irloc 'Location',
 	irreason 'Adj Code',
@@ -26,7 +29,7 @@ SELECT irloc 'Location',
 FROM OPENQUERY (GSFL2K, '
 SELECT *
 FROM itemrech
-WHERE irreason IN(''02'', ''25'', ''16'', ''38'', ''39'', ''PI'', ''52'')
+WHERE irreason IN(''02'', ''25'', ''16'', ''38'', ''39'', ''PI'', ''52'',''BI'')
 	AND irdate = (CURRENT_DATE - 1 DAY)
 	AND irqty > 0
 ')
