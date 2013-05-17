@@ -29,7 +29,7 @@ SELECT irloc 'Location',
 FROM OPENQUERY (GSFL2K, '
 SELECT *
 FROM itemrech
-WHERE irreason IN(''02'', ''25'', ''16'', ''38'', ''39'', ''PI'', ''52'',''BI'')
+WHERE irreason IN(''02'', ''25'', ''16'', ''38'', ''39'', ''PI'', ''52'')
 	AND irdate = (CURRENT_DATE - 1 DAY)
 	AND irqty > 0
 ')
