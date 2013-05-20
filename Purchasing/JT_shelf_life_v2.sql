@@ -14,11 +14,12 @@ ALTER PROC JT_shelf_life_v2 As
 
 -- SR# 10556
 -- Added Items to exclude and sorted by loc and date DESC
--- James TUttle    05/06/2013
+-- James Tuttle    05/06/2013
 
 
 SELECT *
-FROM Openquery(GSFL2K, 'SELECT id.idloc as loc,
+FROM Openquery(GSFL2K, 'SELECT id.idco as co,
+							id.idloc as loc,
 							im.imsi as stocking,
 							im.imdrop as drop,
 							im.imitem as item,
@@ -40,7 +41,8 @@ FROM Openquery(GSFL2K, 'SELECT id.idloc as loc,
 								''MA4005KIT'', ''AQSAMAMPG'',''TAHAVSMDSTAPE '',''HAVSMDSTAPE'')
 							AND DAYS(id.iddate) < DAYS(CURRENT_DATE) - 365
 							AND im.imfmcd IN (''A1'', ''A4'', ''A3'',''A6'',''C7'',''U3'')
-						ORDER BY id.idloc
-								,DAYS(CURRENT_DATE) - DAYS(id.iddate) DESC
+						ORDER BY id.idco
+								,id.idloc
+								
 						
 						')
