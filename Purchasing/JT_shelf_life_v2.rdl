@@ -17,48 +17,48 @@
         <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_shelf_life_v2" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IDCO" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IDLOC" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IMSI" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IMDROP" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IMITEM" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IMDESC" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IMCOLR" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IDDATE" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IDBIN" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IDQOH" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="IDQOO" /><ColumnExpression ColumnOwner="JT_shelf_life_v2" ColumnName="AGE_IN_DAYS" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
-        <Field Name="IDCO">
-          <DataField>IDCO</DataField>
+        <Field Name="LOC">
+          <DataField>LOC</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="IDLOC">
-          <DataField>IDLOC</DataField>
+        <Field Name="CO">
+          <DataField>CO</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="IMSI">
-          <DataField>IMSI</DataField>
+        <Field Name="STOCKING">
+          <DataField>STOCKING</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IMDROP">
-          <DataField>IMDROP</DataField>
+        <Field Name="DROP">
+          <DataField>DROP</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IMITEM">
-          <DataField>IMITEM</DataField>
+        <Field Name="ITEM">
+          <DataField>ITEM</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IMDESC">
-          <DataField>IMDESC</DataField>
+        <Field Name="DESCRIPTION">
+          <DataField>DESCRIPTION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IMCOLR">
-          <DataField>IMCOLR</DataField>
+        <Field Name="COLOR">
+          <DataField>COLOR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IDDATE">
-          <DataField>IDDATE</DataField>
+        <Field Name="DATE">
+          <DataField>DATE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IDBIN">
-          <DataField>IDBIN</DataField>
+        <Field Name="BIN">
+          <DataField>BIN</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IDQOH">
-          <DataField>IDQOH</DataField>
+        <Field Name="QOH">
+          <DataField>QOH</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="IDQOO">
-          <DataField>IDQOO</DataField>
+        <Field Name="QOO">
+          <DataField>QOO</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="AGE_IN_DAYS">
@@ -68,7 +68,7 @@
       </Fields>
       <Filters>
         <Filter>
-          <FilterExpression>=Fields!IDCO.Value</FilterExpression>
+          <FilterExpression>=Fields!CO.Value</FilterExpression>
           <Operator>Equal</Operator>
           <FilterValues>
             <FilterValue>=Parameters!prmCompany.Value</FilterValue>
@@ -85,7 +85,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.36458in</Width>
+                  <Width>0.47917in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.41667in</Width>
@@ -127,14 +127,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox2">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Co</Value>
+                                  <Value>CO</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -148,7 +148,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -588,14 +588,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IDCO">
+                        <Textbox Name="CO">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!IDCO.Value)</Value>
+                                  <Value>=Fields!CO.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -607,7 +607,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IDCO</rd:DefaultName>
+                          <rd:DefaultName>CO</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -623,14 +623,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IDLOC">
+                        <Textbox Name="LOC">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!IDLOC.Value)</Value>
+                                  <Value>=Fields!LOC.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -642,7 +642,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IDLOC</rd:DefaultName>
+                          <rd:DefaultName>LOC</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -658,14 +658,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IMSI">
+                        <Textbox Name="STOCKING">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IMSI.Value</Value>
+                                  <Value>=Fields!STOCKING.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -677,7 +677,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IMSI</rd:DefaultName>
+                          <rd:DefaultName>STOCKING</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -693,14 +693,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IMDROP">
+                        <Textbox Name="DROP">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IMDROP.Value</Value>
+                                  <Value>=Fields!DROP.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -712,7 +712,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IMDROP</rd:DefaultName>
+                          <rd:DefaultName>DROP</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -728,14 +728,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IMITEM">
+                        <Textbox Name="ITEM">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IMITEM.Value</Value>
+                                  <Value>=Fields!ITEM.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -747,7 +747,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IMITEM</rd:DefaultName>
+                          <rd:DefaultName>ITEM</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -763,14 +763,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IMDESC">
+                        <Textbox Name="DESCRIPTION">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IMDESC.Value</Value>
+                                  <Value>=Fields!DESCRIPTION.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -782,7 +782,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IMDESC</rd:DefaultName>
+                          <rd:DefaultName>DESCRIPTION</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -798,14 +798,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IMCOLR">
+                        <Textbox Name="COLOR">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IMCOLR.Value</Value>
+                                  <Value>=Fields!COLOR.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -817,7 +817,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IMCOLR</rd:DefaultName>
+                          <rd:DefaultName>COLOR</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -833,14 +833,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IDDATE">
+                        <Textbox Name="DATE">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IDDATE.Value</Value>
+                                  <Value>=Fields!DATE.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>M/d/yyyy</Format>
@@ -853,7 +853,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IDDATE</rd:DefaultName>
+                          <rd:DefaultName>DATE</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -869,14 +869,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IDBIN">
+                        <Textbox Name="BIN">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IDBIN.Value</Value>
+                                  <Value>=Fields!BIN.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -888,7 +888,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IDBIN</rd:DefaultName>
+                          <rd:DefaultName>BIN</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -904,14 +904,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IDQOH">
+                        <Textbox Name="QOH">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!IDQOH.Value)</Value>
+                                  <Value>=Fields!QOH.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -923,7 +923,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IDQOH</rd:DefaultName>
+                          <rd:DefaultName>QOH</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -939,14 +939,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IDQOO">
+                        <Textbox Name="QOO">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!IDQOO.Value)</Value>
+                                  <Value>=Fields!QOO.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -958,7 +958,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IDQOO</rd:DefaultName>
+                          <rd:DefaultName>QOO</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -981,7 +981,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!AGE_IN_DAYS.Value)</Value>
+                                  <Value>=Fields!AGE_IN_DAYS.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -1034,13 +1034,22 @@
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!LOC.Value</Value>
+                    </SortExpression>
+                    <SortExpression>
+                      <Value>=Fields!AGE_IN_DAYS.Value</Value>
+                      <Direction>Descending</Direction>
+                    </SortExpression>
+                  </SortExpressions>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.79931in</Top>
             <Height>0.5in</Height>
-            <Width>10.53125in</Width>
+            <Width>10.64584in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1097,7 +1106,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ExecutionTime</rd:DefaultName>
-            <Left>8.53125in</Left>
+            <Left>8.64584in</Left>
             <Height>0.25in</Height>
             <Width>2in</Width>
             <ZIndex>2</ZIndex>
@@ -1119,7 +1128,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Globals!ReportName</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1140,25 +1151,15 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>2.16667in</Height>
+        <Height>1.3125in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>12in</Width>
+      <Width>10.67708in</Width>
       <Page>
-        <PageFooter>
-          <Height>0.45in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
@@ -1176,7 +1177,7 @@
           <Value>1</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Company</Prompt>
+      <Prompt>Company:</Prompt>
       <ValidValues>
         <ParameterValues>
           <ParameterValue>
