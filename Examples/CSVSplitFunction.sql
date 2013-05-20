@@ -1,5 +1,5 @@
 ---- http://www.geekzilla.co.uk/view5C09B52C-4600-4B66-9DD7-DCE840D64CBD.htm
---CREATE FUNCTION dbo.CSVToList (@CSV varchar(3000)) 
+--CREATE FUNCTION dbo.udfCSVToList (@CSV varchar(3000)) 
 --    RETURNS @Result TABLE (Value varchar(30))
 --AS   
 --BEGIN
@@ -48,7 +48,7 @@ FROM OPENQUERY(GSFL2K,''
 						,ohord#
 					FROM oohead
 					'')
-WHERE ohloc IN (SELECT * FROM dbo.CSVToList('''''+@CSV+'''''))'
+WHERE ohloc IN (SELECT * FROM dbo.udfCSVToList('''''+@CSV+'''''))'
 EXEC(@sql)
 GO
 -- EXEC JT_CSV '2,3,4'
@@ -63,7 +63,7 @@ FROM OPENQUERY(GSFL2K,'
 						,ohord#
 					FROM oohead
 					')
-WHERE ohloc IN (SELECT * FROM dbo.CSVToList(@CSV))
+WHERE ohloc IN (SELECT * FROM dbo.udfCSVToList(@CSV))
 
 GO
 -- EXEC JT_CSV2 '2,3,4'
