@@ -10,9 +10,15 @@
 **																				**
 **																				**
 **********************************************************************************/
+--
+-- James Tuttle   Date: 05/21/2013
+-- SR# 9939 PARMS on BillCode
+--
+------------------------------------------------------------------------------------
 
 ALTER PROC HVE_Mann_Porcelain_Display_Customers_ByRepNbr
-	@Salesman varchar(3)	
+	@Salesman varchar(3)
+	,@CSV varchar(100)
 	
 AS
 BEGIN
@@ -48,29 +54,19 @@ SET @sql = '
 	LEFT JOIN blcdmast bcm ON bcm.bcblcd = cb.cbblcd
 	LEFT JOIN salesman sm ON sm.smno = cm.cmslmn
 	
-	WHERE (cb.cbblcd = ''''PS''''
-		 OR cb.cbblcd = ''''PU''''
-		 OR cb.cbblcd = ''''23'''' 
-		 OR cb.cbblcd = ''''49'''' 
-		 OR cb.cbblcd = ''''61''''
-		 OR cb.cbblcd = ''''PR'''' 
-		 OR cb.cbblcd = ''''PQ'''' 
-		 OR cb.cbblcd = ''''AG'''' 
-		 OR cb.cbblcd = ''''35'''' 
-		 OR cb.cbblcd = ''''38'''' 
-		 OR cb.cbblcd = ''''39'''' 
-		 OR cb.cbblcd = ''''51'''' 
-		 OR cb.cbblcd = ''''52'''' 
-		 OR cb.cbblcd = ''''53'''' 
-		 OR cb.cbblcd = ''''63'''' 
-		 OR cb.cbblcd = ''''64'''' 
-		 OR cb.cbblcd = ''''65'''' 
-		 OR cb.cbblcd = ''''77''''  )
-	  AND cm.cmslmn = ' + '' + @Salesman + '' + '
-	'')'
+	WHERE cm.cmslmn = ' + '' + @Salesman + '' + '
+	'')
+	WHERE cbblcd IN (SELECT * FROM dbo.udfCSVToList(''' + @CSV + '''))
+	'
 END
 EXEC(@sql)
 GO
+
+
+-- HVE_Mann_Porcelain_Display_Customers_ByRepNbr 609,'PU,49,23'
+
+
+
 
 /* HVE_Mann_Poreclain_Display_Customers_ByRepNbr 609	*/
 
