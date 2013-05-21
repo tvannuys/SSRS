@@ -1397,7 +1397,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(IsNothing(Fields!ProductionDate.Value),(Fields!ProductionDate.Value),nothing)</Value>
+                                  <Value>=IIF(IsDate(Fields!ProductionDate.Value),(Fields!ProductionDate.Value),nothing)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>d</Format>
@@ -1523,6 +1523,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
