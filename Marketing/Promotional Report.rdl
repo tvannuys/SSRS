@@ -9,6 +9,141 @@
       <rd:DataSourceID>6d7ea954-ffe6-473c-b36d-9ce94e07481f</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>GartmanReports</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@OrdStartDate">
+            <Value>=Format(Parameters!OrdStartDate.Value,"MM/dd/yyyy")</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrdEndDate">
+            <Value>=Format(Parameters!OrdEndDate.Value,"MM/dd/yyyy")</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Vendor">
+            <Value>=Parameters!Vendor.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@CSV">
+            <Value>=Parameters!CSV.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_Promotional_Report</CommandText>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_Promotional_Report"><Parameter Name="@OrdStartDate"><Value>03/15/2013</Value></Parameter><Parameter Name="@OrdEndDate"><Value>05/15/2013</Value></Parameter><Parameter Name="@Vendor"><Value>022859</Value></Parameter><Parameter Name="@ProductCode"><Value>22746</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="ORDER" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="ITEM_CLASS" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="INVOICE" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="INV_DATE" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="VENDOR" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="ORDER_DATE" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="CUST_PO" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="CUST_NBR" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="CUST_NAME" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="PRODUCT_CD" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="ITEM_NBR" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="ITEM_DESC" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="SHIP_QTY" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="UM" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="UNIT_PRICE" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_PRICE" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="SHIP_LINES_COST" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_COST" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_NET_COST" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_SPEC_COST1" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_SPEC_COST2" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_SPEC_COST3" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_SPEC_COST4" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="EXT_SPEC_COST5" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="LOC" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="SALESMAN_NBR" /><ColumnExpression ColumnOwner="JT_Promotional_Report" ColumnName="SALESMAN" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="ORDER">
+          <DataField>ORDER</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ITEM_CLASS">
+          <DataField>ITEM_CLASS</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="INVOICE">
+          <DataField>INVOICE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="INV_DATE">
+          <DataField>INV_DATE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VENDOR">
+          <DataField>VENDOR</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ORDER_DATE">
+          <DataField>ORDER_DATE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CUST_PO">
+          <DataField>CUST_PO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CUST_NBR">
+          <DataField>CUST_NBR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CUST_NAME">
+          <DataField>CUST_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRODUCT_CD">
+          <DataField>PRODUCT_CD</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ITEM_NBR">
+          <DataField>ITEM_NBR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ITEM_DESC">
+          <DataField>ITEM_DESC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SHIP_QTY">
+          <DataField>SHIP_QTY</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="UM">
+          <DataField>UM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UNIT_PRICE">
+          <DataField>UNIT_PRICE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_PRICE">
+          <DataField>EXT_PRICE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SHIP_LINES_COST">
+          <DataField>SHIP_LINES_COST</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_COST">
+          <DataField>EXT_COST</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_NET_COST">
+          <DataField>EXT_NET_COST</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_SPEC_COST1">
+          <DataField>EXT_SPEC_COST1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_SPEC_COST2">
+          <DataField>EXT_SPEC_COST2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_SPEC_COST3">
+          <DataField>EXT_SPEC_COST3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_SPEC_COST4">
+          <DataField>EXT_SPEC_COST4</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXT_SPEC_COST5">
+          <DataField>EXT_SPEC_COST5</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="LOC">
+          <DataField>LOC</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SALESMAN_NBR">
+          <DataField>SALESMAN_NBR</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SALESMAN">
+          <DataField>SALESMAN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2078,7 +2213,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.4in</Top>
+            <Top>1.4in</Top>
+            <Left>0.00001in</Left>
             <Height>0.5in</Height>
             <Width>30.16666in</Width>
             <Style>
@@ -2114,7 +2250,7 @@
             <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
             <rd:DefaultName>ReportTitle</rd:DefaultName>
             <Height>0.4in</Height>
-            <Width>5.5in</Width>
+            <Width>4.67709in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2157,8 +2293,71 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!CSV.Value</Value>
+                    <Style>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.80278in</Top>
+            <Height>0.51389in</Height>
+            <Width>11.35417in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Product Codes Selected:</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>0.525in</Top>
+            <Left>0.00001in</Left>
+            <Height>0.25in</Height>
+            <Width>1.82292in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>0.9in</Height>
+        <Height>1.9in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2188,9 +2387,9 @@
       <DataType>String</DataType>
       <Prompt>Vendor:</Prompt>
     </ReportParameter>
-    <ReportParameter Name="ProductCode">
+    <ReportParameter Name="CSV">
       <DataType>String</DataType>
-      <Prompt>Product Code:</Prompt>
+      <Prompt>Product Code (separate each with a comma) :</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
