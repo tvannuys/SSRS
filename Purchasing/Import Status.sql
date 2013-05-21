@@ -9,89 +9,111 @@
 -- 2. Also if you can add Div family field in last columns of report.
 -- 3. Also  Please add Qty on po.. 
 --------------------------------------------------------------------------------------------------------
-
+-- James Tuttle    Date: 05/21/2013
+-- SR# 10873
+-- Could you add pallet receiving qty and a / by to get a column next to it saying PLT/CTN QTY.
+--
+--------------------------------------------------------------------------------------------------------
 
 
 ALTER PROC spImportStatus AS 
 BEGIN 
-	select pldelt, Buyer,OQ.VendorName,ProductCode,SKU,[Description],Color,Company,Location,PO,POqty,VendorRefNum,IssueDate,
-	case ProductionDate
-		when '0001-01-01' then ''
-		else ProductionDate
-	end as ProductionDate,
+	select pldelt
+			,Buyer
+			,OQ.VendorName
+			,ProductCode
+			,SKU
+			,[Description]
+			,Color
+			,Company
+			,Location
+			,PO
+			,POqty
+			,CASE imfc2a  
+				WHEN 0 THEN 0
+				ELSE  CAST(ROUND((Poqty / NULLIF(imfc2a,0)),0)AS decimal (10,2))
+			 END AS "PLT/CTN Qty" 
+			,VendorRefNum
+			,IssueDate
+		,case ProductionDate
+			when '0001-01-01' then ''
+			else ProductionDate
+		end as ProductionDate
 
-	case ShipDate
-		when '0001-01-01' then ''
-		else ShipDate
-	end as ShipDate,
+		,case ShipDate
+			when '0001-01-01' then ''
+			else ShipDate
+		end as ShipDate
 
-	Confirmed,
+		,Confirmed
 
-	case DueDate
-		when '0001-01-01' then ''
-		else DueDate
-	end as DueDate,
+		,case DueDate
+			when '0001-01-01' then ''
+			else DueDate
+		end as DueDate
 
-	case when Manifest IS null
-		then ''
-		else Manifest
-	end as Manifest
-	
-	,Division
-	,FamilyCode 
+		,case when Manifest IS null
+			then ''
+			else Manifest
+		end as Manifest
+		
+		,Division
+		,FamilyCode 
 	 
 	from openquery(GSFL2K,'
 
-	Select Poline.PLDDAT As DueDate, 
-	PHDOI as IssueDate,
-	PLSHIPDATE as ShipDate,
-	PLRELDATE as ReleaseDate,
-	PLPDAT as ProductionDate,
-	PLBUYR as Buyer,
-	PLDDATCONF as Confirmed,
-	PHREF# as VendorRefNum,
-	Poline.PLCO as Company,
-	Poline.PLLOC As Location, 
-	Family.FMFMCD as FamilyCode,
-	Family.FMDESC as Family, 
-	Itemmast.imprcd as ProductCode,
-	ProdCode.pcdesc as ProductCodeDesc,
-	Vendmast.VMNAME As VendorName, 
-	Poline.PLPO# As PO, 
-	Poline.plqord AS POqty,
-	Poline.PLITEM As SKU, 
-	Poline.PLDESC As Description, 
-	Itemmast.IMCOLR As Color, 
+		Select Poline.PLDDAT As DueDate 
+			,PHDOI as IssueDate
+			,PLSHIPDATE as ShipDate
+			,PLRELDATE as ReleaseDate
+			,PLPDAT as ProductionDate
+			,PLBUYR as Buyer
+			,PLDDATCONF as Confirmed
+			,PHREF# as VendorRefNum
+			,Poline.PLCO as Company
+			,Poline.PLLOC As Location 
+			,Family.FMFMCD as FamilyCode
+			,Family.FMDESC as Family 
+			,Itemmast.imprcd as ProductCode
+			,ProdCode.pcdesc as ProductCodeDesc
+			,Vendmast.VMNAME As VendorName 
+			,Poline.PLPO# As PO 
+			,Poline.plqord AS POqty
+			,Itemmast.imfc2a 
+			,Poline.PLITEM As SKU 
+			,Poline.PLDESC As Description 
+			,Itemmast.IMCOLR As Color 
 
-	(select max(mnman#) from manifest where mnpo# = poline.plpo#
-							and mnpolo = poline.plloc
-							and mnitem = poline.plitem
-							and mnpoco = poline.plco) as Manifest
-	,imdiv AS Division
-	,pldelt
-	
-	FROM Poline
+			,(select max(mnman#) from manifest where mnpo# = poline.plpo#
+								and mnpolo = poline.plloc
+								and mnitem = poline.plitem
+								and mnpoco = poline.plco) as Manifest
+			,imdiv AS Division
+			,pldelt
 
-	left join Itemmast on Itemmast.IMITEM = Poline.PLITEM
-	Left Join Pohead On (Poline.PLco = Pohead.PHco
-		and Poline.PLloc = Pohead.PHloc
-		and poline.plvend = pohead.phvend
-		and Poline.PLPO# = Pohead.PHPO#) 
+		FROM Poline
 
-	Left Join Vendmast On Poline.PLVEND = Vendmast.VMVEND 
-	Left Join Family On Poline.PLFMCD = Family.FMFMCD 
-	Left Join ProdCode On Itemmast.imprcd = ProdCode.pcprcd
+		left join Itemmast on Itemmast.IMITEM = Poline.PLITEM
+		Left Join Pohead On (Poline.PLco = Pohead.PHco
+			and Poline.PLloc = Pohead.PHloc
+			and poline.plvend = pohead.phvend
+			and Poline.PLPO# = Pohead.PHPO#) 
 
-	Where Pohead.PHDOI > ''12/31/2005''
-	  and IMSI = ''Y''
-	  AND IMCLAS = ''IM'' 
-	  AND Poline.pldelt = ''A''
+		Left Join Vendmast On Poline.PLVEND = Vendmast.VMVEND 
+		Left Join Family On Poline.PLFMCD = Family.FMFMCD 
+		Left Join ProdCode On Itemmast.imprcd = ProdCode.pcprcd
 
-	Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
-	') OQ
+		Where Pohead.PHDOI > ''12/31/2005''
+		  and IMSI = ''Y''
+		  AND IMCLAS = ''IM'' 
+		  AND Poline.pldelt = ''A''
+ 
+		Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM 
+		') OQ
 
 	Group by Buyer,OQ.VendorName,ProductCode,SKU,[Description],Color,Company,Location,
-	PO,POqty,VendorRefNum,IssueDate,ProductionDate,ShipDate,Confirmed,DueDate,manifest,Division,FamilyCode,pldelt
+	PO,POqty,VendorRefNum,IssueDate,ProductionDate,ShipDate,Confirmed,DueDate,manifest,Division,FamilyCode,pldelt,imfc2a
+	,(Poqty / NULLIF(imfc2a,0)) 
 
 	Order by Buyer,Company,VendorName,ProductCode,SKU,IssueDate
 END
