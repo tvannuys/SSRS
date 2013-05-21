@@ -23,7 +23,8 @@ ALTER PROC JT_Promotional_Report
 		@OrdStartDate varchar(10)
 		,@OrdEndDate varchar(10)			
 		,@Vendor varchar(6) 
-		,@ProductCode varchar(6) 
+		--,@ProductCode varchar(6) 
+		,@CSV varchar(100)
 		
 AS
 BEGIN
@@ -69,15 +70,22 @@ BEGIN
 	LEFT JOIN custmast cm ON cm.cmcust = sh.shcust
 	LEFT JOIN salesman sm ON sm.smno = sl.slslmn
 	
-	WHERE sh.shodat BETWEEN ' + '''' + '''' + @OrdStartDate + '''' + '''' + ' AND ' + '''' + '''' + @OrdEndDate + '''' + '''' + '
-		AND sl.slvend = ' + ''''  + '''' + @Vendor + '''' + '''' + '
-		AND sl.slprcd = ' + ''''  + '''' +@ProductCode + '''' + '''' + '
-	'')'
-END
+	WHERE sh.shodat >= ' + '''' + '''' + @OrdStartDate + '''' + '''' + '
+		AND  sh.shodat <= ' + '''' + '''' + @OrdEndDate + '''' + '''' + '
+		AND sl.slvend = ' + '''' + '''' + @Vendor + '''' + '''' + '
+		
+	'') 
+WHERE Product_cd IN (SELECT * FROM dbo.udfCSVToList(''' + @CSV + '''))
+	'
+END 
 EXEC(@sql)
 GO
 
--- JT_Promotional_Report '03/15/2013','05/15/2013',022859,22746
+-- 
+
+-- JT_Promotional_Report '03/15/2013','05/15/2013',022859,'22746'
+
+
 
 /*------------------------------------------------------------------------------------------------------------------------------
 SELECT GSFL2K_SHHEAD.[SHORD#], 
