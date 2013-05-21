@@ -36,7 +36,7 @@ FROM oohead INNER JOIN ooline
 	AND ohloc=olloc
 	AND ohord#=olord#
 	AND ohrel#=olrel#
-WHERE oliloc IN (50, 81, 84)
+WHERE oliloc IN (50, 41, 57)
 	AND ohrout IN (''50-80'', ''41-80'', ''57-50'')
 	AND olinvu =''W''
 ')
