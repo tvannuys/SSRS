@@ -16,11 +16,13 @@
 ----------------------------------------------------------------------------------
 
 ALTER PROC Product_Sales_by_Product_Code_or_Vendor 
-	@ProdCode NVARCHAR(100)
-	,@Vendor	  smallint 
+	@Vendor	 varchar(5)
+	,@CSV	 varchar(100)
 
 AS
 BEGIN
+DECLARE @sql varchar(4000)
+SET @sql = '
  SELECT shord#		AS OrderNbr
 		,slcls#		AS ItemClass
 		,shinv#		AS InvoiceNbr
@@ -50,11 +52,11 @@ BEGIN
 		,slvend		AS VendNbr
 		,vmname		AS VendName
  FROM OPENQUERY(GSFL2K,	
-	'SELECT shord#		
+	''SELECT shord#		
 		,slcls#
 		,shinv#
-		,MONTH(shidat) || ''/'' || DAY(shidat) || ''/'' || YEAR(shidat) AS iDt
-		,MONTH(shodat) || ''/'' || DAY(shodat) || ''/'' || YEAR(shodat) AS oDt
+		,MONTH(shidat) || ''''/'''' || DAY(shidat) || ''''/'''' || YEAR(shidat) AS iDt
+		,MONTH(shodat) || ''''/'''' || DAY(shodat) || ''''/'''' || YEAR(shodat) AS oDt
 		,shpo#
 		,shcust
 		,cmname
@@ -89,12 +91,14 @@ BEGIN
 	LEFT JOIN salesman sm ON sm.smno = sl.slslmn
 	LEFT JOIN vendmast vm ON vm.vmvend = sl.slvend
 	
-	WHERE ((sl.slprcd = ''+ @ProdCode + '')
-	  OR (sl.slvend = '' + @Vendor + ''))
-	')
+	WHERE sl.slvend =  ' + '''' + '''' + @Vendor + '''' + '''' + ' 
+	'')
+WHERE slprcd IN (SELECT * FROM dbo.udfCSVToList(''' + @CSV + '''))
+	'
 END
+EXEC(@sql)
 
--- Product_Sales_by_Product_Code_or_Vendor 
+-- Product_Sales_by_Product_Code_or_Vendor '10131 ' ,'13660'
 
 /*----------------------------------------------------------------------------------------------------------
 --
