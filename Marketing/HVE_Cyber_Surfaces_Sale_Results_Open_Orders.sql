@@ -11,11 +11,15 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC HVE_Cyber_Surfaces_Sale_Results_Open_Orders AS
+ALTER PROC HVE_Cyber_Surfaces_Sale_Results_Open_Orders 
+	@OrderType varchar(2)
+AS
 BEGIN
+DECLARE @sql varchar(4000)
+SET @sql = '
  SELECT *
  FROM OPENQUERY(GSFL2K,	
-	'SELECT MONTH(ohodat) || ''/'' || DAY(ohodat) || ''/'' || YEAR(ohodat) AS oDt
+	''SELECT MONTH(ohodat) || ''''/'''' || DAY(ohodat) || ''''/'''' || YEAR(ohodat) AS oDt
 		,ohvia AS Via
 		,ohotyp AS Order_Type
 		,olord# AS Order_Nbr
@@ -27,7 +31,7 @@ BEGIN
 		,olqord AS Qty_Ord
 		,olqbo AS Qty_BO
 		,cmslmn AS Salesman
-		,MONTH(ohsdat) || ''/'' || DAY(ohsdat) || ''/'' || YEAR(ohsdat) AS sDt
+		,MONTH(ohsdat) || ''''/'''' || DAY(ohsdat) || ''''/'''' || YEAR(ohsdat) AS sDt
 		,oleprc AS SubTotal
 		
 	FROM oohead oh
@@ -38,10 +42,15 @@ BEGIN
 	LEFT JOIN itemmast im ON ol.olitem = im.imitem
 	LEFT JOIN custmast cm ON cm.cmcust = oh.ohcust
 	
-	WHERE oh.ohotyp = ''SU''
+	WHERE oh.ohotyp = UPPER(' + '''' + '''' + @OrderType + '''' + '''' + ')
 		AND ol.olico = 1
-	')
+	'')'
 END
+EXEC(@sql)
+
+
+--  HVE_Cyber_Surfaces_Sale_Results_Open_Orders 'su'
+ 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------
 SELECT GSFL2K_OOHEAD.OHODAT AS [Order Date],
