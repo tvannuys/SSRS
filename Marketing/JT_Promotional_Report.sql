@@ -38,7 +38,6 @@ BEGIN
 		,MONTH(shidat) || ''''/'''' || DAY(shidat) || ''''/'''' || YEAR(shidat) AS Inv_Date
 		,slvend AS Vendor
 		,MONTH(shodat) || ''''/'''' || DAY(shodat) || ''''/'''' || YEAR(shodat) AS Order_Date
-		,shpo# AS Cust_PO
 		,shcust AS Cust_Nbr
 		,cmname AS Cust_Name
 		,slprcd AS Product_cd
@@ -48,15 +47,6 @@ BEGIN
 		,slum2 AS UM
 		,slpric AS Unit_Price
 		,sleprc AS Ext_Price
-		,slcost AS Ship_Lines_Cost
-		,slecst AS Ext_Cost
-		,slencs AS Ext_Net_Cost
-		,slesc1 AS Ext_Spec_Cost1
-		,slesc2 AS Ext_Spec_Cost2
-		,slesc3 AS Ext_Spec_Cost3
-		,slesc4 AS Ext_Spec_Cost4
-		,slesc5 AS Ext_Spec_Cost5
-		,slloc AS Loc
 		,smno AS Salesman_Nbr
 		,smname AS Salesman
 
