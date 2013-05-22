@@ -98,10 +98,10 @@ WHERE slprcd IN (SELECT * FROM dbo.udfCSVToList(''' + @CSV + '''))
 END
 EXEC(@sql)
 
--- Product_Sales_by_Product_Code_or_Vendor '10131 ' ,'13660'
+-- Product_Sales_by_Product_Code_or_Vendor '10131' ,'8245'
 
 /*----------------------------------------------------------------------------------------------------------
---
+-- (HVE_Commercial_Expressions_Sales)
 MS Access
 --
 SELECT GSFL2K_SHHEAD.[SHORD#], 
