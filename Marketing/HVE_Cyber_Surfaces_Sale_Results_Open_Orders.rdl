@@ -12,6 +12,12 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@OrderType">
+            <Value>=Parameters!OrderType.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+        </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>HVE_Cyber_Surfaces_Sale_Results_Open_Orders</CommandText>
         <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="ODT" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="VIA" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="ORDER_TYPE" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="ORDER_NBR" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="CUST_NBR" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="CUST_NAME" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="ITEM_NBR" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="DESCRIPTION" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="INV_LOC" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="QTY_ORD" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="QTY_BO" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="SALESMAN" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="SDT" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Open_Orders" ColumnName="SUBTOTAL" /></SelectedColumns></QueryDefinition></rd:DesignerState>
@@ -1168,7 +1174,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>16.69792in</Width>
+            <Width>16.69794in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1182,7 +1188,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Cyber Surfaces Sale Results Open Orders </Value>
+                    <Value>Open Orders by Order Type </Value>
                     <Style>
                       <FontFamily>Verdana</FontFamily>
                       <FontSize>20pt</FontSize>
@@ -1263,6 +1269,17 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="OrderType">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SU</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Order Type:</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>9a3e7065-5df5-4322-90d6-86c1b35ac83d</rd:ReportID>
