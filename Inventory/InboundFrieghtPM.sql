@@ -76,7 +76,6 @@ and ((poline.plvend in (22666,16088,22816,22887,22204,22949,22686,22674,22859)) 
 and Poline.PLDDAT <> ''0001-01-01''
 AND POhead.phreturn != ''Y''
 
-AND Poline.plitem = ''LOGVWC60208P'' /* <----------------------------------- REMOVE   */
 
  GROUP BY Poline.PLDDAT
 ,Poline.PLCO
