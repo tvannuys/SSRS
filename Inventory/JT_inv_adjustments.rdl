@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
-  <Description>Inventory Adjustments by codes: 02, 25, 16, 38, 39, PI</Description>
+  <Description>Inventory Adjustments by codes: 02, 25, 16, 38, 39, PI, 52</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource1">
@@ -73,25 +73,25 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.76042in</Width>
+                  <Width>0.64584in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.73958in</Width>
+                  <Width>0.61458in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.84375in</Width>
+                  <Width>0.70833in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.26042in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.69792in</Width>
+                  <Width>2.82291in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.5in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.78125in</Width>
+                  <Width>2.94792in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.71875in</Width>
@@ -103,7 +103,7 @@
                   <Width>0.91667in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.0625in</Width>
+                  <Width>0.78125in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -122,7 +122,7 @@
                                   <Value>Location</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -158,7 +158,7 @@
                                   <Value>Adj Code</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -194,7 +194,7 @@
                                   <Value>Date</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -230,7 +230,7 @@
                                   <Value>item</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -266,7 +266,7 @@
                                   <Value>Description</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -302,7 +302,7 @@
                                   <Value>Bin</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -338,7 +338,7 @@
                                   <Value>Comments</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -374,7 +374,7 @@
                                   <Value>QTY</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -410,7 +410,7 @@
                                   <Value>Cost</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -446,7 +446,7 @@
                                   <Value>User</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -482,7 +482,7 @@
                                   <Value>Total Cost</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -523,11 +523,14 @@
                                   <Value>=Sum(Fields!Location.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Location</rd:DefaultName>
@@ -556,11 +559,14 @@
                                   <Value>=Fields!Adj_Code.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Adj_Code</rd:DefaultName>
@@ -586,14 +592,18 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Date.Value</Value>
+                                  <Value>=CDate(Fields!Date.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>d</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Date</rd:DefaultName>
@@ -622,6 +632,7 @@
                                   <Value>=Fields!item.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -655,6 +666,7 @@
                                   <Value>=Fields!Description.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -688,11 +700,14 @@
                                   <Value>=Fields!Bin.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Bin</rd:DefaultName>
@@ -721,6 +736,7 @@
                                   <Value>=Fields!Comments.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -754,6 +770,7 @@
                                   <Value>=Sum(Fields!QTY.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -787,6 +804,7 @@
                                   <Value>=Sum(Fields!Cost.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -820,11 +838,14 @@
                                   <Value>=Fields!User.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>User</rd:DefaultName>
@@ -853,6 +874,7 @@
                                   <Value>=Sum(Fields!Total_Cost.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -906,7 +928,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.88958in</Top>
             <Height>0.5in</Height>
-            <Width>11.13543in</Width>
+            <Width>12.77084in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -963,7 +985,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ExecutionTime</rd:DefaultName>
-            <Left>9in</Left>
+            <Left>12.42709in</Left>
             <Height>0.25in</Height>
             <Width>2in</Width>
             <ZIndex>2</ZIndex>
@@ -1006,25 +1028,15 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>1.38958in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>11.28125in</Width>
+      <Width>14.42709in</Width>
       <Page>
-        <PageFooter>
-          <Height>0.45in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
