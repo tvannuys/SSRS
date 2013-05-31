@@ -7,7 +7,11 @@ GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
+--------------------------------------------------------------------------------------------------------
+--
+--*************      MANIFESTED POs				********************************************************
+--
+--------------------------------------------------------------------------------------------------------
 -- SR# 4765
 -- James Tuttle		Date:10/16/2012
 -- Add five vendors to the list
@@ -22,7 +26,7 @@ GO
 
 
 
-CREATE PROC [dbo].[uspIncoming_Manifested_Engineered_DATASOURCE] AS 
+ALTER PROC [dbo].[uspIncoming_Manifested_Engineered_DATASOURCE] AS 
 BEGIN 
 	select pldelt
 		,Buyer
@@ -35,7 +39,7 @@ BEGIN
 		,Location
 		,PO
 		,POqty
-		,QOH
+		--,QOH
 		,VendorRefNum
 		,IssueDate
 	,case ProductionDate
@@ -68,14 +72,14 @@ BEGIN
 	from openquery(GSFL2K,'
 
 	Select MONTH(Poline.PLDDAT) || ''/'' || DAY(Poline.PLDDAT) || ''/'' || YEAR(Poline.PLDDAT) As DueDate
-				,MONTH(PHDOI) || ''/'' || DAY(PHDOI) || ''/'' || YEAR(PHDOI) as IssueDate
-				,MONTH(PLSHIPDATE) || ''/'' || DAY(PLSHIPDATE) || ''/'' || YEAR(PLSHIPDATE) as ShipDate
+			>	,MONTH(PHDOI) || ''/'' || DAY(PHDOI) || ''/'' || YEAR(PHDOI) as IssueDate
+			>	,MONTH(PLSHIPDATE) || ''/'' || DAY(PLSHIPDATE) || ''/'' || YEAR(PLSHIPDATE) as ShipDate
 				,MONTH(PLRELDATE) || ''/'' || DAY(PLRELDATE) || ''/'' || YEAR(PLRELDATE) as ReleaseDate
-				,MONTH(PLPDAT) || ''/'' || DAY(PLPDAT) || ''/'' || YEAR(PLPDAT) as ProductionDate
-				,PLBUYR as Buyer
-				,PLDDATCONF as Confirmed
-				,PHREF# as VendorRefNum
-				,Poline.PLCO as Company
+			>	,MONTH(PLPDAT) || ''/'' || DAY(PLPDAT) || ''/'' || YEAR(PLPDAT) as ProductionDate
+			>	,PLBUYR as Buyer
+			>	,PLDDATCONF as Confirmed
+			>	,PHREF# as VendorRefNum
+			>	,Poline.PLCO as Company
 				,Poline.PLLOC As Location 
 				,Family.FMFMCD as FamilyCode
 				,Family.FMDESC as Family
@@ -91,17 +95,20 @@ BEGIN
 	,(select max(mnman#) from manifest where mnpo# = poline.plpo#
 							and mnpolo = poline.plloc
 							and mnitem = poline.plitem
-							and mnpoco = poline.plco) as Manifest
+							and mnpoco = poline.plco
+							) as Manifest
 
-	,(select max(mnloc) from manifest where mnpo# = poline.plpo#
+>	,(select max(mnloc) from manifest where mnpo# = poline.plpo#
 							and mnpolo = poline.plloc
 							and mnitem = poline.plitem
-							and mnpoco = poline.plco) as ManLoc
-
-	 ,(select ibqoh from itembal where ibloc in (4,12,50,52,60,80)
-							and ibitem = Poline.plitem
-							and ibco = Poline.plco
-							and ibloc = Poline.plloc) as QOH 
+							and mnpoco = poline.plco
+							) as ManLoc
+							
+/*	,(select ibqoh from itembal where ibloc in (4,12,50,52,60,80)
+							and ibitem = manifest.mnitem
+							and ibco = manifest.mnco
+							and ibloc = manifest.mnloc
+							) as QOH	**********************************/
 	
 	,imdiv AS Division
 	,pldelt
@@ -126,7 +133,6 @@ BEGIN
 	  AND Poline.pldelt = ''A''
 	  AND Poline.plvend = 24020
  
- AND POLINE.PLITEM = ''EN3221825''
 
 	Order By Poline.PLDDAT
 			,Vendmast.VMNAME
@@ -155,7 +161,7 @@ BEGIN
 			,FamilyCode
 			,pldelt
 			,Manloc
-			,QOH
+			--,QOH
 
 	Order by Buyer
 			,Company
