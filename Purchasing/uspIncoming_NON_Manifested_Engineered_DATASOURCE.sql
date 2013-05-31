@@ -8,6 +8,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+--------------------------------------------------------------------------------------------------------
+--
+--*************     NON MANIFESTED POs				****************************************************
+--
+--------------------------------------------------------------------------------------------------------
 -- SR# 4765
 -- James Tuttle		Date:10/16/2012
 -- Add five vendors to the list
@@ -22,7 +27,7 @@ GO
 
 
 
-CREATE PROC [dbo].[uspIncoming_NON_Manifested_Engineered_DATASOURCE] AS 
+ALTER PROC [dbo].[uspIncoming_NON_Manifested_Engineered_DATASOURCE] AS 
 BEGIN 
 	select pldelt
 		,Buyer
@@ -133,7 +138,8 @@ BEGIN
 			,Poline.PLPO#
 			,Poline.PLITEM 
 	') OQ
-
+	WHERE OQ.Manloc IS NULL
+	
 	Group by Buyer
 			,OQ.VendorName
 			,ProductCode
