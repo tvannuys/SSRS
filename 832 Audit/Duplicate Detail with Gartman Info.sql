@@ -1,31 +1,34 @@
+with ItemMast_CTE (imitem,imprcd)
+as (
+	select * from openquery(gsfl2k,'select imitem, imprcd from itemmast')
+	)
+
 select Manufacturer, 
 ManufStyleName,
-StyleNum,
 PriceCode,
 UnitPrice,
+--StyleNum,
 imprcd as 'Gartman Product Code',
-P.SeqNum as ProductSeqNum
+COUNT(*) as NumOfDups
 
 from EC_832Product P
 
 join ec_832ProdCost PC
 	on P.SeqNum = PC.ProdSeqNum
 
-left join gartman.b107fd6e.gsfl2k.itemmast IM on IM.imitem = P.StyleNum
+left join ItemMast_CTE I on I.imitem = P.StyleNum
+
+group by Manufacturer, 
+ManufStyleName,
+PriceCode,
+UnitPrice,
+--StyleNum,
+imprcd
+
+having count(*) > 1
 	
-where ManufStyleName = 'WALL BASE RUBBER 6 TOE 100'''
+order by 6 desc, 1, 2
 
 
 --===================================
 
-select Manufacturer, 
-ManufStyleName,
-StyleNum,
---imprcd as 'Gartman Product Code',
-P.SeqNum as ProductSeqNum
-
-from EC_832Product P
-
---left join gartman.b107fd6e.gsfl2k.itemmast IM on IM.imitem = P.StyleNum
-	
-where StyleNum = 'WIC81X001'
