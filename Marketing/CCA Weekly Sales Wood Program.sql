@@ -2,6 +2,9 @@
 
 CCA weekly sales reporting for the wood program
 
+This is coded to be run on a Tuesday in order to get the accurate sales 
+totals for the previous week.
+
 */
 
 
@@ -23,14 +26,14 @@ imdesc,
 	from shline l 
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
-	and l.sldate between (current_date - 10 days) and (current_date - 4 days))
+	and l.sldate between (current_date - 9 days) and (current_date - 3 days))
 	as WeeklyQtySold,
 
 (select sum(sleprc) 
 	from shline l 
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
-	and l.sldate between (current_date - 10 days) and (current_date - 4 days))
+	and l.sldate between (current_date - 9 days) and (current_date - 3 days))
 	as WeeklyDollars,
 
 
@@ -40,7 +43,7 @@ imdesc,
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
 	and month(l.sldate) = month(current_date)
-	and l.sldate <= current_date - 4 days)
+	and l.sldate <= current_date - 3 days)
 	as MTDQtySold,
 
 (select sum(sleprc) 
@@ -49,7 +52,7 @@ imdesc,
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
 	and month(l.sldate) = month(current_date)
-	and l.sldate <= current_date - 4 days)
+	and l.sldate <= current_date - 3 days)
 	as MTDDollars,
 
 (select sum(slblus) 
@@ -57,7 +60,7 @@ imdesc,
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
-	and l.sldate <= current_date - 4 days)
+	and l.sldate <= current_date - 3 days)
 	as YTDQtySold,
 
 (select sum(sleprc) 
@@ -65,7 +68,7 @@ imdesc,
 	where l.slitem = shline.slitem 
 	and l.slcust = shline.slcust
 	and year(l.sldate) = year(current_date)
-	and l.sldate <= current_date - 4 days)
+	and l.sldate <= current_date - 3 days)
 	as YTDDollars
 
 from shline
@@ -81,9 +84,9 @@ from shline
 		LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM 
 /*		left join vendmast on slvend = vmvend                            */
 /*		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
-		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD 
-		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
-		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
+/*		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD				*/
+/*		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS			*/
+/*		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV				*/
 		left join salesman on shhead.SHSLSM = salesman.smno              */
 
 where imdiv = 4
@@ -102,7 +105,23 @@ order by Right(linecust.CMADR3,2),
 
 ')
 
+
+
 /*  All CCA Private Label
+
+
+Bear Mountain Product Codes
+22716 
+22717 
+22718 
+22746 
+22770 
+22771 
+22773 
+22774 
+22775 
+
+
 
 imcls# in (2001,2001,2003,4177,4022,4026)
 
