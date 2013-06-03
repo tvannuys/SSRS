@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE proc [dbo].[spClaims] 
+alter proc [dbo].[spClaims] 
 
  @BeginDate varchar(10) = '2011-10-01',
  @EndDate varchar(10) = '2011-10-31'
@@ -97,6 +97,7 @@ left join salesman on SHHEAD.SHSLSM = salesman.smno
 WHERE SHHEAD.SHIDAT >= ' + '''' + '''' + @BeginDate + '''' + '''' +
 ' And SHHEAD.SHIDAT <= ' + '''' + '''' + @EndDate + '''' + '''' +
 ' AND SHHEAD.SHOTYP in (''''CL'''',''''FC'''')
+and SHLINE.SLCLS# not in (13056, 13059, 13058, 13035, 13037)
 
 ORDER BY SHLINE.SLINV#,
  SHHEAD.SHIDAT,
