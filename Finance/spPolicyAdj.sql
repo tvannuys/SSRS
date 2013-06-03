@@ -8,7 +8,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-create proc [dbo].[spPolicyAdj] 
+alter proc [dbo].[spPolicyAdj] 
 
  @BeginDate varchar(10) = '2011-10-01',
  @EndDate varchar(10) = '2011-10-31'
@@ -88,7 +88,7 @@ Left JOIN CUSTMAST BillTo ON SHHEAD.SHBIL# = BillTo.CMCUST
 Left JOIN VENDMAST ON SHLINE.SLVEND = VENDMAST.VMVEND
 WHERE SHHEAD.SHIDAT >= ' + '''' + '''' + @BeginDate + '''' + '''' +
 ' And SHHEAD.SHIDAT <= ' + '''' + '''' + @EndDate + '''' + '''' +
-' AND SHLINE.SLCLS# in (''''13035'''',''''13037'''')
+' AND SHLINE.SLCLS# in (''''13035'''',''''13037'''',''''13056'''',''''13059'''',''''13058'''')
 
 ORDER BY SHLINE.SLINV#,
  SHHEAD.SHIDAT,
