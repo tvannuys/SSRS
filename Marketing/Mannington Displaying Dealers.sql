@@ -16,9 +16,10 @@
 --
 ------------------------------------------------------------------------------------
 
-CREATE PROC Mannington_Displaying_Dealers
+ALTER PROC Mannington_Displaying_Dealers
 	@Salesman varchar(3)
-	,@CSV varchar(100)
+	,@Vendor varchar(6)
+
 	
 AS
 BEGIN
@@ -54,16 +55,16 @@ SET @sql = '
 	LEFT JOIN blcdmast bcm ON bcm.bcblcd = cb.cbblcd
 	LEFT JOIN salesman sm ON sm.smno = cm.cmslmn
 	
-	WHERE cm.cmslmn = ' + '' + @Salesman + '' + '
+	WHERE bcm.bcvend = ' + '' + @Vendor + '' + '
+		AND cm.cmslmn = ' + '' + @Salesman + '' + '
 	'')
-	WHERE cbblcd IN (SELECT * FROM dbo.udfCSVToList(''' + @CSV + '''))
 	'
 END
 EXEC(@sql)
 GO
 
 
--- HVE_Mann_Porcelain_Display_Customers_ByRepNbr 609,'PU,49,23'
+-- Mannington_Displaying_Dealers  , 10131
 
 
 
