@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
-  <Description>Mannington Porcelain Display with Customer by Sales Rep# 
-(HVE_Mann_Porcelain_Display_Customers_ByRepNbr(</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
       <DataSourceReference>/GartmanReports</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>cad3c4fd-a832-4cca-bb15-2948b289ba2d</rd:DataSourceID>
+      <rd:DataSourceID>ad8bbbbb-39ff-485b-a314-827e385f6324</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -18,14 +16,13 @@
           <QueryParameter Name="@Salesman">
             <Value>=Parameters!Salesman.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@CSV">
-            <Value>=Parameters!CSV.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
+          <QueryParameter Name="@Vendor">
+            <Value>=Parameters!Vendor.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>HVE_Mann_Porcelain_Display_Customers_ByRepNbr</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr"><Parameter Name="@Salesman"><Value>0</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Cust_Nbr" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Customer" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="BillCode" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Description" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Salesman" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Name" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Address1" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Address2" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="City" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="State" /><ColumnExpression ColumnOwner="HVE_Mann_Porcelain_Display_Customers_ByRepNbr" ColumnName="Zip" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <CommandText>Mannington_Displaying_Dealers</CommandText>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="Mannington_Displaying_Dealers"><Parameter Name="@Salesman"><Value>609</Value></Parameter><Parameter Name="@Vendor"><Value>10131</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Cust_Nbr" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Customer" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="BillCode" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Description" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Salesman" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Name" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Address1" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Address2" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="City" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="State" /><ColumnExpression ColumnOwner="Mannington_Displaying_Dealers" ColumnName="Zip" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="Cust_Nbr">
@@ -83,37 +80,37 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.79167in</Width>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.75in</Width>
+                  <Width>2.32292in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.70833in</Width>
+                  <Width>0.82292in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.375in</Width>
+                  <Width>2.53125in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>3in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>3in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.79167in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.54167in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.60417in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.83333in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.47917in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.13542in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.90625in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.77083in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.70833in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.90625in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -132,6 +129,7 @@
                                   <Value>Cust #</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -167,6 +165,7 @@
                                   <Value>Customer</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -202,6 +201,7 @@
                                   <Value>Bill Code</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -237,6 +237,7 @@
                                   <Value>Description</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -269,9 +270,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Salesman #</Value>
+                                  <Value>Salesman</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -307,6 +309,7 @@
                                   <Value>Name</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -342,6 +345,7 @@
                                   <Value>Address1</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -377,6 +381,7 @@
                                   <Value>Address2</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -412,6 +417,7 @@
                                   <Value>City</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -447,6 +453,7 @@
                                   <Value>State</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -482,6 +489,7 @@
                                   <Value>Zip</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -658,9 +666,7 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Salesman</rd:DefaultName>
@@ -858,9 +864,7 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Zip</rd:DefaultName>
@@ -907,9 +911,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.2125in</Top>
+            <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>17.36458in</Width>
+            <Width>20.44793in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -943,7 +947,7 @@
             <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
             <rd:DefaultName>ReportTitle</rd:DefaultName>
             <Height>0.4in</Height>
-            <Width>12.88542in</Width>
+            <Width>7.86458in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -972,7 +976,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ExecutionTime</rd:DefaultName>
-            <Left>9.32292in</Left>
+            <Left>17.96875in</Left>
             <Height>0.25in</Height>
             <Width>2in</Width>
             <ZIndex>2</ZIndex>
@@ -986,77 +990,15 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Billing Codes Seleted:</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.45556in</Top>
-            <Height>0.25in</Height>
-            <Width>2.4375in</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox4">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!CSV.Value</Value>
-                    <Style>
-                      <Color>Red</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.80431in</Top>
-            <Height>0.35264in</Height>
-            <Width>9.53125in</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.9in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>17.36458in</Width>
+      <Width>20.44793in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -1069,20 +1011,14 @@
   <ReportParameters>
     <ReportParameter Name="Salesman">
       <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>0</Value>
-        </Values>
-      </DefaultValue>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>Salesman#</Prompt>
+      <Prompt>Salesman:</Prompt>
     </ReportParameter>
-    <ReportParameter Name="CSV">
+    <ReportParameter Name="Vendor">
       <DataType>String</DataType>
-      <Prompt>Billing Code (separate each one with a comma) :</Prompt>
+      <Prompt>Vendor #:</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
-  <rd:ReportID>9fd95b90-3522-4495-a5f9-43c9279801db</rd:ReportID>
+  <rd:ReportID>c2db89f5-aedf-473c-bf0b-c0e6b8798760</rd:ReportID>
 </Report>
