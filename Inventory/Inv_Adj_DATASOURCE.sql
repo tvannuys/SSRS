@@ -12,7 +12,7 @@ SELECT irco
 		,iritem
 		,imdesc
 		,irky
-		,irdate
+		,irDate
 		,[Month]
 		,[Year]
 		,irserl
@@ -20,13 +20,7 @@ SELECT irco
 		,ircomt
 		,irqty
 		,ircost															
-		,CASE
-			WHEN (immd = 'M' AND immd2 = ' ') ------------------------
-				THEN CAST(ROUND((irqty * imfact) * ircost,3)			AS decimal (18,2))
-			WHEN (immd = 'M' AND immd2 = 'D') ------------------------
-				THEN CAST(ROUND(((irqty * imfact) / imfac2) * ircost,3) AS decimal (18,2))
-			ELSE 0
-		 END AS Total
+		,Total
 		,irum1
 		,iruser
 
@@ -37,12 +31,21 @@ FROM OPENQUERY(GSFL2K,'
 		,iritem
 		,imdesc
 		,irky
-		,irdate
+		,MONTH(irdate) || ''/'' || DAY(irdate) || ''/'' || YEAR(irdate) as irDate
 		,MONTHNAME(irdate) AS Month
 		,YEAR(irdate) AS Year
 		,irserl
 		,irdylt
 		,ircomt
+		
+		,CASE
+			WHEN (immd = ''M'' AND immd2 = '' '') 
+				THEN CAST(ROUND((irqty * imfact) * ircost,3) AS decimal (18,2))
+			WHEN (immd = ''M'' AND immd2 = ''D'') 
+				THEN CAST(ROUND(((irqty * imfact) / imfac2) * ircost,3) AS decimal (18,2))
+			ELSE 0
+		 END AS Total
+		 
 		,irqty
 		,ircost
 		,immd
@@ -56,7 +59,7 @@ FROM itemrech ir
 LEFT JOIN itemmast im ON im.imitem = ir.iritem
 
 WHERE irloc IN(41, 50, 52, 57)
-	AND irreason IN(''25'', ''39'', ''02'')
+	AND irreason IN(''25'', ''39'', ''02'',''38'')
 	AND irdate >= ''01/01/2010''
 
 GROUP BY irco
