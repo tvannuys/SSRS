@@ -1,5 +1,5 @@
 
-CREATE proc [dbo].[spSalesPersonList] 
+ALTER proc [dbo].[spSalesPersonCustomerEmailList] 
 
 @SalesPerson varchar(30)
 
@@ -19,11 +19,12 @@ substring(CMADR3,0,24) AS City,
 substring(CMADR3,24,2) AS State, 
 CUSTMAST.CMZIP AS ZipCode, 
 CUSTMAST.CMPHON AS Phone, 
-CUSTMAST.CMFAX AS FaxNbr, 
+ccd.ccdfax AS FaxNbr, 
 CUSTMAST.CMSLMN AS SalesmanNbr, 
 SALESMAN.SMNAME AS RepName, 
-CUSTMAST.CMATTN AS Contact, 
-CUSTXTRA.CXE_MAIL AS EMail, 
+ccd.ccdcnt AS Contact, 
+ccd.ccdcontid AS ID,		
+ccd.ccde_mail AS EMail, 
 CUSTMAST.CMDELT, 
 
 CMCLAS as ClassCode1,
@@ -49,15 +50,18 @@ LEFT JOIN Salesman s2 ON CUSTMAST.CMSLM2 = S2.SMNO
 left JOIN CUCLMAST ON CUCLMAST.CCLCLASS = CUSTEXTN.CEXCLASS
 left join shipvia on custmast.cmvia = shipvia.vicode
 left join custclas on (cmco = clsco and cmloc = clsloc and cmclas = clscod)
+LEFT JOIN CUSTCNDTL ccd ON custmast.cmcust = ccd.ccdcus
 
 
 WHERE (CUSTMAST.CMcust like ''''1%'''' or cmcust like ''''40%'''')
 AND CUSTMAST.CMDELT<>''''H''''
 AND CUSTEXTN.CEXCLASS<>''''999''''
 and SALESMAN.SMNAME like ''''%' + @SalesPerson + '%''''  
+AND ccd.ccddoc = ''''@PL''''
  '')'
  
  exec (@sql)
 GO
 
+-- EXEC spSalesPersonCustomerEmailList 'GREG ANDERSON'
 
