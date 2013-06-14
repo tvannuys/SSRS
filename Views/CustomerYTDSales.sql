@@ -1,7 +1,7 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  View [dbo].[CustomerYTDSales]    Script Date: 03/17/2013 13:10:44 ******/
+/****** Object:  View [dbo].[CustomerYTDSales]    Script Date: 06/14/2013 14:11:43 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,7 +10,7 @@ GO
 
 
 
-CREATE VIEW [dbo].[CustomerYTDSales]
+alter VIEW [dbo].[CustomerYTDSales]
 AS
 SELECT dbo.CustomerSalesDetail.InvoiceDate, dbo.CustomerSalesDetail.Company, 
                dbo.CustomerSalesDetail.SalesName, dbo.CustomerSalesDetail.BillToCustID, dbo.CustomerSalesDetail.BillToCustName, dbo.CustomerSalesDetail.BillToCity, 
@@ -24,10 +24,10 @@ FROM  dbo.CustomerSalesDetail LEFT OUTER JOIN
 WHERE 
 (
 	(InvoiceDate between DATEADD(yy, DATEDIFF(yy,0,GETDATE())-1, 0)
-	 and DATEADD(yy, -1, getdate()-3) 
+	 and DATEADD(yy, -1, getdate()) 
 	)
 or	(InvoiceDate between DATEADD(yy, DATEDIFF(yy,0,GETDATE()), 0) 
-	 and (getdate()-3)
+	 and (getdate())
 	)
 )
 	
