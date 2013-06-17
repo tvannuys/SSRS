@@ -12,29 +12,15 @@
 --
 --
 ALTER PROC JT_small_lot_vct_pm AS
-		SELECT *
-		FROM OPENQUERY(GSFL2K,'
-		  SELECT ibloc
-				,ibitem
-				,ibqoh
-				,ibqoo
-				,ibcls#
-		FROM itembal ib
-		WHERE ib.ibcls# = 41040
-			AND ibqoh > 0
-			AND ibqoo = 0
-			AND ibqoh BETWEEN 1 AND 5
-		ORDER BY ibloc
-				,ibitem
-		')
-/* ------
-  SELECT idco 
-	,idloc 
+
+  SELECT idco		AS Co
+	,idloc			AS Loc
 	,iditem 
 	,idserl 
 	,iddylt 
 	,idbin 
 	,SUM(idqoh) AS Qoh
+	,idqoo
 
 FROM OPENQUERY (GSFL2K, '
 	SELECT idco
@@ -44,12 +30,14 @@ FROM OPENQUERY (GSFL2K, '
 		  ,iddylt
 		  ,idbin
 		  ,idqoh
+		  ,idqoo
 
 	FROM itemdetl
 
 	WHERE idcls# = 41040
-		AND idqoo = 0 
+		
 		AND idqoh > 0
+		AND iditem = ''AR51811''
 				 		
 	')
 
@@ -59,10 +47,28 @@ GROUP BY idco
 		,idserl 
 		,iddylt 
 		,idbin 
+		,idqoo
 		
 HAVING SUM(idqoh) BETWEEN 1 AND 5	
 	
 ORDER BY idloc
 		,iditem
 		,idbin
-		--------------------------- */
+	
+	/*********************************************************************************		
+SELECT *
+		FROM OPENQUERY(GSFL2K,'
+		  SELECT ibloc
+				,ibitem
+				,ibqoh
+				,ibqoo
+				,ibcls#
+		FROM itembal ib
+		WHERE ib.ibcls# = 41040
+			AND ibqoh > 0
+			
+			AND ibqoh BETWEEN 1 AND 5
+			AND ibitem = ''AR51811''
+		ORDER BY ibloc
+				,ibitem
+		') *********************************************************************************/
