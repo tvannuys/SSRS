@@ -1,0 +1,12 @@
+[Profile]
+ID=KMP
+Version=5
+[KEYBOARD]
+KEY1=macro armwbcls
+KEY105=ansi 2d
+S-KEY105=ansi 2d
+C-KEY112=macro V12CO1~1
+C-KEY113=macro V12CO2~1
+C-KEY114=macro V12CO1~2
+C-KEY115=macro V12CO2~2
+C-KEY116=macro V12SAF~1
