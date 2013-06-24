@@ -20,13 +20,36 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC  uspVendorPoLines AS
+ALTER PROC  uspVendorPoLines
+	@CSV varchar(100)
+	
+ AS
 BEGIN
  SELECT *
  FROM OPENQUERY(GSFL2K,	
-	'SELECT *
-		,
-		,
-	FROM Table
+	'SELECT plco
+		,plloc
+		,plpo#
+		,plvend
+		,vmname
+		,plitem
+		,pldesc
+		,plqord
+		,plum1
+		
+	FROM poline pl
+	LEFT JOIN vendmast vm ON pl.plvend = vm.vmvend
+	
+	WHERE pl.pldelt = ''A''
+	
+	ORDER BY pl.plco
+			,pl.plloc
+			,pl.plvend
+			,pl.plpo#
+			,pl.plitem
 	')
+	WHERE plvend IN (SELECT * FROM dbo.udfCSVToList(@CSV))
+	
 END
+
+-- uspVendorPoLines '24213'
