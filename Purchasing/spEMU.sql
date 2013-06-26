@@ -96,18 +96,14 @@ month(SHiDAT)
 
 ====================================================*/
 
-select slco,
-slloc,
-slitem,
+select slitem,
 sum(qtysold)/3 as AvgSold
 
 into #emuAvg1
 
 from #emu1
 
-group by slco,
-slloc,
-slitem
+group by slitem
 
 /* =================================================
 
@@ -116,18 +112,14 @@ slitem
 ====================================================*/
 
 
-select slco,
-slloc,
-slitem,
+select slitem,
 sum(qtysold)/3 as AvgSold
 
 into #emuAvg2
 
 from #emu2
 
-group by slco,
-slloc,
-slitem
+group by slitem
 
 /* =================================================
 
@@ -139,9 +131,7 @@ slitem
 select (sum(a.AvgSold) + sum(B.AvgSold)) /2 as EMU
 
 from #emuAvg1 a
-join #emuAvg2 b on (a.slco = b.slco
-	and a.slloc = b.slloc
-	and a.slitem = b.slitem)
+join #emuAvg2 b on (a.slitem = b.slitem)
 	
 where ((a.AvgSold + B.AvgSold) /2) / 4 <> 0
 
