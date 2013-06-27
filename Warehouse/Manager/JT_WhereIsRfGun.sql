@@ -21,7 +21,25 @@ ALTER PROC JT_WhereIsRfGun
 BEGIN
 SET @RFgun = UPPER(@RFgun)
 DECLARE @sql varchar(2000) = '
- SELECT *
+ SELECT olrco
+		,olrloc
+		,olrord
+		,olritm
+		,olrbin
+		,olrtim
+ 
+	    ,cast(
+		  substring(right(''000000''+cast(olrtim as varchar),6),1,2)
+		  + '':'' +
+		  substring(right(''000000''+cast(olrtim as varchar),6),3,2)
+		 + '':'' +
+		 substring(right(''000000''+cast(olrtim as varchar),6),5,2) 
+		  as time) AS t
+ 
+		,Dt
+		,olrusr
+		,olrws
+		
  FROM OPENQUERY(GSFL2K,	
 	''SELECT olrco
 		,olrloc
