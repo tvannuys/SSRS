@@ -11,7 +11,7 @@
 **										**
 **********************************************************************************/
 
-CREATE PROC JT_Ship_Not_Printed AS
+ALTER PROC JT_Ship_Not_Printed AS
 BEGIN
  SELECT *
  FROM OPENQUERY(GSFL2K,	
@@ -25,7 +25,7 @@ BEGIN
 						
 	WHERE (OHTICP = ''N'' OR OHTICP = '' '')
 		AND olINVU = ''T''
-		AND ohotyp NOT IN (''IR'',''SI'',''SA'',''DP'')
+		AND ohotyp NOT IN (''IR'',''SI'',''SA'',''DP'',''CL'')
 		AND oldirs != ''Y''
 	')
 END
