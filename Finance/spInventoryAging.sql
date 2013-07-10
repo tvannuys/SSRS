@@ -1,7 +1,7 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spInventoryAging]    Script Date: 04/04/2013 14:27:08 ******/
+/****** Object:  StoredProcedure [dbo].[spInventoryAging]    Script Date: 07/10/2013 15:29:31 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -15,7 +15,7 @@ GO
 
 
 
-CREATE proc [dbo].[spInventoryAging] as
+alter proc [dbo].[spInventoryAging] as
 /* 
 
 	Finance Aged Inventory Query
@@ -31,6 +31,7 @@ OQ.[DESCRIPTION],
 OQ.COLOR,
 OQ.[DROP],
 OQ.STOCKING,
+OQ.[SAMPLE],
 OQ.PRODUCTCODE,
 OQ.ClassCode,
 OQ.CLASS,
@@ -56,7 +57,7 @@ OQ.AGE4 as '121-239 Days',
 OQ.AGE5 as '240-364 Days',
 OQ.AGE6 as '365-719 Days',
 OQ.AGE7 as '> 719 Days',
-FM.Category as MajorCategory,
+
 'Available Value' = 
 	case oq.qtyonhand  
 		when 0 then 0
@@ -81,6 +82,7 @@ ITEMMAST.IMDESC AS Description,
 ITEMMAST.IMCOLR AS Color, 
 ITEMMAST.IMDROP AS Drop, 
 ITEMMAST.IMSI AS Stocking, 
+itemmast.IMFCRG as Sample,
  pcdesc AS ProductCode, 
 
  itemmast.imcls# as ClassCode,
@@ -148,15 +150,6 @@ AND (ITEMBAL.IBQOH +
 
 */
 ') OQ
-
-left join dbo.FamilyCategoryMap FM on FM.Family = OQ.Family
-
-
-
-update #tmpInventoryAging
-set MajorCategory = 'Samples'
-from #tmpInventoryAging
-join SampleClass S on S.ClassCode = #tmpInventoryAging.ClassCode
 
 select * from #tmpInventoryAging
 
