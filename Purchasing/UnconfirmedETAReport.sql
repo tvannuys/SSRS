@@ -16,7 +16,7 @@ VMNAME AS [Vendor Name],
 PLITEM AS SKU, 
 IMDESC AS [Description], 
 IMCOLR AS Color, 
-PLDDAT AS [Ship Date], 
+PLDDAT AS [Due Date], 
 PLDELT, 
 PHOTYP, 
 IMCLAS
