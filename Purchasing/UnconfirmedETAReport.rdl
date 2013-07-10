@@ -57,8 +57,8 @@
           <DataField>Color</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Ship_Date">
-          <DataField>Ship Date</DataField>
+        <Field Name="Due_Date">
+          <DataField>Due Date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="PLDELT">
@@ -489,7 +489,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Ship Date</Value>
+                                  <Value>Due Date</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -957,14 +957,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Ship_Date">
+                        <Textbox Name="Due_Date">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Ship_Date.Value</Value>
+                                  <Value>=Fields!Due_Date.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -974,7 +974,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Ship_Date</rd:DefaultName>
+                          <rd:DefaultName>Due_Date</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
