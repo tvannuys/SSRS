@@ -1,25 +1,45 @@
 -- SR# 12834
 -- Update James Tuttle	Date:07/25/2013
 
-CREATE PROC YTD_ImportSales_DATASOURCE AS
+ALTER PROC YTD_ImportSales_DATASOURCE AS
 BEGIN
-	select *
+	SELECT *
 
-	from openquery(gsfl2k,'
-	select imvend,vmname,imitem,imdesc,imcolr,imfmcd,imsi,IMIITM,
-	sldate,
-	sum(sleprc)  as YTDSales,
-	sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5)  as YTDCost
+	FROM OPENQUERY(gsfl2k,'
+	SELECT imvend
+		,vmname
+		,imitem
+		,imdesc
+		,imcolr
+		,imfmcd
+		,imsi
+		,IMIITM
+		,imprcd
+		,sldate
+		,sum(sleprc)  AS YTDSales
+		,sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5)  AS YTDCost
 
-	from itemmast
-	join vendmast on imvend=vmvend
-	left join shline on slitem=imitem
-	where imsi = ''Y''
-	and year(sldate) = year(current_date)
+	FROM itemmast
+	JOIN vendmast ON imvend = vmvend
+	LEFT JOIN shline ON slitem = imitem
+	
+	WHERE imsi = ''Y''
+		AND year(sldate) = year(current_date)
 		AND ((imfmcd = ''YH'')
-		OR (IMCLAS = ''IM''))
-	group by imvend,vmname,imitem,imdesc,imcolr,imfmcd,imsi,IMIITM,
-	sldate
+			OR (IMCLAS = ''IM'')
+			OR (imprcd = 6392))
+		AND imfmcd NOT IN(''L2'', ''W2'', ''LC'', ''A6'', ''LS'', ''KS'', ''VV'')
+		
+	GROUP BY imvend
+				,vmname
+				,imitem
+				,imdesc
+				,imcolr
+				,imfmcd
+				,imsi
+				,IMIITM
+				,imprcd
+				,sldate
 	')
 END
 
