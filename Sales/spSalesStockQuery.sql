@@ -1,7 +1,7 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 07/29/2013 10:14:09 ******/
+/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 07/29/2013 15:32:46 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -12,7 +12,8 @@ GO
 
 
 
-alter proc [dbo].[spSalesStockQuery]
+
+ALTER proc [dbo].[spSalesStockQuery]
 
 @SeachTerm varchar(20) = '%'
 
@@ -74,6 +75,7 @@ LEFT JOIN division ON division.DVDIV = ITEMMAST.IMDIV
 left join location on (ibloc = lcloc and ibco = lcco)
 
 where itemxtra.imsearch like ''''%TASMK%''''
+and itemmast.IMFCRG <> ''''S''''
 and (ITEMMAST.IMDESC like ''''%' + @SeachTerm + '%'''' or itemxtra.imsearch like ''''%' + @SeachTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SeachTerm + '%'''') 
 
 order by itemmast.imitem,ibloc
@@ -83,6 +85,7 @@ order by itemmast.imitem,ibloc
 
 --select @sql
 exec (@sql)
+
 
 
 
