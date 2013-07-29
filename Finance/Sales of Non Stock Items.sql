@@ -9,8 +9,9 @@ ohUSER,
 billto.cmcust,
 billto.cmname,
 imfmcd,
-dvdesc,
 fmdesc,
+dvdiv,
+dvdesc,
 olitem,
 imdesc,
 olECST+olESC1+olESC2+olESC3+olESC4+olESC5 as ExtendedCost,
@@ -37,6 +38,8 @@ where OHODAT >= current_date - 1 days
 and ITEMMAST.IMSI <> ''Y''
 and itemmast.IMFCRG <> ''S''
 and imfmcd <> ''IR''
+and billto.cmcust not like ''TRANSFER%'' 
+and dvdiv not in (9,13,6,5)
 and ohuser not in (''JOHNB'',
 ''JOHNBP'',
 ''BOBPRF'',

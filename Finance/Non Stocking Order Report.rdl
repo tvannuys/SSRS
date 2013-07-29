@@ -14,7 +14,8 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
-        <CommandText>/* Service Desk - Incident # 12174     */
+        <CommandText>
+/* Service Desk - Incident # 12174     */
 
 select *,CONVERT(datetime, CONVERT(VARCHAR(10), OHODAT)) as InvoiceDate
 from openquery(gsfl2k,'
@@ -24,8 +25,9 @@ ohUSER,
 billto.cmcust,
 billto.cmname,
 imfmcd,
-dvdesc,
 fmdesc,
+dvdiv,
+dvdesc,
 olitem,
 imdesc,
 olECST+olESC1+olESC2+olESC3+olESC4+olESC5 as ExtendedCost,
@@ -52,7 +54,10 @@ where OHODAT &gt;= current_date - 1 days
 and ITEMMAST.IMSI &lt;&gt; ''Y''
 and itemmast.IMFCRG &lt;&gt; ''S''
 and imfmcd &lt;&gt; ''IR''
+and billto.cmcust not like ''TRANSFER%'' 
+and dvdiv not in (9,13,6,5)
 and ohuser not in (''JOHNB'',
+''MONICAM'',
 ''JOHNBP'',
 ''BOBPRF'',
 ''ROBERTP'',
@@ -144,6 +149,10 @@ and ohuser not in (''JOHNB'',
         <Field Name="FMDESC">
           <DataField>FMDESC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DVDIV">
+          <DataField>DVDIV</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="OLITEM">
           <DataField>OLITEM</DataField>
@@ -1026,7 +1035,7 @@ and ohuser not in (''JOHNB'',
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>13.6875in</Width>
+            <Width>13.68749in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
