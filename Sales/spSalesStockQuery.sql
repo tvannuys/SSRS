@@ -1,12 +1,13 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 01/07/2013 14:49:15 ******/
+/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 07/29/2013 10:14:09 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -72,8 +73,8 @@ LEFT JOIN family ON Family.fmfmcd = ITEMMAST.IMFMCD
 LEFT JOIN division ON division.DVDIV = ITEMMAST.IMDIV
 left join location on (ibloc = lcloc and ibco = lcco)
 
-where itemmast.imrpt2 = ''''213''''
-and (ITEMMAST.IMDESC like ''''%' + @SeachTerm + '%'''' or itemxtra.imsearch like ''''%' + @SeachTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SeachTerm + '%'''')
+where itemxtra.imsearch like ''''%TASMK%''''
+and (ITEMMAST.IMDESC like ''''%' + @SeachTerm + '%'''' or itemxtra.imsearch like ''''%' + @SeachTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SeachTerm + '%'''') 
 
 order by itemmast.imitem,ibloc
 
@@ -82,6 +83,7 @@ order by itemmast.imitem,ibloc
 
 --select @sql
 exec (@sql)
+
 
 
 
