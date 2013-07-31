@@ -27,6 +27,8 @@ BEGIN
 		,olqord
 		,olqbo
 		,MONTH(ohsdat) || ''/'' || DAY(ohsdat) || ''/'' || YEAR(ohsdat) as sDt
+		,cmslmn AS SalesNbr
+		,smname AS SalesPerson
 	FROM oohead oh
 	LEFT JOIN ooline ol ON (oh.ohco = ol.olco
 						AND oh.ohloc = ol.olloc
@@ -34,6 +36,7 @@ BEGIN
 						AND oh.ohrel# = ol.olrel#
 						AND oh.ohcust = ol.olcust)
 	LEFT JOIN custmast cm ON oh.ohcust = cm.cmcust
+	LEFT JOIN salesman sm ON sm.smno = cm.cmslmn
 	
 	WHERE oh.ohotyp = ''DP''
 		AND ol.olico = 1
