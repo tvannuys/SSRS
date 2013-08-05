@@ -1,3 +1,9 @@
+/* SR 13000
+
+Uses CUSTSEG table to identify key customers
+
+*/
+
 select *,CONVERT(datetime, CONVERT(VARCHAR(10), shidat)) as InvoiceDate
 from openquery(gsfl2k,'
 select  shco,shloc,shord#,shrel#
@@ -8,6 +14,12 @@ soldto.cmzip,
 billto.cmcust,
 billto.cmname,
 smname,
+
+case
+	when csgcus is not null then ''Key Customer''
+	else '' ''
+end as KeyCustomer,
+
 dvdiv,
 dvdesc,
 imfmcd,
@@ -15,24 +27,19 @@ fmdesc,
 pcdesc,
 
 case 
-	when pcprcd = 22900 then ''Sentinel''
-	when pcprcd = 55035 then ''Cork Ply''
-	when pcprcd = 55045 then ''Seville''
-	when pcprcd = 70911 then ''Promo Corlon''
-	when pcprcd = 70534 then ''Main Street Tile''
-	when pcprcd in (70775,70780) then ''BASE-ics 4” Wall Base''
-	when pcprcd in (70086,70116,70121) then ''Linoleum ''
-	when (pcprcd >= 52030 and pcprcd <= 52038) then ''Johnsonite TP Wall Base''
-	when (pcprcd >= 52780 and pcprcd <= 52785) then ''Johnsonite TS Wall Base''
-	when pcprcd = 32568 then ''Rapture Plank''
-	when pcprcd = 32582 then ''Wood Classic''
-	when pcprcd = 32556 then ''Brazos''
-	when pcprcd = 32542  then ''Camden''
-	when pcprcd = 32541 then ''Hathaway''
-	when pcprcd = 32543 then ''Palisades''
-	when pcprcd = 32604 then ''Rapid Clic''
-	when pcprcd in (32512,32513) then ''Avante''
-	when pcprcd in (32600,32602) then ''Accu Clic''
+	when pcprcd = 22900 then ''BBoss Sentinel''
+	when pcprcd = 13708 then ''Gala Lake Series''
+	when pcprcd in (32607,32608) then ''Swiff Train Lancaster LVT''
+	when pcprcd = 32542 then ''Swiff Train EW Camden''
+	when pcprcd = 70024 then ''ARM Rejuvenations''
+	when pcprcd in (70236,70237,70238,70239) then ''ARM Natural Creations''
+	when pcprcd in (70020,70035) then ''ARM Medintech''	
+	when pcprcd = 66053 then ''ARM Liberty 150 Glasback''
+	when pcprcd = 13431 then ''Greenfield Aspen''	
+	when pcprcd = 13430 then ''Greenfield Tahoe''	
+
+	when imfmcd = ''Y2'' then ''Armstrong VCT''
+	when imfmcd in (''Y9'',''Y!'') then ''Armstrong Linoleum''
 	
 	else pcdesc
 	
@@ -59,14 +66,29 @@ from shline
 		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
 		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
 		left join salesman on shline.SLSLMN = salesman.smno
+		left join CUSTSEG on (csgcus = billto.cmcust and csgsgc = ''P('')
 		
+		
+where (slprcd in (22900,13708,32607,32608,32542,70024,70236,70237,70238,70239,70020,70035,66053,13431,13430) 
+		or
+	   imfmcd in (''Y2'',''Y9'',''Y!'')
+	   )
+/* and imfmcd not in (''B1'',''Y6'') */
+and year(shidat) = 2013
+and month(shidat) = 7 
+
+
+
+')
+
+/*  Key Customer reference
+
 where (slprcd in (22900,55035,55045,70911,70534,70775,70780,70086,70116,70121,32568,32582,32556,32542,32541,32543,32512,32513,32604,32600,32602) 
 		or slprcd between 52030 and 52038
 		or slprcd between 52780 and 52785
 	   )
-/* and imfmcd not in (''B1'',''Y6'') */
-and year(shidat) = 2013
-and month(shidat) <> 7 
+
+
 
 and billto.cmcust in (''4110277'',
 ''4107953'',
@@ -467,10 +489,5 @@ and billto.cmcust in (''4110277'',
 ''4120483''
 )
 
-
-
-
-
-')
-
+*/
 
