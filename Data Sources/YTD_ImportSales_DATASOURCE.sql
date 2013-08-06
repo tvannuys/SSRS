@@ -30,6 +30,7 @@ BEGIN
 			OR (IMCLAS = ''IM'')
 			OR (imprcd = 6392))
 		AND imfmcd NOT IN(''L2'', ''W2'', ''LC'', ''A6'', ''LS'', ''KS'', ''VV'')
+		AND slotyp != ''FO''
 		
 		
 	GROUP BY imvend
