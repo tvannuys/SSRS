@@ -31,7 +31,6 @@ BEGIN
 			OR (imprcd = 6392))
 		AND imfmcd NOT IN(''L2'', ''W2'', ''LC'', ''A6'', ''LS'', ''KS'', ''VV'')
 		
-		AND imitem = ''AR4123KOLGY''
 		
 	GROUP BY imvend
 				,vmname
