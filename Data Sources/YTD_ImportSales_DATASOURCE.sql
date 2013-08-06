@@ -4,7 +4,7 @@
 ALTER PROC YTD_ImportSales_DATASOURCE AS
 BEGIN
 	SELECT *
-		,((YTDSales - YTDCost) / YTDSales) [GM%]
+	
 
 	FROM OPENQUERY(gsfl2k,'
 	SELECT imvend
