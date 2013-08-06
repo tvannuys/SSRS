@@ -24,7 +24,10 @@ BEGIN
 		,ohpo#	AS PO
 		,ohvia	AS Via
 		,ohotyp	AS Type
-		,ohtotl AS Amount
+		,olitem AS Sku
+		,olpric AS ItemPrice
+		,olcost AS ItemCost
+		,ohtotl AS OrderAmount
 
 	FROM oohead oh
 	LEFT JOIN ooline ol ON (ol.olco = oh.ohco
@@ -33,11 +36,14 @@ BEGIN
 						AND ol.olrel# = oh.ohrel#
 						AND ol.olcust = oh.ohcust)
 	LEFT JOIN custmast cm ON cm.cmcust = oh.ohcust
+	LEFT JOIN itemmast im ON im.imitem = ol.olitem
 	
 	WHERE oh.ohotyp IN (''SA'',''DP'')
 		AND ol.olinvu = ''T''
+		AND ol.olpric != ol.olcost
 	
 	ORDER BY ohco
+			,ohloc
 			,ohotyp
 	
 	')
