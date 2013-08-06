@@ -4,6 +4,7 @@
 ALTER PROC YTD_ImportSales_DATASOURCE AS
 BEGIN
 	SELECT *
+		,((YTDSales - YTDCost) / YTDSales) [GM%]
 
 	FROM OPENQUERY(gsfl2k,'
 	SELECT imvend
@@ -30,6 +31,8 @@ BEGIN
 			OR (imprcd = 6392))
 		AND imfmcd NOT IN(''L2'', ''W2'', ''LC'', ''A6'', ''LS'', ''KS'', ''VV'')
 		
+		AND imitem = ''AR4123KOLGY''
+		
 	GROUP BY imvend
 				,vmname
 				,imitem
@@ -40,6 +43,7 @@ BEGIN
 				,IMIITM
 				,imprcd
 				,sldate
+
 	')
 END
 
