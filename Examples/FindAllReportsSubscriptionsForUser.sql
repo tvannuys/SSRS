@@ -11,7 +11,7 @@ GO
 
 
 DECLARE @Email VARCHAR(50)
-SET @Email = 'mharchuck@pacmat.com'
+SET @Email = 'thadm@tasupply.com'
 			
 			
 SELECT cat.[Path]
