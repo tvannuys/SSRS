@@ -2,18 +2,19 @@
 
 Uses CUSTSEG table to identify key customers
 
+Combine with results of a second query to 'Seed Customer List'
+
 */
 
 select *,CONVERT(datetime, CONVERT(VARCHAR(10), shidat)) as InvoiceDate
 from openquery(gsfl2k,'
-select  shco,shloc,shord#,shrel#
+select  billto.cmcust,
+billto.cmname,
+smname,
+shco,shloc,shord#,shrel#
 shinv#,
 shidat,
 sldate,
-soldto.cmzip,
-billto.cmcust,
-billto.cmname,
-smname,
 
 case
 	when csgcus is not null then ''Key Customer''
@@ -54,33 +55,30 @@ imdesc,
 SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5 as ExtendedCost,
 sleprc as ExtendedPrice
 
-from shline
+from CUSTMAST billto
 		
-		left JOIN SHHEAD ON (SHLINE.SLCO = SHHEAD.SHCO 
+		left outer join CUSTSEG on (csgcus = billto.cmcust and csgsgc = ''TK'')
+		left outer JOIN SHHEAD ON SHHEAD.SHBIL# = billto.CMCUST 
+		left outer JOIN SHLINE ON (SHLINE.SLCO = SHHEAD.SHCO 
 									AND SHLINE.SLLOC = SHHEAD.SHLOC 
 									AND SHLINE.SLORD# = SHHEAD.SHORD# 
 									AND SHLINE.SLREL# = SHHEAD.SHREL# 
 									AND SHLINE.SLINV# = SHHEAD.SHINV#) 
-		left JOIN CUSTMAST billto ON SHHEAD.SHBIL# = billto.CMCUST 
-		left join custmast soldto on shhead.shcust = soldto.cmcust
-		LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM 
-		left join vendmast on slvend = vmvend
-		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
-		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD 
-		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
-		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
-		left join salesman on shline.SLSLMN = salesman.smno
-		left join CUSTSEG on (csgcus = billto.cmcust and csgsgc = ''TK'')
-		
+		left outer join salesman on shline.SLSLMN = salesman.smno
+		LEFT outer JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM 
+		LEFT outer JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
+		LEFT outer JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD 
+		LEFT outer JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
 		
 where (slprcd in (34056,34057,34058,22647,33630,34500,82140,13622,13620,13440,13609,13646, 82145,82146,4906,13597,13592,84022) 
 		or
-	   imvend in (22859,24020)
+	   slvend in (22859,24020)
 	   )
+and (billto.cmcust like ''1%'' or billto.cmcust like ''40%'')
 and year(shidat) = 2013
 and month(shidat) = 7 
 and shco=1
-
+and smname not in (''HOUSE'',''CLOSED ACCOUNTS'',''DEVELOPMENTAL/SALES MGRS'',''BLOW OUT ORDERS'')  
 
 
 ')
