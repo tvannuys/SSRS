@@ -1,6 +1,6 @@
 
 
---ALTER PROC JT_Sales_Order_Not_Direct_Ship_Flag_set AS
+ALTER PROC JT_Sales_Order_Not_Direct_Ship_Flag_set AS
 
 /************************************************************************																		*
 *																		*
@@ -15,19 +15,21 @@
 
 
 SELECT *
-FROM OPENQUERY(GSFL2K, 'SELECT ohco as Co,
+FROM OPENQUERY(GSFL2K, 'SELECT DISTINCT ohco as Co,
 								ohloc as Loc,
 								ohord# as Order,
 								ohrel# as Rel
+								
 						FROM oohead oh INNER JOIN
 						ooline ol ON ohco = olco
 							AND ohloc = olloc
 							AND ohord# = olord#
 							AND ohrel# = olrel#
+							
 						WHERE oldiv != 13
 							AND oldirs = ''Y''
 							AND olvend != 40000
-							AND ohotyp != ''FO''
+							AND ohotyp NOT IN (''FO'', ''SD'')
 							AND ohcm != ''Y''
 
 				')
