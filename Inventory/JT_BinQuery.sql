@@ -13,8 +13,10 @@
 
 ALTER PROC JT_BinQuery 
 	@binLoc AS varchar(5)
+	
 AS
 BEGIN
+SET @binLoc = UPPER(@binLoc)
 DECLARE @sql AS varchar(4000) = '
 
  SELECT *
@@ -50,4 +52,4 @@ DECLARE @sql AS varchar(4000) = '
 	EXEC (@sql)
 END
 
--- JT_BinQuery 'Z0FRT'
+-- JT_BinQuery 'Z0frT'
