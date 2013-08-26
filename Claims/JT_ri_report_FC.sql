@@ -25,8 +25,10 @@ SELECT @LastRan = dbo.JT_JobLog_v2.LastRan
 FROM dbo.JT_JobLog_v2								-- Table to store job log of time report last ran
 WHERE dbo.JT_JobLog_v2.JobName = 'JT_ri_report_FC';
 
-
-
+-- Set the @Row variable to -1 (false)----
+DECLARE @Rows INT
+SELECT @Rows = -1
+-------------------------------------------
 SELECT ohco AS Company
   ,ohloc AS Location
   ,ohotyp AS Order_Type
@@ -57,16 +59,34 @@ FROM OPENQUERY (GSFL2K, '
 					+ substring(CONVERT(VARCHAR(7), ohtime),3,2) 
 					+ ':' + substring(CONVERT(VARCHAR(7), ohtime),5,2) 
 END > @LastRan
+--********************************************************************
+-- Check row count. If nothing returned from the main Select
+-- Then this will throw the Error so SSRS will not send an
+-- empty email every hour.
+-- users will only get an email if there is atleast one record
+--********************************************************************
+SELECT @Rows = @@ROWCOUNT 
+IF ( @Rows < 1)
+BEGIN
+	RAISERROR ('No rows returned', 11, 1);
+END
 
+------------------------------------------------------------------------
 -- Update the table with current time for LastTime
+------------------------------------------------------------------------
 UPDATE dbo.JT_JobLog_v2
 SET dbo.JT_JobLog_v2.LastRan =  CONVERT(VARCHAR(10),GETDATE(),120) 
 										+ ' ' +REPLACE(CONVERT(VARCHAR(8), GETDATE(), 8), ':', ':') 
 WHERE dbo.JT_JobLog_v2.JobName = 'JT_ri_report_FC'
 
+
+
+
+
+
 /*****************************************************************************
 INSERT INTO JT_JobLog_v2 (JobName, LastRan)
-VALUES ('JT_ri_report_FC', '2011-07-13 11:00:00')
+VALUES ('JT_ri_report_FC', '2013-08-26 15:00:00')
 
 SELECT * FROM JT_JobLog_v2
 
@@ -74,6 +94,6 @@ DELETE FROM JT_JobLog_v2
 WHERE JobName = 'JT_ri_report_FC'
 
 UPDATE dbo.JT_JobLog_v2
-SET dbo.JT_JobLog_v2.LastRan = '2011-07-13 12:00:00'
+SET dbo.JT_JobLog_v2.LastRan = '2013-08-26 15:00:00'
 WHERE JobName = 'JT_ri_report_FC'
 ******************************************************************************/
