@@ -16,7 +16,7 @@
 *  seperate the co1 & 2 searches on the		*
 *  As400: HPRO -co1 and KPRO for co2		*
 *********************************************/
-CREATE PROC [dbo].[JT_TAS_products_displays_samples_TA] AS
+ALTER PROC [dbo].[JT_TAS_products_displays_samples_TA] AS
 BEGIN
 	SELECT *
 	FROM OPENQUERY(GSFL2K,
@@ -54,8 +54,10 @@ BEGIN
 		  FROM itemxtra ix
 		   JOIN itemmast im
 				ON im.imitem = ix.imxitm
-		  WHERE ((ix.imsearch LIKE ''%HPRO%'') OR (ix.imsearch LIKE ''%KPRO%''))
-			AND ix.imcolimit IN (0,2)
+				
+		  WHERE ((ix.imsearch LIKE ''%HPRO%'') OR (ix.imsearch LIKE ''%KPRO%'') OR (im.imvend = 41000))
+			AND ix.imcolimit IN (0,1)
+			
 		  ORDER BY ix.imcolimit
 				,im.imitem
 		  ')
