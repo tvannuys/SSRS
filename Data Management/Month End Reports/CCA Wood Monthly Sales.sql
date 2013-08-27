@@ -28,12 +28,17 @@ FROM 	SHLINE
 			INNER JOIN CUSTMAST ON CUSTMAST.CMCUST=SHLINE.SLCUST
 			inner join mkcdmast on mkcdmast.mcmkcd=custmktg.cmkmkc
 			
-WHERE 	SHHEAD.SHCUST<>''1008342''
-			AND SHLINE.SLDATE Between ''7/1/2013'' And ''7/31/2013'' 
-			and (SHLINE.SLPRCD in (34500,22647,34057,34058,13592,13593,13594,13595)
+WHERE 	SHHEAD.SHCUST <> ''1008342''
+			AND (year(shline.sldate) = year(current_date - 1 month)
+				 and month(shline.sldate) = month(current_date)-1)
+			and (
+				SHLINE.SLPRCD in (34500,22647,34057,34058,13592,13593,13594,13595)
 				or SHLINE.SLCLS#=4177
 				or SHLINE.SLVEND = 22859
-				and slfmcd<>''W2'' )
+				and slfmcd <> ''W2'' 
+				and sldiv <> 13
+				)
 			and cmkmkc in (''C1'',''FA'',''FE'',''GC'',''ID'',''PR'',''RD'',''ST'',''TR'')
+			and shotyp not in (''SR'',''MH'',''SU'',''BO'',''IO'',''SA'',''DP'')
 
 ')
