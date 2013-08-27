@@ -13,7 +13,14 @@ SELECT 	SHHEAD.SHINV# AS InvoiceNbr,
 		SHLINE.SLUM2 AS UnitOfMeasure, 
 		SHLINE.SLPRIC AS UnitPrice, 
 		SHLINE.SLEPRC AS ExtendedPrice, 
-		SHLINE.SLESC5 AS AccruedRebate, 
+		/* SHLINE.SLESC5 AS AccruedRebate,  */
+		
+		case
+			when cmcust = ''1021585'' then round((shline.slesc5 - (shline.sleprc * .02)),2)
+			when cmcust = ''1021587'' then round((shline.slesc5 - (shline.sleprc * .02)),2)
+			else round(shline.slesc5,2)
+		end as Rebate,
+		
 		mkcdmast.mcdesc as MktgCodeDesc,
 		SHLINE.SLVEND as VendNum, 
 		VENDMAST.VMNAME as VendName
@@ -30,7 +37,10 @@ FROM 	SHLINE
 			
 WHERE 	shline.sldiv between 6 and 9
 		and shline.slvend not in (1573,2490,10131,10202)
-		and shline.sldate between ''07/01/2013'' and ''07/31/2013''
+		and (year(shline.sldate) = year(current_date - 1 month)
+			and month(shline.sldate) = month(current_date)-1)
 		and cmkmkc in (''C1'',''FA'',''FE'',''GC'',''ID'',''PR'',''RD'',''ST'',''TR'')
+
+order by cmcust
 
 ')
