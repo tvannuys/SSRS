@@ -40,5 +40,6 @@ WHERE 	SHHEAD.SHCUST <> ''1008342''
 				)
 			and cmkmkc in (''C1'',''FA'',''FE'',''GC'',''ID'',''PR'',''RD'',''ST'',''TR'')
 			and shotyp not in (''SR'',''MH'',''SU'',''BO'',''IO'',''SA'',''DP'')
+			and shco = 1
 
 ')
