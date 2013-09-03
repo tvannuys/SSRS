@@ -202,7 +202,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ONHAND</Value>
+                                  <Value>Total ONHAND</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -240,7 +240,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>AVAIL</Value>
+                                  <Value>Total AVAIL</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -606,7 +606,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1.97917in</Size>
+                    <Size>0.10417in</Size>
                     <CellContents>
                       <Textbox Name="Textbox28">
                         <CanGrow>true</CanGrow>
@@ -627,6 +627,9 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox28</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>true</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -949,7 +952,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1.97917in</Size>
+                    <Size>0.10417in</Size>
                     <CellContents>
                       <Textbox Name="VENDOR1">
                         <CanGrow>true</CanGrow>
@@ -969,6 +972,9 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>VENDOR1</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>true</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -1376,7 +1382,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.98958in</Height>
-            <Width>15.62502in</Width>
+            <Width>13.75002in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1391,7 +1397,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>17.35418in</Width>
+      <Width>14.01043in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
