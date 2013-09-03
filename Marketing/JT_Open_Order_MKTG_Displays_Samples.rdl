@@ -58,7 +58,7 @@
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="loc">
-          <DataField>loc</DataField>
+          <DataField>Loc</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="QTY_Ship">
@@ -1199,7 +1199,6 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.4in</Top>
             <Height>0.5in</Height>
             <Width>15.08334in</Width>
             <Style>
@@ -1208,71 +1207,8 @@
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="ReportTitle">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Open Orders for Displays and Samples by Rep</Value>
-                    <Style>
-                      <FontFamily>Verdana</FontFamily>
-                      <FontSize>20pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
-            <rd:DefaultName>ReportTitle</rd:DefaultName>
-            <Height>0.4in</Height>
-            <Width>7.83333in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="ExecutionTime">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Globals!ExecutionTime</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>ExecutionTime</rd:DefaultName>
-            <Left>9.01042in</Left>
-            <Height>0.25in</Height>
-            <Width>2in</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.52083in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1281,16 +1217,8 @@
       </Body>
       <Width>15.08334in</Width>
       <Page>
-        <PageFooter>
-          <Height>0.45in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
+        <InteractiveHeight>0in</InteractiveHeight>
+        <InteractiveWidth>8.5in</InteractiveWidth>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
@@ -1302,12 +1230,13 @@
   <ReportParameters>
     <ReportParameter Name="prmCmslmn">
       <DataType>String</DataType>
-      <Prompt>prmCmslmn</Prompt>
+      <Nullable>true</Nullable>
+      <Prompt>SalesPersonNumber</Prompt>
     </ReportParameter>
     <ReportParameter Name="prmCust">
       <DataType>String</DataType>
-      <Prompt>prmCust</Prompt>
-      <Hidden>true</Hidden>
+      <Nullable>true</Nullable>
+      <Prompt>Customer ID</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
