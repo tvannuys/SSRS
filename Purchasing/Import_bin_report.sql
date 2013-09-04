@@ -7,8 +7,11 @@
 -- Show bin location report
 -- for import skus
 -------------------------------------------------------------------
--- SR# 9807 James Tuttlkte 04/15/2013 added IMCLAS = 'IM' 
+--					MODIFICATIONS
 --==================================================================
+-- 04/15/2013 James Tuttle: SR# 9807 added IMCLAS = 'IM' 
+-- 09/04/2013 James Tuttle: SR# 13915 add locations to the file
+-- 
 
 ALTER PROC [dbo].[Import_bin_report] AS
 BEGIN
@@ -48,9 +51,10 @@ BEGIN
 			AND im.imclas NOT IN (''SA'',''DP'')
 			AND id.idqoh > 0
 			AND bl.blgrp  != ''XXXXX''
-			AND id.idloc IN (41,50,52)
+			AND id.idloc IN (41,50,52,60,04,44)
 
 		ORDER BY id.idco
+				,id.idloc
 		
 		')
 END
