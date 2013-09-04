@@ -6,11 +6,9 @@ Uses CUSTSEG table to identify key customers
 
 select *,CONVERT(datetime, CONVERT(VARCHAR(10), shidat)) as InvoiceDate
 from openquery(gsfl2k,'
-select  shco,shloc,shord#,shrel#
+select  shco,shloc,shord#,shrel#,
 shinv#,
 shidat,
-sldate,
-soldto.cmzip,
 billto.cmcust,
 billto.cmname,
 smname,
@@ -19,12 +17,6 @@ case
 	when csgcus is not null then ''Key Customer''
 	else '' ''
 end as KeyCustomer,
-
-dvdiv,
-dvdesc,
-imfmcd,
-fmdesc,
-pcdesc,
 
 case 
 	when pcprcd = 22900 then ''BBoss Sentinel''
@@ -45,8 +37,6 @@ case
 	
 end as ReportProductDesc,
 
-slitem,
-imdesc,
 SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5 as ExtendedCost,
 sleprc as ExtendedPrice
 
@@ -60,11 +50,7 @@ from shline
 		left JOIN CUSTMAST billto ON SHHEAD.SHBIL# = billto.CMCUST 
 		left join custmast soldto on shhead.shcust = soldto.cmcust
 		LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM 
-		left join vendmast on slvend = vmvend
 		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
-		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD 
-		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
-		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
 		left join salesman on shline.SLSLMN = salesman.smno
 		left join CUSTSEG on (csgcus = billto.cmcust and csgsgc = ''P('')
 		
@@ -74,10 +60,48 @@ where (slprcd in (22900,13708,32607,32608,32542,70024,70236,70237,70238,70239,70
 	   imfmcd in (''Y2'',''Y9'',''Y!'')
 	   )
 /* and imfmcd not in (''B1'',''Y6'') */
-and year(shidat) = 2013
-and month(shidat) = 7 
+/* and (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1) -- REMOVED IN LIEU OF YTD DATA REQUEST FROM KATHY */
+
+and year(shidat) = year(current_date)
+
+and shco=2
+and smname not in (''PACMAT HOUSE'',''CLOSED ACCOUNTS'',''DEVELOPMENTAL/SALES MGRS'',''BLOW OUT ORDERS'')  
+
+')
+
+where shidat <= DATEADD(s,-1,DATEADD(mm, DATEDIFF(m,0,GETDATE()),0))
 
 
+union all
+
+select *,CONVERT(datetime, CONVERT(VARCHAR(10), shidat)) as InvoiceDate
+from openquery(gsfl2k,'
+select  0 as shco,
+0 as shloc,
+0 as shord#,
+0 as shrel#,
+''000000'' as shinv#,
+current_date - 10 days as shidat,
+billto.cmcust,
+billto.cmname,
+smname,
+
+case
+	when csgcus is not null then ''Key Customer''
+	else '' ''
+end as KeyCustomer,
+
+''BBoss Sentinel'' as ReportProductDesc,
+
+0 as ExtendedCost,
+0 as ExtendedPrice
+
+from custmast billto
+left join CUSTSEG on (csgcus = billto.cmcust and csgsgc = ''P('')
+left join salesman on CMSLMN = salesman.smno
+
+where cmco = 2
+and smname not in (''PACMAT HOUSE'',''CLOSED ACCOUNTS'',''DEVELOPMENTAL/SALES MGRS'',''BLOW OUT ORDERS'')  
 
 ')
 
