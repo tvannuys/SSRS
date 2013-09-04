@@ -56,6 +56,7 @@ BEGIN
 				ON im.imitem = ix.imxitm
 		  WHERE ((ix.imsearch LIKE ''%HPRO%'') OR (ix.imsearch LIKE ''%KPRO%''))
 			AND ix.imcolimit IN (0,2)
+
 		  ORDER BY ix.imcolimit
 				,im.imitem
 		  ')
