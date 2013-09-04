@@ -37,28 +37,24 @@
           <DataField>DROPS</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CONT_US_STOCK_QOH">
-          <DataField>CONT_US_STOCK_QOH</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="CONT_US_STOCK_AVBL">
-          <DataField>CONT_US_STOCK_AVBL</DataField>
+        <Field Name="CONT_US_STOCK">
+          <DataField>CONT_US_STOCK</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="CONT_US_BO">
           <DataField>CONT_US_BO</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="AK_STOCK">
+          <DataField>AK_STOCK</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="CONT_US_PO">
           <DataField>CONT_US_PO</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="AK_STOCK_QOH">
-          <DataField>AK_STOCK_QOH</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="AK_STOCK_AVBL">
-          <DataField>AK_STOCK_AVBL</DataField>
+        <Field Name="HI_STOCK">
+          <DataField>HI_STOCK</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="AK_BO">
@@ -67,14 +63,6 @@
         </Field>
         <Field Name="AK_PO">
           <DataField>AK_PO</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="HI_STOCK_QOH">
-          <DataField>HI_STOCK_QOH</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="HI_STOCK_AVBL">
-          <DataField>HI_STOCK_AVBL</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="HI_BO">
@@ -106,22 +94,13 @@
                   <Width>1.60417in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.66667in</Width>
+                  <Width>1.78125in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.27083in</Width>
+                  <Width>2.66666in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.61458in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -373,10 +352,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>4</ColSpan>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell>
@@ -414,10 +392,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>4</ColSpan>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell>
@@ -455,10 +432,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>4</ColSpan>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell>
@@ -719,41 +695,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox13">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Available</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox13</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#7292cc</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>PaleTurquoise</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox15">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -859,41 +800,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox21">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Available</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox21</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#7292cc</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox23">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -983,41 +889,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox27</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#7292cc</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox29">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Available</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox29</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -1322,7 +1193,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=iif(Sum(Fields!CONT_US_STOCK_QOH.Value)=0," ",Sum(Fields!CONT_US_STOCK_QOH.Value))</Value>
+                                  <Value>=iif(Sum(Fields!CONT_US_STOCK.Value)=0," ",Sum(Fields!CONT_US_STOCK.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1333,40 +1204,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>CONT_US_STOCK_QOH</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#e5e5e5</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>PaleTurquoise</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="CONT_US_STOCK_AVBL">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=iif(Sum(Fields!CONT_US_STOCK_AVBL.Value)=0," ",Sum(Fields!CONT_US_STOCK_AVBL.Value))</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>CONT_US_STOCK_AVBL</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -1458,7 +1295,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=iif(Sum(Fields!AK_STOCK_QOH.Value)=0," ",Sum(Fields!AK_STOCK_QOH.Value))</Value>
+                                  <Value>=iif(Sum(Fields!AK_STOCK.Value)=0," ",Sum(Fields!AK_STOCK.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1469,40 +1306,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>AK_STOCK_QOH</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#e5e5e5</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>LightSteelBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="AK_STOCK_AVBL">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=iif(Sum(Fields!AK_STOCK_AVBL.Value)=0," ",Sum(Fields!AK_STOCK_AVBL.Value))</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>AK_STOCK_AVBL</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -1594,7 +1397,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=iif(Sum(Fields!HI_STOCK_QOH.Value)=0," ",Sum(Fields!HI_STOCK_QOH.Value))</Value>
+                                  <Value>=iif(Sum(Fields!HI_STOCK.Value)=0," ",Sum(Fields!HI_STOCK.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1606,41 +1409,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>HI_STOCK_QOH</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#e5e5e5</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="HI_STOCK_AVBL">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=iif(Sum(Fields!HI_STOCK_AVBL.Value)=0," ",Sum(Fields!HI_STOCK_AVBL.Value))</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <Color>#4d4d4d</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>HI_STOCK_AVBL</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -1780,9 +1548,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1800,7 +1565,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.75in</Height>
-            <Width>22.45833in</Width>
+            <Width>19.96875in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1815,8 +1580,10 @@
           </Border>
         </Style>
       </Body>
-      <Width>22.45833in</Width>
+      <Width>22.96875in</Width>
       <Page>
+        <InteractiveHeight>0in</InteractiveHeight>
+        <InteractiveWidth>8.5in</InteractiveWidth>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
