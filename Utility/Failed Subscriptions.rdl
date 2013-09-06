@@ -15,14 +15,14 @@
         <CommandText>SELECT C.Name, S.LastRunTime, S.LastStatus, S.Description, sched.scheduleid
 
 FROM ReportServer..Subscriptions AS S
-LEFT OUTER JOIN ReportServer..[Catalog] AS C
-ON C.ItemID = S.Report_OID
+LEFT OUTER JOIN ReportServer..[Catalog] AS C ON C.ItemID = S.Report_OID
 
 left join ReportServer..reportschedule as Sched on Sched.subscriptionid = s.subscriptionid
 
+
 WHERE LEFT (S.LastStatus, 12) != 'Mail sent to'
 AND LEFT (S.LastStatus, 12) != 'New Subscrip'
-and C.Name not like '%hourly%'</CommandText>
+and s.LastStatus not like '%SupressEmail%'</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
