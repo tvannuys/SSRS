@@ -1,6 +1,10 @@
 USE [GartmanReport]
 GO
 
+-- 09/05/2013 James Tuttle SR# 13946: Added the imsi [item stocking?] per Amy A
+
+
+
 /****** Object:  StoredProcedure [dbo].[spDSVendorItems]    Script Date: 08/15/2013 14:10:50 ******/
 SET ANSI_NULLS ON
 GO
@@ -28,7 +32,8 @@ imp5 as Level5,
 
 imcost as LandedCost,
 imrcst as NetCost,
-imcost-imrcst as Freight
+imcost-imrcst as Freight,
+imsi as Stock
 
 from itemmast
 where imvend=' + @Vendor + ''')' 

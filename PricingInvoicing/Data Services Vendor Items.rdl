@@ -19,7 +19,7 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>spDSVendorItems</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spDSVendorItems"><Parameter Name="@Vendor"><Value>10200</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="IMITEM" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="IMSKEY" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="IMDESC" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL1" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL2" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL3" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL4" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL5" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LANDEDCOST" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="NETCOST" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="FREIGHT" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spDSVendorItems"><Parameter Name="@Vendor"><Value>10200</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="IMITEM" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="IMSKEY" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="IMDESC" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL1" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL2" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL3" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL4" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LEVEL5" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="LANDEDCOST" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="NETCOST" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="FREIGHT" /><ColumnExpression ColumnOwner="spDSVendorItems" ColumnName="STOCK" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="IMITEM">
@@ -57,6 +57,10 @@
         <Field Name="LANDEDCOST">
           <DataField>LANDEDCOST</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="STOCK">
+          <DataField>STOCK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="NETCOST">
           <DataField>NETCOST</DataField>
@@ -108,6 +112,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.67708in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -487,6 +494,43 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>STOCK</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -882,12 +926,49 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="STOCK">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!STOCK.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>STOCK</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -913,7 +994,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>12.5in</Width>
+            <Width>13.17708in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -928,7 +1009,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>12.5in</Width>
+      <Width>13.17708in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
-  <Description>TAS Product Stock Report for sales people showing key available items - searchable by keyword</Description>
+  <Description>TAS Product Stock Report for sales people showing key available items - searchable by keyword
+</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource2">
@@ -606,16 +607,16 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.10417in</Size>
+                    <Size>2.01042in</Size>
                     <CellContents>
-                      <Textbox Name="Textbox28">
+                      <Textbox Name="Textbox4">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>VENDOR</Value>
+                                <Value>ITEM</Value>
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontWeight>Bold</FontWeight>
@@ -626,10 +627,7 @@
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox28</rd:DefaultName>
-                        <Visibility>
-                          <Hidden>true</Hidden>
-                        </Visibility>
+                        <rd:DefaultName>Textbox4</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -647,16 +645,16 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.01042in</Size>
+                        <Size>2.51042in</Size>
                         <CellContents>
-                          <Textbox Name="Textbox4">
+                          <Textbox Name="Textbox30">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>ITEM</Value>
+                                    <Value>ITEM DESCRIPTION</Value>
                                     <Style>
                                       <FontFamily>Tahoma</FontFamily>
                                       <FontWeight>Bold</FontWeight>
@@ -667,7 +665,7 @@
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox4</rd:DefaultName>
+                            <rd:DefaultName>Textbox30</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -685,16 +683,16 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.51042in</Size>
+                            <Size>1in</Size>
                             <CellContents>
-                              <Textbox Name="Textbox30">
+                              <Textbox Name="Textbox32">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>ITEM DESCRIPTION</Value>
+                                        <Value>COLOR</Value>
                                         <Style>
                                           <FontFamily>Tahoma</FontFamily>
                                           <FontWeight>Bold</FontWeight>
@@ -705,7 +703,7 @@
                                     <Style />
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox30</rd:DefaultName>
+                                <rd:DefaultName>Textbox32</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -725,14 +723,14 @@
                               <TablixHeader>
                                 <Size>1in</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox32">
+                                  <Textbox Name="Textbox1">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>COLOR</Value>
+                                            <Value>SALES QTY Last 30 DAYS</Value>
                                             <Style>
                                               <FontFamily>Tahoma</FontFamily>
                                               <FontWeight>Bold</FontWeight>
@@ -740,10 +738,12 @@
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style />
+                                        <Style>
+                                          <TextAlign>Right</TextAlign>
+                                        </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox32</rd:DefaultName>
+                                    <rd:DefaultName>Textbox1</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -763,14 +763,14 @@
                                   <TablixHeader>
                                     <Size>1in</Size>
                                     <CellContents>
-                                      <Textbox Name="Textbox1">
+                                      <Textbox Name="Textbox6">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>SALES QTY Last 30 DAYS</Value>
+                                                <Value>BACK ORDER</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
@@ -779,11 +779,11 @@
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
-                                              <TextAlign>Right</TextAlign>
+                                              <TextAlign>Center</TextAlign>
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox1</rd:DefaultName>
+                                        <rd:DefaultName>Textbox6</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -803,14 +803,14 @@
                                       <TablixHeader>
                                         <Size>1in</Size>
                                         <CellContents>
-                                          <Textbox Name="Textbox6">
+                                          <Textbox Name="Textbox9">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>BACK ORDER</Value>
+                                                    <Value>PO</Value>
                                                     <Style>
                                                       <FontFamily>Tahoma</FontFamily>
                                                       <FontWeight>Bold</FontWeight>
@@ -823,7 +823,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox6</rd:DefaultName>
+                                            <rd:DefaultName>Textbox9</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Color>LightGrey</Color>
@@ -843,14 +843,14 @@
                                           <TablixHeader>
                                             <Size>1in</Size>
                                             <CellContents>
-                                              <Textbox Name="Textbox9">
+                                              <Textbox Name="Textbox34">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>PO</Value>
+                                                        <Value>STOCK</Value>
                                                         <Style>
                                                           <FontFamily>Tahoma</FontFamily>
                                                           <FontWeight>Bold</FontWeight>
@@ -863,7 +863,7 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>Textbox9</rd:DefaultName>
+                                                <rd:DefaultName>Textbox34</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Color>LightGrey</Color>
@@ -880,49 +880,7 @@
                                           </TablixHeader>
                                           <TablixMembers>
                                             <TablixMember>
-                                              <TablixHeader>
-                                                <Size>1in</Size>
-                                                <CellContents>
-                                                  <Textbox Name="Textbox34">
-                                                    <CanGrow>true</CanGrow>
-                                                    <KeepTogether>true</KeepTogether>
-                                                    <Paragraphs>
-                                                      <Paragraph>
-                                                        <TextRuns>
-                                                          <TextRun>
-                                                            <Value>STOCK</Value>
-                                                            <Style>
-                                                              <FontFamily>Tahoma</FontFamily>
-                                                              <FontWeight>Bold</FontWeight>
-                                                              <Color>White</Color>
-                                                            </Style>
-                                                          </TextRun>
-                                                        </TextRuns>
-                                                        <Style>
-                                                          <TextAlign>Center</TextAlign>
-                                                        </Style>
-                                                      </Paragraph>
-                                                    </Paragraphs>
-                                                    <rd:DefaultName>Textbox34</rd:DefaultName>
-                                                    <Style>
-                                                      <Border>
-                                                        <Color>LightGrey</Color>
-                                                        <Style>Solid</Style>
-                                                      </Border>
-                                                      <BackgroundColor>DarkBlue</BackgroundColor>
-                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                      <PaddingRight>2pt</PaddingRight>
-                                                      <PaddingTop>2pt</PaddingTop>
-                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                    </Style>
-                                                  </Textbox>
-                                                </CellContents>
-                                              </TablixHeader>
-                                              <TablixMembers>
-                                                <TablixMember>
-                                                  <FixedData>true</FixedData>
-                                                </TablixMember>
-                                              </TablixMembers>
+                                              <FixedData>true</FixedData>
                                             </TablixMember>
                                           </TablixMembers>
                                         </TablixMember>
@@ -937,31 +895,29 @@
                       </TablixMembers>
                     </TablixMember>
                   </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="VENDOR">
+                  <Group Name="ITEM">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!VENDOR.Value</GroupExpression>
+                      <GroupExpression>=Fields!ITEM.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!VENDOR.Value</Value>
+                      <Value>=Fields!ITEM.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.10417in</Size>
+                    <Size>2.01042in</Size>
                     <CellContents>
-                      <Textbox Name="VENDOR1">
+                      <Textbox Name="ITEM1">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!VENDOR.Value</Value>
+                                <Value>=Fields!ITEM.Value</Value>
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontSize>9pt</FontSize>
@@ -971,10 +927,7 @@
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>VENDOR1</rd:DefaultName>
-                        <Visibility>
-                          <Hidden>true</Hidden>
-                        </Visibility>
+                        <rd:DefaultName>ITEM1</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -990,27 +943,27 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="ITEM">
+                      <Group Name="ITEMDESCRIPTION">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!ITEM.Value</GroupExpression>
+                          <GroupExpression>=Fields!ITEMDESCRIPTION.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!ITEM.Value</Value>
+                          <Value>=Fields!ITEMDESCRIPTION.Value</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>2.01042in</Size>
+                        <Size>2.51042in</Size>
                         <CellContents>
-                          <Textbox Name="ITEM1">
+                          <Textbox Name="ITEMDESCRIPTION1">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!ITEM.Value</Value>
+                                    <Value>=Fields!ITEMDESCRIPTION.Value</Value>
                                     <Style>
                                       <FontFamily>Tahoma</FontFamily>
                                       <FontSize>9pt</FontSize>
@@ -1020,7 +973,7 @@
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>ITEM1</rd:DefaultName>
+                            <rd:DefaultName>ITEMDESCRIPTION1</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -1036,27 +989,27 @@
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <Group Name="ITEMDESCRIPTION">
+                          <Group Name="COLOR">
                             <GroupExpressions>
-                              <GroupExpression>=Fields!ITEMDESCRIPTION.Value</GroupExpression>
+                              <GroupExpression>=Fields!COLOR.Value</GroupExpression>
                             </GroupExpressions>
                           </Group>
                           <SortExpressions>
                             <SortExpression>
-                              <Value>=Fields!ITEMDESCRIPTION.Value</Value>
+                              <Value>=Fields!COLOR.Value</Value>
                             </SortExpression>
                           </SortExpressions>
                           <TablixHeader>
-                            <Size>2.51042in</Size>
+                            <Size>1in</Size>
                             <CellContents>
-                              <Textbox Name="ITEMDESCRIPTION1">
+                              <Textbox Name="COLOR1">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!ITEMDESCRIPTION.Value</Value>
+                                        <Value>=Fields!COLOR.Value</Value>
                                         <Style>
                                           <FontFamily>Tahoma</FontFamily>
                                           <FontSize>9pt</FontSize>
@@ -1066,7 +1019,7 @@
                                     <Style />
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>ITEMDESCRIPTION1</rd:DefaultName>
+                                <rd:DefaultName>COLOR1</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -1082,37 +1035,40 @@
                           </TablixHeader>
                           <TablixMembers>
                             <TablixMember>
-                              <Group Name="COLOR">
+                              <Group Name="SALESQTY30DAYS">
                                 <GroupExpressions>
-                                  <GroupExpression>=Fields!COLOR.Value</GroupExpression>
+                                  <GroupExpression>=Fields!SALESQTY30DAYS.Value</GroupExpression>
                                 </GroupExpressions>
                               </Group>
                               <SortExpressions>
                                 <SortExpression>
-                                  <Value>=Fields!COLOR.Value</Value>
+                                  <Value>=Fields!SALESQTY30DAYS.Value</Value>
                                 </SortExpression>
                               </SortExpressions>
                               <TablixHeader>
                                 <Size>1in</Size>
                                 <CellContents>
-                                  <Textbox Name="COLOR1">
+                                  <Textbox Name="SALESQTY30DAYS">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Fields!COLOR.Value</Value>
+                                            <Value>=Fields!SALESQTY30DAYS.Value</Value>
                                             <Style>
                                               <FontFamily>Tahoma</FontFamily>
                                               <FontSize>9pt</FontSize>
+                                              <Format>#,0.00;(#,0.00)</Format>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style />
+                                        <Style>
+                                          <TextAlign>Right</TextAlign>
+                                        </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>COLOR1</rd:DefaultName>
+                                    <rd:DefaultName>SALESQTY30DAYS</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -1128,45 +1084,61 @@
                               </TablixHeader>
                               <TablixMembers>
                                 <TablixMember>
-                                  <Group Name="SALESQTY30DAYS">
+                                  <Group Name="BACKORDERQTY">
                                     <GroupExpressions>
-                                      <GroupExpression>=Fields!SALESQTY30DAYS.Value</GroupExpression>
+                                      <GroupExpression>=Fields!BACKORDERQTY.Value</GroupExpression>
                                     </GroupExpressions>
                                   </Group>
                                   <SortExpressions>
                                     <SortExpression>
-                                      <Value>=Fields!SALESQTY30DAYS.Value</Value>
+                                      <Value>=Fields!BACKORDERQTY.Value</Value>
                                     </SortExpression>
                                   </SortExpressions>
                                   <TablixHeader>
                                     <Size>1in</Size>
                                     <CellContents>
-                                      <Textbox Name="SALESQTY30DAYS">
+                                      <Textbox Name="BACKORDERQTY">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!SALESQTY30DAYS.Value</Value>
+                                                <Value>=IIf(Fields!BACKORDERQTY.Value &gt; 0,"Back Order"," ")</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                   <FontSize>9pt</FontSize>
-                                                  <Format>#,0.00;(#,0.00)</Format>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <Color>White</Color>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
-                                              <TextAlign>Right</TextAlign>
+                                              <TextAlign>Center</TextAlign>
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>SALESQTY30DAYS</rd:DefaultName>
+                                        <rd:DefaultName>BACKORDERQTY</rd:DefaultName>
+                                        <ActionInfo>
+                                          <Actions>
+                                            <Action>
+                                              <Drillthrough>
+                                                <ReportName>/Sales/Back Ordered Stock Items</ReportName>
+                                                <Parameters>
+                                                  <Parameter Name="pItem">
+                                                    <Value>=Fields!ITEM.Value</Value>
+                                                  </Parameter>
+                                                </Parameters>
+                                              </Drillthrough>
+                                            </Action>
+                                          </Actions>
+                                        </ActionInfo>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
                                             <Style>Solid</Style>
                                           </Border>
+                                          <BackgroundColor>=iif(Fields!BACKORDERQTY.Value &gt; 0,"Tomato","Transparent")</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
@@ -1177,27 +1149,27 @@
                                   </TablixHeader>
                                   <TablixMembers>
                                     <TablixMember>
-                                      <Group Name="BACKORDERQTY">
+                                      <Group Name="POQTY">
                                         <GroupExpressions>
-                                          <GroupExpression>=Fields!BACKORDERQTY.Value</GroupExpression>
+                                          <GroupExpression>=Fields!POQTY.Value</GroupExpression>
                                         </GroupExpressions>
                                       </Group>
                                       <SortExpressions>
                                         <SortExpression>
-                                          <Value>=Fields!BACKORDERQTY.Value</Value>
+                                          <Value>=Fields!POQTY.Value</Value>
                                         </SortExpression>
                                       </SortExpressions>
                                       <TablixHeader>
                                         <Size>1in</Size>
                                         <CellContents>
-                                          <Textbox Name="BACKORDERQTY">
+                                          <Textbox Name="POQTY">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=IIf(Fields!BACKORDERQTY.Value &gt; 0,"Back Order"," ")</Value>
+                                                    <Value>=iif(Fields!POQTY.Value &lt;&gt; 0,"Open PO"," ")</Value>
                                                     <Style>
                                                       <FontFamily>Tahoma</FontFamily>
                                                       <FontSize>9pt</FontSize>
@@ -1211,14 +1183,14 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>BACKORDERQTY</rd:DefaultName>
+                                            <rd:DefaultName>POQTY</rd:DefaultName>
                                             <ActionInfo>
                                               <Actions>
                                                 <Action>
                                                   <Drillthrough>
-                                                    <ReportName>/Sales/Back Ordered Stock Items</ReportName>
+                                                    <ReportName>/Sales/Open PO Stock Items</ReportName>
                                                     <Parameters>
-                                                      <Parameter Name="pItem">
+                                                      <Parameter Name="pSKU">
                                                         <Value>=Fields!ITEM.Value</Value>
                                                       </Parameter>
                                                     </Parameters>
@@ -1231,7 +1203,7 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
-                                              <BackgroundColor>=iif(Fields!BACKORDERQTY.Value &gt; 0,"Tomato","Transparent")</BackgroundColor>
+                                              <BackgroundColor>=iif(Fields!POQTY.Value &gt; 0,"LimeGreen","Transparent")</BackgroundColor>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1242,32 +1214,30 @@
                                       </TablixHeader>
                                       <TablixMembers>
                                         <TablixMember>
-                                          <Group Name="POQTY">
+                                          <Group Name="MASTERSTOCKITEM">
                                             <GroupExpressions>
-                                              <GroupExpression>=Fields!POQTY.Value</GroupExpression>
+                                              <GroupExpression>=Fields!MASTERSTOCKITEM.Value</GroupExpression>
                                             </GroupExpressions>
                                           </Group>
                                           <SortExpressions>
                                             <SortExpression>
-                                              <Value>=Fields!POQTY.Value</Value>
+                                              <Value>=Fields!MASTERSTOCKITEM.Value</Value>
                                             </SortExpression>
                                           </SortExpressions>
                                           <TablixHeader>
                                             <Size>1in</Size>
                                             <CellContents>
-                                              <Textbox Name="POQTY">
+                                              <Textbox Name="MASTERSTOCKITEM1">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=iif(Fields!POQTY.Value &lt;&gt; 0,"Open PO"," ")</Value>
+                                                        <Value>=Fields!MASTERSTOCKITEM.Value</Value>
                                                         <Style>
                                                           <FontFamily>Tahoma</FontFamily>
                                                           <FontSize>9pt</FontSize>
-                                                          <FontWeight>Bold</FontWeight>
-                                                          <Color>White</Color>
                                                         </Style>
                                                       </TextRun>
                                                     </TextRuns>
@@ -1276,27 +1246,12 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>POQTY</rd:DefaultName>
-                                                <ActionInfo>
-                                                  <Actions>
-                                                    <Action>
-                                                      <Drillthrough>
-                                                        <ReportName>/Sales/Open PO Stock Items</ReportName>
-                                                        <Parameters>
-                                                          <Parameter Name="pSKU">
-                                                            <Value>=Fields!ITEM.Value</Value>
-                                                          </Parameter>
-                                                        </Parameters>
-                                                      </Drillthrough>
-                                                    </Action>
-                                                  </Actions>
-                                                </ActionInfo>
+                                                <rd:DefaultName>MASTERSTOCKITEM1</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Color>LightGrey</Color>
                                                     <Style>Solid</Style>
                                                   </Border>
-                                                  <BackgroundColor>=iif(Fields!POQTY.Value &gt; 0,"LimeGreen","Transparent")</BackgroundColor>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
                                                   <PaddingTop>2pt</PaddingTop>
@@ -1307,63 +1262,13 @@
                                           </TablixHeader>
                                           <TablixMembers>
                                             <TablixMember>
-                                              <Group Name="MASTERSTOCKITEM">
-                                                <GroupExpressions>
-                                                  <GroupExpression>=Fields!MASTERSTOCKITEM.Value</GroupExpression>
-                                                </GroupExpressions>
-                                              </Group>
-                                              <SortExpressions>
-                                                <SortExpression>
-                                                  <Value>=Fields!MASTERSTOCKITEM.Value</Value>
-                                                </SortExpression>
-                                              </SortExpressions>
-                                              <TablixHeader>
-                                                <Size>1in</Size>
-                                                <CellContents>
-                                                  <Textbox Name="MASTERSTOCKITEM1">
-                                                    <CanGrow>true</CanGrow>
-                                                    <KeepTogether>true</KeepTogether>
-                                                    <Paragraphs>
-                                                      <Paragraph>
-                                                        <TextRuns>
-                                                          <TextRun>
-                                                            <Value>=Fields!MASTERSTOCKITEM.Value</Value>
-                                                            <Style>
-                                                              <FontFamily>Tahoma</FontFamily>
-                                                              <FontSize>9pt</FontSize>
-                                                            </Style>
-                                                          </TextRun>
-                                                        </TextRuns>
-                                                        <Style>
-                                                          <TextAlign>Center</TextAlign>
-                                                        </Style>
-                                                      </Paragraph>
-                                                    </Paragraphs>
-                                                    <rd:DefaultName>MASTERSTOCKITEM1</rd:DefaultName>
-                                                    <Style>
-                                                      <Border>
-                                                        <Color>LightGrey</Color>
-                                                        <Style>Solid</Style>
-                                                      </Border>
-                                                      <PaddingLeft>2pt</PaddingLeft>
-                                                      <PaddingRight>2pt</PaddingRight>
-                                                      <PaddingTop>2pt</PaddingTop>
-                                                      <PaddingBottom>2pt</PaddingBottom>
-                                                    </Style>
-                                                  </Textbox>
-                                                </CellContents>
-                                              </TablixHeader>
-                                              <TablixMembers>
-                                                <TablixMember>
-                                                  <Group Name="Details" />
-                                                  <Visibility>
-                                                    <Hidden>true</Hidden>
-                                                    <ToggleItem>MASTERSTOCKITEM1</ToggleItem>
-                                                  </Visibility>
-                                                </TablixMember>
-                                                <TablixMember />
-                                              </TablixMembers>
+                                              <Group Name="Details" />
+                                              <Visibility>
+                                                <Hidden>true</Hidden>
+                                                <ToggleItem>MASTERSTOCKITEM1</ToggleItem>
+                                              </Visibility>
                                             </TablixMember>
+                                            <TablixMember />
                                           </TablixMembers>
                                         </TablixMember>
                                       </TablixMembers>
@@ -1382,7 +1287,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.98958in</Height>
-            <Width>13.75002in</Width>
+            <Width>13.64585in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
