@@ -8,7 +8,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-
+-- 09/06/2013 SR#13983 James Tuttle: Per Holiday exclude any Dropns [AND ITEMMAST.IMDROP != ''D'']
 
 
 
@@ -77,6 +77,7 @@ left join location on (ibloc = lcloc and ibco = lcco)
 where itemxtra.imsearch like ''''%TASMK%''''
 and itemmast.IMFCRG <> ''''S''''
 and (ITEMMAST.IMDESC like ''''%' + @SeachTerm + '%'''' or itemxtra.imsearch like ''''%' + @SeachTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SeachTerm + '%'''') 
+AND ITEMMAST.IMDROP != ''''D''''
 
 order by itemmast.imitem,ibloc
 
