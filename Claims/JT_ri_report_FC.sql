@@ -25,9 +25,9 @@ SELECT @LastRan = dbo.JT_JobLog_v2.LastRan
 FROM dbo.JT_JobLog_v2								-- Table to store job log of time report last ran
 WHERE dbo.JT_JobLog_v2.JobName = 'JT_ri_report_FC';
 
--- Set the @Row variable to -1 (false)----
-DECLARE @Rows INT
-SELECT @Rows = -1
+------------------ Set the @Row variable to -1 (false)----
+----------------DECLARE @Rows INT
+----------------SELECT @Rows = -1
 -------------------------------------------
 SELECT ohco AS Company
   ,ohloc AS Location
@@ -59,17 +59,17 @@ FROM OPENQUERY (GSFL2K, '
 					+ substring(CONVERT(VARCHAR(7), ohtime),3,2) 
 					+ ':' + substring(CONVERT(VARCHAR(7), ohtime),5,2) 
 END > @LastRan
---********************************************************************
--- Check row count. If nothing returned from the main Select
--- Then this will throw the Error so SSRS will not send an
--- empty email every hour.
--- users will only get an email if there is atleast one record
---********************************************************************
-SELECT @Rows = @@ROWCOUNT 
-IF ( @Rows < 1)
-BEGIN
-	RAISERROR ('No rows returned', 11, 1);
-END
+------------------********************************************************************
+------------------ Check row count. If nothing returned from the main Select
+------------------ Then this will throw the Error so SSRS will not send an
+------------------ empty email every hour.
+------------------ users will only get an email if there is atleast one record
+------------------********************************************************************
+----------------SELECT @Rows = @@ROWCOUNT 
+----------------IF ( @Rows < 1)
+----------------BEGIN
+----------------	RAISERROR ('No rows returned', 11, 1);
+----------------END
 
 ------------------------------------------------------------------------
 -- Update the table with current time for LastTime
