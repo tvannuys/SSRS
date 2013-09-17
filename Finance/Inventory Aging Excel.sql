@@ -153,6 +153,6 @@ AND (ITEMBAL.IBQOH +
 		ifnull((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0)
 		) <> 0
 		
-and imvend in (010131,010133)
+and ITEMSTAT.ISCO in (2,3)
 
 ') OQ
