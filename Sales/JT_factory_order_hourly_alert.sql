@@ -1,5 +1,5 @@
 
---CREATE PROC JT_factory_order_hourly_alert AS
+ ALTER PROC JT_factory_order_hourly_alert AS
 /*----------------------------------------------------------*
 **															*
 **	Converted from Eurisko VFP Reports						*
@@ -9,10 +9,16 @@
 **  are not equal.											*
 **															*
 **----------------------------------------------------------*/
+-- Date		  By			 Ticket#/Description
+-- =========  =============  ===============================
+-- 9/17/2013  James Tuttle    SR# 14244 
+-- Took out the ROW COUNT and will add the PARM in the SSRS 
+-- to control a zero count and not email the subscription
+-------------------------------------------------------------
 
-DECLARE @Rows INT
+--DECLARE @Rows INT
 
-SELECT @Rows = -1
+--SELECT @Rows = -1
 
 -- see if any orders meet the condition
 SELECT *
@@ -31,11 +37,11 @@ FROM OPENQUERY (GSFL2K, 'SELECT ohco as Company,
 -- empty email every hour.
 -- users will only get an email if there is atleast one record
 				
-SELECT @Rows = @@ROWCOUNT 
-IF ( @Rows < 1)
-BEGIN
-	RAISERROR ('No rows returned', 11, 1);
-END
+--SELECT @Rows = @@ROWCOUNT 
+--IF ( @Rows < 1)
+--BEGIN
+--	RAISERROR ('No rows returned', 11, 1);
+--END
  						
 
 
