@@ -14,7 +14,7 @@
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@TableName">
-            <Value>=Parameters!TableName.Value</Value>
+            <Value>=ucase(Parameters!TableName.Value)</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
