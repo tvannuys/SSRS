@@ -1,5 +1,5 @@
 
---CREATE PROC JT_gl_misposted_report AS
+ALTER PROC JT_gl_misposted_report AS
 
 /*==========================================================*
 ** James Tuttle		Date: 10/24/2011						*
@@ -8,13 +8,19 @@
 **															*
 **  Purpose: Old GL Account that was used for posting		*
 **==========================================================*/ 
+-- Date		  By			 Ticket#/Description
+-- =========  =============  ===============================
+-- 9/17/2013  James Tuttle    SR# 14244 
+-- Took out the ROW COUNT and will add the PARM in the SSRS 
+-- to control a zero count and not email the subscription
+-------------------------------------------------------------
 
 -- "Attached are transactions posted to an old GL account by mistake."
 
 
 DECLARE @LastRan AS VARCHAR(20), @Rows INT		-- Timestamp from local table JT_JobLog_v2
 
-SELECT @Rows = -1
+--SELECT @Rows = -1
 
 -- Get LastTime timestamp
 SELECT @LastRan = JT_JobLog_v2.LastRan
@@ -54,19 +60,19 @@ WHERE JAMEST.dbo.JT_JobLog_v2.JobName = 'JT_gl_missing_report'
 
 
 
---------------------------------------------------------------------
--- Check row count. If nothing returned from the main Select
--- Then this will throw the Error so SSRS will not send an
--- empty email every hour.
--- users will only get an email if there is atleast one record
+----------------------------------------------------------------------
+---- Check row count. If nothing returned from the main Select
+---- Then this will throw the Error so SSRS will not send an
+---- empty email every hour.
+---- users will only get an email if there is atleast one record
 				
-SELECT @Rows = @@ROWCOUNT 
-IF ( @Rows < 1)
-BEGIN
-	RAISERROR ('No rows returned', 11, 1);
-END
+--SELECT @Rows = @@ROWCOUNT 
+--IF ( @Rows < 1)
+--BEGIN
+--	RAISERROR ('No rows returned', 11, 1);
+--END
 
---------------------------------------------------------------------
+----------------------------------------------------------------------
 
 
 /*
