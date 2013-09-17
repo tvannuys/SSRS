@@ -16,6 +16,16 @@ OQ.COMPANY,
 OQ.LOCATION,
 OQ.LOCSTOCKITEM,
 OQ.MASTERSTOCKITEM,
+
+oq.MTDSales,
+oq.LastMonthSales,
+oq.MonthBeforeLastMonthSales as '-2 Months Sales',
+oq.TwoMonthBeforeLastMonthSales as '-3 Months Sales',
+
+oq.ThreeMonthSales as '3MonthSales',
+oq.SixMonthSales as '6MonthSales',
+oq.lyytdsales as 'LastYearYTDSales',
+
 OQ.YTDSALES,
 OQ.YTDCOGS,
 OQ.YTDSALESQTY,
@@ -77,6 +87,33 @@ ITEMSTAT.ISCO AS Company,
 ITEMSTAT.ISLOC AS Location, 
 ITEMBAL.IBPRIO AS LocStockItem, 
 ITEMMAST.IMSI AS MasterStockItem, 
+
+ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and slloc = ITEMSTAT.ISLOC
+				AND (year(shline.sldate) = year(current_date)
+				and month(shline.sldate) = month(current_date))
+				),0) as MTDSales,
+
+ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and slloc = ITEMSTAT.ISLOC
+				AND (year(shline.sldate) = year(current_date - 1 month)
+				and month(shline.sldate) = month(current_date)-1)
+				),0) as LastMonthSales,
+
+ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and slloc = ITEMSTAT.ISLOC
+				AND (year(shline.sldate) = year(current_date - 2 month)
+				and month(shline.sldate) = month(current_date)-2)
+				),0) as MonthBeforeLastMonthSales,
+				
+ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and slloc = ITEMSTAT.ISLOC
+				AND (year(shline.sldate) = year(current_date - 3 month)
+				and month(shline.sldate) = month(current_date)-3)
+				),0) as TwoMonthBeforeLastMonthSales,
+
+ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 3 months and slloc = ITEMSTAT.ISLOC),0) as ThreeMonthSales,
+ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 6 months and slloc = ITEMSTAT.ISLOC),0) as SixMonthSales,
+ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and slloc = ITEMSTAT.ISLOC and 
+		(sldate <= (current_date) - 1 year and year(sldate) = year(current_date) - 1) 
+		),0) as LYYTDSales,
+
 ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) as YTDSales,
 ifnull((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) as YTDCOGS,
 ifnull((select sum(SLBLUS) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) as YTDSalesQty,
@@ -115,5 +152,7 @@ AND (ITEMBAL.IBQOH +
 		ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) +
 		ifnull((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0)
 		) <> 0
+		
+and imvend in (010131,010133)
 
 ') OQ
