@@ -1622,7 +1622,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>1.38958in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1631,16 +1631,6 @@
       </Body>
       <Width>19in</Width>
       <Page>
-        <PageFooter>
-          <Height>0.45in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
@@ -1649,6 +1639,19 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="SupressEmail">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSet1</DataSetName>
+          <ValueField>GDCO</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>SupressEmail</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>f3cb1309-08e8-4ae6-ad08-b42a25a25728</rd:ReportID>
