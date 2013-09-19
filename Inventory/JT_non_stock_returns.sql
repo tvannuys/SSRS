@@ -37,6 +37,7 @@ WHERE ohcm = ''Y''
 	AND olqshp < 0.00
 	AND imsi = ''N''
 	AND ohjobt != ''XX''
+	AND ohuser NOT IN (''MONICAM'',''KIME'')
 ')
 
 ORDER BY ohloc
