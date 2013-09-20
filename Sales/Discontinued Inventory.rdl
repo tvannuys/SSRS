@@ -132,7 +132,7 @@
                   <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>2.98958in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -325,7 +325,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox22">
+                        <Textbox Name="Textbox5">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -341,10 +341,12 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox22</rd:DefaultName>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -542,14 +544,13 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Subreport Name="Subreport1">
+                        <Subreport Name="Subreport2">
                           <ReportName>/Sales/Item Balance Discontinued Items</ReportName>
                           <Parameters>
                             <Parameter Name="ItemParameter">
-                              <Value>=CStr(Fields!ITEM.Value)</Value>
+                              <Value>=Fields!ITEM.Value</Value>
                             </Parameter>
                           </Parameters>
-                          <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -673,7 +674,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>8.90625in</Width>
+            <Width>10.89583in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -688,7 +689,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>9.90625in</Width>
+      <Width>10.89583in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
