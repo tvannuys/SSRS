@@ -19,6 +19,7 @@ SELECT irco
 		,irdylt
 		,ircomt
 		,irqty
+		,IRBLU
 		,ircost															
 		,Total
 		,irum1
@@ -46,6 +47,8 @@ FROM OPENQUERY(GSFL2K,'
 			ELSE 0
 		 END AS Total
 		 
+		,IRBLU
+		 
 		,irqty
 		,ircost
 		,immd
@@ -60,7 +63,7 @@ LEFT JOIN itemmast im ON im.imitem = ir.iritem
 
 WHERE irloc IN(41, 50, 52, 57)
 	AND irreason IN(''25'', ''39'', ''02'',''38'')
-	AND irdate >= ''01/01/2010''
+	AND irdate = ''08/20/2013''
 
 GROUP BY irco
 		,irloc
@@ -82,6 +85,7 @@ GROUP BY irco
 		,immd2
 		,imfact
 		,imfac2
+		,IRBLU
 	
 ORDER BY irco
 			,irloc
