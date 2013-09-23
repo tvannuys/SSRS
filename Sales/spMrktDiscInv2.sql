@@ -1,7 +1,7 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spMrktDiscInv2]    Script Date: 11/30/2012 08:56:49 ******/
+/****** Object:  StoredProcedure [dbo].[spMrktDiscInv2]    Script Date: 09/23/2013 11:06:17 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -15,7 +15,7 @@ GO
 
 
 
-ALTER proc [dbo].[spMrktDiscInv2]
+CREATE proc [dbo].[spMrktDiscInv2]
 
 @SearchTerm varchar(20) = '%'
 
@@ -108,60 +108,6 @@ LEFT JOIN division ON division.DVDIV = ITEMMAST.IMDIV
 
 where itemmast.imrpt2 = ''''213''''
 and (ITEMMAST.IMDESC like ''''%' + @SearchTerm + '%'''' or itemxtra.imsearch like ''''%' + @SearchTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SearchTerm + '%'''')
-and itemmast.imitem in (
-''''GR0406B'''',
-''''GR0440B'''',
-''''GR0494B'''',
-''''LO90022'''',
-''''LO890153'''',
-''''LO80072'''',
-''''QC7640GPS142CYB'''',
-''''QC7620ICL142CMS'''',
-''''QC7620ICL142BAM'''',
-''''QC7620ICL142RKO'''',
-''''GR81001B'''',
-''''GR82001B'''',
-''''GR83002B'''',
-''''GR83004B'''',
-''''GR83005B'''',
-''''QC76600CL142GMA'''',
-''''QC76600CL142HOM'''',
-''''QC76600CL142SIM'''',
-''''QC7660PCC142CMS'''',
-''''QC7660PCC142BAM'''',
-''''GR100631B'''',
-''''GR10SG0494B'''',
-''''GR100163B'''',
-''''GR100272B'''',
-''''GR1080969B'''',
-''''GR73552'''',
-''''GR73553'''',
-''''GR73554'''',
-''''GR73557'''',
-''''LOH18023'''',
-''''LOH890096'''',
-''''LOH9826'''',
-''''BBAMWA956HDF'''',
-''''BBCABI95BSHDF'''',
-''''BBCAEL95BWHDF'''',
-''''BBCAEL95COHDF'''',
-''''BBCAEL95FQHDF'''',
-''''BBCAEL95RSHDF'''',
-''''BBCAHI85NAHDF'''',
-''''BBCAHI95CAHDF'''',
-''''BBCAMP95CSHDF'''',
-''''BBCAMP95DWHDF'''',
-''''BBCAMP95MFHDF'''',
-''''BBCAMP95SMHDF'''',
-''''BBCAOK95AFHDF2'''',
-''''BBCAOK95BEHDF'''',
-''''BBCAOK95BUHDF'''',
-''''BBCAOK95NAHDF'''',
-''''BBCOBI955ABHDF2'''',
-''''QC76600CL142CPM'''',
-''''QC76600CL142GMA'''',
-''''QC76600CL142HOM'''',
-''''QC76600CL142SIM'''')
 
 order by itemmast.imitem
 
