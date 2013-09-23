@@ -15,7 +15,7 @@ GO
 
 
 
-CREATE proc [dbo].[spMrktDiscInv2]
+ALTER proc [dbo].[spMrktDiscInv2]
 
 @SearchTerm varchar(20) = '%'
 
@@ -107,6 +107,7 @@ LEFT JOIN division ON division.DVDIV = ITEMMAST.IMDIV
 
 
 where itemmast.imrpt2 = ''''213''''
+and itemmast.imdrop = ''''D''''
 and (ITEMMAST.IMDESC like ''''%' + @SearchTerm + '%'''' or itemxtra.imsearch like ''''%' + @SearchTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SearchTerm + '%'''')
 
 order by itemmast.imitem
