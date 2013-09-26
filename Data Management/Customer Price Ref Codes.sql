@@ -1,4 +1,14 @@
-create proc spCustPriceRefCodes
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spCustPriceRefCodes]    Script Date: 09/26/2013 16:07:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER proc [dbo].[spCustPriceRefCodes]
 
 
 @CustID varchar(10)
@@ -14,7 +24,7 @@ select p.pecust as CustNum,
 		c.cmname as PriceRefDesc
 		
 from pricexcp p
-join custmast c on p.pecust = c.cmcust
+join custmast c on p.peref# = c.cmcust
 
 where p.peref# <>''''''''
 	and p.pecust = ''''' + @CustID + '''''
@@ -22,3 +32,6 @@ where p.peref# <>''''''''
 '')'
 
 exec(@sql)
+GO
+
+
