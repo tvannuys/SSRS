@@ -1,3 +1,13 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[JT_Weekly_New_Quotes_Sidemarks]    Script Date: 09/26/2013 13:46:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 
 --------------------------------------------------------------------------------
 --	SR# 4980 - 
@@ -13,16 +23,27 @@
 --  so we can see where we have multiple quotes on the same job
 --
 --==============================================================================
+--  Thomas  Date: 09/26/2013
+--	SR# 14533    
+--  create a version that allows for a 'days back' parameter 
+--  allows a single report and store procedure to address the weekly quotes and 
+--     user desire to have a running 6 months report
+--
+--==============================================================================
 
 
-ALTER PROC JT_Weekly_New_Quotes_Sidemarks 
- @BeginDate varchar(10)
-,@EndDate varchar(10) 
+ALTER PROC [dbo].[JT_Weekly_New_Quotes_Sidemarks] 
+ @DaysBack int
+
 AS
 BEGIN 
 
+declare @BeginDate varchar(10)
+declare @EndDate   varchar(10)
+
+
 	-- Last Saturday's date
-	SET @BeginDate = CONVERT(VARCHAR(10),dateadd(dd,-6,datediff(dd,0,getdate())),101)	
+	SET @BeginDate = CONVERT(VARCHAR(10),dateadd(dd,(@DaysBack * -1),datediff(dd,0,getdate())),101)	
 	-- Today's date [Friday]
 	SET @EndDate = CONVERT(VARCHAR(10),GETDATE(),101)	
  
@@ -101,3 +122,6 @@ END
 
 
 --	JT_Weekly_New_Quotes_Sidemarks 05052012, 05122013
+GO
+
+
