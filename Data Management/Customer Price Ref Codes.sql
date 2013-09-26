@@ -1,10 +1,12 @@
 select * from openquery (gsfl2k,'
 
-select pecust as CustNum,
-		peref# as PriceRefCode
+select p.pecust as CustNum,
+		p.peref# as PriceRefCode,
+		c.cmname as PriceRefDesc
 		
-from pricexcp
+from pricexcp p
+join custmast c on p.pecust = c.cmcust
 
-where peref# <>''''
+where p.peref# <>''''
 
 ')
