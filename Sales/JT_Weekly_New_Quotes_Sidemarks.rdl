@@ -14,11 +14,8 @@
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@BeginDate">
-            <Value>=Format(Parameters!BeginDate.Value, "MM/dd/yyyy")</Value>
-          </QueryParameter>
-          <QueryParameter Name="@EndDate">
-            <Value>=Format(Parameters!EndDate.Value,"MM/dd/yyyy")</Value>
+          <QueryParameter Name="@DaysBack">
+            <Value>=Parameters!DaysBack.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -1002,7 +999,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>20.39584in</Width>
+            <Width>20.39585in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1087,7 +1084,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>20.39584in</Width>
+      <Width>20.39585in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -1098,23 +1095,9 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="BeginDate">
-      <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>04/01/2013 00:00:00</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Begin Date:</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="EndDate">
-      <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>04/01/0203 00:00:00</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>End Date:</Prompt>
+    <ReportParameter Name="DaysBack">
+      <DataType>Integer</DataType>
+      <Prompt>Days Back:</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
