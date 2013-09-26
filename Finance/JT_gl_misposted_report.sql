@@ -1,5 +1,15 @@
+USE [GartmanReport]
+GO
 
-ALTER PROC JT_gl_misposted_report AS
+/****** Object:  StoredProcedure [dbo].[JT_gl_misposted_report]    Script Date: 09/26/2013 09:58:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+alter PROC [dbo].[JT_gl_misposted_report] AS
 
 /*==========================================================*
 ** James Tuttle		Date: 10/24/2011						*
@@ -54,9 +64,9 @@ end > @LastRan
 
 
 -- Update the table with current time for LastTime
-UPDATE JAMEST.dbo.JT_JobLog_v2
-SET JAMEST.dbo.JT_JobLog_v2.LastRan =  CONVERT(VARCHAR(10),GETDATE(),120) + ' ' +REPLACE(CONVERT(VARCHAR(8), GETDATE(), 8), ':', ':') 
-WHERE JAMEST.dbo.JT_JobLog_v2.JobName = 'JT_gl_missing_report'
+UPDATE dbo.JT_JobLog_v2
+SET dbo.JT_JobLog_v2.LastRan =  CONVERT(VARCHAR(10),GETDATE(),120) + ' ' +REPLACE(CONVERT(VARCHAR(8), GETDATE(), 8), ':', ':') 
+WHERE dbo.JT_JobLog_v2.JobName = 'JT_gl_missing_report'
 
 
 
@@ -82,3 +92,6 @@ VALUES ('JT_gl_missing_report', '2011-10-24 09:00:00')
 
 SELECT * FROM JT_JobLog_v2
 */
+GO
+
+
