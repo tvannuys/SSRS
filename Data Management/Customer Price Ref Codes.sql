@@ -1,4 +1,13 @@
-select * from openquery (gsfl2k,'
+create proc spCustPriceRefCodes
+
+
+@CustID varchar(10)
+
+as
+
+declare @sql varchar(max)
+
+set @sql = 'select * from openquery (gsfl2k,''
 
 select p.pecust as CustNum,
 		p.peref# as PriceRefCode,
@@ -7,6 +16,9 @@ select p.pecust as CustNum,
 from pricexcp p
 join custmast c on p.pecust = c.cmcust
 
-where p.peref# <>''''
+where p.peref# <>''''''''
+	and p.pecust = ''''' + @CustID + '''''
 
-')
+'')'
+
+exec(@sql)
