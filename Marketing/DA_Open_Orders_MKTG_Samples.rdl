@@ -1150,7 +1150,6 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0in</Top>
             <Height>0.5in</Height>
             <Width>17.10417in</Width>
             <Style>
@@ -1159,39 +1158,8 @@
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="ExecutionTime">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Globals!ExecutionTime</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>ExecutionTime</rd:DefaultName>
-            <Left>15.10417in</Left>
-            <Height>0.25in</Height>
-            <Width>2in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>0.5in</Height>
+        <Height>0.52083in</Height>
         <Style>
           <Border>
             <Style>None</Style>
