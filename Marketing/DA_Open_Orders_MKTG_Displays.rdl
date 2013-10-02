@@ -1180,7 +1180,6 @@ DA_Open_Orders_MKTG_Displays</Description>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.4in</Top>
             <Height>0.5in</Height>
             <Width>19.96876in</Width>
             <Style>
@@ -1189,78 +1188,8 @@ DA_Open_Orders_MKTG_Displays</Description>
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="ReportTitle">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Open Orders MKTG Displays </Value>
-                    <Style>
-                      <FontFamily>Verdana</FontFamily>
-                      <FontSize>20pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>(DA_Open_Orders_MKTG_Displays)</Value>
-                    <Style>
-                      <FontFamily>Verdana</FontFamily>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
-            <rd:DefaultName>ReportTitle</rd:DefaultName>
-            <Height>0.4in</Height>
-            <Width>8.79167in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="ExecutionTime">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Globals!ExecutionTime</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>ExecutionTime</rd:DefaultName>
-            <Left>10.02083in</Left>
-            <Height>0.25in</Height>
-            <Width>2in</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>1.01042in</Height>
+        <Height>0.51042in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1269,56 +1198,6 @@ DA_Open_Orders_MKTG_Displays</Description>
       </Body>
       <Width>19.97918in</Width>
       <Page>
-        <PageFooter>
-          <Height>0.1007in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="Textbox4">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!TotalPages</Value>
-                      <Style>
-                        <FontStyle>Normal</FontStyle>
-                        <FontFamily>Courier New</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                        <TextDecoration>None</TextDecoration>
-                        <Color>#000000</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>0.02778in</Top>
-              <Left>12.48833in</Left>
-              <Height>0.07292in</Height>
-              <Width>1in</Width>
-              <Visibility>
-                <Hidden>true</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
