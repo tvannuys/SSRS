@@ -11,10 +11,10 @@ r.Cut as RCRPrice,
 h.lItem,
 h.hisdate,
 h.unitprice,
-h.lsellunits
+h.PriceUOM
 
 from SFIRCRPricing r
-join openquery(gsfl2k, 'SELECT lcus,litem,hisdate,unitprice,lsellunits
+join openquery(gsfl2k, 'SELECT lcus,litem,hisdate,unitprice,LPRUNITS as PriceUOM
   FROM edi832hist AS h
  WHERE hisdate =
        ( SELECT MAX(hisdate)
@@ -41,3 +41,11 @@ order by 1,4
 select * 
 from SFIRCRPricing r
 where r.SKU in (select * from openquery(gsfl2k,'select imitem from itemmast where imdrop = ''D'' '))
+
+/*
+
+Find rows in RCR where the SKU doesn't exist
+
+*/
+
+select * from SuperfloorsRCR where [Supplier SKU #] not in (select * from openquery(gsfl2k,'select imitem from itemmast'))
