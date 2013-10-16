@@ -4,6 +4,11 @@
 -- James Tuttle		10/12/2012
 -- Added CustName after Cust#
 -- Created User friendly field names
+
+-- Thomas	10/16/2013
+-- put city and state in separate fields
+
+
 --=================================================================================================================
 
 ALTER PROC JT_Alex_5000 AS
@@ -39,6 +44,8 @@ BEGIN
 		,shsta1 varchar(25)		-- Ship to address 1
 		,shsta2 varchar(25)		-- Ship to address 2
 		,shsta3 varchar(25)		-- Ship to address 3
+		,city varchar(25)       -- Ship to city
+		,[state] varchar(25)    -- Ship to State
 		,shzip varchar(9)		-- Ship to zip
 	)							-----------------------------------------------
 
@@ -74,6 +81,8 @@ BEGIN
 				,shsta1 as address1
 				,shsta2 as address2
 				,shsta3 as city_state
+				,left(shsta3,23) as City
+				,right(shsta3,2) as State
 				,shzip as zip
 		FROM shline
 		LEFT JOIN shhead ON (shhead.shco = shline.slco
@@ -117,6 +126,8 @@ BEGIN
 		,ohsta1 varchar(25)		-- Ship to address 1
 		,ohsta2 varchar(25)		-- Ship to address 2
 		,ohsta3 varchar(25)		-- Ship to address 3
+		,city varchar(25)		-- Ship to city
+		,[state] varchar(25)	-- Ship to state
 		,ohzip varchar(9)		-- Ship to zip
 	)							-----------------------------------------------
 
@@ -152,6 +163,8 @@ BEGIN
 				,ohsta1 as address1
 				,ohsta2 as address2
 				,ohsta3 as city_state
+				,left(ohsta3,23) as City
+				,right(ohsta3,2) as State
 				,ohzip as zip
 		FROM ooline
 		LEFT JOIN oohead ON (oohead.ohco = ooline.olco
@@ -189,7 +202,9 @@ BEGIN
 			,shstnm as shipto
 			,shsta1 as address1
 			,shsta2 as address2
-			,shsta3 as city_state
+--			,shsta3 as city_state
+			,city
+			,[state]
 			,shzip as zip
 	FROM #BO
 	UNION ALL
@@ -210,7 +225,9 @@ BEGIN
 			,ohstnm as shipto
 			,ohsta1 as address1
 			,ohsta2 as address2
-			,ohsta3 as city_state
+--			,ohsta3 as city_state
+			,city
+			,[state]
 			,ohzip as zip
 	FROM #OO
 SET NOCOUNT OFF
