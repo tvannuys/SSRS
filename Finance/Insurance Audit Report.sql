@@ -1,18 +1,31 @@
 /* SR 15584  */
 
-select *,CONVERT(datetime, CONVERT(VARCHAR(10), shidat)) as InvoiceDate
+select InvoiceNbr,
+CONVERT(datetime, CONVERT(VARCHAR(10), shidat)) as InvoiceDate,
+OrderType,
+OrderTypeDesc,
+Company,
+Location,
+CustomerPO,
+CustomerNbr,
+CustomerName,
+SubTotal,
+FrtTaxEtc,
+OrderTotal
+
 from openquery(gsfl2k,'
 select  shinv# as InvoiceNbr,
 shidat,
-shotyp,
-OTYDES,
-soldto.cmzip,
-billto.cmcust,
-billto.cmname,
-shsam4 as HeaderFreight,
-
-SHEMDS,
-shtotl
+shotyp as OrderType,
+OTYDES as OrderTypeDesc,
+shco as Company,
+shloc as Location,
+SHPO# as CustomerPO,
+billto.cmcust as CustomerNbr,
+billto.cmname as CustomerName,
+SHEMDS as SubTotal,
+shtotl - SHEMDS as FrtTaxEtc,
+shtotl as OrderTotal
 
 
 /* slesc2 as ItemFreight, */
@@ -37,10 +50,10 @@ from shhead
 /*		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV   */
 /*		left join salesman on shline.SLSLMN = salesman.smno  */
 		
-where shinv# in (''090965'',''092382'',''099529'',''138637'',''159491'',''178072'')
+where shco = 3
 
-/* and shidat >= ''1/1/2013'' */
-/* and shidat <= ''7/31/2013'' */
+and shidat >= ''11/1/2012'' 
+and shidat <= ''10/31/2013'' 
 
 ')
 
