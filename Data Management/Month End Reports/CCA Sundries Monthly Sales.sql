@@ -40,6 +40,8 @@ WHERE 	shline.sldiv between 6 and 9
 		and (year(shline.sldate) = year(current_date - 1 month)
 			and month(shline.sldate) = month(current_date)-1)
 		and cmkmkc in (''C1'',''FA'',''FE'',''GC'',''ID'',''PR'',''RD'',''ST'',''TR'')
+		and shline.slco=1
+		and slfcrg <> ''S''
 
 order by cmcust
 
