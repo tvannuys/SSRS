@@ -2381,11 +2381,10 @@ select * from #TempCCI</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ACCOUNTBALANCE.Value</Value>
+                                  <Value>=int(Fields!ACCOUNTBALANCE.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>n0</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -2450,11 +2449,10 @@ select * from #TempCCI</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CURRENTBALANCE.Value</Value>
+                                  <Value>=int(Fields!CURRENTBALANCE.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>n0</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -2520,11 +2518,10 @@ select * from #TempCCI</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!THIRTYDAYBALANCE.Value</Value>
+                                  <Value>=int(Fields!THIRTYDAYBALANCE.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>n0</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -2589,11 +2586,10 @@ select * from #TempCCI</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SIXTYDAYBALANCE.Value</Value>
+                                  <Value>=int(Fields!SIXTYDAYBALANCE.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>n0</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -2658,11 +2654,10 @@ select * from #TempCCI</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NINETYDAYBALANCE.Value</Value>
+                                  <Value>=int(Fields!NINETYDAYBALANCE.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>n0</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -2727,11 +2722,10 @@ select * from #TempCCI</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!OVERNINETYBALANCE.Value</Value>
+                                  <Value>=int(Fields!OVERNINETYBALANCE.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>n0</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
