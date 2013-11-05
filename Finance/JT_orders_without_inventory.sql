@@ -4,6 +4,7 @@ ALTER PROC JT_orders_without_inventory AS
 -- orderswithoutinventory.prg
 
 
+
 SELECT *
 FROM OPENQUERY (GSFL2K, 'SELECT ohotyp as order_type,
 								ohco as co,
