@@ -9,8 +9,8 @@ from openquery(gsfl2k,'
 select  shco,shloc,shord#,shrel#,
 shinv#,
 shidat,
-billto.cmcust,
-billto.cmname,
+soldto.cmcust,
+soldto.cmname,
 smname,
 
 case
