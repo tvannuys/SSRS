@@ -43,7 +43,7 @@ into @customer, @fromPRCD, @toPRCD, @cutUnitPrice, @itemUnitPrice
 while @@FETCH_STATUS = 0
 begin
 	insert ##TempItemList
-	select imitem, imdesc, imrcst, @customer, @itemUnitPrice, @cutUnitPrice, @fromPRCD, @toPRCD
+	select imitem, imdesc, imcost, @customer, @itemUnitPrice, @cutUnitPrice, @fromPRCD, @toPRCD
 	from gsfl2k.b107fd6e.gsfl2k.itemmast
 	where imprcd between @fromPRCD and @toPRCD
 
