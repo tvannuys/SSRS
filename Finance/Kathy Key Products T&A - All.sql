@@ -23,6 +23,13 @@ end as KeyCustomer,
 case 
 	when pcprcd in (34056,34057, 34058) then ''EvoStrand Bamboo''
 	when pcprcd = 22647 then ''Quick Loc Bamboo''
+	
+	when pcprcd = 13700 then ''Crystal Ridge''
+	when pcprcd = 6392 then ''Tru Loc''
+	when pcprcd = 82141 then ''Bentley''
+	when pcprcd = 82142 then ''Carrera''
+	when pcprcd = 82144 then ''Nature''
+	
 	when pcprcd = 33630 then ''Olympic Solid Hardwood''
 	when pcprcd = 34500 then ''Canyon Creek''
 	when pcprcd = 82140 then ''Titan Grand Plank''
@@ -60,14 +67,15 @@ from CUSTMAST billto
 		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
 		left join custmast soldto on shhead.shcust = soldto.cmcust
 		
-where (slprcd in (34056,34057,34058,22647,33630,34500,82140,13622,13620,13440,13609,13646, 82145,82146,4906,13597,13592,84022,13594,13595) 
+/* where (slprcd in (34056,34057,34058,22647,33630,34500,82140,13622,13620,13440,13609,13646, 82145,82146,4906,13597,13592,84022,13594,13595)  */
+where (slprcd in (13700,6392,82141,82142,82144,34056,34057,34058,22647,13622,13620,13440,13609,13646, 82145,82146,13597,13592,84022,13594,13595)  
 		or
 	   slvend in (22859,24020)
 	   )
 and (billto.cmcust like ''1%'' or billto.cmcust like ''40%'')
  
 and year(shidat) = year(current_date)
-and month(shidat) <= 10
+and month(shidat) = 10
 
 
 and shco=1
