@@ -493,7 +493,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>First</Value>
+                                  <Value>Name</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -638,6 +638,12 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!LineCount.Value</Value>
+                <Direction>Descending</Direction>
+              </SortExpression>
+            </SortExpressions>
             <Top>0.42778in</Top>
             <Height>0.5in</Height>
             <Width>2.9375in</Width>
@@ -779,7 +785,7 @@
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>9/25/2013 12:00:00 AM</Value>
+          <Value>=Today()</Value>
         </Values>
       </DefaultValue>
       <Prompt>From Date</Prompt>
@@ -788,7 +794,7 @@
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>9/25/2013 12:00:00 AM</Value>
+          <Value>=Today()</Value>
         </Values>
       </DefaultValue>
       <Prompt>To Date</Prompt>
@@ -800,7 +806,7 @@
           <Value>50</Value>
         </Values>
       </DefaultValue>
-      <Prompt>CSV</Prompt>
+      <Prompt>Location (if more than one seperate each by a comma):</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
