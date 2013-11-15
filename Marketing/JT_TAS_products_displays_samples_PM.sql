@@ -18,6 +18,8 @@
 *********************************************/
 
 -- 09/06/2013 SR# James Tuttle
+-- 11/15/2013 SR# 15925 James TUttle
+
 ALTER PROC [dbo].[JT_TAS_products_displays_samples_PM] AS
 BEGIN
 	SELECT *
@@ -64,7 +66,8 @@ BEGIN
 				ON im.imitem = ix.imxitm
 		  WHERE ((ix.imsearch LIKE ''%HPRO%'') OR (ix.imsearch LIKE ''%KPRO%''))
 			AND ix.imcolimit IN (0,2)
-
+			AND im.imdrop != ''D''
+			
 		  ORDER BY ix.imcolimit
 				,im.imitem
 		  ')
