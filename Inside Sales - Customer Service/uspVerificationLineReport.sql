@@ -34,7 +34,7 @@ BEGIN
 						AND oh.ohrel# = ol.olrel#
 						AND oh.ohcust = ol.olcust)
 						
-	WHERE ol.olitem IN (''VERIFICATION'',''VERIFICATIONPM'',''VERIFICATIONSAF'')
+	WHERE ol.olitem IN (''VERIFICATION'',''VERIFICATIONPM'',''VERIFICATIONSAF'',''VERIFICATION80'')
 	
 	ORDER BY oh.ohco
 			,oh.ohuser
