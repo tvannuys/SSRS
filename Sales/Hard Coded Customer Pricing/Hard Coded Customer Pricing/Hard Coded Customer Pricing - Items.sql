@@ -5,6 +5,16 @@ SR 15513
 PECPRC Cut Unit price 
 PEPRIC Item Unit price 
 
+11/14/2013
+------------------------------------
+PECST4 = Manufacturer Rebate - Item
+PECCS4 = Manufacturer Rebate - Cut
+
+Buying Group Rebate
+CUSTLICG - by customer, first matching product criteria
+LICST5 - buying group rebate amount - LISTY5 inidcates % (of cost), P (percent of sell) or $ (dollars per selling unit)
+
+
 drop table #TempItemList
 */
 
@@ -18,14 +28,17 @@ TempSalesPerson char(30),
 TempItemUnitPrice float,
 TempCutUnitPrice float,
 TempFromProdCode int,
-TempToProdCode int
+TempToProdCode int,
+TempMnfRebateItem float,
+TempMnfRebateCut float
 )
 
 
 /* Single Items */
 
 insert #TempItemList
-select FromItem, imdesc, imcost, customerid, Customer, [state], SalesPerson, ItemUnitPrice, CutUnitPrice, FromProdCode,ToProdCode
+select FromItem, imdesc, imcost, customerid, Customer, [state], SalesPerson, ItemUnitPrice, CutUnitPrice, FromProdCode,ToProdCode,
+	MnfRebateItem, MnfRebateCut
 from openquery(gsfl2k,'
 select pecust as CustomerID,
 cmname as Customer,
@@ -39,7 +52,9 @@ PECPRC CutUnitPrice,
 PEPRIC ItemUnitPrice,
 imitem,
 imdesc,
-imcost
+imcost,
+PECST4 as MnfRebateItem,
+PECST5 as MnfRebateCut
 
 from PRICEXCP
 join itemmast on imitem = pefitm
@@ -58,21 +73,31 @@ and (pecust like ''1%'' or pecust like ''40%'')
 /* Single Product Codes */
 
 insert #TempItemList
-select FromItem, imdesc, imcost, customerid, Customer, [state], SalesPerson, ItemUnitPrice, CutUnitPrice, FromProdCode,ToProdCode
+select FromItem, imdesc, imcost, customerid, Customer, [state], SalesPerson, ItemUnitPrice, CutUnitPrice, FromProdCode,ToProdCode,
+	MnfRebateItem, MnfRebateCut
 from openquery(gsfl2k,'
 select pecust as CustomerID,
 cmname as Customer,
 right(cmadr3,2) as State,
 smname as SalesPerson,
+
+imitem as FromItem,
+imitem as ToItem,
+
+/*
 pefitm as FromItem,
 petitm as ToItem,
+*/
 pefprc as FromProdCode,
 petprc as ToProdCode,
 PECPRC CutUnitPrice, 
 PEPRIC ItemUnitPrice,
 imitem,
 imdesc,
-imcost
+imcost,
+PECST4 as MnfRebateItem,
+PECST5 as MnfRebateCut
+
 
 from PRICEXCP
 join itemmast on imprcd = pefprc
@@ -93,7 +118,9 @@ declare @fromPRCD int,
 @toPRCD int,
 @cutUnitPrice float,
 @itemUnitPrice float,
-@customer char(10)
+@customer char(10),
+@MnfRebateItem float,
+@MnfRebateCut float
 
 declare PRICEXCP_cursor cursor for
 	select * from openquery(gsfl2k,'
@@ -101,8 +128,10 @@ declare PRICEXCP_cursor cursor for
 			pefprc as FromProdCode,
 			petprc as ToProdCode,
 			PECPRC CutUnitPrice, 
-			PEPRIC ItemUnitPrice 
-
+			PEPRIC ItemUnitPrice,
+			PECST4 as MnfRebateItem,
+			PECST5 as MnfRebateCut
+			
 			from PRICEXCP
 
 			where  pepric <> 0
@@ -115,7 +144,7 @@ declare PRICEXCP_cursor cursor for
 open PRICEXCP_cursor
 
 fetch next from PRICEXCP_cursor
-into @customer, @fromPRCD, @toPRCD, @cutUnitPrice, @itemUnitPrice
+into @customer, @fromPRCD, @toPRCD, @cutUnitPrice, @itemUnitPrice,@MnfRebateItem,@MnfRebateCut
 
 while @@FETCH_STATUS = 0
 begin
@@ -130,7 +159,10 @@ begin
 		@itemUnitPrice, 
 		@cutUnitPrice, 
 		@fromPRCD, 
-		@toPRCD
+		@toPRCD,
+		@MnfRebateItem,
+		@MnfRebateCut
+		
 		
 	from gsfl2k.b107fd6e.gsfl2k.itemmast item
 	join gsfl2k.b107fd6e.gsfl2k.custmast cust on @customer = cust.cmcust
@@ -138,7 +170,7 @@ begin
 			
 	where imprcd between @fromPRCD and @toPRCD
 
-	fetch next from PRICEXCP_cursor into @customer, @fromPRCD, @toPRCD, @cutUnitPrice, @itemUnitPrice
+	fetch next from PRICEXCP_cursor into @customer, @fromPRCD, @toPRCD, @cutUnitPrice, @itemUnitPrice,@MnfRebateItem,@MnfRebateCut
 end
 
 close pricexcp_cursor
@@ -158,12 +190,13 @@ TempItemDesc as ItemDesc,
 #TempItemList.TempItemUnitPrice as ItemPrice,
 TempCutUnitPrice as CutPrice,
 TempLandedCost as Cost,
-(select SUM(sleprc) from gsfl2k.b107fd6e.gsfl2k.shline where slitem = #TempItemList.imitem and sldate >= DATEADD(M,-12,GETDATE())) as TwelveMonthSales
+TempMnfRebateItem as MnfRebateItem,
+TempMnfRebateCut as MnfRebateCut,
+isnull((select SUM(sleprc) from gsfl2k.b107fd6e.gsfl2k.shline where slitem = #TempItemList.imitem and sldate >= DATEADD(M,-12,GETDATE())),0) as TwelveMonthSales
 
 from #TempItemList
 
-
-where (TempItemUnitPrice-TempLandedCost)/TempItemUnitPrice < .15
+where (TempItemUnitPrice-TempLandedCost+TempMnfRebateItem)/TempItemUnitPrice < .15
 
 
 
