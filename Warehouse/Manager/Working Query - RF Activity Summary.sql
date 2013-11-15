@@ -26,6 +26,10 @@ WITH CTE_TotalActivities AS (
 	WHERE RFDate BETWEEN '10/15/2011' AND GETDATE()
 		  AND (Metric LIKE 'weight%')
 		  AND Metric NOT LIKE 'WCC Avg Time%'
+		  
+		  AND u.EMPLOYEENAME LIKE '%Clinton%'
+		  AND DATEPART(YY,p.rfdate) = 2013
+		  AND DATEPART(M,p.rfdate) = 9
 	            
 	GROUP BY p.company
 		  ,p.location
@@ -58,6 +62,11 @@ WITH CTE_TotalActivities AS (
 	WHERE RFDate BETWEEN '10/15/2011' AND GETDATE()
 		  AND Metric LIKE 'hours%'
 		  AND Metric NOT LIKE 'WCC Avg Time%'
+		 
+		  AND u.EMPLOYEENAME LIKE '%Clinton%'
+		  AND DATEPART(YY,p.rfdate) = 2013
+		  AND DATEPART(M,p.rfdate) = 9 
+		  
 	          
 	GROUP BY p.company
 		  ,p.location
@@ -80,7 +89,7 @@ SELECT t1.Company
 	  ,ISNULL(t2.TotalActivities,0) AS Activities
 
 FROM CTE_TotalHours T1
-LEFT JOIN CTE_TotalActivities T2 on (t1.Company = t2.Company 
+RIGHT JOIN CTE_TotalActivities T2 on (t1.Company = t2.Company 
 									AND t1.Day = t2.Day 
 									AND t1.EMPLOYEENAME = t2.EMPLOYEENAME
 									AND t1.Month = t2.Month
