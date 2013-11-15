@@ -43,7 +43,7 @@ JOIN custmast cm ON oh.ohcust = cm.cmcust
 WHERE oh.ohodat < CURRENT_DATE - 21 DAYS 
 	AND oh.ohotyp IN(''CL'',''FR'')
 	AND ol.olvend != ''40000''
-	AND oh.ohco != 1
+	AND oh.ohco NOT IN (1,3)
 GROUP BY oh.ohodat
 		,oh.ohord#
 		,oh.ohreq#
