@@ -192,7 +192,8 @@ TempCutUnitPrice as CutPrice,
 TempLandedCost as Cost,
 TempMnfRebateItem as MnfRebateItem,
 TempMnfRebateCut as MnfRebateCut,
-isnull((select SUM(sleprc) from gsfl2k.b107fd6e.gsfl2k.shline where slitem = #TempItemList.imitem and sldate >= DATEADD(M,-12,GETDATE())),0) as TwelveMonthSales
+isnull((select SUM(sleprc) from gsfl2k.b107fd6e.gsfl2k.shline where slitem = #TempItemList.imitem and sldate >= DATEADD(M,-12,GETDATE())),0) as TwelveMonthSales,
+(select vmname from gsfl2k.b107fd6e.gsfl2k.VENDMAST v join gsfl2k.b107fd6e.gsfl2k.itemmast i on i.imvend = v.vmvend where #TempItemList.imitem = i.IMITEM) as Vendor 
 
 from #TempItemList
 
