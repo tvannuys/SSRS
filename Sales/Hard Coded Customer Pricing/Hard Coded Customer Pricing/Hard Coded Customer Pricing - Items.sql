@@ -145,6 +145,8 @@ close pricexcp_cursor
 deallocate pricexcp_cursor
 
 
+
+
 /* Final select */
 
 select TempCustomerID as Acct,
@@ -155,9 +157,13 @@ TempCustomer as Customer,
 TempItemDesc as ItemDesc,
 #TempItemList.TempItemUnitPrice as ItemPrice,
 TempCutUnitPrice as CutPrice,
-TempLandedCost as Cost
+TempLandedCost as Cost,
+(select SUM(sleprc) from gsfl2k.b107fd6e.gsfl2k.shline where slitem = #TempItemList.imitem and sldate >= DATEADD(M,-12,GETDATE())) as TwelveMonthSales
 
 from #TempItemList
+
+
+where (TempItemUnitPrice-TempLandedCost)/TempItemUnitPrice < .15
 
 
 
