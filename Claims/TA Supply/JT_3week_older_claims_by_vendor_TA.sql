@@ -15,16 +15,18 @@ older than 3 weeks to date ran
 --  FIELD:: oohead.ohreq#
 --=================================================================
 
-ALTER PROC [dbo].[JT_3week_older_claims_by_vendor_TA] AS
+ALTER PROC [dbo].[JT_3week_older_claims_by_vendor] AS
 SELECT *
 FROM OPENQUERY(GSFL2K,
- 'SELECT olvend AS Vend#
+ 'SELECT ohco AS Company
+		,olvend AS Vend#
 		,vmname AS Vendor_Name
 		,MONTH(ohodat)|| ''/'' || DAY(ohodat)|| ''/'' || YEAR(ohodat) AS Date
 		,ohord# AS Claim#
 		,ohreq# AS Vendor_Claim#
 		,cmname AS Customer
 		,SUM(olecst) AS ext_cost
+		
  FROM oohead oh
  JOIN ooline ol
 	ON (oh.ohco = ol.olco
@@ -33,17 +35,21 @@ FROM OPENQUERY(GSFL2K,
 		AND oh.ohrel# = ol.olrel#)
 JOIN vendmast vm ON ol.olvend = vm.vmvend
 JOIN custmast cm ON oh.ohcust = cm.cmcust
+
 WHERE oh.ohodat < CURRENT_DATE - 21 DAYS 
 	AND oh.ohotyp IN(''CL'',''FR'')
 	AND ol.olvend != ''40000''
-	AND oh.ohco != 2
-GROUP BY oh.ohodat
+
+GROUP BY oh.ohco
+		,oh.ohodat
 		,oh.ohord#
 		,oh.ohreq#
 		,ol.olvend
 		,vm.vmname
 		,cmname
-ORDER BY ol.olvend
+		
+ORDER BY oh.ohco
+		,ol.olvend
 		,oh.ohodat
  ')
 
