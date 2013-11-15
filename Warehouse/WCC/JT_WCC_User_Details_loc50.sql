@@ -1,21 +1,3 @@
-USE [GartmanReport]
-GO
-
-
-/*********************************************************************************
-**																				**
-** SR# 14499																	**
-** Programmer: James Tuttle	Date:09/25/2013										**
-** ---------------------------------------------------------------------------- **
-** Purpose:																		**
-**																				**
-**																				**
-**																				**
-**																				**
-**																				**
-**********************************************************************************/
-
-
 ALTER PROC [dbo].[JT_WCC_User_Details_loc50] 
 		    @FromDate varchar(10)
 		   ,@ToDate varchar(10)
@@ -23,12 +5,14 @@ ALTER PROC [dbo].[JT_WCC_User_Details_loc50]
 AS
 BEGIN
 DECLARE @sql varchar(3000) = '
-SELECT LTRIM(SUBSTRING(emname,CHARINDEX('' '', emname)+1, LEN(emname))) AS [First]
-	  ,SUBSTRING(emname,1, CHARINDEX('' '',emname)-1)					  AS [Last]
+WITH CTE1 AS
+(SELECT emname
 	  ,LineCount
+	  
+	  
 	FROM OPENQUERY (GSFL2K,''SELECT	emname
 						   ,COUNT(rfoitem) AS LineCount	
-						   ,rfloc
+						   ,rfloc	
 								
 							FROM rfwillchst wc
 							LEFT JOIN userxtra ux ON ux.usxid = wc.rfouser
@@ -40,42 +24,28 @@ SELECT LTRIM(SUBSTRING(emname,CHARINDEX('' '', emname)+1, LEN(emname))) AS [Firs
 								AND rfobin# != ''''SHIPD''''
 							
 							GROUP BY emname
-								    ,rfloc
+									,rfloc
+
 							
 							ORDER BY COUNT(rfoitem)  DESC								
 							'')
 	/* @CSV to pass in a list of multiple PARMS from the SSRS */
-	WHERE rfloc IN(SELECT * FROM dbo.udfCSVToList(''' + @CSV + ''')) 
+	WHERE rfloc IN(SELECT * FROM dbo.udfCSVToList(''' + @CSV + '''))  )
 	
+	SELECT  LTRIM(SUBSTRING(emname,CHARINDEX('' '', emname)+1, LEN(emname))) AS First
+		   ,SUBSTRING(emname,1, CHARINDEX('' '',emname)-1) AS LAst
+	   	   ,SUM(LineCount) AS LineCount
+   FROM CTE1 t1
+   GROUP BY emname
+	
+
+
 	'
 END
 EXEC (@sql)
 GO
-------->>>    JT_WCC_User_Details_loc50 '09/30/2013','09/30/2013','42'
 
-/*
-------------------------- DETAILS -----------------------------------------------
+--LTRIM(SUBSTRING(emname,CHARINDEX('' '', emname)+1, LEN(emname))) AS [First]		
+--	   	   ,SUBSTRING(emname,1, CHARINDEX('' '',emname)-1)					  AS [Last]	
 
-SELECT *
-	FROM OPENQUERY (GSFL2K,'SELECT	rfloc
-									 
-									,emname
-									,rfoord#
-									,rfoitem	
-								
-							FROM rfwillchst wc
-							LEFT JOIN userxtra ux ON ux.usxid = wc.rfouser
-							LEFT JOIN prempm em on em.ememp# = ux.usxemp#
-							
-							WHERE rfloc = 60
-								AND rfodate >= ''09/30/2013''
-								AND rfodate <= ''09/30/2013''
-								AND rpstat = ''T''
-								AND rfobin# != ''SHIPD''
-							
-							
-							
-							ORDER BY emname
-								
-					')
------------------------------------------------------------------------------------------- */
+------->>>    JT_WCC_User_Details_loc50 '11/13/2013','11/13/2013','52,41,57'
