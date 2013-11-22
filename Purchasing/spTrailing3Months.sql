@@ -1,8 +1,7 @@
-
+USE [GartmanReport]
+GO
 
 -- 09/06/2013 SR#13983 James Tuttle: Per Holiday exclude any Drops [AND ITEMMAST.IMDROP != ''D'']
-
-
 
 
 ALTER proc [dbo].[spTrailing3Months]
@@ -20,35 +19,34 @@ set @sql = '
 select * 
 from openquery(GSFL2K,''
 
-SELECT ITEMMAST.IMPRCD AS ProductCode,
-ITEMMAST.IMITEM AS Item, 
-ITEMMAST.IMDESC AS ItemDescription, 
-ITEMMAST.IMCOLR AS Color, 
+SELECT ITEMMAST.IMPRCD AS ProductCode
+,ITEMMAST.IMITEM AS Item
+,ITEMMAST.IMDESC AS ItemDescription
+,ITEMMAST.IMCOLR AS Color
 
-(select sum(slecst) from shline where itemmast.imitem = slitem and sldate between current_date - 90 days and  current_date) AS CostOfSales90Days,
-(select sum(slecst) from shline where itemmast.imitem = slitem and sldate between current_date - 60 days and  current_date) AS CostOfSales60Days,
-(select sum(slecst) from shline where itemmast.imitem = slitem and sldate between current_date - 30 days and  current_date) AS CostOfSales30Days,
+,(select COALESCE(sum(slecst),0) from shline where itemmast.imitem = slitem and sldate between current_date - 90 days and  current_date and slco = ITEMBal.ibco and slloc = ITEMBal.ibloc) AS CostOfSales90Days
+,(select COALESCE(sum(slecst),0) from shline where itemmast.imitem = slitem and sldate between current_date - 60 days and  current_date and slco = ITEMBal.ibco and slloc = ITEMBal.ibloc) AS CostOfSales60Days
+,(select COALESCE(sum(slecst),0) from shline where itemmast.imitem = slitem and sldate between current_date - 30 days and  current_date and slco = ITEMBal.ibco and slloc = ITEMBal.ibloc) AS CostOfSales30Days
 
-/* (select sum(olecst) from oolbo where itemmast.imitem = olitem) as BackOrderCost, */
+,(select COALESCE(sum(olecst),0) from oolbo where itemmast.imitem = olitem ) as BackOrderCost
 
-(select sum(olecst) from oolbo where ITEMBal.ibitem = olitem AND ITEMBal.ibloc = x.loc AND ITEMBal.obco = x.co ) as BackOrderCost,
-
-itemxtra.imsearch as SearchWords,
-division.DVDESC AS Division, 
-itemmast.imfmcd as FamilyCode,
-Family.fmdesc AS Family, 
-VENDMAST.VMNAME AS Vendor, 
-ITEMMAST.IMSI AS MasterStockItem, 
-ITEMMAST.IMDROP AS DropFlag,
-itemmast.imum1 as InventoryUOM,
-itemmast.imum2 as SalesUOM,
-itemmast.immd as IMMD,
-itemmast.immd2 as IMMD2,
-itemmast.imfact as IMFACT,
-itemmast.imrpt2 as ReportCode2,
-ibloc as Location,
-lcrnam as LocationName,
-(select SUM(ib.ibqoh * itemmast.imcost)from itembal ib where ITEMBal.ibco = ib.ibco and ITEMBal.ibloc = ib.ibloc) AS CostOnHand
+,itemxtra.imsearch as SearchWords
+,division.DVDESC AS Division 
+,itemmast.imfmcd as FamilyCode
+,Family.fmdesc AS Family 
+,VENDMAST.VMNAME AS Vendor 
+,ITEMMAST.IMSI AS MasterStockItem 
+,ITEMMAST.IMDROP AS DropFlag
+,itemmast.imum1 as InventoryUOM
+,itemmast.imum2 as SalesUOM
+,itemmast.immd as IMMD
+,itemmast.immd2 as IMMD2
+,itemmast.imfact as IMFACT
+,itemmast.imrpt2 as ReportCode2
+,ibloc as Location
+,lcrnam as LocationName
+ 
+,(SELECT COALESCE(SUM( ibqoh * itemmast.imcost ),0) FROM itembal ib WHERE itemmast.imitem = ib.ibitem AND ib.ibloc =  location.lcloc ) AS CostOnHand
 
 /* ==========================================  This report version is set to look at costs instead of qtys	=============================	*/
 /*ibqoh as OnHand,																															*/
@@ -81,8 +79,10 @@ left join location on (ibloc = lcloc and ibco = lcco)
 
 where itemxtra.imsearch like ''''%TASMK%''''
 and itemmast.IMFCRG <> ''''S''''
-and (ITEMMAST.IMDESC like ''''%' + @SeachTerm + '%'''' or itemxtra.imsearch like ''''%' + @SeachTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SeachTerm + '%'''') 
+ /* and (ITEMMAST.IMDESC like ''''%' + @SeachTerm + '%'''' or itemxtra.imsearch like ''''%' + @SeachTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SeachTerm + '%'''') */
+ AND itemmast.imdesc like ''''BEAR MOUNTN ACACIA 5 HDF 34.10''''
 AND ITEMMAST.IMDROP != ''''D''''
+AND location.lcrnam NOT LIKE ''''~%''''
 
 
 order by itemmast.imitem,ibloc
@@ -92,6 +92,7 @@ order by itemmast.imitem,ibloc
 
 --select @sql
 exec (@sql)
+
 
 
 
