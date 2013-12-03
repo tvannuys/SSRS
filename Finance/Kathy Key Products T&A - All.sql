@@ -72,13 +72,14 @@ where (slprcd in (13700,6392,82141,82142,82144,34056,34057,34058,22647,13622,136
 		or
 	   slvend in (22859,24020)
 	   )
-and (billto.cmcust like ''1%'' or billto.cmcust like ''40%'')
+/* and (billto.cmcust like ''1%'' or billto.cmcust like ''40%'')  */
  
 and year(shidat) = year(current_date)
-and month(shidat) = 10
+and month(shidat) = 11
 
+and soldto.cmco = 1
 
-and shco=1
+/* and shco=1 */
 
 and smname not in (''HOUSE'',''CLOSED ACCOUNTS'',''DEVELOPMENTAL/SALES MGRS'',''BLOW OUT ORDERS'',
 	''PACMAT HOUSE'',''MARK CLEVENGER'',''INTERNET ORDERS'',''INACTIVE'',''GREG ROTHWELL'',''GARY CARSON'')  
@@ -111,7 +112,7 @@ end as KeyCustomer,
 ''ZeroDollar'' as ReportProductDesc,
 
 0 as ExtendedCost,
-0 as ExtendedPrice
+0.01 as ExtendedPrice
 
 from custmast billto
 left join CUSTSEG on (csgcus = billto.cmcust and csgsgc = ''TK'')
