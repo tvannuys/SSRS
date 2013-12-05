@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>Verification report for Inside Sales Managers</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
@@ -1493,6 +1494,10 @@
           </ParameterValue>
           <ParameterValue>
             <Value>2</Value>
+            <Label>PM</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>3</Value>
             <Label>PM</Label>
           </ParameterValue>
         </ParameterValues>
