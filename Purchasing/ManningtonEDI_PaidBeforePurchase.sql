@@ -29,9 +29,9 @@ BEGIN
 			,Poline.PLDESC AS Description
 			,Itemmast.IMCOLR AS Color 
 			,Poline.PLQORD AS UnitsOrdered
-			,Itemfact.IFFACA AS UnitsPerPallet 
-			,Itemfact.IFUMC
-			,Poline.PLQORD/Itemfact.IFFACA AS TotalPallets
+		/*	,Itemfact.IFFACA AS UnitsPerPallet				*/
+		/*	,Itemfact.IFUMC									*/
+		/*	,Poline.PLQORD/Itemfact.IFFACA AS TotalPallets	*/
 			,(SELECT MAX(mnman#) FROM manifest WHERE mnpo# = poline.plpo#
 									AND mnpolo = poline.plloc
 									AND mnitem = poline.plitem
@@ -47,7 +47,7 @@ BEGIN
 		AND Poline.PLloc = Pohead.PHloc
 		AND poline.plvend = pohead.phvend
 		AND Poline.PLPO# = Pohead.PHPO#) 
-	LEFT JOIN Itemfact ON Poline.PLITEM = Itemfact.IFITEM 
+/*	LEFT JOIN Itemfact ON Poline.PLITEM = Itemfact.IFITEM	*/
 	LEFT JOIN Vendmast ON Poline.PLVEND = Vendmast.VMVEND 
 	LEFT JOIN Family ON Poline.PLFMCD = Family.FMFMCD 
 	LEFT JOIN itemrech ir ON ( ir.iritem = Poline.plitem
@@ -62,6 +62,8 @@ BEGIN
 	WHERE imvend = ''10131''
 		AND Poline.PLDDAT = ''2039-12-31''
 		AND Poline.plqrec != Poline.plqord 
+		AND Poline.plcode != ''C''
+
 
 	ORDER BY Poline.PLDDAT
 			,Vendmast.VMNAME
