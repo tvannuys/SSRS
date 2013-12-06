@@ -3,7 +3,7 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource1">
-      <DataSourceReference>GartmanReports</DataSourceReference>
+      <DataSourceReference>/Data Sources/GartmanReports</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>f6678ac2-92b9-448a-b27c-bd9eb5800df7</rd:DataSourceID>
     </DataSource>
@@ -166,6 +166,9 @@ LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#</CommandTex
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.82292in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.10417in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -478,6 +481,44 @@ LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#</CommandTex
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Reference#</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -1101,6 +1142,41 @@ LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#</CommandTex
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="REFNUM">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!REFNUM.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>REFNUM</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="UNITSORDERED1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1423,6 +1499,7 @@ LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#</CommandTex
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1444,7 +1521,7 @@ LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#</CommandTex
             </TablixRowHierarchy>
             <DataSetName>Mannington_EDI_PO_Data</DataSetName>
             <Height>0.66875in</Height>
-            <Width>22.20834in</Width>
+            <Width>23.31251in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1459,7 +1536,7 @@ LEFT join GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT on Manifest = MT.MTMAN#</CommandTex
           </Border>
         </Style>
       </Body>
-      <Width>22.62501in</Width>
+      <Width>23.31251in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
