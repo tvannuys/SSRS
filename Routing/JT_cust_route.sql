@@ -27,6 +27,8 @@ SET @SQL ='
 			,RTRIM(REVERSE(SUBSTRING(REVERSE(CMADR3),3,LEN(CMADR3)))) AS City
 			,REVERSE(LEFT(REVERSE(CMADR3),2)) AS State
 			,cmzip AS Zip
+			,Exceptions
+			
 	FROM OPENQUERY(GSFL2K,
 		''SELECT cmname
 				,cmcust
@@ -35,8 +37,16 @@ SET @SQL ='
 				,cmdrt2
 				,cmadr3
 				,cmzip
+				,CASE 
+					WHEN crrout IS NOT NULL THEN ''''Yes'''' 
+					ELSE '''' '''' 
+				 END AS Exceptions
+				
 	FROM custmast cm
+	LEFT JOIN custrout cr ON cm.cmcust = cr.crcust
+	
 	WHERE cm.cmdrt1 = ' + '''' + '''' + @Route + '''' + '''' + '
+	
 	ORDER BY cm.cmname
 	
 	'')
@@ -44,7 +54,7 @@ SET @SQL ='
 	
 	EXEC (@SQL)
 	
-	-- JT_cust_route ORCC2
+	-- JT_cust_route 296
 
 
 --ALTER PROC JT_cust_route 
