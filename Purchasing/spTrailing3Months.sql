@@ -24,11 +24,19 @@ SELECT ITEMMAST.IMPRCD AS ProductCode
 ,ITEMMAST.IMDESC AS ItemDescription
 ,ITEMMAST.IMCOLR AS Color
 
-,(select COALESCE(sum(slecst),0) from shline where itemmast.imitem = slitem and sldate between current_date - 90 days and  current_date and slco = ITEMBal.ibco and slloc = ITEMBal.ibloc) AS CostOfSales90Days
-,(select COALESCE(sum(slecst),0) from shline where itemmast.imitem = slitem and sldate between current_date - 60 days and  current_date and slco = ITEMBal.ibco and slloc = ITEMBal.ibloc) AS CostOfSales60Days
-,(select COALESCE(sum(slecst),0) from shline where itemmast.imitem = slitem and sldate between current_date - 30 days and  current_date and slco = ITEMBal.ibco and slloc = ITEMBal.ibloc) AS CostOfSales30Days
+,(SELECT COALESCE(SUM(slecst),0) FROM shline WHERE itemmast.imitem = slitem 
+	AND sldate BETWEEN (current_date - 90 days) AND  (current_date - 60 days)
+	AND slco = ITEMBal.ibco AND slloc = ITEMBal.ibloc) AS CostOfSales90Days
+	
+,(SELECT COALESCE(SUM(slecst),0) FROM shline WHERE itemmast.imitem = slitem 
+	AND sldate BETWEEN (current_date - 60 days) AND  (current_date - 30 days)
+	AND slco = ITEMBal.ibco AND slloc = ITEMBal.ibloc) AS CostOfSales60Days
+	
+,(SELECT COALESCE(SUM(slecst),0) FROM shline WHERE itemmast.imitem = slitem 
+	AND sldate BETWEEN current_date - 30 days AND  current_date 
+	AND slco = ITEMBal.ibco AND slloc = ITEMBal.ibloc) AS CostOfSales30Days
 
-,(select COALESCE(sum(olecst),0) from oolbo where itemmast.imitem = olitem ) as BackOrderCost
+,(SELECT COALESCE(SUM(olecst),0) FROM oolbo WHERE itemmast.imitem = olitem ) AS BackOrderCost
 
 ,itemxtra.imsearch as SearchWords
 ,division.DVDESC AS Division 
@@ -46,7 +54,8 @@ SELECT ITEMMAST.IMPRCD AS ProductCode
 ,ibloc as Location
 ,lcrnam as LocationName
  
-,(SELECT COALESCE(SUM( ibqoh * itemmast.imcost ),0) FROM itembal ib WHERE itemmast.imitem = ib.ibitem AND ib.ibloc =  location.lcloc ) AS CostOnHand
+,(SELECT COALESCE(SUM((ibqoh * itemmast.imfact) * itemmast.imcost ),0) FROM itembal ib WHERE itemmast.imitem = ib.ibitem 
+	AND ib.ibloc =  location.lcloc ) AS CostOnHand
 
 /* ==========================================  This report version is set to look at costs instead of qtys	=============================	*/
 /*ibqoh as OnHand,																															*/
@@ -83,6 +92,7 @@ and itemmast.IMFCRG <> ''''S''''
  AND itemmast.imdesc like ''''BEAR MOUNTN ACACIA 5 HDF 34.10''''
 AND ITEMMAST.IMDROP != ''''D''''
 AND location.lcrnam NOT LIKE ''''~%''''
+AND  ITEMBal.ibloc NOT IN (20,37,39,40,83)
 
 
 order by itemmast.imitem,ibloc
