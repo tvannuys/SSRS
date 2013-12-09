@@ -46,7 +46,7 @@ WHERE 	SHHEAD.SHCUST &lt;&gt; ''1008342''
 			AND (year(shline.sldate) = year(current_date - 1 month)
 				 and month(shline.sldate) = month(current_date)-1)
 			and (
-				SHLINE.SLPRCD in (34500,22647,34057,34058,13592,13593,13594,13595)
+				SHLINE.SLPRCD in (13804,22647,13592,13594,13595)
 				or SHLINE.SLCLS#=4177
 				or SHLINE.SLVEND = 22859
 				and slfmcd &lt;&gt; ''W2'' 
@@ -1409,7 +1409,7 @@ WHERE 	SHHEAD.SHCUST &lt;&gt; ''1008342''
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>23.26042in</Width>
+            <Width>23.26043in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1424,7 +1424,7 @@ WHERE 	SHHEAD.SHCUST &lt;&gt; ''1008342''
           </Border>
         </Style>
       </Body>
-      <Width>23.26042in</Width>
+      <Width>23.26043in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
