@@ -55,10 +55,12 @@ BEGIN
 							AND ir.irpolo = Poline.plloc
 							AND ir.irpo# = Poline.plpo# 
 							AND ir.irvend = Poline.plvend
-							AND ir.IRPOSQ = Poline.plseq#
-							
+							AND ir.IRPOSQ = Poline.plseq#						
 							 )
-
+/*	LEFT JOIN POLHISTDTL pod On (pod.pdco = pohead.phco
+							AND pod.pdloc = pohead.phloc
+							AND pod.pdpo# = pohead.phpo# 
+							AND pod.pdvend = pohead.phvend)   ----- */
 	WHERE imvend = ''10131''
 		AND Poline.PLDDAT = ''2039-12-31''
 		AND Poline.plqrec != Poline.plqord 
