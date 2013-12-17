@@ -29,6 +29,7 @@ BEGIN
 			,Poline.PLDESC AS Description
 			,Itemmast.IMCOLR AS Color 
 			,Poline.PLQORD AS UnitsOrdered
+			,pdtype
 		/*	,Itemfact.IFFACA AS UnitsPerPallet				*/
 		/*	,Itemfact.IFUMC									*/
 		/*	,Poline.PLQORD/Itemfact.IFFACA AS TotalPallets	*/
@@ -38,7 +39,8 @@ BEGIN
 									AND mnpoco = poline.plco) AS Manifest,
 			(SELECT SUM(ibqoh) FROM itembal WHERE ibitem = itemmast.imitem) AS OnHand
 			,irdate AS RecvDate
-			,irinv# AS APinvoice
+		/*	,irinv# AS APinvoice							*/
+			,pdinv#
 
 	FROM Poline
 
@@ -57,16 +59,20 @@ BEGIN
 							AND ir.irvend = Poline.plvend
 							AND ir.IRPOSQ = Poline.plseq#						
 							 )
-/*	LEFT JOIN POLHISTDTL pod On (pod.pdco = pohead.phco
-							AND pod.pdloc = pohead.phloc
-							AND pod.pdpo# = pohead.phpo# 
-							AND pod.pdvend = pohead.phvend)   ----- */
+	LEFT JOIN POLHISTDTL pod On ( pod.pdco = Poline.plco
+							AND pod.pdloc = Poline.plloc
+							AND pod.pdpo# = Poline.plpo# 
+							AND pod.pdvend = Poline.plvend
+							AND pod.pdseq# = Poline.plseq#
+							)  
+							
 	WHERE imvend = ''10131''
 		AND Poline.PLDDAT = ''2039-12-31''
 		AND Poline.plqrec != Poline.plqord 
 		AND Poline.plcode != ''C''
-
-
+	 	AND (( pod.pdtype =  ''M'' ) OR ( pod.pdtype IS NULL ))	 
+	
+	
 	ORDER BY Poline.PLDDAT
 			,Vendmast.VMNAME
 			,Poline.PLPO#
