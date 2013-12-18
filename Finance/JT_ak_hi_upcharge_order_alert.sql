@@ -1,4 +1,14 @@
-ALTER PROC JT_ak_hi_upcharge_order_alert AS
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[JT_ak_hi_upcharge_order_alert]    Script Date: 12/18/2013 07:20:10 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROC [dbo].[JT_ak_hi_upcharge_order_alert] AS
 
 /********************************************************
 **	From the VFP Server									*
@@ -16,6 +26,9 @@ ALTER PROC JT_ak_hi_upcharge_order_alert AS
 --
 -- Added SAF and Pacmat locations for AK and HI
 -----------------------------------------------------------
+--	George Rippee III	Date: 12/18/2013
+--	Added batch number from ooinuse file
+-----------------------------------------------------------
 
 
 SELECT *
@@ -26,9 +39,15 @@ FROM OPENQUERY(GSFL2K, 'SELECT olco
 								,olrel#
 								,olcust
 								, CASE WHEN olinvu = ''T'' THEN ''Shipped'' ELSE olinvu END AS Status
+								,iubat#
 						FROM ooline
+							left join ooinuse on (olco=iuco and olloc=iuloc and olord#=iuord# and olrel#=iurel# and iupgm = ''OE105'')
 						WHERE olcust NOT LIKE ''IRR%''
 							AND olinvu = ''T''
 							AND olloc != oliloc
 							AND olloc IN (80, 85, 81, 53, 54)
 ')
+
+GO
+
+
