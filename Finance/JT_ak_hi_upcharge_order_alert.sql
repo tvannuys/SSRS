@@ -1,12 +1,13 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[JT_ak_hi_upcharge_order_alert]    Script Date: 12/18/2013 07:20:10 ******/
+/****** Object:  StoredProcedure [dbo].[JT_ak_hi_upcharge_order_alert]    Script Date: 12/18/2013 07:31:05 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 ALTER PROC [dbo].[JT_ak_hi_upcharge_order_alert] AS
 
@@ -46,7 +47,9 @@ FROM OPENQUERY(GSFL2K, 'SELECT olco
 							AND olinvu = ''T''
 							AND olloc != oliloc
 							AND olloc IN (80, 85, 81, 53, 54)
+						order by olco asc,olloc asc,olord# asc,olrel# asc
 ')
+
 
 GO
 
