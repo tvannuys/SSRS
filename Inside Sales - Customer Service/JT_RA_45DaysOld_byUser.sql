@@ -11,8 +11,8 @@
 **																				**
 **********************************************************************************/
 
--- 12/19/2013	SR# 16698	James Tuttle
---
+-- 12/18/2013	SR# 16698	James Tuttle
+-- 12/19/2013	SR# 16714	James Tuttle
 
 ALTER PROC JT_RA_45DaysOld_byUser AS
 BEGIN
@@ -31,11 +31,11 @@ BEGIN
 		,ohuser 
 		
 	FROM oohead oh
-	LEFT JOIN ooline ol ON (ol.olco = oh.ohco
-		    AND ol.olloc = oh.ohloc
-		    AND ol.olord# = oh.ohord#
-		    AND ol.olrel# = oh.ohrel#
-		    AND ol.olcust = oh.ohcust)
+/*	LEFT JOIN ooline ol ON (ol.olco = oh.ohco		*/
+/*		    AND ol.olloc = oh.ohloc					*/
+/*		    AND ol.olord# = oh.ohord#				*/
+/*		    AND ol.olrel# = oh.ohrel#				*/
+/*		    AND ol.olcust = oh.ohcust)				*/
 		    
 	WHERE oh.ohotyp IN (''RA'',''RI'')
 		AND oh.ohodat <= CURRENT_DATE - 45 DAYS
