@@ -28,7 +28,7 @@ BEGIN
 		,ohco
 		,ohloc
 		,ohord#
-		,ohuser
+		,ohuser 
 		
 	FROM oohead oh
 	LEFT JOIN ooline ol ON (ol.olco = oh.ohco
