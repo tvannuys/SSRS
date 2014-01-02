@@ -73,7 +73,7 @@ OQ.AGE7 as '> 719 Days',
 OQ.BuyerNumber,
 OQ.DateLastCount
 
-into  #tmpInventoryAging
+
 
 from openquery(gsfl2k,'
 
@@ -102,9 +102,27 @@ ITEMSTAT.ISCO AS Company,
 ITEMSTAT.ISLOC AS Location, 
 ITEMBAL.IBPRIO AS LocStockItem, 
 ITEMMAST.IMSI AS MasterStockItem, 
-ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) as YTDSales,
-ifnull((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) as YTDCOGS,
-ifnull((select sum(SLBLUS) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) as YTDSalesQty,
+ifnull((select sum(sleprc) 
+		from shline 
+		where shline.slitem = ITEMSTAT.ISITEM 
+		and sldate >= current_date - 12 months 
+		and slloc = ITEMSTAT.ISLOC
+		and slco = itemstat.isco),0) as YTDSales,
+		
+ifnull((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) 
+		from shline 
+		where shline.slitem = ITEMSTAT.ISITEM 
+		and sldate >= current_date - 12 months 
+		and slloc = ITEMSTAT.ISLOC
+		and slco = itemstat.isco),0) as YTDCOGS,
+		
+ifnull((select sum(SLBLUS) 
+		from shline 
+		where shline.slitem = ITEMSTAT.ISITEM 
+		and sldate >= current_date - 12 months 
+		and slloc = ITEMSTAT.ISLOC
+		and slco = itemstat.isco),0) as YTDSalesQty,
+		
 /* ITEMSTAT.ISYQTY AS YTDSalesQty,  */
 ITEMBAL.IBQOH AS QtyOnHand, 
 ITEMBAL.IBQOO as QtyOnOrder,
@@ -136,11 +154,24 @@ FROM ITEMSTAT
 
 WHERE ITEMSTAT.ISITEM <> ''WIWOODCOVESTICK''
 And ITEMSTAT.ISITEM <> ''JSCCCC48''
+
 /* AND ITEMMAST.IMFCRG <> ''S'' */
 AND (ITEMBAL.IBQOH + 
 		ITEMSTAT.ISVALU + 
-		ifnull((select sum(sleprc) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0) +
-		ifnull((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) from shline where shline.slitem = ITEMSTAT.ISITEM and sldate >= current_date - 12 months and slloc = ITEMSTAT.ISLOC),0)
+		ifnull((select sum(sleprc) 
+				from shline where shline.slitem = ITEMSTAT.ISITEM 
+				and sldate >= current_date - 12 months 
+				and slloc = ITEMSTAT.ISLOC
+				and slco = itemstat.isco),0) 
+				
+				+
+				
+		ifnull((select sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) 
+				from shline 
+				where shline.slitem = ITEMSTAT.ISITEM 
+				and sldate >= current_date - 12 months 
+				and slloc = ITEMSTAT.ISLOC
+				and slco = itemstat.isco),0)
 		) <> 0
 
 /* 
@@ -151,7 +182,7 @@ AND (ITEMBAL.IBQOH +
 */
 ') OQ
 
-select * from #tmpInventoryAging
+
 
 
 
