@@ -10,14 +10,23 @@ Unused join
 		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
 */
 
+--drop table #TempSalesCommish
 
-select * from openquery(gsfl2k,'
+select slslmn, smname, sldiv, dvdesc, imitem, imdesc, ExtendedCost, ExtendedPrice, 
+GETDATE() as ItemSetupDate,
+0 as ItemAge
+
+into #TempSalesCommish
+
+from openquery(gsfl2k,'
 select  slslmn,
 salesman.smname,
 sldiv,
 dvdesc,
-sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) as ExtendedCost,
-sum(sleprc) as ExtendedPrice
+imitem,
+imdesc,
+SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5 as ExtendedCost,
+sleprc as ExtendedPrice
 
 from shline
 		
@@ -35,15 +44,34 @@ from shline
 where year(shidat) in (2013)
 and month(shidat) = 12
 and shco=1
-
-group by slslmn,
-salesman.smname,
-sldiv,
-dvdesc
+and slslmn = 509
 
 order by smname,
-dvdesc
+dvdesc,
+imitem
 
 ')
 
+--drop table #ItemAge
 
+select * 
+into #ItemAge
+from openquery(gsfl2k,'
+select imdesc, min(IMSDAT) as ItemSetupDate
+from itemmast m
+join itemxtra x on m.imitem = x.imxitm
+
+group by imdesc
+')
+
+select * from #TempSalesCommish
+select * from #ItemAge
+
+
+update #TempSalesCommish 
+set ItemSetupDate = a.ItemSetupDate
+from #TempSalesCommish t1
+join #ItemAge a on a.imdesc = t1.imdesc
+where a.itemsetupdate <> '0001-01-01'
+
+select *,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth from #TempSalesCommish
