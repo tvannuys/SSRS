@@ -23,10 +23,12 @@ DECLARE @sql varchar(3000) = '
 
 
  SELECT LTRIM(SUBSTRING(emname,CHARINDEX('' '', emname)+1, LEN(emname))) AS [First]
-	  ,SUBSTRING(emname,1, CHARINDEX('' '',emname)-1)					  AS [Last]
+	  ,SUBSTRING(emname,1, CHARINDEX('' '',emname)-1)					 AS [Last]
+	  ,usxemp#															 AS [Emp#]
 	  
  FROM OPENQUERY(GSFL2K,	
 	''SELECT emname
+			,usxemp#
 
 	FROM userxtra ux
 	LEFT JOIN prempm em ON ux.usxemp# = em.ememp#
