@@ -101,6 +101,7 @@ GROUP BY slco
 		,vmname  
 ORDER BY slco
 		, slloc
+		, ''Avg Wgt'' DESC
 -- Sorted off the prior month weight DESC -----------------------------------------------------------------------------
 
 		, CAST((ISNULL(SUM(CASE WHEN MONTH(sldate) = '+''+''+@PrMonth+''+''+' THEN (slqshp * imwght) END),0)) as DECIMAL(10,0)) DESC
