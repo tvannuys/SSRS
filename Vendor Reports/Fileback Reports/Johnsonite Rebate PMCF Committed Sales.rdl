@@ -35,7 +35,7 @@ FROM SHLINE
 	INNER JOIN CUSTMAST ON SHLINE.SLCUST = CUSTMAST.CMCUST
 
 
-WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date)-1)
+WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date - 1 month))
 		AND SHLINE.SLPRCD Between 52033 And 52052 
 		AND SHLINE.SLVEND = 1573 
 		AND SHLINE.SLCO = 2

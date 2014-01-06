@@ -31,7 +31,7 @@ SELECT 	SLINV# AS InvoiceNum,
 		inner join CUSTMAST ON shline.slcust = custmast.cmcust
 
 	WHERE (year(shline.sldate)=year(current_date - 1 month)
-			and month(shline.sldate)=month(current_date)-1)
+			and month(shline.sldate)=month(current_date - 1 month))
 		AND SHLINE.slscs4 &lt;&gt; 0
 		AND SHLINE.SLCO = 2	
 		AND SHLINE.slvend = 16088

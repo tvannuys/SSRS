@@ -31,7 +31,7 @@ FROM SHLINE
 	INNER JOIN CUSTMAST ON SHLINE.SLCUST = CUSTMAST.CMCUST
 	INNER JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND SHLINE.SLESC4 &lt;&gt; 0
 	AND SHLINE.SLVEND = 22361
 	
@@ -930,7 +930,7 @@ WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>18.3125in</Width>
+            <Width>18.31252in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -945,7 +945,7 @@ WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current
           </Border>
         </Style>
       </Body>
-      <Width>18.3125in</Width>
+      <Width>18.31252in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

@@ -31,7 +31,7 @@ SELECT 	SLINV# AS InvoiceNum,
 		inner join CUSTMAST ON shline.slcust = custmast.cmcust
 
 	WHERE (year(shline.sldate)=year(current_date - 1 month)
-			and month(shline.sldate)=month(current_date)-1)
+			and month(shline.sldate)=month(current_date - 1 month))
 		AND SHLINE.slscs4 &lt;&gt; 0
 		AND SHLINE.SLCO = 1 
 		AND SHLINE.slvend = 16106 
@@ -157,7 +157,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>InvoiceNum</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -193,7 +192,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>InvoiceDate</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -229,7 +227,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>CustNum</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -265,7 +262,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>CustName</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -301,7 +297,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>City</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -337,7 +332,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>State</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -373,7 +367,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>ItemNum</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -409,7 +402,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>ItemDesc</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -445,7 +437,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>ShipQty</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -481,7 +472,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>UnitPrice</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -517,7 +507,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>ExtendedPrice</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -553,7 +542,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>UnitFileback</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -589,7 +577,6 @@ SELECT 	SLINV# AS InvoiceNum,
                                   <Value>ExtendedFileback</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -1088,7 +1075,7 @@ SELECT 	SLINV# AS InvoiceNum,
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.5in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1098,42 +1085,9 @@ SELECT 	SLINV# AS InvoiceNum,
       <Width>17.84375in</Width>
       <Page>
         <PageFooter>
-          <Height>0.45in</Height>
+          <Height>0.01042in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="ExecutionTime">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!ExecutionTime</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.2in</Top>
-              <Left>4in</Left>
-              <Height>0.25in</Height>
-              <Width>2in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>

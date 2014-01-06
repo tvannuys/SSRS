@@ -39,7 +39,7 @@ FROM GSFL2K.POLHIST
 
 where GSFL2K.POLHIST.PLITEM not in (''DAD15PT'',''DAD15QT'',''DAD151'')
 AND (year(GSFL2K.POLHIST.PLRDAT)=year(current_date - 1 month)
-			and month(GSFL2K.POLHIST.PLRDAT)=month(current_date)-1)
+			and month(GSFL2K.POLHIST.PLRDAT)=month(current_date - 1 month))
 AND GSFL2K.POHHIST.PHRETURN &lt;&gt;  ''Y'' 
 AND GSFL2K.POLHIST.PLVEND=13055 
 AND GSFL2K.POLHIST.PLACTN= ''R''

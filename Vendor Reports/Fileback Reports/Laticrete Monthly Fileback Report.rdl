@@ -33,7 +33,7 @@ from shline sl
 	left join shhead sh on (sh.shco=sl.slco and sh.shloc=sl.slloc and sh.shord#=sl.slord# and sh.shrel#=sl.slrel# and sh.shinv#=sl.slinv# and sh.shidat=sl.sldate)
 	left join custmast cm on cm.cmcust = sl.slcust
 	
-where (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+where (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	and slscs4 &lt;&gt; 0
 	and slco = 1
 	and slvend = 2510

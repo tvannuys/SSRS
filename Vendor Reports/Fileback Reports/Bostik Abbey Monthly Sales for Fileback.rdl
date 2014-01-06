@@ -41,8 +41,8 @@ FROM SHLINE
 
 
 WHERE SHLINE.SLVEND = 13055 
-	AND (year(shline.sldate)=year(current_date - 1 month)
-			and month(shline.sldate)=month(current_date)-1)
+	AND(year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
+
 	AND CMKMKC IN (''AB'',''FG'')
 
 
@@ -182,7 +182,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>InvoiceNum</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -218,7 +217,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>InvoiceDate</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -254,7 +252,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>OrderDate</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -290,7 +287,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>CustPO</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -326,7 +322,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>OrdType</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -362,7 +357,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>CustNum</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -398,7 +392,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>CustName</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -434,7 +427,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>ItemNum</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -470,7 +462,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>ItemDesc</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -506,7 +497,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>ShipQty</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -542,7 +532,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>U/M</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -578,7 +567,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>UnitPrice</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -614,7 +602,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>ExtPrice</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -650,7 +637,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>AccruedRebate</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -686,7 +672,6 @@ WHERE SHLINE.SLVEND = 13055
                                   <Value>VendNum</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -1253,7 +1238,7 @@ WHERE SHLINE.SLVEND = 13055
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.38125in</Height>
+        <Height>0.5in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1263,42 +1248,9 @@ WHERE SHLINE.SLVEND = 13055
       <Width>19.59375in</Width>
       <Page>
         <PageFooter>
-          <Height>0.45in</Height>
+          <Height>0.01042in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="ExecutionTime">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!ExecutionTime</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.2in</Top>
-              <Left>4in</Left>
-              <Height>0.25in</Height>
-              <Width>2in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>

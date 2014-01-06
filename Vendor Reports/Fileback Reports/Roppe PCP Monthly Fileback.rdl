@@ -32,7 +32,7 @@ SELECT	SLCUST AS CustNum,
 FROM CUSTMAST 
 	left JOIN SHLINE ON CMCUST = SLCUST
 
-WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date)-1)
+WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date - 1 month))
 	and SLCUST not in (''1002178'',''1002179'',''1002180'',''1002182'',''1002184'',''1008802'')
 AND SLESC4 &lt;&gt; 0
 AND SLPRCD &lt;&gt; 775 

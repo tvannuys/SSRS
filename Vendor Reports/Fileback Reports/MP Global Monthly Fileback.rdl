@@ -35,7 +35,7 @@ FROM SHLINE
 	INNER JOIN SHHEAD ON (SLINV#=SHINV# AND SLREL#=SHREL# AND SLORD#=SHORD# AND SLLOC=SHLOC AND SLCO=SHCO) 
 	INNER JOIN CUSTMAST ON SlCUST = CMCUST
 
-WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date)-1)
+WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date - 1 month))
 	and SLESC4 &lt;&gt; 0 
 	AND SLVEND = 22203 
 	
@@ -1243,7 +1243,7 @@ WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>24.97917in</Width>
+            <Width>24.97915in</Width>
             <Style>
               <Border>
                 <Style>None</Style>

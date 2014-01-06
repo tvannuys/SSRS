@@ -37,7 +37,7 @@ FROM SHLINE
 	LEFT JOIN CUSTMAST ON CUSTMAST.CMCUST=SHHEAD.SHCUST
 	LEFT JOIN MKCDMAST ON mkcdmast.mcmkcd=custmktg.cmkmkc
 
-WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date)-3 and month(sldate)&lt;=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date - 3 months) and month(sldate)&lt;=month(current_date - 1 month))
 	AND SHLINE.SLVEND = 12384
 	
 

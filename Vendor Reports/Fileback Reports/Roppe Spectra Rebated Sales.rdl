@@ -34,7 +34,7 @@ FROM CUSTMAST
 	INNER JOIN CUSTBGRP ON CUSTMAST.CMBILL = CUSTBGRP.CGCUST
 
 
-WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date)-1)
+WHERE (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date - 1 month))
 	AND SLESC4 &lt;&gt; 0 
 	AND CGBGRP = ''SPECTRA'' 
 	AND SLPRCD &lt;&gt; 775
