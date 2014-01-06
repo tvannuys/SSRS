@@ -8,7 +8,7 @@
 **	Control (Colleen B) so she is not having to collect	**
 **	all the data. SQL will run a SP JT_CC_QTR to get 	**
 **	the data from the SQL table that has a nightly Job	**
-**	that runs to fill the tanle with the data:			**
+**	that runs to fill the table with the data:			**
 **	JT_CycleCountReport_BuildTableData_sp				**
 **********************************************************/
 
