@@ -43,7 +43,7 @@ FROM SHLINE
 	INNER JOIN CUSTMAST ON SHHEAD.SHCUST = CUSTMAST.CMCUST 
 	 
 
-WHERE (year(shidat)=year(current_date - 3 months) and month(shidat)&gt;=month(current_date)-3 and month(shidat)&lt;=month(current_date)-1)
+WHERE (year(shidat)=year(current_date - 3 months) and month(shidat)&gt;=month(current_date - 3 months) and month(shidat)&lt;=month(current_date - 1 month))
 	AND SHHEAD.SHCUST = ''1002171'' 
 	AND SHLINE.SLVEND = 10131
 	AND SHHEAD.SHCM &lt;&gt; ''Y''
@@ -1788,7 +1788,7 @@ ORDER BY SHHEAD.SHCUST
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>44.60417in</Width>
+            <Width>44.60418in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1803,7 +1803,7 @@ ORDER BY SHHEAD.SHCUST
           </Border>
         </Style>
       </Body>
-      <Width>44.60417in</Width>
+      <Width>44.60418in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
