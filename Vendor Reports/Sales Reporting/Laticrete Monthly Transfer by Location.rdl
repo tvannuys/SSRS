@@ -33,7 +33,7 @@ FROM TRANFDATEX
 	INNER JOIN ITEMMAST ON TRANFDATEX.ITITEM = ITEMMAST.IMITEM
 	INNER JOIN LOCATION locations ON (TRANFDATEX.ITICO = locations.LCCO AND TRANFDATEX.ITILOC = locations.LCLOC)
 	INNER JOIN LOCATION locations2 ON (TRANFDATEX.ITPCO = locations2.LCCO AND TRANFDATEX.ITPLOC = locations2.LCLOC)
-WHERE (year(itdate)=year(current_date - 1 month) and month(itdate)=month(current_date)-1) 
+WHERE (year(itdate)=year(current_date - 1 month) and month(itdate)=month(current_date - 1 month)) 
 	AND TRANFDATEX.ITVEND = 2510
 
 ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLOC, TRANFDATEX.ITDATE
@@ -1005,7 +1005,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>19.64583in</Width>
+            <Width>19.64584in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1020,7 +1020,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
           </Border>
         </Style>
       </Body>
-      <Width>19.64583in</Width>
+      <Width>19.64584in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

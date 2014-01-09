@@ -37,7 +37,7 @@ FROM SHLINE
 	left join mkcdmast on mkcdmast.mcmkcd=custmktg.cmkmkc
 	left join custmast on shhead.shcust = custmast.cmcust
 	
-WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date)-3 and month(sldate)&lt;=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date - 3 months) and month(sldate)&lt;=month(current_date - 1 month))
 	and SHLINE.SLVEND = 16113
 	
 	')</CommandText>
@@ -1243,7 +1243,7 @@ WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(cu
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>25.23958in</Width>
+            <Width>25.23959in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1258,7 +1258,7 @@ WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(cu
           </Border>
         </Style>
       </Body>
-      <Width>25.23958in</Width>
+      <Width>25.23959in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

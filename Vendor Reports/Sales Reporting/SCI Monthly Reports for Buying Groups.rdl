@@ -35,7 +35,7 @@ FROM SHLINE
 	INNER JOIN CUSTmktg ON (CUSTMAST.CMBILL = custmktg.CMKCUS and custmktg.CMKMKC in (''C1'',''FA'',''FE'',''GC'',''ID'',''PR'',''RD'',''ST'',''TR'',''RE'',''SN'',''AH''))
 	left join mkcdmast on mkcdmast.mcmkcd = custmktg.cmkmkc
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)	
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))	
 	AND SHLINE.SLVEND = 15760
 	')</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>

@@ -43,7 +43,7 @@ FROM SHLINE
 	left join mkcdmast on mkcdmast.mcmkcd = custmktg.cmkmkc
 
 WHERE (year(sldate)=year(current_date - 1 month)
-			and month(sldate)=month(current_date)-1)
+			and month(sldate)=month(current_date - 1 month))
 	AND SHLINE.SLVEND = 16006
 	AND SHLINE.SLCO = 2
 
@@ -1554,7 +1554,7 @@ WHERE (year(sldate)=year(current_date - 1 month)
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>30.45833in</Width>
+            <Width>30.45832in</Width>
             <Style>
               <Border>
                 <Style>None</Style>

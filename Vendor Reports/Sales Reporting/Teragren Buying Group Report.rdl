@@ -41,7 +41,7 @@ FROM SHLINE
 	inner JOIN SHHEAD ON (SHLINE.SLCO = SHHEAD.SHCO AND SHLINE.SLLOC = SHHEAD.SHLOC AND SHLINE.SLORD# = SHHEAD.SHORD# AND SHLINE.SLREL# = SHHEAD.SHREL# AND SHLINE.SLINV# = SHHEAD.SHINV#)
 	left join mkcdmast on mkcdmast.mcmkcd = custmktg.cmkmkc
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND SHLINE.SLVEND = 21861 
 	AND SHHEAD.SHOTYP not in (''CL'',''SB'',''ST'',''SO'',''FC'')
 	
@@ -1479,7 +1479,7 @@ WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>35.98958in</Width>
+            <Width>35.98959in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1494,7 +1494,7 @@ WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current
           </Border>
         </Style>
       </Body>
-      <Width>35.98958in</Width>
+      <Width>35.98959in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

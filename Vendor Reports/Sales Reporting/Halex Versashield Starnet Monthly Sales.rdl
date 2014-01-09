@@ -41,7 +41,7 @@ FROM SHLINE
 
 WHERE SHLINE.SLDESC LIKE ''%VERSASHIELD%''
 	AND (year(shline.sldate)=year(current_date - 1 month)
-			and month(shline.sldate)=month(current_date)-1)
+			and month(shline.sldate)=month(current_date - 1 month))
 	AND CMKMKC = ''SN''
 
 
@@ -1167,7 +1167,7 @@ WHERE SHLINE.SLDESC LIKE ''%VERSASHIELD%''
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>18.09375in</Width>
+            <Width>18.09376in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1175,7 +1175,7 @@ WHERE SHLINE.SLDESC LIKE ''%VERSASHIELD%''
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.5in</Height>
         <Style>
           <Border>
             <Style>None</Style>
