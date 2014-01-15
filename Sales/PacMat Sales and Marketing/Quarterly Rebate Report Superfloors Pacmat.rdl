@@ -39,13 +39,14 @@ SELECT	SHLINE.SLCO AS Company,
 		VENDMAST.VMNAME
 		
 FROM CUSTMAST 
-	left JOIN SHLINE ON CUSTMAST.CMCUST = SHLINE.SLCUST
+	left JOIN SHLINE ON (CUSTMAST.CMCUST = SHLINE.SLCUST and shline.slvend not in (16037,22312,24213))
 	left JOIN VENDMAST ON SHLINE.SLVEND = VENDMAST.VMVEND
 	
-WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date)-3 and month(sldate)&lt;=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date - 3 months) and month(sldate)&lt;=month(current_date - 1 month))
 	and SHLINE.SLCO = 2 
-	AND SHLINE.SLCUST in (''4106826'',''4112140'',''4120064'',''4120066'',''4120214'',''4106828'',''4106824") AND ((SHLINE.SLDATE) Between #7/1/2013# And #9/30/2013#) AND ((SHLINE.SLVEND)=1573 Or (SHLINE.SLVEND)=22666 Or (SHLINE.SLVEND)=16088)) OR (((SHLINE.SLCO)=2) AND ((SHLINE.SLCUST)="4106826'',''4112140'',''4120064'',''4120066'',''4120214'',''4106828'',''4106824'')
-	and shline.slvend in (1573,22666,16088) 
+	AND SHLINE.SLCUST in (''4106826'',''4112140'',''4120064'',''4120066'',''4120214'',''4106828'',''4106824'') 
+	and (shline.slvend in (1573,16006,22666,22674,22859) 
+		or shline.sldiv = 41) 
 	
 
 ')</CommandText>

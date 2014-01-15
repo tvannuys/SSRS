@@ -39,7 +39,7 @@ FROM SHHEAD
 	Left JOIN CUSTMAST cm1 ON SHHEAD.SHCUST = cm1.CMCUST
 
 WHERE (year(shhead.shidat)=year(current_date - 1 month)
-			and month(shhead.shidat)=month(current_date)-1)
+			and month(shhead.shidat)=month(current_date - 1 month))
 	AND SHHEAD.SHVIAC = ''1'' 
 	AND SHHEAD.SHCO = 2 
 	AND SHHEAD.SHLOC in (71,22,23,25,26,45,46) 

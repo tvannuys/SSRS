@@ -32,7 +32,7 @@ FROM GSFL2K.SHLINE
 			AND GSFL2K.SHLINE.SLLOC = GSFL2K.SHHEAD.SHLOC 
 			AND GSFL2K.SHLINE.SLCO = GSFL2K.SHHEAD.SHCO)
 WHERE (year(shidat)=year(current_date - 1 month)
-	    and month(shidat)=month(current_date)-1)
+	    and month(shidat)=month(current_date - 1 month))
 	AND GSFL2K.SHLINE.SLCUST in (''4114854'',''4114855'',''4120077'',''4120080'',''4120081'',''4120083'',
 		''4120084'',''4120085'',''4120086'',''4120087'',''4120088'',''4120089'',''4120090'',''4120091'',
 		''4120092'',''4120093'',''4120094'',''4120095'',''4120096'',''4120097'',''4120098'',''4121243'',
@@ -877,7 +877,7 @@ WHERE (year(shidat)=year(current_date - 1 month)
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.5625in</Height>
         <Style>
           <Border>
             <Style>None</Style>
