@@ -36,7 +36,7 @@ FROM shline
 	INNER JOIN location ON (shline.SLCO = location.LCCO AND shline.SLLOC = location.LCLOC) 
 	LEFT JOIN pricexcp ON (shline.slcust = pricexcp.PECUST and pricexcp.peref# = ''B3EAST'')
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND shline.SLLOC in(4,12,13,15,16) 
 	AND shline.slitem in (''GAGVGM81012'',''LOH8289'',''LOLG1039'',''GAGVCR10008P'',''CHCW879V'',''MATL120'',''MATL160'',''GRTB1216B'') 
 	AND shline.SLCO = 1
@@ -1319,7 +1319,7 @@ ORDER BY shline.slcust
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>24.60417in</Width>
+            <Width>24.60416in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
