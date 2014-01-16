@@ -8,11 +8,18 @@ Unused join
 		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
 		LEFT JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD 
 		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
+		
+drop table #ItemAge		
+drop table #TempSalesCommish
+		
 */
 
---drop table #TempSalesCommish
 
-select slslmn, smname, sldiv, dvdesc, imitem, imdesc, ExtendedCost, ExtendedPrice, 
+
+select slslmn, smname, 
+cmcust,
+cmname,
+sldiv, dvdesc, imitem, imdesc, ExtendedCost, ExtendedPrice, 
 GETDATE() as ItemSetupDate,
 0 as ItemAge
 
@@ -21,6 +28,8 @@ into #TempSalesCommish
 from openquery(gsfl2k,'
 select  slslmn,
 salesman.smname,
+soldto.cmcust,
+soldto.cmname,
 sldiv,
 dvdesc,
 imitem,
@@ -52,7 +61,7 @@ imitem
 
 ')
 
---drop table #ItemAge
+
 
 select * 
 into #ItemAge
@@ -64,9 +73,6 @@ join itemxtra x on m.imitem = x.imxitm
 group by imdesc
 ')
 
-select * from #TempSalesCommish
-select * from #ItemAge
-
 
 update #TempSalesCommish 
 set ItemSetupDate = a.ItemSetupDate
@@ -74,4 +80,20 @@ from #TempSalesCommish t1
 join #ItemAge a on a.imdesc = t1.imdesc
 where a.itemsetupdate <> '0001-01-01'
 
-select *,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth from #TempSalesCommish
+
+update #ItemAge
+set ItemSetupDate = '2001-01-01'
+where ItemSetupDate = '0001-01-01'
+
+
+select t3.*,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth,
+case	
+	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then t3.ExtendedPrice * c.Rate * .8
+	else t3.ExtendedPrice * c.Rate
+end as Commission
+
+from #TempSalesCommish t3
+left join CommissionRate c on (c.slslmn = t3.slslmn and c.sldiv = t3.sldiv)
+
+select * from #TempSalesCommish
+
