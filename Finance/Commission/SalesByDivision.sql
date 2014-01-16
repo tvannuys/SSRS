@@ -95,5 +95,5 @@ end as Commission
 from #TempSalesCommish t3
 left join CommissionRate c on (c.slslmn = t3.slslmn and c.sldiv = t3.sldiv)
 
-select * from #TempSalesCommish
+
 
