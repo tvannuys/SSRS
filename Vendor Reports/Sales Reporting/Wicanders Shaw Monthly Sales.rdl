@@ -35,7 +35,7 @@ FROM SHLINE
 	INNER JOIN custmktg ON (SHLINE.SLCUST = custmktg.CMKCUS and custmktg.CMKMKC =''SH'')
 	Inner Join mkcdmast on mkcdmast.mcmkcd = custmktg.cmkmkc
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND SHLINE.SLVEND = 16088
 	and shline.slco = 2
 	
@@ -1240,7 +1240,7 @@ ORDER BY CUSTMAST.CMNAME
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>25.15625in</Width>
+            <Width>25.15626in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1255,7 +1255,7 @@ ORDER BY CUSTMAST.CMNAME
           </Border>
         </Style>
       </Body>
-      <Width>25.15625in</Width>
+      <Width>25.15626in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

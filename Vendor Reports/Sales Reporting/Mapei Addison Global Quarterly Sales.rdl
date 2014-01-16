@@ -33,7 +33,7 @@ FROM SHLINE
 	INNER JOIN ARTERMS ON SHHEAD.SHTERM = ARTERMS.TMTERM 
 	INNER JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD
 	
-WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date)-3 and month(sldate)&lt;=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date - 3 months) and month(sldate)&lt;=month(current_date - 1 month))
 	AND SHLINE.SLCUST = ''1014119''
 	AND SHLINE.SLVEND = 16106
 	')</CommandText>
@@ -927,7 +927,7 @@ WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(cu
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>20.54167in</Width>
+            <Width>20.54166in</Width>
             <Style>
               <Border>
                 <Style>None</Style>

@@ -36,7 +36,7 @@ FROM CUSTMAST
 	INNER JOIN LOCATION ON (SHLINE.SLCO = LOCATION.LCCO AND SHLINE.SLLOC = LOCATION.LCLOC) 
 	INNER JOIN SHHEAD ON (SHLINE.SLINV# = SHHEAD.SHINV# AND SHLINE.SLREL# = SHHEAD.SHREL# AND SHLINE.SLORD# = SHHEAD.SHORD# AND SHLINE.SLLOC = SHHEAD.SHLOC AND SHLINE.SLCO = SHHEAD.SHCO)
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND SHLINE.SLVEND = 14590
 	
 	')</CommandText>

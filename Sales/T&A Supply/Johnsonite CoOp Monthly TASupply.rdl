@@ -40,7 +40,7 @@ WHERE	CGBGRP=''JSCOOP''
 		AND SLVEND=1573 
 		AND SLCO=1
 		and (year(sldate)=year(current_date - 1 month)
-			and month(sldate)=month(current_date)-1)
+			and month(sldate)=month(current_date - 1 month))
 	
 	')</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
@@ -1176,7 +1176,7 @@ WHERE	CGBGRP=''JSCOOP''
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.54167in</Height>
         <Style>
           <Border>
             <Style>None</Style>

@@ -3,91 +3,79 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
-      <DataSourceReference>/Data Sources/GartmanReports</DataSourceReference>
+      <DataSourceReference>/GartmanReports</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>92622b94-0f89-41da-a7bf-680437ad6e8c</rd:DataSourceID>
+      <rd:DataSourceID>6c6a32ee-c31d-4ba9-9d9b-aaf406479a1e</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
-        <CommandText>select * from openquery (gsfl2k,'
-
-
-SELECT	TRANFDATEX.ITICO AS FromCompany, 
-		TRANFDATEX.ITILOC AS FromLocation, 
-		locations.LCNAME AS FromLocName, 
-		TRANFDATEX.ITPCO AS ToCompany, 
-		TRANFDATEX.ITPLOC AS ToLocation, 
-		locations2.LCNAME AS ToLocName, 
-		TRANFDATEX.ITDATE AS TransferDate, 
-		TRANFDATEX.ITITEM AS ItemNbr, 
-		TRANFDATEX.ITDESC AS Desc, 
-		TRANFDATEX.ITQTY AS Qty, 
-		ITEMMAST.IMWGHT AS UnitWeight, 
-		TRANFDATEX.ITECST AS ExtendedCost
-		
-		
-FROM TRANFDATEX 
-	INNER JOIN ITEMMAST ON TRANFDATEX.ITITEM = ITEMMAST.IMITEM
-	INNER JOIN LOCATION locations ON (TRANFDATEX.ITICO = locations.LCCO AND TRANFDATEX.ITILOC = locations.LCLOC)
-	INNER JOIN LOCATION locations2 ON (TRANFDATEX.ITPCO = locations2.LCCO AND TRANFDATEX.ITPLOC = locations2.LCLOC)
-WHERE (year(itdate)=year(current_date - 1 month) and month(itdate)=month(current_date - 1 month)) 
-	AND TRANFDATEX.ITVEND = 2510
-
-ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLOC, TRANFDATEX.ITDATE
-')</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>JT_TAS_products_displays_samples_TA</CommandText>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_TAS_products_displays_samples_TA" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="COMPANY" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="PARENT_SKU" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="SAMPLE_SKU" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="PRODUCT_DESCRIPTION" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="DROPS" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="CONT_US_STOCK" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="CONT_US_BO" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="CONT_US_PO" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="AK_STOCK" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="AK_BO" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="AK_PO" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="HI_STOCK" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="HI_BO" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="HI_PO" /><ColumnExpression ColumnOwner="JT_TAS_products_displays_samples_TA" ColumnName="COMMENTS" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
-        <Field Name="FROMCOMPANY">
-          <DataField>FROMCOMPANY</DataField>
+        <Field Name="COMPANY">
+          <DataField>COMPANY</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="FROMLOCATION">
-          <DataField>FROMLOCATION</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="FROMLOCNAME">
-          <DataField>FROMLOCNAME</DataField>
+        <Field Name="PARENT_SKU">
+          <DataField>PARENT_SKU</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TOCOMPANY">
-          <DataField>TOCOMPANY</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="TOLOCATION">
-          <DataField>TOLOCATION</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="TOLOCNAME">
-          <DataField>TOLOCNAME</DataField>
+        <Field Name="SAMPLE_SKU">
+          <DataField>SAMPLE_SKU</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TRANSFERDATE">
-          <DataField>TRANSFERDATE</DataField>
+        <Field Name="PRODUCT_DESCRIPTION">
+          <DataField>PRODUCT_DESCRIPTION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ITEMNBR">
-          <DataField>ITEMNBR</DataField>
+        <Field Name="DROPS">
+          <DataField>DROPS</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DESC">
-          <DataField>DESC</DataField>
+        <Field Name="CONT_US_STOCK">
+          <DataField>CONT_US_STOCK</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CONT_US_BO">
+          <DataField>CONT_US_BO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CONT_US_PO">
+          <DataField>CONT_US_PO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AK_STOCK">
+          <DataField>AK_STOCK</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AK_BO">
+          <DataField>AK_BO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AK_PO">
+          <DataField>AK_PO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="HI_STOCK">
+          <DataField>HI_STOCK</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="HI_BO">
+          <DataField>HI_BO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="HI_PO">
+          <DataField>HI_PO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="COMMENTS">
+          <DataField>COMMENTS</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="UNITWEIGHT">
-          <DataField>UNITWEIGHT</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="EXTENDEDCOST">
-          <DataField>EXTENDEDCOST</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -100,43 +88,394 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.36458in</Width>
+                  <Width>0.71875in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.41667in</Width>
+                  <Width>1.71875in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.69792in</Width>
+                  <Width>1.83333in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.11458in</Width>
+                  <Width>3in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.21875in</Width>
+                  <Width>0.60417in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.35417in</Width>
+                  <Width>0.71875in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.38542in</Width>
+                  <Width>0.77083in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.76042in</Width>
+                  <Width>0.70833in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.69792in</Width>
+                  <Width>0.78125in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>0.78125in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.20833in</Width>
+                  <Width>0.59375in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42708in</Width>
+                  <Width>0.76042in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.82292in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.55208in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.52083in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox12">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Continental US</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>PaleTurquoise</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>3</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Anchorage</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>3</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox24">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Hawaii</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>3</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox30">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox30</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
                 <TablixRow>
                   <Height>0.25in</Height>
                   <TablixCells>
@@ -149,10 +488,10 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FROMCOMPANY</Value>
+                                  <Value>COMPANY</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -185,10 +524,10 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FROMLOCATION</Value>
+                                  <Value>PARENT SKU</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -221,10 +560,10 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FROMLOCNAME</Value>
+                                  <Value>SAMPLE SKU</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -257,10 +596,10 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TOCOMPANY</Value>
+                                  <Value>PRODUCT DESCRIPTION</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -293,10 +632,10 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TOLOCATION</Value>
+                                  <Value>DROPS</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -329,16 +668,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TOLOCNAME</Value>
+                                  <Value>Available</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -347,7 +687,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Color>#7292cc</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <BackgroundColor>PaleTurquoise</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -365,16 +705,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TRANSFERDATE</Value>
+                                  <Value>Back Order</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -383,7 +724,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Color>#7292cc</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <BackgroundColor>PaleTurquoise</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -401,16 +742,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ITEMNBR</Value>
+                                  <Value>On PO</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -419,7 +761,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Color>#7292cc</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <BackgroundColor>PaleTurquoise</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -437,12 +779,11 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>DESC</Value>
+                                  <Value>Available</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -455,7 +796,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Color>#7292cc</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -473,12 +814,11 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>QTY</Value>
+                                  <Value>Back Order</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -491,7 +831,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Color>#7292cc</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -509,12 +849,11 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>UNITWEIGHT</Value>
+                                  <Value>On PO</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -527,7 +866,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Color>#7292cc</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -545,10 +884,10 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>EXTENDEDCOST</Value>
+                                  <Value>Available</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -558,6 +897,114 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox23</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox25">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Back Order</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox25</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox27">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>On PO</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox27</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox29">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>COMMENTS</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox29</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -579,16 +1026,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FROMCOMPANY">
+                        <Textbox Name="COMPANY">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FROMCOMPANY.Value</Value>
+                                  <Value>=Sum(Fields!COMPANY.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -596,7 +1044,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FROMCOMPANY</rd:DefaultName>
+                          <rd:DefaultName>COMPANY</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -612,16 +1060,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FROMLOCATION">
+                        <Textbox Name="PARENT_SKU">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FROMLOCATION.Value</Value>
+                                  <Value>=Fields!PARENT_SKU.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -629,7 +1078,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FROMLOCATION</rd:DefaultName>
+                          <rd:DefaultName>PARENT_SKU</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -645,16 +1094,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FROMLOCNAME">
+                        <Textbox Name="SAMPLE_SKU">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FROMLOCNAME.Value</Value>
+                                  <Value>=Fields!SAMPLE_SKU.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -662,7 +1112,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FROMLOCNAME</rd:DefaultName>
+                          <rd:DefaultName>SAMPLE_SKU</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -678,16 +1128,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TOCOMPANY">
+                        <Textbox Name="PRODUCT_DESCRIPTION">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TOCOMPANY.Value</Value>
+                                  <Value>=Fields!PRODUCT_DESCRIPTION.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -695,7 +1146,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TOCOMPANY</rd:DefaultName>
+                          <rd:DefaultName>PRODUCT_DESCRIPTION</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -711,16 +1162,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TOLOCATION">
+                        <Textbox Name="DROPS">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TOLOCATION.Value</Value>
+                                  <Value>=Fields!DROPS.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -728,7 +1180,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TOLOCATION</rd:DefaultName>
+                          <rd:DefaultName>DROPS</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -744,29 +1196,33 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TOLOCNAME">
+                        <Textbox Name="CONT_US_STOCK">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TOLOCNAME.Value</Value>
+                                  <Value>=iif(Sum(Fields!CONT_US_STOCK.Value)=0," ",Sum(Fields!CONT_US_STOCK.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TOLOCNAME</rd:DefaultName>
+                          <rd:DefaultName>CONT_US_STOCK</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>PaleTurquoise</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -777,16 +1233,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TRANSFERDATE">
+                        <Textbox Name="CONT_US_BO">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TRANSFERDATE.Value</Value>
+                                  <Value>=iif(Sum(Fields!CONT_US_BO.Value)=0," ",Sum(Fields!CONT_US_BO.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -794,12 +1251,13 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TRANSFERDATE</rd:DefaultName>
+                          <rd:DefaultName>CONT_US_BO</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>PaleTurquoise</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -810,16 +1268,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ITEMNBR">
+                        <Textbox Name="CONT_US_PO">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ITEMNBR.Value</Value>
+                                  <Value>=iif(Sum(Fields!CONT_US_PO.Value)=0," ",Sum(Fields!CONT_US_PO.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -827,12 +1286,13 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ITEMNBR</rd:DefaultName>
+                          <rd:DefaultName>CONT_US_PO</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>PaleTurquoise</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -843,29 +1303,33 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="DESC">
+                        <Textbox Name="AK_STOCK">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!DESC.Value</Value>
+                                  <Value>=iif(Sum(Fields!AK_STOCK.Value)=0," ",Sum(Fields!AK_STOCK.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>DESC</rd:DefaultName>
+                          <rd:DefaultName>AK_STOCK</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -876,16 +1340,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="QTY">
+                        <Textbox Name="AK_BO">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!QTY.Value</Value>
+                                  <Value>=iif(Sum(Fields!AK_BO.Value)=0," ",Sum(Fields!AK_BO.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -893,12 +1358,13 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>QTY</rd:DefaultName>
+                          <rd:DefaultName>AK_BO</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -909,16 +1375,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="UNITWEIGHT">
+                        <Textbox Name="AK_PO">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!UNITWEIGHT.Value</Value>
+                                  <Value>=iif(Sum(Fields!AK_PO.Value)=0," ",Sum(Fields!AK_PO.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -926,12 +1393,13 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>UNITWEIGHT</rd:DefaultName>
+                          <rd:DefaultName>AK_PO</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightSteelBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -942,16 +1410,54 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="EXTENDEDCOST">
+                        <Textbox Name="HI_STOCK">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!EXTENDEDCOST.Value</Value>
+                                  <Value>=iif(Sum(Fields!HI_STOCK.Value)=0," ",Sum(Fields!HI_STOCK.Value))</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>HI_STOCK</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HI_BO">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=iif(Sum(Fields!HI_BO.Value)=0," ",Sum(Fields!HI_BO.Value))</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -959,7 +1465,77 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>EXTENDEDCOST</rd:DefaultName>
+                          <rd:DefaultName>HI_BO</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HI_PO">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=iif(Sum(Fields!HI_PO.Value)=0," ",Sum(Fields!HI_PO.Value))</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>HI_PO</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="COMMENTS">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!COMMENTS.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>COMMENTS</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -991,10 +1567,16 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
                 <TablixMember>
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
@@ -1004,8 +1586,8 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Height>0.5in</Height>
-            <Width>19.64584in</Width>
+            <Height>0.75in</Height>
+            <Width>16.88541in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1013,15 +1595,17 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.52083in</Height>
+        <Height>0.75in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>19.64584in</Width>
+      <Width>18.55208in</Width>
       <Page>
+        <InteractiveHeight>0in</InteractiveHeight>
+        <InteractiveWidth>8.5in</InteractiveWidth>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
@@ -1031,6 +1615,6 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
     </ReportSection>
   </ReportSections>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01/reportserver</rd:ReportServerUrl>
-  <rd:ReportID>0d6a8f09-e230-4a4a-b776-8e8604ced354</rd:ReportID>
+  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
+  <rd:ReportID>af807b67-d1d0-4b11-aed3-17dcfacf65d8</rd:ReportID>
 </Report>

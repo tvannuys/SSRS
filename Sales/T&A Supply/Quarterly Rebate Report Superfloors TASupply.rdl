@@ -42,7 +42,7 @@ FROM CUSTMAST
 	left JOIN SHLINE ON CUSTMAST.CMCUST = SHLINE.SLCUST
 	left JOIN VENDMAST ON SHLINE.SLVEND = VENDMAST.VMVEND
 	
-WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date)-3 and month(sldate)&lt;=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date - 3 months) and month(sldate)&lt;=month(current_date - 1 month))
 	and SHLINE.SLCO = 1
 	AND SHLINE.SLCUST in (''1006826'',''1006827'',''1006828'',''1012140'',''1012141'',''1020065'',''1020066'',''1020213'',''1020214'',''1020064'')
 	and shline.slvend not in (10131,16055) 

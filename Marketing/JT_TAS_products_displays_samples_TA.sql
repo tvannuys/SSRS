@@ -16,6 +16,10 @@
 *  seperate the co1 & 2 searches on the		*
 *  As400: HPRO -co1 and KPRO for co2		*
 *********************************************/
+
+-- 01/07/2014	James Tuttle	SR#17086
+
+
 ALTER PROC [dbo].[JT_TAS_products_displays_samples_TA] AS
 BEGIN
 	SELECT *
@@ -29,24 +33,30 @@ BEGIN
 			ELSE '' ''
 		   END as Drops
 	/*------- Contiguous US locations ----------------------------------------------------------------------------------*/				
-		  ,(SELECT COALESCE(SUM(itembal.ibqoh),0) FROM itembal WHERE itembal.ibco = 1 
+		  ,(SELECT COALESCE(SUM(ibqoh - ibqoo),0) FROM itembal WHERE itembal.ibco = 1 
 				AND itembal.ibloc NOT IN(85,80) AND itembal.ibitem = im.imitem) AS Cont_US_Stock
+				
 		  ,(SELECT COALESCE(SUM(ooline.olqbo),0) FROM ooline WHERE ooline.olico = 1
 				AND ooline.oliloc NOT IN(85,80) AND ooline.olitem = im.imitem) AS Cont_US_BO	
+				
 		  ,(SELECT COALESCE(SUM(poline.plqord - poline.plqrec),0) FROM poline WHERE poline.plco = 1
 				AND poline.plloc NOT IN(85,80) AND poline.plitem = im.imitem) AS Cont_US_PO	
 	/*------- Anchorage locations --------------------------------------------------------------------------------------*/				
-		  ,(SELECT COALESCE(SUM(itembal.ibqoh),0) FROM itembal WHERE itembal.ibco = 1 
+		  ,(SELECT COALESCE(SUM(ibqoh - ibqoo),0) FROM itembal WHERE itembal.ibco = 1 
 				AND itembal.ibloc = 80 AND itembal.ibitem = im.imitem) AS AK_Stock
+				
 		  , (SELECT	COALESCE(SUM(ooline.olqbo),0) FROM ooline WHERE ooline.olico = 1
 				AND ooline.oliloc = 80 AND ooline.olitem = im.imitem) AS AK_BO	
+				
 		  ,(SELECT COALESCE(SUM(poline.plqord - poline.plqrec),0) FROM poline WHERE poline.plco = 1
 				AND poline.plloc = 80 AND poline.plitem = im.imitem) AS AK_PO		
 	/*------- Hawaii location -----------------------------------------------------------------------------------------*/
-		  ,(SELECT COALESCE(SUM(itembal.ibqoh),0) FROM itembal WHERE itembal.ibco = 1 
+		  ,(SELECT COALESCE(SUM(ibqoh - ibqoo),0) FROM itembal WHERE itembal.ibco = 1 
 				AND itembal.ibloc = 85 AND itembal.ibitem = im.imitem) AS HI_Stock
+				
 		  , (SELECT	COALESCE(SUM(ooline.olqbo),0) FROM ooline WHERE ooline.olico = 1
 				AND ooline.oliloc = 85 AND ooline.olitem = im.imitem) AS Hi_BO
+				
 		  ,(SELECT COALESCE(SUM(poline.plqord - poline.plqrec),0) FROM poline WHERE poline.plco = 1
 				AND poline.plloc = 85 AND poline.plitem = im.imitem) AS HI_PO	
 	/*------- End of locations -----------------------------------------------------------------------------------------*/						

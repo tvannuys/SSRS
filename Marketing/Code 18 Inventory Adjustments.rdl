@@ -40,8 +40,8 @@ select	irco as Co,
 		left join itemmast on itemmast.imitem=itemrech.iritem
 		
 	
-	where year(irdate)=year(current_date - 1 month)
-	    and month(irdate)=month(current_date)-1
+	where (year(irdate)=year(current_date - 1 month)
+	     		and month(irdate)=month(current_date - 1 month))
 	    and irreason=''18''
 	    
 	  order by irdate asc
@@ -1254,7 +1254,7 @@ select	irco as Co,
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.29167in</Height>
+        <Height>0.54167in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1272,6 +1272,6 @@ select	irco as Co,
     </ReportSection>
   </ReportSections>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/reportserver</rd:ReportServerUrl>
   <rd:ReportID>17944694-dff4-4fab-95f8-19ec540d9845</rd:ReportID>
 </Report>

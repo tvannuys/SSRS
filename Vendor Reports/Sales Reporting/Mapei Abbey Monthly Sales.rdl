@@ -30,7 +30,7 @@ FROM shline
 	INNER JOIN custmktg ON (SLCUST = CMKCUS and CMKMKC in (''AB'',''FG'')) 
 	left JOIN CUSTMAST ON slcust = cmcust
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND SLCO = 1 
 	AND slvend = 16106
 	
@@ -925,7 +925,7 @@ WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>18.64583in</Width>
+            <Width>18.64584in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -940,7 +940,7 @@ WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current
           </Border>
         </Style>
       </Body>
-      <Width>18.64583in</Width>
+      <Width>18.64584in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

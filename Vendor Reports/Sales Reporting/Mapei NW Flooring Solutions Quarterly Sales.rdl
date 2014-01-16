@@ -5,7 +5,7 @@
     <DataSource Name="GartmanReports">
       <DataSourceReference>/Data Sources/GartmanReports</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>92622b94-0f89-41da-a7bf-680437ad6e8c</rd:DataSourceID>
+      <rd:DataSourceID>f5f0c1e4-5805-44a3-aad5-f20035f1e886</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -14,79 +14,75 @@
         <DataSourceName>GartmanReports</DataSourceName>
         <CommandText>select * from openquery (gsfl2k,'
 
-
-SELECT	TRANFDATEX.ITICO AS FromCompany, 
-		TRANFDATEX.ITILOC AS FromLocation, 
-		locations.LCNAME AS FromLocName, 
-		TRANFDATEX.ITPCO AS ToCompany, 
-		TRANFDATEX.ITPLOC AS ToLocation, 
-		locations2.LCNAME AS ToLocName, 
-		TRANFDATEX.ITDATE AS TransferDate, 
-		TRANFDATEX.ITITEM AS ItemNbr, 
-		TRANFDATEX.ITDESC AS Desc, 
-		TRANFDATEX.ITQTY AS Qty, 
-		ITEMMAST.IMWGHT AS UnitWeight, 
-		TRANFDATEX.ITECST AS ExtendedCost
+SELECT	SHLINE.SLINV# AS InvoiceNbr, 
+		SHLINE.SLDATE AS InvoiceDate, 
+		SHLINE.SLCUST AS CustNbr, 
+		CUSTMAST.CMNAME AS CustName, 
+		SHHEAD.SHSTA3 AS CityState, 
+		SHLINE.SLITEM AS ItemNbr, 
+		SHLINE.SLDESC AS ItemDesc, 
+		SHLINE.SLVEND AS VendorNbr, 
+		SHLINE.SLQSHP AS ShippedQty, 
+		SHLINE.SLPRIC AS UnitPrice, 
+		SHLINE.SLEPRC AS ExtendedPrice
 		
-		
-FROM TRANFDATEX 
-	INNER JOIN ITEMMAST ON TRANFDATEX.ITITEM = ITEMMAST.IMITEM
-	INNER JOIN LOCATION locations ON (TRANFDATEX.ITICO = locations.LCCO AND TRANFDATEX.ITILOC = locations.LCLOC)
-	INNER JOIN LOCATION locations2 ON (TRANFDATEX.ITPCO = locations2.LCCO AND TRANFDATEX.ITPLOC = locations2.LCLOC)
-WHERE (year(itdate)=year(current_date - 1 month) and month(itdate)=month(current_date - 1 month)) 
-	AND TRANFDATEX.ITVEND = 2510
-
-ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLOC, TRANFDATEX.ITDATE
-')</CommandText>
+FROM SHLINE 
+	INNER JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM
+	INNER JOIN CUSTMAST ON SHLINE.SLCUST = CUSTMAST.CMCUST 
+	INNER JOIN SHHEAD ON (SHLINE.SLCO=SHHEAD.SHCO AND SHLINE.SLLOC=SHHEAD.SHLOC AND SHLINE.SLORD#=SHHEAD.SHORD# AND SHLINE.SLREL#=SHHEAD.SHREL# AND SHLINE.SLINV#=SHHEAD.SHINV#)
+	INNER JOIN ARTERMS ON SHHEAD.SHTERM = ARTERMS.TMTERM 
+	INNER JOIN FAMILY ON SHLINE.SLFMCD = FAMILY.FMFMCD
+	
+WHERE (year(sldate)=year(current_date - 3 months) and month(sldate)&gt;=month(current_date - 3 months) and month(sldate)&lt;=month(current_date - 1 month))
+	AND SHLINE.SLCUST = ''1022332''
+	AND SHLINE.SLVEND = 16106
+	
+	')</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
-        <Field Name="FROMCOMPANY">
-          <DataField>FROMCOMPANY</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="FROMLOCATION">
-          <DataField>FROMLOCATION</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="FROMLOCNAME">
-          <DataField>FROMLOCNAME</DataField>
+        <Field Name="INVOICENBR">
+          <DataField>INVOICENBR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TOCOMPANY">
-          <DataField>TOCOMPANY</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="TOLOCATION">
-          <DataField>TOLOCATION</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="TOLOCNAME">
-          <DataField>TOLOCNAME</DataField>
+        <Field Name="INVOICEDATE">
+          <DataField>INVOICEDATE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TRANSFERDATE">
-          <DataField>TRANSFERDATE</DataField>
+        <Field Name="CUSTNBR">
+          <DataField>CUSTNBR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CUSTNAME">
+          <DataField>CUSTNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CITYSTATE">
+          <DataField>CITYSTATE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ITEMNBR">
           <DataField>ITEMNBR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DESC">
-          <DataField>DESC</DataField>
+        <Field Name="ITEMDESC">
+          <DataField>ITEMDESC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
+        <Field Name="VENDORNBR">
+          <DataField>VENDORNBR</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="UNITWEIGHT">
-          <DataField>UNITWEIGHT</DataField>
+        <Field Name="SHIPPEDQTY">
+          <DataField>SHIPPEDQTY</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="EXTENDEDCOST">
-          <DataField>EXTENDEDCOST</DataField>
+        <Field Name="UNITPRICE">
+          <DataField>UNITPRICE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EXTENDEDPRICE">
+          <DataField>EXTENDEDPRICE</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
@@ -100,40 +96,37 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.36458in</Width>
+                  <Width>1.1875in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.41667in</Width>
+                  <Width>1.32292in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.69792in</Width>
+                  <Width>2in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.11458in</Width>
+                  <Width>3in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.21875in</Width>
+                  <Width>3in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.35417in</Width>
+                  <Width>2.4375in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.38542in</Width>
+                  <Width>3in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.76042in</Width>
+                  <Width>1.13542in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.69792in</Width>
+                  <Width>1.30208in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.20833in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.42708in</Width>
+                  <Width>1.46875in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -149,7 +142,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FROMCOMPANY</Value>
+                                  <Value>INVOICENBR</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -185,7 +178,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FROMLOCATION</Value>
+                                  <Value>INVOICEDATE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -221,7 +214,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FROMLOCNAME</Value>
+                                  <Value>CUSTNBR</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -257,7 +250,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TOCOMPANY</Value>
+                                  <Value>CUSTNAME</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -293,7 +286,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TOLOCATION</Value>
+                                  <Value>CITYSTATE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -329,7 +322,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TOLOCNAME</Value>
+                                  <Value>ITEMNBR</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -365,7 +358,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TRANSFERDATE</Value>
+                                  <Value>ITEMDESC</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -401,7 +394,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ITEMNBR</Value>
+                                  <Value>VENDORNBR</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -437,7 +430,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>DESC</Value>
+                                  <Value>SHIPPEDQTY</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -473,7 +466,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>QTY</Value>
+                                  <Value>UNITPRICE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -509,7 +502,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>UNITWEIGHT</Value>
+                                  <Value>EXTENDEDPRICE</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -536,42 +529,6 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox23">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>EXTENDEDCOST</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox23</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#7292cc</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>#4c68a2</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -579,14 +536,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FROMCOMPANY">
+                        <Textbox Name="INVOICENBR">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FROMCOMPANY.Value</Value>
+                                  <Value>=Fields!INVOICENBR.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -596,7 +553,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FROMCOMPANY</rd:DefaultName>
+                          <rd:DefaultName>INVOICENBR</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -612,14 +569,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FROMLOCATION">
+                        <Textbox Name="INVOICEDATE">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FROMLOCATION.Value</Value>
+                                  <Value>=Fields!INVOICEDATE.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -629,7 +586,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FROMLOCATION</rd:DefaultName>
+                          <rd:DefaultName>INVOICEDATE</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -645,14 +602,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FROMLOCNAME">
+                        <Textbox Name="CUSTNBR">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FROMLOCNAME.Value</Value>
+                                  <Value>=Fields!CUSTNBR.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -662,7 +619,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FROMLOCNAME</rd:DefaultName>
+                          <rd:DefaultName>CUSTNBR</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -678,14 +635,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TOCOMPANY">
+                        <Textbox Name="CUSTNAME">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TOCOMPANY.Value</Value>
+                                  <Value>=Fields!CUSTNAME.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -695,7 +652,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TOCOMPANY</rd:DefaultName>
+                          <rd:DefaultName>CUSTNAME</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -711,14 +668,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TOLOCATION">
+                        <Textbox Name="CITYSTATE">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TOLOCATION.Value</Value>
+                                  <Value>=Fields!CITYSTATE.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -728,73 +685,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TOLOCATION</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#e5e5e5</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TOLOCNAME">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!TOLOCNAME.Value</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <Color>#4d4d4d</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>TOLOCNAME</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#e5e5e5</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TRANSFERDATE">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!TRANSFERDATE.Value</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <Color>#4d4d4d</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>TRANSFERDATE</rd:DefaultName>
+                          <rd:DefaultName>CITYSTATE</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -843,14 +734,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="DESC">
+                        <Textbox Name="ITEMDESC">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!DESC.Value</Value>
+                                  <Value>=Fields!ITEMDESC.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -860,7 +751,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>DESC</rd:DefaultName>
+                          <rd:DefaultName>ITEMDESC</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -876,14 +767,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="QTY">
+                        <Textbox Name="VENDORNBR">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!QTY.Value</Value>
+                                  <Value>=Fields!VENDORNBR.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -893,7 +784,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>QTY</rd:DefaultName>
+                          <rd:DefaultName>VENDORNBR</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -909,14 +800,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="UNITWEIGHT">
+                        <Textbox Name="SHIPPEDQTY">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!UNITWEIGHT.Value</Value>
+                                  <Value>=Fields!SHIPPEDQTY.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -926,7 +817,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>UNITWEIGHT</rd:DefaultName>
+                          <rd:DefaultName>SHIPPEDQTY</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -942,14 +833,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="EXTENDEDCOST">
+                        <Textbox Name="UNITPRICE">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!EXTENDEDCOST.Value</Value>
+                                  <Value>=Fields!UNITPRICE.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -959,7 +850,40 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>EXTENDEDCOST</rd:DefaultName>
+                          <rd:DefaultName>UNITPRICE</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="EXTENDEDPRICE">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!EXTENDEDPRICE.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>EXTENDEDPRICE</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -990,7 +914,6 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1005,7 +928,7 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>19.64584in</Width>
+            <Width>20.85417in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1013,14 +936,14 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.52083in</Height>
+        <Height>0.5in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>19.64584in</Width>
+      <Width>20.85417in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -1032,5 +955,5 @@ ORDER BY TRANFDATEX.ITICO, TRANFDATEX.ITILOC, TRANFDATEX.ITPCO, TRANFDATEX.ITPLO
   </ReportSections>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://sql01/reportserver</rd:ReportServerUrl>
-  <rd:ReportID>0d6a8f09-e230-4a4a-b776-8e8604ced354</rd:ReportID>
+  <rd:ReportID>8d3f9344-08ee-443f-aa73-a299341b38b5</rd:ReportID>
 </Report>

@@ -41,7 +41,7 @@ FROM CUSTMAST
 	INNER JOIN CUSTBGRP ON (CUSTMAST.CMBILL = CUSTBGRP.CGCUST and custbgrp.cgbgrp = ''ROCOOP'')
 	INNER JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND SHLINE.SLEPRC &lt;&gt; 0 
 	AND SHLINE.SLVEND = 10202 
 	AND SHLINE.SLPRCD not in (640,12990,775,11370,11371,11372,11373,11374,11375,11365,12551,12960)
@@ -940,7 +940,7 @@ order by InvoiceNbr, ItemNbr</CommandText>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>13.84375in</Width>
+            <Width>13.84374in</Width>
             <Style>
               <Border>
                 <Style>None</Style>

@@ -30,7 +30,7 @@ FROM shline
 	INNER JOIN custmktg ON (SLCUST = CMKCUS and CMKMKC = ''SN'') 
 	left JOIN CUSTMAST ON slcust = cmcust
 
-WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date)-1)
+WHERE (year(sldate)=year(current_date - 1 month) and month(sldate)=month(current_date - 1 month))
 	AND SLCO = 1 
 	AND slvend = 16106
 	

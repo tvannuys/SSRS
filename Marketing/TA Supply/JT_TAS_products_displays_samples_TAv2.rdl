@@ -668,7 +668,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>In Stock</Value>
+                                  <Value>Available</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -779,7 +779,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>In Stock</Value>
+                                  <Value>Available</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -884,7 +884,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>In Stock</Value>
+                                  <Value>Available</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1211,7 +1211,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>CONT_US_STOCK</rd:DefaultName>
@@ -1316,7 +1318,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>AK_STOCK</rd:DefaultName>
@@ -1421,7 +1425,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>HI_STOCK</rd:DefaultName>
