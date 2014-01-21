@@ -14,9 +14,7 @@ drop table #TempSalesCommish
 		
 */
 
-
-
-select slslmn, smname, 
+select shco,slslmn, smname, 
 cmcust,
 cmname,
 sldiv, dvdesc, imitem, imdesc, ExtendedCost, ExtendedPrice, 
@@ -26,7 +24,8 @@ GETDATE() as ItemSetupDate,
 into #TempSalesCommish
 
 from openquery(gsfl2k,'
-select  slslmn,
+select  shco,
+slslmn,
 salesman.smname,
 soldto.cmcust,
 soldto.cmname,
@@ -52,8 +51,6 @@ from shline
 		
 where year(shidat) in (2013)
 and month(shidat) = 12
-and shco=1
-and slslmn = 509
 
 order by smname,
 dvdesc,
@@ -86,14 +83,48 @@ set ItemSetupDate = '2001-01-01'
 where ItemSetupDate = '0001-01-01'
 
 
-select t3.*,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth,
+/*================================================
+
+Calculations and lookup to CommissionRate table
+
+==================================================*/
+
+
+-- Based on Gross Sales
+
+select t3.*,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth,c.basedon,
 case	
 	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then t3.ExtendedPrice * c.Rate * .8
 	else t3.ExtendedPrice * c.Rate
-end as Commission
+end as Commission,
+
+case	
+	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then 'New'
+	else 'Legacy'
+end as ProductAgeCategory
 
 from #TempSalesCommish t3
-left join CommissionRate c on (c.slslmn = t3.slslmn and c.sldiv = t3.sldiv)
+join CommissionRate c on (c.slslmn = t3.slslmn and c.sldiv = t3.sldiv)
+where c.BasedOn = 'Gross Sales'
 
+union all
+
+-- Based on Gross Margin
+
+select t3.*,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth,c.basedon,
+case	
+	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * .8
+	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate
+end as Commission,
+
+case	
+	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then 'New'
+	else 'Legacy'
+end as ProductAgeCategory
+
+
+from #TempSalesCommish t3
+join CommissionRate c on (c.slslmn = t3.slslmn and c.sldiv = t3.sldiv)
+where c.BasedOn = 'Gross Margin'
 
 

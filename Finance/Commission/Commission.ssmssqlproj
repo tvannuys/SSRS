@@ -19,6 +19,12 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
+        <FileNode Name="Commission Schedule Rpt.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>sql01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Commission Schedule Rpt.sql</FullPath>
+        </FileNode>
         <FileNode Name="ItemSetupDate.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql01:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>sql01</AssociatedConnSrvName>
