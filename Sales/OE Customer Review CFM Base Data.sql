@@ -10,6 +10,22 @@ CR Floors: 1000382, 1000383
 
 Paulsons:  1010277
 
+Carpet Garage AKA TOLLEFSON'S:  1041635
+
+1008859    GRIFFITH INDUSTRIES       KENT
+
+1001785    PIERCE FLOORS INC         MISSOULA    
+--1001786    PIERCE FLOORS INC (KING)  BILLINGS    
+1001787    PIERCE FLOORS INC         GREAT FALLS 
+1001788    PIERCE FLOORS INC         HELENA      
+1008204    PIERCE FLOORS INC         BOZEMAN     
+1008205    PIERCE CARPET MILL OUTLET BUTTE
+1020170    CARPET BARN ( PIERCE )    BILLINGS 
+1020174    PIERCE CARPET MILL OUTLET BOZEMAN         
+
+
+1023354    ACCENTS & INTERIORS INC   WOODINVILLE
+
 
 
 */
@@ -54,6 +70,29 @@ case
 	when soldto.cmcust = ''1000383'' then ''MARYSVILLE''
 	when soldto.cmcust = ''1000384'' then ''BELLEVUE''
 	
+	
+	when soldto.cmcust = ''1001341'' then ''HELENA''
+	when soldto.cmcust = ''1006024'' then ''BISMARCK''  
+	when soldto.cmcust = ''1006025'' then ''GRAND FORKS'' 
+	when soldto.cmcust = ''1006026'' then ''WEST FARGO''  
+	when soldto.cmcust = ''1006027'' then ''WAITE PARK''  
+	when soldto.cmcust = ''1006028'' then ''DILWORTH''    
+	when soldto.cmcust = ''1016025'' then ''MISSOULA''    
+	when soldto.cmcust = ''1040249'' then ''GREAT FALLS'' 
+	when soldto.cmcust = ''1040368'' then ''BILLINGS''
+	when soldto.cmcust = ''1041635'' then ''MINOT''
+
+	when soldto.cmcust = ''1001785'' then ''MISSOULA''    
+	when soldto.cmcust = ''1001786'' then ''BILLINGS''    
+	when soldto.cmcust = ''1001787'' then ''GREAT FALLS'' 
+	when soldto.cmcust = ''1001788'' then ''HELENA''      
+	when soldto.cmcust = ''1008204'' then ''BOZEMAN''     
+	when soldto.cmcust = ''1008205'' then ''CARPET MILL OUTLET BUTTE''
+	when soldto.cmcust = ''1020170'' then ''CARPET BARN''
+	when soldto.cmcust = ''1020174'' then ''CARPET MILL OUTLET BOZEMAN''         
+
+
+	
 	else ''x''
 end as ReportCustomer, 
 
@@ -94,7 +133,7 @@ where (
 		(year(shline.sldate) = year(current_date - 1 month) or year(shline.sldate) = year(current_date - 1 month)-1)
 				 and month(shline.sldate) <= month(current_date - 1 month))  /* last full month this year and last year */
 
-and billto.cmcust in (''1000382'', ''1000383'') 
+and billto.cmcust in (''1001786'',''1020170'') 
 
 
 ')
