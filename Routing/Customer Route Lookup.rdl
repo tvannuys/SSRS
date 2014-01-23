@@ -19,7 +19,7 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>JT_cust_route</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_cust_route"><Parameter Name="@Route"><Value /></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Cust_Name" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Customer#" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Via_Code" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Route_1" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Route_2" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="City" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="State" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Zip" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_cust_route"><Parameter Name="@Route"><Value /></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Cust_Name" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Customer#" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Via_Code" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Route_1" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Route_2" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="City" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="State" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Zip" /><ColumnExpression ColumnOwner="JT_cust_route" ColumnName="Exceptions" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="Cust_Name">
@@ -53,6 +53,10 @@
         <Field Name="Zip">
           <DataField>Zip</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Exceptions">
+          <DataField>Exceptions</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -97,6 +101,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.6875in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -394,6 +401,42 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Exceptions</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -424,6 +467,7 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -457,6 +501,7 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -490,6 +535,7 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -523,6 +569,7 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -556,6 +603,7 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -589,6 +637,7 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -622,6 +671,7 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -655,6 +705,43 @@
                               <Color>#e5e5e5</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Exceptions1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Exceptions.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Exceptions1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>=IIF(TRIM(Fields!Exceptions.Value) = "Yes","Lime","No Color")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -669,6 +756,7 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -692,7 +780,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.55278in</Top>
             <Height>0.5in</Height>
-            <Width>8.82292in</Width>
+            <Width>9.82292in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -718,6 +806,7 @@
             </Paragraphs>
             <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
             <rd:DefaultName>ReportTitle</rd:DefaultName>
+            <Left>0in</Left>
             <Height>0.4in</Height>
             <Width>5.5in</Width>
             <ZIndex>1</ZIndex>
@@ -770,7 +859,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>8.82292in</Width>
+      <Width>11.14584in</Width>
       <Page>
         <PageFooter>
           <Height>0.45in</Height>
