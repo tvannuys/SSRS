@@ -12,38 +12,14 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
-        <CommandText>select * from openquery (gsfl2k,'
-
-select	olco as Co,
-		olloc as Loc,
-		olord# as OrderNum,
-		olrel# as Release,
-		olcust as CustNum,
-		cmname as CustName,
-		oldate as OrderDate,
-		olreas as Reason,
-		olcusr as UserToCancel,
-		olitem as ItemNum,
-		imsi as StockStatus,
-		imdrop as Drop,
-		olqord as OrderQty,
-		oleprc as ExtendedPrice
-		
-from oclhist oc
-	left join custmast cm on cm.cmcust = oc.olcust
-	left join itemmast im on im.imitem = oc.olitem
-	
-	
-where olcdte = (current_date)-1 day
-	and oldirs &lt;&gt;''T''
-	and olcust not like (''SHOWR%'')
-	and olcust not like (''TRANS%'')
-	and olcust not like (''XFER%'')
-
-order by olco asc,olloc asc,olord# asc,olrel# asc
-
-
-')</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CSV">
+            <Value>=Parameters!CSV.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>DailyCancelledOrders</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -194,6 +170,7 @@ order by olco asc,olloc asc,olord# asc,olrel# asc
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1156,7 +1133,9 @@ order by olco asc,olloc asc,olord# asc,olrel# asc
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <FixedData>true</FixedData>
                   <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
@@ -1190,7 +1169,18 @@ order by olco asc,olloc asc,olord# asc,olrel# asc
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="CSV">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Y</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>stock</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01/reportserver</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>75dfef72-094b-46c4-a490-714560997df3</rd:ReportID>
 </Report>
