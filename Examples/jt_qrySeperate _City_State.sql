@@ -12,8 +12,8 @@
 --insert @table values ('SEATTLE   WA')
 --insert @table values ( 'pORTLAND            OR')
 --select COL,
---		UPPER(RTRIM(reverse(substring(reverse(col),3,len(col))))) FirstPart,
---		UPPER(REVERSE(left(reverse(col),2))) SecondPart
+--		UPPER(RTRIM(reverse(substring(reverse(col),3,len(col))))) AS FirstPart,
+--		UPPER(REVERSE(left(reverse(col),2))) AS SecondPart
 --from @table 
 
 
