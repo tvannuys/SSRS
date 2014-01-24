@@ -14,7 +14,7 @@ drop table #TempSalesCommish
 		
 */
 
-select shco,slslmn, smname, 
+select shco,slslmn, smname, BillTo,
 cmcust,
 cmname,
 sldiv, dvdesc, imitem, imdesc, ExtendedCost, ExtendedPrice, 
@@ -27,6 +27,7 @@ from openquery(gsfl2k,'
 select  shco,
 slslmn,
 salesman.smname,
+billto.cmcust as BillTo,
 soldto.cmcust,
 soldto.cmname,
 sldiv,
@@ -92,15 +93,16 @@ Calculations and lookup to CommissionRate table
 
 -- Based on Gross Sales
 
-select t3.*,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth,c.basedon,
+select t3.*,c.basedon,
 case	
-	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then t3.ExtendedPrice * c.Rate * .8
+	when (ItemSetupDate < '1/1/2014' and BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .8
+	when (BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .5
 	else t3.ExtendedPrice * c.Rate
 end as Commission,
 
 case	
-	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then 'New'
-	else 'Legacy'
+	when ItemSetupDate < '1/1/2014' then 'Legacy'
+	else 'New'
 end as ProductAgeCategory
 
 from #TempSalesCommish t3
@@ -111,15 +113,17 @@ union all
 
 -- Based on Gross Margin
 
-select t3.*,DATEDIFF(m,ItemSetupDate,getdate()) as AgeMonth,c.basedon,
+select t3.*,c.basedon,
 case	
-	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * .8
+	when (ItemSetupDate < '1/1/2014' and BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .8
+	when (BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .5
+
 	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate
 end as Commission,
 
 case	
-	when DATEDIFF(m,ItemSetupDate,getdate()) < 24 then 'New'
-	else 'Legacy'
+	when ItemSetupDate < '1/1/2014' then 'Legacy'
+	else 'New'
 end as ProductAgeCategory
 
 
