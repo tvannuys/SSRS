@@ -50,8 +50,8 @@ from shline
 		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
 		left join salesman on shline.SLSLMN = salesman.smno
 		
-where year(shidat) in (2013)
-and month(shidat) = 12
+where year(shidat) in (2014)
+and month(shidat) = 1
 
 order by smname,
 dvdesc,
@@ -71,6 +71,11 @@ join itemxtra x on m.imitem = x.imxitm
 group by imdesc
 ')
 
+update #ItemAge
+set ItemSetupDate = '2001-01-01'
+where ItemSetupDate = '0001-01-01'
+
+
 
 update #TempSalesCommish 
 set ItemSetupDate = a.ItemSetupDate
@@ -78,11 +83,12 @@ from #TempSalesCommish t1
 join #ItemAge a on a.imdesc = t1.imdesc
 where a.itemsetupdate <> '0001-01-01'
 
+/* moved to above previous step 
 
 update #ItemAge
 set ItemSetupDate = '2001-01-01'
 where ItemSetupDate = '0001-01-01'
-
+*/
 
 /*================================================
 
@@ -95,13 +101,13 @@ Calculations and lookup to CommissionRate table
 
 select t3.*,c.basedon,
 case	
-	when (ItemSetupDate < '1/1/2014' and BillTo <> '4100000') then t3.ExtendedPrice * c.Rate 
+	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then t3.ExtendedPrice * c.Rate 
 	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * .5
 	else t3.ExtendedPrice * c.Rate *.8
 end as Commission,
 
 case	
-	when ItemSetupDate < '1/1/2014' then 'Legacy'
+	when cast(ItemSetupDate as DATE) < '1/1/2014' then 'Legacy'
 	else 'New'
 end as ProductAgeCategory
 
@@ -115,14 +121,14 @@ union all
 
 select t3.*,c.basedon,
 case	
-	when (ItemSetupDate < '1/1/2014' and BillTo <> '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate 
+	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate 
 	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * .5
 
 	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate *.8
 end as Commission,
 
 case	
-	when ItemSetupDate < '1/1/2014' then 'Legacy'
+	when cast(ItemSetupDate as DATE) < '1/1/2014' then 'Legacy'
 	else 'New'
 end as ProductAgeCategory
 
@@ -130,5 +136,4 @@ end as ProductAgeCategory
 from #TempSalesCommish t3
 join CommissionRate c on (c.slslmn = t3.slslmn and c.sldiv = t3.sldiv)
 where c.BasedOn = 'Gross Margin'
-
 
