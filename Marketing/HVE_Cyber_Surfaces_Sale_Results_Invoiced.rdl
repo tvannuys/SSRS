@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>From MS Access
+HVE_Cyber_Surfaces_Sale_Results_Invoiced</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
@@ -22,7 +24,7 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>HVE_Cyber_Surfaces_Sale_Results_Invoiced</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced"><Parameter Name="@StartDate"><Value>07/17/2012</Value></Parameter><Parameter Name="@EndDate"><Value>07/20/2012</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="OrderNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ItemClass" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="InvoiceNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="InvoiceDate" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="OrderDate" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="PONbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="CustNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="CustName" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ProductCode" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="Item" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="Description" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="BillUnitsShip" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="UM" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="UnitPrice" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="SubTotal" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="UnitCost" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtCost" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtNetCost" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost1" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost2" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost3" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost4" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost5" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="Loc" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="SalesNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="SalesName" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="VendNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="VendName" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced"><Parameter Name="@StartDate"><Value>07/17/2012</Value></Parameter><Parameter Name="@EndDate"><Value>07/20/2012</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="OrderNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ItemClass" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="InvoiceNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="InvoiceDate" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="OrderDate" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="PONbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="CustNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="CustName" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ProductCode" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="Item" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="Description" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="BillUnitsShip" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="UM" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="UnitPrice" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="SubTotal" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="UnitCost" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtCost" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtNetCost" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost1" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost2" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost3" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost4" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="ExtSpecCost5" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="Loc" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="SalesNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="SalesName" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="VendNbr" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="VendName" /><ColumnExpression ColumnOwner="HVE_Cyber_Surfaces_Sale_Results_Invoiced" ColumnName="OrderType" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="OrderNbr">
@@ -137,6 +139,10 @@
           <DataField>VendName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="OrderType">
+          <DataField>OrderType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -149,6 +155,9 @@
               <TablixColumns>
                 <TablixColumn>
                   <Width>0.67708in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.875in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.61458in</Width>
@@ -257,6 +266,41 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Order Type</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -1256,6 +1300,41 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="OrderType">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!OrderType.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>OrderType</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="ItemClass">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2179,6 +2258,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -2194,7 +2274,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>30.59375in</Width>
+            <Width>31.46872in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2280,7 +2360,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>30.59375in</Width>
+      <Width>31.59372in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -2293,20 +2373,10 @@
   <ReportParameters>
     <ReportParameter Name="StartDate">
       <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>1/1/2001 12:00:00 AM</Value>
-        </Values>
-      </DefaultValue>
       <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
       <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>1/1/2001 12:00:00 AM</Value>
-        </Values>
-      </DefaultValue>
       <Prompt>End Date</Prompt>
     </ReportParameter>
   </ReportParameters>
