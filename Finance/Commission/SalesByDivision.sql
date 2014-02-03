@@ -95,9 +95,9 @@ Calculations and lookup to CommissionRate table
 
 select t3.*,c.basedon,
 case	
-	when (ItemSetupDate < '1/1/2014' and BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .8
-	when (BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .5
-	else t3.ExtendedPrice * c.Rate
+	when (ItemSetupDate < '1/1/2014' and BillTo <> '4100000') then t3.ExtendedPrice * c.Rate 
+	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * .5
+	else t3.ExtendedPrice * c.Rate *.8
 end as Commission,
 
 case	
@@ -115,10 +115,10 @@ union all
 
 select t3.*,c.basedon,
 case	
-	when (ItemSetupDate < '1/1/2014' and BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .8
-	when (BillTo <> '410000') then t3.ExtendedPrice * c.Rate * .5
+	when (ItemSetupDate < '1/1/2014' and BillTo <> '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate 
+	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * .5
 
-	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate
+	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate *.8
 end as Commission,
 
 case	
