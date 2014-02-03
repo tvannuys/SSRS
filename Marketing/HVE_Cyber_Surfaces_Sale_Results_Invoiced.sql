@@ -11,6 +11,8 @@
 **																				**
 **********************************************************************************/
 
+-- SR# 17784	2/3/14		James Tuttle
+
 ALTER PROC HVE_Cyber_Surfaces_Sale_Results_Invoiced 
 	@StartDate	AS VARCHAR(10)
    ,@EndDate	AS VARCHAR(10)
@@ -47,6 +49,7 @@ BEGIN
 		,smname		AS SalesName
 		,slvend		AS VendNbr
 		,vmname		AS VendName
+		,shotyp		AS OrderType
 		
  FROM OPENQUERY(GSFL2K,	
 	''SELECT shord#		
@@ -77,6 +80,7 @@ BEGIN
 		,smname
 		,slvend
 		,vmname
+		,shotyp
 		
 	FROM shhead sh
 	LEFT JOIN shline sl ON (sh.shco = sl.slco
@@ -88,7 +92,7 @@ BEGIN
 	LEFT JOIN salesman sm ON sm.smno = sl.slslmn
 	LEFT JOIN vendmast vm ON vm.vmvend = sl.slvend
 	
-	WHERE sh.shotyp = ''''SU''''
+	WHERE sh.shotyp IN (''''SU'''', ''''FS'''')
 		AND sh.shidat >= ' + '''' + '''' + @StartDate + '''' + '''' + '
 		AND sh.shidat <=  '+ '''' + '''' + @EndDate + '''' + '''' + '
 	'')'
