@@ -26,6 +26,13 @@ Carpet Garage AKA TOLLEFSON'S:  1041635
 
 1023354    ACCENTS & INTERIORS INC   WOODINVILLE
 
+Lippert's
+	1010663    LIPPERTS CARPET 1-GRANTS 
+	1012346    NO FRILLS FLOORING BROKER
+	1020125    LIPPERTS CARPET-MEDFORD  
+	1020127    LIPPERTS CARPET-K FALLS  
+	1024324    PACIFIC RIM FLOORING DIST
+
 
 
 */
@@ -91,7 +98,11 @@ case
 	when soldto.cmcust = ''1020170'' then ''CARPET BARN''
 	when soldto.cmcust = ''1020174'' then ''CARPET MILL OUTLET BOZEMAN''         
 
-
+	when soldto.cmcust = ''1010663''    then ''LIPPERTS GRANTS PASS''
+	when soldto.cmcust = ''1012346''    then ''NO FRILLS''
+	when soldto.cmcust = ''1020125''    then ''LIPPERTS MEDFORD''  
+	when soldto.cmcust = ''1020127''    then ''LIPPERTS K FALLS''  
+	when soldto.cmcust = ''1024324''    then ''PACIFIC RIM''
 	
 	else ''x''
 end as ReportCustomer, 
@@ -133,7 +144,11 @@ where (
 		(year(shline.sldate) = year(current_date - 1 month) or year(shline.sldate) = year(current_date - 1 month)-1)
 				 and month(shline.sldate) <= month(current_date - 1 month))  /* last full month this year and last year */
 
-and billto.cmcust in (''1001786'',''1020170'') 
+and billto.cmcust in (''1010663'',
+''1012346'',
+''1020125'',
+''1020127'',
+''1024324'') 
 
 
 ')
