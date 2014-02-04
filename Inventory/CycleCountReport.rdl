@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>RF PI’S Only</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
@@ -14,10 +15,10 @@
         <DataSourceName>GartmanReports</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@StartDate">
-            <Value>=Parameters!StartDate.Value</Value>
+            <Value>=Format(Parameters!StartDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
           <QueryParameter Name="@EndDate">
-            <Value>=Parameters!EndDate.Value</Value>
+            <Value>=Format(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -749,21 +750,11 @@
   </ReportSections>
   <ReportParameters>
     <ReportParameter Name="StartDate">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>10/1/2012</Value>
-        </Values>
-      </DefaultValue>
+      <DataType>DateTime</DataType>
       <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>12/31/2012</Value>
-        </Values>
-      </DefaultValue>
+      <DataType>DateTime</DataType>
       <Prompt>End Date</Prompt>
     </ReportParameter>
   </ReportParameters>
