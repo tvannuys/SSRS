@@ -17,8 +17,8 @@
 
 ALTER PROC  JT_PerformanceTrackingMonth_CHART AS
 BEGIN
- SELECT 
-	   MONTH(utdate)	AS [Month]
+ SELECT emco		AS Co
+	   ,MONTH(utdate)	AS [Month]
 	   ,YEAR(utdate)	AS [Year]
 	   ,utoent		AS Enter
 	   ,utoedt		AS Edits
@@ -29,7 +29,8 @@ BEGIN
 	   ,utinvi		AS Inv
 	   ,utmsls		AS Missed_Sale
  FROM OPENQUERY(GSFL2K,	
-	'SELECT utdate 
+	'SELECT emco
+		   ,utdate 
 		   ,utoent
 		   ,utoedt
 		   ,utocan
@@ -44,12 +45,13 @@ BEGIN
 	LEFT JOIN prempm em on em.ememp# = ux.usxemp#
 	
 	WHERE utdate >=  (CURRENT_DATE - (MONTH(CURRENT_DATE)-1) MONTHS - (DAY(CURRENT_DATE)-1) DAYS)
-		AND ux.usxicat = ''!''  
+		AND em.emshft = ''1'' 
 		
-	GROUP BY 
+
 		
-		MONTH(utdate)
-		,YEAR(utdate)
+	GROUP BY emco
+	   ,MONTH(utdate)
+	   ,YEAR(utdate)
 	   ,utoent		
 	   ,utoedt		
 	   ,utocan		
@@ -57,7 +59,8 @@ BEGIN
 	   ,utitmi		
 	   ,utspci		
 	   ,utinvi		
-	   ,utmsls		
+	   ,utmsls	
+	   ,utdate	
 
 	')
 END
