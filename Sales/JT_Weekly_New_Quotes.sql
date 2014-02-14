@@ -32,6 +32,7 @@ SET @SQL ='
 		''SELECT ohco		AS Company#
 				,ohloc		AS Quote_Loc
 				,smname		AS Rep
+				,smno		AS RepNum
 				,ohcust		AS Cust_Number
 				,cmname		AS Customer
 				,ohord#		AS Quote#
