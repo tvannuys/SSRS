@@ -55,6 +55,7 @@ SET @SQL ='
 		''SELECT ohco		AS Company#
 				,ohloc		AS Quote_Loc
 				,smname		AS Rep
+				,smno		AS RepNum
 				,ohcust		AS Cust_Number
 				,cmname		AS Customer
 				,ohord#		AS Quote#
@@ -110,7 +111,8 @@ SET @SQL ='
 				,ohddat		
 				,ohpo#		
 				,otcmt1		
-				,ohemds			
+				,ohemds		
+				,smno	
 				
 		ORDER BY otcmt1
 				,ohord#
@@ -121,7 +123,7 @@ SET @SQL ='
 END
 
 
---	JT_Weekly_New_Quotes_Sidemarks 05052012, 05122013
+--	JT_Weekly_New_Quotes_Sidemarks 5   // 02082014, 02152014
 GO
 
 
