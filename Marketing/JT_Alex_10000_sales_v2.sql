@@ -11,7 +11,7 @@
 
 --=================================================================================================================
 
-ALTER PROC JT_Alex_5000 AS
+ALTER PROC JT_Alex_5000TEST AS
 SET NOCOUNT ON
 BEGIN
 
@@ -47,6 +47,7 @@ BEGIN
 		,city varchar(25)       -- Ship to city
 		,[state] varchar(25)    -- Ship to State
 		,shzip varchar(9)		-- Ship to zip
+		,stcmt1 nvarchar(60)	-- Comment 1 from SHTEXT
 	)							-----------------------------------------------
 
 	INSERT #BO
@@ -84,6 +85,7 @@ BEGIN
 				,left(shsta3,23) as City
 				,right(shsta3,2) as State
 				,shzip as zip
+				,stcmt1 as Sidemark
 		FROM shline
 		LEFT JOIN shhead ON (shhead.shco = shline.slco
 								AND shhead.shloc = shline.slloc
@@ -91,9 +93,15 @@ BEGIN
 								AND shhead.shrel# = shline.slrel#
 								AND shhead.shinv# = shline.slinv#
 								AND shhead.shcust = shline.slcust)
-		LEFT JOIN custmast on cmcust = slcust
+		LEFT JOIN custmast ON cmcust = slcust
+		LEFT JOIN shtext st ON ( shline.slco = st.stco
+								AND shline.slloc = st.stloc
+								AND shline.slord# = st.stord#
+								AND shline.slinv# = st.stinv#)
+		
 		WHERE shhead.shord# in (select OrderNum from BO)
 			AND shhead.shidat >= ''01/01/2011'' 
+			AND st.sttseq = 1
 		ORDER BY slord#                                      
 	')
 	 
@@ -129,6 +137,7 @@ BEGIN
 		,city varchar(25)		-- Ship to city
 		,[state] varchar(25)	-- Ship to state
 		,ohzip varchar(9)		-- Ship to zip
+		,otcmt1 nvarchar(60)	-- Comment 1 from OOTEXT
 	)							-----------------------------------------------
 
 	INSERT #OO
@@ -166,6 +175,7 @@ BEGIN
 				,left(ohsta3,23) as City
 				,right(ohsta3,2) as State
 				,ohzip as zip
+				,otcmt1 as Sidemark
 		FROM ooline
 		LEFT JOIN oohead ON (oohead.ohco = ooline.olco
 								AND oohead.ohloc = ooline.olloc
@@ -174,8 +184,16 @@ BEGIN
 							/*	AND oohead.ohinv# = ooline.olinv#	*/
 								AND oohead.ohcust = ooline.olcust)
 		LEFT JOIN custmast on cmcust = olcust
+		LEFT JOIN ootext ot ON ( ooline.olco = ot.otco 
+								AND ooline.olloc = ot.otloc
+								AND ooline.olord# = ot.otord#
+								AND ooline.olrel# = ot.otrel#
+								AND ooline.olcust = ot.otcust)
+								
 		WHERE oohead.ohord# in (select OrderNum from OO)
 			AND oohead.ohodat >= ''01/01/2011'' 
+			AND ot.ottseq = 1
+			
 		ORDER BY olord#                                    
 	')
 -------------------------------------------------------------------------------------------------------------------
@@ -206,6 +224,7 @@ BEGIN
 			,city
 			,[state]
 			,shzip as zip
+			,stcmt1 as sidmark
 	FROM #BO
 	UNION ALL
 	SELECT	olco as co
@@ -229,8 +248,9 @@ BEGIN
 			,city
 			,[state]
 			,ohzip as zip
+			,otcmt1 AS sidemark
 	FROM #OO
 SET NOCOUNT OFF
 END
 
--- JT_Alex_5000
+-- JT_Alex_5000TEST
