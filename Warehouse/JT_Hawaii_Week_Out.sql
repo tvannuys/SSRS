@@ -1,3 +1,14 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[JT_Hawaii_Week_Out]    Script Date: 2/13/2014 1:34:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
 
 /************************************************************************
 *																		*
@@ -13,7 +24,7 @@
 *************************************************************************/
 
 
- --ALTER PROC JT_Hawaii_Week_Out Asdsp
+ ALTER PROC [dbo].[JT_Hawaii_Week_Out] As
 
 SELECT *
 FROM Openquery(GSFL2K,'SELECT ohco AS Co
@@ -23,18 +34,26 @@ FROM Openquery(GSFL2K,'SELECT ohco AS Co
 							,ohrel# AS Release
 							,ohrout AS Route
 							,olinvu AS Status
+							,ohemds	AS Sub_Total
+							,CEILING(SUM(olqord * imwght))	AS Weight
+							,cmname	AS Customer
+
 						FROM oohead oh
-						INNER JOIN ooline ol
+						LEFT JOIN ooline ol
 							ON oh.ohco = ol.olco
 							AND oh.ohloc = ol.olloc
 							AND oh.ohord# = ol.olord#
 							AND oh.ohrel# = ol.olrel#
 							AND oh.ohcust = ol.olcust
+						LEFT JOIN custmast cm ON cm.cmcust = oh.ohcust
+						LEFT JOIN itemmast im ON im.imitem = ol.olitem
+
 						WHERE ol.oliloc IN (50,52,41)
 							AND (oh.ohrout = ''50-83'' OR oh.ohrout = ''41-83'')
 							AND oh.ohsdat >= CURRENT_DATE
 							AND oh.ohsdat <= CURRENT_DATE + 6 DAYS
 							AND ol.olinvu NOT IN (''W'', ''T'')
+
 						GROUP BY ohco
 							,ohloc
 							,MONTH(ohsdat) || ''/'' || DAY(ohsdat) || ''/'' || YEAR(ohsdat) 
@@ -42,5 +61,12 @@ FROM Openquery(GSFL2K,'SELECT ohco AS Co
 							,ohrel#
 							,ohrout 
 							,olinvu
+							,ohemds
+							,cmname
+
 						ORDER BY oh.ohco, oh.ohloc
 							')
+
+GO
+
+
