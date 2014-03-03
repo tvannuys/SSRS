@@ -20,7 +20,7 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>JT_Weekly_New_Quotes_Sidemarks</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_Weekly_New_Quotes_Sidemarks"><Parameter Name="@BeginDate"><Value>05/04/2013</Value></Parameter><Parameter Name="@EndDate"><Value>05/10/2013</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="COMPANY#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="QUOTE_LOC" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="REP" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="CUST_NUMBER" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="CUSTOMER" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="QUOTE#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="CUST_CONTACT" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="ORIG_QT_DATE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="EXP_DATE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="PO#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="SIDEMARK" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="QT_SUBTOTAL" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_Weekly_New_Quotes_Sidemarks"><Parameter Name="@DaysBack"><Value>5</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="COMPANY#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="QUOTE_LOC" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="REP" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="REPNUM" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="CUST_NUMBER" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="CUSTOMER" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="QUOTE#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="CUST_CONTACT" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="ORIG_QT_DATE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="EXP_DATE" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="PO#" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="SIDEMARK" /><ColumnExpression ColumnOwner="JT_Weekly_New_Quotes_Sidemarks" ColumnName="QT_SUBTOTAL" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="COMPANY_">
@@ -34,6 +34,10 @@
         <Field Name="REP">
           <DataField>REP</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REPNUM">
+          <DataField>REPNUM</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="CUST_NUMBER">
           <DataField>CUST_NUMBER</DataField>
@@ -89,6 +93,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.03125in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.79167in</Width>
@@ -216,6 +223,42 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>REPNUM</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#7292cc</Color>
@@ -664,6 +707,39 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="REPNUM">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!REPNUM.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>REPNUM</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="CUST_NUMBER">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -982,6 +1058,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -999,7 +1076,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.4in</Top>
             <Height>0.5in</Height>
-            <Width>20.39585in</Width>
+            <Width>21.39585in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1084,7 +1161,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>20.39585in</Width>
+      <Width>21.39585in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -1097,7 +1174,31 @@
   <ReportParameters>
     <ReportParameter Name="DaysBack">
       <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>6</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Days Back:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RepNum">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RepNum</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SuppressEmail">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSet1</DataSetName>
+          <ValueField>COMPANY_</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>SuppressEmail</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
