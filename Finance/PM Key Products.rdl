@@ -85,7 +85,7 @@ and smname not in (''PACMAT HOUSE'',''CLOSED ACCOUNTS'',''DEVELOPMENTAL/SALES MG
 
 ')
 
-where shidat &lt;= DATEADD(s,-1,DATEADD(mm, DATEDIFF(m,0,GETDATE()),0))
+-- where shidat &lt;= DATEADD(s,-1,DATEADD(mm, DATEDIFF(m,0,GETDATE()),0))
 
 
 union all
