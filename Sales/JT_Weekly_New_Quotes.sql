@@ -69,6 +69,7 @@ SET @SQL ='
 		JOIN custmast cm ON cm.cmcust = qh.ohcust
 		LEFT JOIN salesman sm ON sm.smno = qh.ohslsm
 		JOIN vendmast vm ON vm.vmvend = ql.olvend
+
 		WHERE qh.ohodat >=  ' + '''' + '''' +@BeginDate + '''' + ''''+ '   
 			AND qh.ohodat <=  ' + '''' + '''' + @EndDate + '''' + ''''+ '
 			
@@ -83,4 +84,4 @@ SET @SQL ='
 END
 
 
---	JT_Weekly_New_Quotes 02082012, 02192013
+--	JT_Weekly_New_Quotes 01082014, 02192014
