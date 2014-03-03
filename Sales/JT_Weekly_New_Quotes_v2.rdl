@@ -2489,26 +2489,6 @@
         </ParameterValues>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="RepNum">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>%</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>RepNum</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="SupressEmail">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>DataSet1</DataSetName>
-          <ValueField>COMPANY_</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Prompt>SupressEmail</Prompt>
-      <Hidden>true</Hidden>
-    </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
