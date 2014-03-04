@@ -54,7 +54,7 @@ BEGIN
 		LEFT JOIN custmast cm ON sl.slcust = cm.cmcust
 		LEFT JOIN salesman sm ON sm.smno = sl.slslmn
 		
-	WHERE shidat >= ''01/01/2012''
+	WHERE shidat >= CURRENT_DATE - 1 YEAR
 		AND sl.slqshp = im.imfc2a
 		AND fm.FMFMCD not in (''L2'',''YI'')
 		AND im.IMSI = ''Y''
@@ -73,6 +73,8 @@ BEGIN
 				,imdesc
 				,imcolr	
 				,cmadr3
+				,smno		 
+				,smname
 				
 		ORDER BY slco
 				,slitem
