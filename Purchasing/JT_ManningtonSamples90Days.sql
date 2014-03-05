@@ -15,12 +15,16 @@ ALTER PROC JT_ManningtonSamples90Days AS
 BEGIN
  SELECT *
  FROM OPENQUERY(GSFL2K,	
-	'SELECT plitem	AS Item
+	'SELECT plco	AS Co
+			,plloc	AS Loc
+			,plitem	AS Item
 			,plpo#	AS PO
 			,plqord	AS Qty_Ord
-			,'' ''	AS Ref_num
-			,'' ''	AS Mann_ID
-			,phdoi	AS Issue_date
+			,phref#	AS Ref_num
+			,plaltitm	AS Mann_ID
+			,MONTH(phdoi) || ''/'' || DAY(phdoi) || ''/'' ||
+				YEAR(phdoi)	AS Issue_date
+			/* ,pldelt */
 
 				FROM pohead ph
 	LEFT JOIN poline pl ON ( ph.phco = pl.plco
@@ -29,6 +33,10 @@ BEGIN
 
 	WHERE photyp = ''SA''
 		AND plddat = ''12/31/9999''
-		AND phdoi > 90 DAYS <------- code for 90 days
+		AND phdoi < CURRENT_DATE - 90 DAYS
+		AND plvend = ''10131''
+		AND pldelt != ''C''
+
+	ORDER BY phdoi 
 	')
 END
