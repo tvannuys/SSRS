@@ -57,7 +57,7 @@ SET @SQL =
 		,slvend AS ''Vend #''
 		,vmname AS ''Vend Name''
 		,CAST((ISNULL(SUM(CASE WHEN MONTH(sldate) = '+''+''+@PrMonth+''+''+'  THEN (slqshp * imwght) END),0)) as DECIMAL(10,0)) AS ''Pr Month''
-		,''     '' AS ''     ''	-- Free space to seperate prior month and averge
+		,''     '' AS ''     ''	-- Free space to seperate prior month and average
 		
 -- Get average by adding the four months after last month and divide by the four ------------------------------------
 
