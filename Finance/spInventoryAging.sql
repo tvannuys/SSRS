@@ -1,7 +1,7 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spInventoryAging]    Script Date: 07/10/2013 15:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[spInventoryAging]    Script Date: 03/10/2014 14:40:18 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -15,7 +15,8 @@ GO
 
 
 
-alter proc [dbo].[spInventoryAging] as
+
+ALTER proc [dbo].[spInventoryAging] as
 /* 
 
 	Finance Aged Inventory Query
@@ -93,7 +94,7 @@ dvdesc AS Division,
 vmname AS Vendor, 
 
 case
-	when itemmast.imvend in (22859, 22204, 22674, 22554, 21861, 22887, 22666, 21861) then ''Import''
+	when itemmast.imclas = ''IM'' then ''Import''
 	else ''Domestic''
 end as ImportStatus,
 	
@@ -181,6 +182,7 @@ AND (ITEMBAL.IBQOH +
 
 */
 ') OQ
+
 
 
 
