@@ -1,3 +1,13 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[DailyCancelledOrders]    Script Date: 3/3/2014 1:36:26 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 /*****************************************************************************************************
 **																									**
 ** SR# 17027																						**
@@ -8,10 +18,11 @@
 **																									**
 **																									**
 **		JAMES TUTTLE:: Was in the SSRS. I took it out and made it a PROC							**
-**																									**
-******************************************************************************************************/
+**		---------------------------------------------------------------------------------			**																			**		SR# 18575	Date:03/03/2014				Programmer: James Tuttle							**
+**		---------------------------------------------------------------------------------			**	
+*****************************************************************************************************/
 
-ALTER PROC DailyCancelledOrders 
+ALTER PROC [dbo].[DailyCancelledOrders] 
 
 	@CSV varchar(100)
 AS
@@ -40,7 +51,7 @@ BEGIN
 		left join itemmast im on im.imitem = oc.olitem
 		
 		
-	where olcdte = (current_date)-3 day
+	where olcdte = (current_date)-1 day
 		and oldirs <>''T''
 		and olcust not like (''SHOWR%'')
 		and olcust not like (''TRANS%'')
@@ -56,3 +67,6 @@ END
 
 
 -- DailyCancelledOrders 'Y'
+GO
+
+
