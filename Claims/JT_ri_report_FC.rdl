@@ -697,7 +697,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.91667in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -715,7 +715,7 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="SupressEmail">
+    <ReportParameter Name="SuppressEmail">
       <DataType>String</DataType>
       <DefaultValue>
         <DataSetReference>
@@ -723,7 +723,7 @@
           <ValueField>Company</ValueField>
         </DataSetReference>
       </DefaultValue>
-      <Prompt>SupressEmail</Prompt>
+      <Prompt>SuppressEmail</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
