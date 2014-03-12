@@ -595,7 +595,7 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="SupressEmail">
+    <ReportParameter Name="SuppressEmail">
       <DataType>String</DataType>
       <DefaultValue>
         <DataSetReference>
@@ -603,7 +603,7 @@
           <ValueField>COMPANY</ValueField>
         </DataSetReference>
       </DefaultValue>
-      <Prompt>SupressEmail</Prompt>
+      <Prompt>SuppressEmail</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
