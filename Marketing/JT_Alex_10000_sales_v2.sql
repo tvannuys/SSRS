@@ -85,7 +85,14 @@ BEGIN
 				,left(shsta3,23) as City
 				,right(shsta3,2) as State
 				,shzip as zip
-				,stcmt1 as Sidemark
+/* Get the sidemark form the TEXT file. Has to be this was because IF NO sidemark is entered then there is no record written to the TEXT file */
+				,(SELECT DISTINCT stcmt1 
+					FROM shtext st LEFT JOIN shline sl ON (sl.slco = st.stco
+								AND sl.slloc = st.stloc
+								AND sl.slord# = st.stord#
+								AND sl.slinv# = st.stinv#)  
+					WHERE st.sttseq = 1 AND st.stseq# = 0 ) AS Sidemark
+
 		FROM shline
 		LEFT JOIN shhead ON (shhead.shco = shline.slco
 								AND shhead.shloc = shline.slloc
@@ -94,14 +101,10 @@ BEGIN
 								AND shhead.shinv# = shline.slinv#
 								AND shhead.shcust = shline.slcust)
 		LEFT JOIN custmast ON cmcust = slcust
-		LEFT JOIN shtext st ON ( shline.slco = st.stco
-								AND shline.slloc = st.stloc
-								AND shline.slord# = st.stord#
-								AND shline.slinv# = st.stinv#)
 		
 		WHERE shhead.shord# in (select OrderNum from BO)
 			AND shhead.shidat >= ''01/01/2011'' 
-			AND st.sttseq = 1
+
 		ORDER BY slord#                                      
 	')
 	 
@@ -175,7 +178,13 @@ BEGIN
 				,left(ohsta3,23) as City
 				,right(ohsta3,2) as State
 				,ohzip as zip
-				,otcmt1 as Sidemark
+/* Get the sidemark form the TEXT file. Has to be this was because IF NO sidemark is entered then there is no record written to the TEXT file */
+				,(SELECT DISTINCT otcmt1 
+					FROM ootext ot LEFT JOIN ooline ol ON ( ol.olco = ot.otco
+								AND ol.olloc = ot.otloc
+								AND ol.olord# = ot.otord#)  
+					WHERE ot.ottseq = 1 AND ot.otseq# = 0 ) AS Sidemark
+				
 		FROM ooline
 		LEFT JOIN oohead ON (oohead.ohco = ooline.olco
 								AND oohead.ohloc = ooline.olloc
@@ -184,15 +193,9 @@ BEGIN
 							/*	AND oohead.ohinv# = ooline.olinv#	*/
 								AND oohead.ohcust = ooline.olcust)
 		LEFT JOIN custmast on cmcust = olcust
-		LEFT JOIN ootext ot ON ( ooline.olco = ot.otco 
-								AND ooline.olloc = ot.otloc
-								AND ooline.olord# = ot.otord#
-								AND ooline.olrel# = ot.otrel#
-								AND ooline.olcust = ot.otcust)
 								
 		WHERE oohead.ohord# in (select OrderNum from OO)
 			AND oohead.ohodat >= ''01/01/2011'' 
-			AND ot.ottseq = 1
 			
 		ORDER BY olord#                                    
 	')
