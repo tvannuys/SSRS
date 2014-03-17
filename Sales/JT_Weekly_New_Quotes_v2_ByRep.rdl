@@ -2554,7 +2554,7 @@
       <DataType>String</DataType>
       <Prompt>RepNum</Prompt>
     </ReportParameter>
-    <ReportParameter Name="SupressEmail">
+    <ReportParameter Name="SuppressEmail">
       <DataType>String</DataType>
       <DefaultValue>
         <DataSetReference>
@@ -2562,7 +2562,7 @@
           <ValueField>COMPANY_</ValueField>
         </DataSetReference>
       </DefaultValue>
-      <Prompt>SupressEmail</Prompt>
+      <Prompt>SuppressEmail</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
