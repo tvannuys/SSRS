@@ -115,7 +115,7 @@ Calculations and lookup to CommissionRate table
 select t3.*,c.basedon,
 case	
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then t3.ExtendedPrice * c.Rate 
-	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * .5
+	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * 1
 	else t3.ExtendedPrice * .0125
 end as Commission,
 
@@ -136,7 +136,7 @@ union all
 select t3.*,c.basedon,
 case	
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate 
-	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * .5
+	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * 1
 
 	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * 1
 end as Commission,
@@ -164,7 +164,7 @@ union all
 select t3.*,c.basedon,
 case	
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then t3.ExtendedPrice * c.Rate 
-	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * .5
+	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * 1
 	else t3.ExtendedPrice * c.Rate * 1
 end as Commission,
 
@@ -189,7 +189,7 @@ union all
 select t3.*,c.basedon,
 case	
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate 
-	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * .5
+	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * 1
 
 	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * 1
 end as Commission,
