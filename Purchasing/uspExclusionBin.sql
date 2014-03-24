@@ -11,20 +11,26 @@
 **																				**
 **********************************************************************************/
 
-CREATE PROC  uspExclusionBin AS
+--ALTER PROC  uspExclusionBin AS
 BEGIN
  SELECT *
  FROM OPENQUERY(GSFL2K,	
 	'SELECT idco
 			,idloc
 			,idbin
+			,blgrp
 			,iditem
 			,idserl
 			,idqoh
 			,idqoo
+			,blzone AS Zone
+			,blgrp AS section
+
 	
 	FROM binloc bl
-	LEFT JOIN itemdetl id ON id.idbin = bl.blbin
+	INNER JOIN itemdetl id ON (id.idbin = bl.blbin
+							AND id.idco = bl.blco
+							AND id.idloc = bl.blloc)
 
 	WHERE blndbn = ''N''
 		AND idqoh > 0
@@ -34,6 +40,7 @@ BEGIN
 
 	ORDER BY idco
 			,blloc
+			,blzone
 			,iditem
 			,blbin
 	')
