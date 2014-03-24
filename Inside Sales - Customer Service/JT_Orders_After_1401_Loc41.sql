@@ -29,17 +29,20 @@ BEGIN
 		,oDt		AS Created_Date
 		---------------------------------------------
 		,CASE 
-			WHEN ohcrhl	= 'Y' THEN 'ON CREDIT HOLD' ELSE ' '
+			WHEN ohcrhl	= 'Y' THEN 'ON CREDIT HOLD' ELSE 'RELEASED'
 		 END		AS Credit_Hold
 		---------------------------------------------	
 		,ohcrus		AS Released_By
 		---------------------------------------------
 		,CASE
-			WHEN ohcrtm	= 0 THEN ' '
+			WHEN ohcrtm	!= 0 THEN CAST( SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohcrtm),6),1,2) + ':'
+			 + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohcrtm),6),3,2) + ':'
+			 + SUBSTRING(RIGHT('000000' + CONVERT(VARCHAR(6),ohcrtm),6),5,2) AS TIME) 
+		
 		 END		AS Released_Time
 		 ---------------------------------------------
 		,CASE
-			WHEN cDt = '1/1/1' THEN ' '
+			WHEN cDt != '0001-01-01' THEN cDt
 		 END		AS Released_Date
 		 ---------------------------------------------
  FROM OPENQUERY(GSFL2K,	
@@ -65,8 +68,9 @@ BEGIN
 							AND ort.ortrel = oh.ohrel#)
 	
 	WHERE oh.ohtime >= 140100
-		AND oh.ohdate = CURRENT_DATE 
+		AND oh.ohdate = CURRENT_DATE
 		AND oh.ohco = 2
 		AND ort.ortrt != ''  ''
+		AND ohcrus != '' ''
 	')
 END
