@@ -8,6 +8,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+SET NOCOUNT ON
+GO
 
 
 /*********************************************************************************
@@ -30,7 +32,8 @@ ALTER PROC  [dbo].[JT_PerformanceTrackingDetail_Monthly]
 AS
 BEGIN
 DECLARE @sql AS varchar(4000) = '
- SELECT  Months
+ SELECT  emco
+	   ,Months
 	   ,Years
 	   ,utoent		AS Enter
 	   ,utoedt		AS Edits
@@ -44,7 +47,8 @@ DECLARE @sql AS varchar(4000) = '
 	   ,utqcan		AS Qt_Canceled
 	   
  FROM OPENQUERY(GSFL2K,	
-	''SELECT MONTHNAME(utdate) AS Months
+	''SELECT emco
+		   ,MONTHNAME(utdate) AS Months
 		   ,YEAR(utdate)	  AS Years
 		   ,SUM(utoent)		  AS utoent
 		   ,SUM(utoedt)		  AS utoedt
@@ -63,9 +67,10 @@ DECLARE @sql AS varchar(4000) = '
 	
 	WHERE utdate >=  (CURRENT_DATE - (MONTH(CURRENT_DATE)-1) 
 						MONTHS - (DAY(CURRENT_DATE)-1) DAYS) -  ' + @yearsBack + '  YEARS
-		AND ux.usxicat = ''''!''''  
+		AND em.emshft = ''''1'''' 
 	
-	GROUP BY YEAR(utdate)
+	GROUP BY emco
+			,YEAR(utdate)
 			,MONTHNAME(utdate)
 	
 	ORDER BY YEAR(utdate)
@@ -75,7 +80,9 @@ DECLARE @sql AS varchar(4000) = '
 END
 EXEC (@sql)
 --select (@sql)
--- JT_PerformanceTracking_DATASOURCE '1'
+-- JT_PerformanceTrackingDetail_Monthly '1'
 GO
 
+SET NOCOUNT OFF
+GO
 
