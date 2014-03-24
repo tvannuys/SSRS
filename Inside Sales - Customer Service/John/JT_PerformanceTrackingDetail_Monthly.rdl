@@ -15,63 +15,12 @@
         <QueryParameters>
           <QueryParameter Name="@yearsBack">
             <Value>=Parameters!yearsBack.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>JT_PerformanceTrackingDetail_Monthly</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="JT_PerformanceTrackingDetail_Monthly" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Months" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Years" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Enter" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Edits" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Cancels" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Cust" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Item" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Spec" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Inv" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Missed_Sale" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Qt_Entered" /><ColumnExpression ColumnOwner="JT_PerformanceTrackingDetail_Monthly" ColumnName="Qt_Canceled" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
-      <Fields>
-        <Field Name="Months">
-          <DataField>Months</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Years">
-          <DataField>Years</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Enter">
-          <DataField>Enter</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Edits">
-          <DataField>Edits</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Cancels">
-          <DataField>Cancels</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Cust">
-          <DataField>Cust</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Item">
-          <DataField>Item</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Spec">
-          <DataField>Spec</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Inv">
-          <DataField>Inv</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Missed_Sale">
-          <DataField>Missed_Sale</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Qt_Entered">
-          <DataField>Qt_Entered</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Qt_Canceled">
-          <DataField>Qt_Canceled</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-      </Fields>
     </DataSet>
   </DataSets>
   <ReportSections>
@@ -468,7 +417,6 @@ Fields!Years.Value="2011","Yellow"
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1</DataSetName>
             <Top>0.76458in</Top>
             <Height>5.75in</Height>
             <Width>14.375in</Width>
