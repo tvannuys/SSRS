@@ -35,7 +35,7 @@
 " left join itemmast on iritem=imitem" +
 " where irdate between ''" + Parameters!StartDate.Value + "''" +
 " and ''" + Parameters!EndDate.Value + "''" +
-" and irsrc in ( ''A'',''B'',''I'') and iritem not like ''XX%''" +
+" and irsrc in ( ''A'',''B'',''I'',''M'') and iritem not like ''XX%''" +
 " order by irserl,irdate" +
 "')"</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
