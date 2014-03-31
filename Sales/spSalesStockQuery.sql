@@ -1,27 +1,28 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 07/29/2013 15:32:46 ******/
+/****** Object:  StoredProcedure [dbo].[spSalesStockQuery]    Script Date: 03/31/2014 08:34:52 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 -- 09/06/2013 SR#13983 James Tuttle: Per Holiday exclude any Dropns [AND ITEMMAST.IMDROP != ''D'']
 
-
+--spSalesStockQuery 'DESERT'
 
 
 ALTER proc [dbo].[spSalesStockQuery]
 
-@SeachTerm varchar(20) = '%'
+@SearchTerm varchar(20) = '%'
 
 as
 
 declare @sql as varchar(2500)
 
-set @SeachTerm = upper(@SeachTerm)
+set @SearchTerm = upper(@SearchTerm)
 
 set @sql = '
 
@@ -76,7 +77,7 @@ left join location on (ibloc = lcloc and ibco = lcco)
 
 where itemxtra.imsearch like ''''%TASMK%''''
 and itemmast.IMFCRG <> ''''S''''
-and (ITEMMAST.IMDESC like ''''%' + @SeachTerm + '%'''' or itemxtra.imsearch like ''''%' + @SeachTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SeachTerm + '%'''') 
+and (ITEMMAST.IMDESC like ''''%' + @SearchTerm + '%'''' or itemxtra.imsearch like ''''%' + @SearchTerm + '%'''' or ITEMMAST.IMCOLR like ''''%' + @SearchTerm + '%'''' or ITEMMAST.IMITEM like ''''%' + @SearchTerm + '%'''') 
 AND ITEMMAST.IMDROP != ''''D''''
 
 order by itemmast.imitem,ibloc
@@ -86,6 +87,7 @@ order by itemmast.imitem,ibloc
 
 --select @sql
 exec (@sql)
+
 
 
 

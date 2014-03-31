@@ -15,13 +15,13 @@
       <Query>
         <DataSourceName>DataSource2</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@SeachTerm">
-            <Value>=Parameters!SeachTerm.Value</Value>
+          <QueryParameter Name="@SearchTerm">
+            <Value>=Parameters!SearchTerm.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>spSalesStockQuery</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spSalesStockQuery"><Parameter Name="@SeachTerm"><Value>BROWN</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ITEM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ITEMDESCRIPTION" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="COLOR" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SEARCHWORDS" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="DIVISION" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="FAMILYCODE" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="FAMILY" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="VENDOR" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="MASTERSTOCKITEM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="DROPFLAG" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="INVENTORYUOM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESUOM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="IMMD" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="IMMD2" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="IMFACT" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="REPORTCODE2" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="LOCATION" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="LOCATIONNAME" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ONHAND" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ALLOCATED" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="COMMITTED" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="INVUOMAVAILABLE" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESUOMONHAND" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESUOMAVAIL" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="BACKORDERQTY" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="POQTY" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESQTY30DAYS" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spSalesStockQuery"><Parameter Name="@SearchTerm"><Value>DESERT</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ITEM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ITEMDESCRIPTION" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="COLOR" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SEARCHWORDS" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="DIVISION" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="FAMILYCODE" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="FAMILY" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="VENDOR" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="MASTERSTOCKITEM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="DROPFLAG" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="INVENTORYUOM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESUOM" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="IMMD" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="IMMD2" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="IMFACT" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="REPORTCODE2" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="LOCATION" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="LOCATIONNAME" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ONHAND" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="ALLOCATED" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="COMMITTED" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="INVUOMAVAILABLE" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESUOMONHAND" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESUOMAVAIL" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="BACKORDERQTY" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="POQTY" /><ColumnExpression ColumnOwner="spSalesStockQuery" ColumnName="SALESQTY30DAYS" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="ITEM">
@@ -92,13 +92,13 @@
           <DataField>LOCATION</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="ONHAND">
-          <DataField>ONHAND</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="LOCATIONNAME">
           <DataField>LOCATIONNAME</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ONHAND">
+          <DataField>ONHAND</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="ALLOCATED">
           <DataField>ALLOCATED</DataField>
@@ -1325,14 +1325,14 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="SeachTerm">
+    <ReportParameter Name="SearchTerm">
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
           <Value>%</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Seach Term</Prompt>
+      <Prompt>Search Term</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
