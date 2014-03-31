@@ -8,11 +8,15 @@ Process in AP to add customer to comment field in AP started 6/1/2013
 
 */
 
-/* AP Details */
-
 -- drop table #CustomerFreightAnalysis
 
--- select * from #CustomerFreightAnalysis
+IF EXISTS(SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID (N'tempdb..#CustomerFreightAnalysis'))
+	BEGIN
+		DROP TABLE #CustomerFreightAnalysis
+	END;
+
+/* AP Details */
+
 
 create table #CustomerFreightAnalysis (
 	TranDate datetime null,
@@ -30,15 +34,17 @@ select TranDate,TranAmt,Customer,
 
  [Source]
 from openquery(gsfl2k,'
-select APDLDATE as TranDate,
+select APDIDT as TranDate,
 APDLAMT*-1 as TranAmt,
 APDLCOMT as Customer,
 ''AP DIST'' as Source
 
 from apdist
+join apdetail on (apdlbat = apdebat and apdekey = apdlkey)
 where apdlgl in (''610700'',''610500'',''610600'')
-and apdldate >= ''6/1/2013''
+and apdidt >= ''6/1/2013''
 and (apdlcomt like ''1%'' or apdlcomt like ''4%'' or apdlcomt like ''6%'')
+
 ')
 
 
