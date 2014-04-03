@@ -1,6 +1,16 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spManningtonQuarterlyDisplay]    Script Date: 04/03/2014 07:17:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 /* spManningtonQuarterlyDisplay '08/01/2013','08/31/2013' */
 
-alter proc spManningtonQuarterlyDisplay
+CREATE proc [dbo].[spManningtonQuarterlyDisplay]
 
 @FromDate varchar(10),
 @ToDate varchar(10)
@@ -51,3 +61,5 @@ and IMCOMMRES <> ''''C''''
 '')' 
 
 exec(@sql)
+GO
+
