@@ -15,10 +15,10 @@
         <DataSourceName>GartmanReports</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@StartDate">
-            <Value>=Parameters!StartDate.Value</Value>
+            <Value>=Format(Parameters!StartDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
           <QueryParameter Name="@EndDate">
-            <Value>=Parameters!EndDate.Value</Value>
+            <Value>=Format(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -1142,21 +1142,11 @@
   </ReportSections>
   <ReportParameters>
     <ReportParameter Name="StartDate">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>01/01/2012</Value>
-        </Values>
-      </DefaultValue>
+      <DataType>DateTime</DataType>
       <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>01/31/2012</Value>
-        </Values>
-      </DefaultValue>
+      <DataType>DateTime</DataType>
       <Prompt>End Date</Prompt>
     </ReportParameter>
   </ReportParameters>
