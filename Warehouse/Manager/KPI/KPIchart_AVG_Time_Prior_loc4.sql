@@ -1,5 +1,5 @@
 
-CREATE PROC [dbo].[KPIchart_AVG_Time_Current_loc60] AS 
+CREATE PROC [dbo].[KPIchart_AVG_Time_Prior_loc4] AS 
 	
 ---------------------------------------------------------------------------------------------
 --===========================================================================================	
@@ -29,8 +29,8 @@ SELECT rfco
 								,rfotime
 								,rptime
 							FROM rfwillchst
-							WHERE rfloc IN (60,42,59)
-								AND rfodate BETWEEN ''01/01/2014'' AND ''01/31/2014'' 
+							WHERE rfloc IN (4,44,64)
+								AND rfodate BETWEEN ''01/01/2013'' AND ''01/31/2013'' 
 								AND rpstat = ''T''
 								AND rfobin# != ''SHIPD''
 					')
@@ -87,7 +87,7 @@ SELECT *
 								,rfotime
 								,rptime
 							FROM rfwillchst
-							WHERE rfloc IN (60,42,59)
+							WHERE rfloc IN (4,44,64)
 								AND rfodate = CURRENT_DATE - 3 days
 								AND rpstat = ''T''
 								AND rfobin# != ''SHIPD''
@@ -113,7 +113,7 @@ SELECT *
 								,rfotime
 								,rptime
 							FROM rfwillchst
-							WHERE rfloc IN (60,42,59)
+							WHERE rfloc IN (4,44,64)
 								AND rfodate = CURRENT_DATE - 3 days
 								AND rpstat = ''T''
 								AND rfobin# != ''SHIPD''
