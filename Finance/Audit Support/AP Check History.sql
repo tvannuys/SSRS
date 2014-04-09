@@ -4,8 +4,10 @@ ACHVEND as 'Vendor#',
 ACHVNM as 'Vendor Name',
 ACHCHECKDT as 'Check date',
 
+ACHCHECK# as 'Check #',
 ACH$DS as 'Discount Amt',
 ACHCKAMT as 'Net Chk Amt'
+
 
 
 from openquery(gsfl2k,'
