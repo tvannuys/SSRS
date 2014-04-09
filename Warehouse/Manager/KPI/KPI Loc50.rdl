@@ -13,16 +13,16 @@
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_WCC_Cust_CNT_loc50</CommandText>
+        <CommandText>KPIchart_NonWgtRfAvtivity50</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
         <Field Name="C_cnt">
-          <DataField>c_cnt</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="P_cnt">
-          <DataField>p_cnt</DataField>
+          <DataField>P_cnt</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
@@ -31,7 +31,7 @@
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_Irr</CommandText>
+        <CommandText>KPIchart_Irr50</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -49,7 +49,7 @@
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_InvAdj</CommandText>
+        <CommandText>KPIchart_InvAdj50</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -63,11 +63,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="HoursCurrent">
+    <DataSet Name="HoursCurrent50">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchartHours</CommandText>
+        <CommandText>KPIchartHours50</CommandText>
         <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="KPIchartHours" /></Functions><SelectedColumns><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="Company" /><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="Location" /><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="RFDate" /><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="Dept" /><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="RFUser" /><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="Metric" /><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="Daily" /><ColumnExpression ColumnOwner="KPIchartHours" ColumnName="Value" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
