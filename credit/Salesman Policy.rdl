@@ -39,7 +39,7 @@ FROM SHLINE
 
 
 WHERE (year(shidat)=year(current_date - 1 month)
-	    and month(shidat)=month(current_date)-1)
+	    and month(shidat)=month(current_date - 1 month))
 	AND SHLINE.SLITEM=''SALESMANPOLICY''
 
 ORDER BY SHLINE.SLINV# asc,shline.slcust asc 
