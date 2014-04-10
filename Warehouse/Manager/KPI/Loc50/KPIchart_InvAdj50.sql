@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROC [dbo].[KPIchart_InvAdj50] AS
+ALTER PROC [dbo].[KPIchart_InvAdj50] AS
 BEGIN	
 --====================================================================================================================
 --
@@ -24,7 +24,7 @@ BEGIN
 	WITH CTE_C AS	-- Current year and month
 	(
 	SELECT SUM(TotalCost) AS CntC
-	FROM InventoryAdjustmentsWH
+	FROM InventoryAdjustmentsWH_KPI
 	WHERE CONVERT(date,[Date]) BETWEEN '01/01/2014' AND '01/31/2014' 
 		AND Loc = 50 )
 
@@ -44,7 +44,7 @@ BEGIN
 
 	WITH CTE_P AS
 	(SELECT SUM(TotalCost) AS CntP
-	FROM InventoryAdjustmentsWH
+	FROM InventoryAdjustmentsWH_KPI
 	WHERE CONVERT(date,[Date]) BETWEEN '01/01/2013' AND '01/31/2013' 
 		AND Loc = 50 )
 
