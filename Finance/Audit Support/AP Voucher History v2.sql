@@ -7,19 +7,23 @@ APHIDT as 'Invoice Date',
 aphedt as 'GL Posting Date',
 APHCO as Company,
 APHLOC as Location,
-APHGL# as 'AP GL#',
+--APHGL# as 'AP GL#',
 
 APHAMT as 'Invoice Amt',
-APHCK# as 'Check #'
+APHCK# as 'Check #',
+
+aphlgl as GL,
+aphlamt as Amt
+
+--oq.*
 
 from openquery(gsfl2k,'
-select *
+select h.*, d.*
 
-from aphviv
-left join glmast on (aphgl# = glgl# and glco = aphco)
+from aphistd d
+join aphviv h on h.APHEKEY = d.APHLKEY
 
-where APHYR = 2011
+where h.APHYR = 2011
 and APHCO = 2
-and APHDLT = 2
- 
-')
+
+') oq

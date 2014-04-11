@@ -18,6 +18,6 @@ from APCHECKHSD
 where year(ACHCHECKDT) = 2011
 and ACHCHECK# in (select APHCK# from aphviv where APHYR = 2011 and APHCO = 2)
 
-fetch first 1000 rows only
+
 ')
 
