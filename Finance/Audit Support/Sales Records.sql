@@ -44,6 +44,6 @@ WHERE SHHEAD.SHIDAT Between ''01/01/2011'' And ''12/31/2011''
       
 ORDER BY SHHEAD.SHIDAT
 
-fetch first 1000 rows only
+
 
 ')

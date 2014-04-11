@@ -35,6 +35,6 @@ and csco = 2
 
 order by cscust,cschk#,csamt
 
-fetch first 1000 rows only
+
 ')
 

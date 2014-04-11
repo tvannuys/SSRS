@@ -56,5 +56,4 @@ where year(irdate) = 2011
  
  order by irserl,irdate 
  
- fetch first 1000 rows only
-')
+ ')

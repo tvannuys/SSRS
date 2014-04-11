@@ -23,5 +23,5 @@ select *
 from gldetl
 where GDACYR = 2011
 and gdco = 2
-fetch first 1000 rows only
+
 ')
