@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROC [dbo].[JT_BinCheck_v2] AS
+ALTER PROC [dbo].[JT_BinCheck_v2] AS
 
 /* -----------------------------------------------------*
 ** James Tuttle 4/26/2011								*
@@ -34,9 +34,9 @@ select *
 from itemdetl id INNER JOIN binloc bl ON idbin = blbin AND idloc = blloc
 WHERE idqoh > 0.07 
 AND idqoo <= 0 
-AND blgrp IN (''XXXXX'', ''WCSTG'')')
+AND blgrp IN (''XXXXX'', ''WCSTG'', ''BLIND'')')
 
-ORDER BY idloc ASC, idbin ASC;
+ORDER BY idloc, idbin  ASC
 
 -- END --
 GO
