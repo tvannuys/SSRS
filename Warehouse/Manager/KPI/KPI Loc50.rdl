@@ -388,11 +388,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="RfActivity52">
+    <DataSet Name="RfActivity41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_NonWgtRfAvtivity52</CommandText>
+        <CommandText>KPIchart_NonWgtRfAvtivity41</CommandText>
       </Query>
       <Fields>
         <Field Name="C_cnt">
@@ -405,11 +405,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="IRR52">
+    <DataSet Name="IRR41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_Irr52</CommandText>
+        <CommandText>KPIchart_Irr41</CommandText>
       </Query>
       <Fields>
         <Field Name="C_cnt">
@@ -422,11 +422,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="InvAdj52">
+    <DataSet Name="InvAdj41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_InvAdj52</CommandText>
+        <CommandText>KPIchart_InvAdj41</CommandText>
       </Query>
       <Fields>
         <Field Name="C_cnt">
@@ -439,11 +439,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="HoursCurrent52">
+    <DataSet Name="HoursCurrent41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchartHours52</CommandText>
+        <CommandText>KPIchartHours41</CommandText>
       </Query>
       <Fields>
         <Field Name="TotalTime">
@@ -452,11 +452,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="WCC52">
+    <DataSet Name="WCC41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchartWCC_Ship52</CommandText>
+        <CommandText>KPIchartWCC_Ship41</CommandText>
       </Query>
       <Fields>
         <Field Name="c_cnt">
@@ -469,11 +469,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="WCCCustCnt52">
+    <DataSet Name="WCCCustCnt41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_WCC_Cust_CNT_loc52</CommandText>
+        <CommandText>KPIchart_WCC_Cust_CNT_loc41</CommandText>
       </Query>
       <Fields>
         <Field Name="c_cnt">
@@ -486,11 +486,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="AvgTimeCurrent52">
+    <DataSet Name="AvgTimeCurrent41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_AVG_Time_Current_loc52</CommandText>
+        <CommandText>KPIchart_AVG_Time_Current_loc41</CommandText>
       </Query>
       <Fields>
         <Field Name="ElapsedTime">
@@ -499,11 +499,11 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="AvgTimePrior52">
+    <DataSet Name="AvgTimePrior41">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>KPIchart_AVG_Time_Prior_loc52</CommandText>
+        <CommandText>KPIchart_AVG_Time_Prior_loc41</CommandText>
       </Query>
       <Fields>
         <Field Name="ElapsedTime">
@@ -4327,6 +4327,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc60/KPIchart_InvAdj60_CurrentDetails60</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>LightCoral</Color>
                       </Style>
@@ -4368,6 +4377,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc60/KPIchart_InvAdj60_PriorDetails60</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -4695,7 +4713,7 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>InvAdj60</DataSetName>
-            <Top>4.62785in</Top>
+            <Top>4.63639in</Top>
             <Left>6.44114in</Left>
             <Height>2in</Height>
             <Width>3in</Width>
@@ -9795,7 +9813,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>TEST KPI for Location 52</Value>
+                    <Value>TEST KPI for Location 41</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Tahoma</FontFamily>
@@ -10255,7 +10273,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>WCC52</DataSetName>
+            <DataSetName>WCC41</DataSetName>
             <Top>12.60933in</Top>
             <Left>9.56405in</Left>
             <Height>1.97757in</Height>
@@ -10302,6 +10320,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc41/KPIchart_InvAdj41_CurrentDetails41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>DarkKhaki</Color>
                       </Style>
@@ -10343,6 +10370,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc41/KPIchart_InvAdj41_PriorDetails41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -10669,7 +10705,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>InvAdj52</DataSetName>
+            <DataSetName>InvAdj41</DataSetName>
             <Top>12.61489in</Top>
             <Left>6.4203in</Left>
             <Height>1.97757in</Height>
@@ -11083,7 +11119,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>IRR52</DataSetName>
+            <DataSetName>IRR41</DataSetName>
             <Top>12.61212in</Top>
             <Left>3.28348in</Left>
             <Height>1.97757in</Height>
@@ -11497,7 +11533,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>RfActivity52</DataSetName>
+            <DataSetName>RfActivity41</DataSetName>
             <Top>12.60795in</Top>
             <Left>0.23837in</Left>
             <Height>1.97757in</Height>
@@ -11519,7 +11555,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>= "&lt;b&gt;" &amp;  "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value,"WCC52")
+                    <Value>= "&lt;b&gt;" &amp;  "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value,"WCC41")
 '-------------------------------------------------------------
 'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
@@ -11530,7 +11566,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>15.16886in</Top>
+            <Top>15.16192in</Top>
             <Left>9.70363in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
@@ -11552,7 +11588,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value, "WCCCustCnt52")
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value, "WCCCustCnt41")
 '-------------------------------------------------------------
 'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
@@ -11563,7 +11599,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>15.4397in</Top>
+            <Top>15.45219in</Top>
             <Left>9.71752in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
@@ -11585,7 +11621,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="&lt;b&gt;" &amp; "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCC52")
+                    <Value>="&lt;b&gt;" &amp; "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCC41")
 '-------------------------------------------------------------
 'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
@@ -11618,7 +11654,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCCCustCnt52")
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCCCustCnt41")
 '-------------------------------------------------------------
 'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
@@ -11629,7 +11665,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>15.4272in</Top>
+            <Top>15.41609in</Top>
             <Left>11.60641in</Left>
             <Height>0.25in</Height>
             <Width>1.91667in</Width>
@@ -11757,7 +11793,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;"&amp;  First(Fields!ElapsedTime.Value, "AvgTimePrior52") 
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;"&amp;  First(Fields!ElapsedTime.Value, "AvgTimePrior41") 
 '-------------------------------------------------------------
 'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
@@ -11790,7 +11826,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;" &amp; First(Fields!ElapsedTime.Value, "AvgTimeCurrent52") 
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;" &amp; First(Fields!ElapsedTime.Value, "AvgTimeCurrent41") 
 '-------------------------------------------------------------
 'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
@@ -11801,7 +11837,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>15.74665in</Top>
+            <Top>15.73553in</Top>
             <Left>11.60641in</Left>
             <Height>0.25in</Height>
             <Width>1.91667in</Width>
@@ -18773,7 +18809,7 @@
           </Line>
           <Line Name="Line6">
             <Top>12.03442in</Top>
-            <Left>0.31197in</Left>
+            <Left>0.28212in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
             <ZIndex>223</ZIndex>
