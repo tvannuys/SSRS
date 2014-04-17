@@ -140,6 +140,626 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="RfActivity60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_NonWgtRfAvtivity60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="IRR60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_Irr60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="InvAdj60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_InvAdj60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="HoursCurrent60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartHours60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TotalTime">
+          <DataField>TotalTime</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCC60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartWCC_Ship60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCCCustCnt60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_WCC_Cust_CNT_loc60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimeCurrent60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Current_loc60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimePrior60">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Prior_loc60</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="RfActivity4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_NonWgtRfAvtivity4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="IRR4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_Irr4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="InvAdj4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_InvAdj4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="HoursCurrent4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartHours4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TotalTime">
+          <DataField>TotalTime</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCC4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartWCC_Ship4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCCCustCnt4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_WCC_Cust_CNT_loc4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimeCurrent4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Current_loc4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimePrior4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Prior_loc4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="RfActivity52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_NonWgtRfAvtivity52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="IRR52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_Irr52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="InvAdj52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_InvAdj52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="HoursCurrent52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartHours52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TotalTime">
+          <DataField>TotalTime</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCC52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartWCC_Ship52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCCCustCnt52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_WCC_Cust_CNT_loc52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimeCurrent52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Current_loc52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimePrior52">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Prior_loc52</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="RfActivity80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_NonWgtRfAvtivity80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="IRR80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_Irr80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="InvAdj80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_InvAdj80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="HoursCurrent80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartHours80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TotalTime">
+          <DataField>TotalTime</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCC80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartWCC_Ship80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCCCustCnt80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_WCC_Cust_CNT_loc80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimeCurrent80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Current_loc80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="RfActivity12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_WCC_Cust_CNT_loc12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="IRR12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_Irr12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="InvAdj12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_InvAdj12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="C_cnt">
+          <DataField>C_cnt</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="P_cnt">
+          <DataField>P_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="HoursCurrents12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartHours12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TotalTime">
+          <DataField>TotalTime</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCC12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchartWCC_Ship12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="WCCCustCnt12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_WCC_Cust_CNT_loc12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="c_cnt">
+          <DataField>c_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="p_cnt">
+          <DataField>p_cnt</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimeCurrent12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Current_loc12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimePrior12">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Prior_loc12</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AvgTimePrior80">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>KPIchart_AVG_Time_Prior_loc80</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ElapsedTime">
+          <DataField>ElapsedTime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -203,12 +823,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -487,6 +1101,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -635,12 +1253,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -919,6 +1531,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -1068,12 +1684,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -1352,6 +1962,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -1429,7 +2043,7 @@
             </ChartNoDataMessage>
             <DataSetName>IRR50</DataSetName>
             <Top>0.60987in</Top>
-            <Left>3.43282in</Left>
+            <Left>3.42171in</Left>
             <Height>2in</Height>
             <Width>3in</Width>
             <ZIndex>2</ZIndex>
@@ -1501,12 +2115,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -1785,6 +2393,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -2941,6 +3553,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -2991,6 +3604,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -3104,7 +3718,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -3141,6 +3755,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -3154,7 +3769,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -3191,6 +3806,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -3293,16 +3909,12 @@
                         <Y>=Sum(Fields!c_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Salmon</Color>
+                        <Color>LightCoral</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -3314,9 +3926,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -3326,12 +3936,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -3346,14 +3950,10 @@
                         <Y>=Sum(Fields!p_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -3365,9 +3965,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -3377,12 +3975,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -3610,6 +4202,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -3684,7 +4280,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>WCC50</DataSetName>
+            <DataSetName>WCC60</DataSetName>
             <Top>4.60284in</Top>
             <Left>9.50989in</Left>
             <Height>2in</Height>
@@ -3727,16 +4323,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Salmon</Color>
+                        <Color>LightCoral</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -3748,9 +4340,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -3760,12 +4350,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -3780,14 +4364,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -3799,9 +4379,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -3811,12 +4389,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -4044,6 +4616,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -4118,7 +4694,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>InvAdj50</DataSetName>
+            <DataSetName>InvAdj60</DataSetName>
             <Top>4.62785in</Top>
             <Left>6.44114in</Left>
             <Height>2in</Height>
@@ -4148,7 +4724,7 @@
                   <Label>C cnt</Label>
                 </ChartMember>
                 <ChartMember>
-                  <Label>P cnt</Label>
+                  <Label>C cnt</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
@@ -4161,16 +4737,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Salmon</Color>
+                        <Color>LightCoral</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -4182,9 +4754,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -4194,12 +4764,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -4211,17 +4775,13 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!P_cnt.Value)</Y>
+                        <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -4233,9 +4793,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -4245,12 +4803,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -4478,6 +5030,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -4552,7 +5108,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>IRR50</DataSetName>
+            <DataSetName>IRR60</DataSetName>
             <Top>4.61813in</Top>
             <Left>3.36198in</Left>
             <Height>2in</Height>
@@ -4595,16 +5151,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Salmon</Color>
+                        <Color>LightCoral</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -4616,9 +5168,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -4628,12 +5178,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -4648,14 +5192,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -4667,9 +5207,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -4679,12 +5217,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -4912,6 +5444,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -4986,7 +5522,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>RfActivity50</DataSetName>
+            <DataSetName>RfActivity60</DataSetName>
             <Top>4.61396in</Top>
             <Left>0.30642in</Left>
             <Height>2in</Height>
@@ -5037,7 +5573,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>= "&lt;b&gt;" &amp;  "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value,"WCC60")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -5068,7 +5606,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value, "WCCCustCnt60")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -5077,7 +5617,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>7.42368in</Top>
+            <Top>7.43618in</Top>
             <Left>9.50989in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
@@ -5099,7 +5639,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCC60")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -5130,7 +5672,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCCCustCnt60")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -5267,7 +5811,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;"&amp;  First(Fields!ElapsedTime.Value, "AvgTimePrior60") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -5298,7 +5844,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;" &amp; First(Fields!ElapsedTime.Value, "AvgTimeCurrent60") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -5984,6 +6532,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -6034,6 +6583,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -6147,7 +6697,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -6184,6 +6734,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -6197,7 +6748,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -6234,6 +6785,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -6336,16 +6888,12 @@
                         <Y>=Sum(Fields!c_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Bisque</Color>
+                        <Color>Khaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -6357,9 +6905,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -6369,12 +6915,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -6389,14 +6929,10 @@
                         <Y>=Sum(Fields!p_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -6408,9 +6944,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -6420,12 +6954,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -6653,6 +7181,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -6727,7 +7259,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>WCC50</DataSetName>
+            <DataSetName>WCC4</DataSetName>
             <Top>8.59649in</Top>
             <Left>9.46405in</Left>
             <Height>2in</Height>
@@ -6770,16 +7302,21 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc4/KPIchart_InvAdj4_CurrentDetails4</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
-                        <Color>Bisque</Color>
+                        <Color>Khaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -6791,9 +7328,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -6803,12 +7338,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -6823,14 +7352,19 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc4/KPIchart_InvAdj4_PriorDetails4</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -6842,9 +7376,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -6854,12 +7386,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -7087,6 +7613,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -7161,7 +7691,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>InvAdj50</DataSetName>
+            <DataSetName>InvAdj4</DataSetName>
             <Top>8.60205in</Top>
             <Left>6.38488in</Left>
             <Height>2in</Height>
@@ -7204,16 +7734,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Bisque</Color>
+                        <Color>Khaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -7225,9 +7751,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -7237,12 +7761,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -7257,14 +7775,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -7276,9 +7790,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -7288,12 +7800,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -7521,6 +8027,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -7595,7 +8105,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>IRR50</DataSetName>
+            <DataSetName>IRR4</DataSetName>
             <Top>8.61178in</Top>
             <Left>3.31614in</Left>
             <Height>2in</Height>
@@ -7638,16 +8148,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Bisque</Color>
+                        <Color>Khaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -7659,9 +8165,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -7671,12 +8175,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -7688,31 +8186,23 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
+                        <X>2013</X>
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
-                      <ChartItemInLegend>
-                        <LegendText>2013</LegendText>
-                      </ChartItemInLegend>
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -7722,12 +8212,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -7955,6 +8439,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -8029,7 +8517,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>RfActivity50</DataSetName>
+            <DataSetName>RfActivity4</DataSetName>
             <Top>8.60761in</Top>
             <Left>0.27031in</Left>
             <Height>2in</Height>
@@ -8081,7 +8569,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>= "&lt;b&gt;" &amp;  "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value,"WCC4")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -8090,7 +8580,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>11.15899in</Top>
+            <Top>11.14649in</Top>
             <Left>9.46405in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
@@ -8112,7 +8602,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value, "WCCCustCnt4")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -8143,7 +8635,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCC4")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -8174,7 +8668,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCCCustCnt4")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -8311,7 +8807,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;"&amp;  First(Fields!ElapsedTime.Value, "AvgTimePrior4") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -8342,7 +8840,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;" &amp; First(Fields!ElapsedTime.Value, "AvgTimeCurrent4") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -9028,6 +9528,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -9078,6 +9579,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -9191,7 +9693,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -9228,6 +9730,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -9241,7 +9744,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -9278,6 +9781,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -9380,16 +9884,12 @@
                         <Y>=Sum(Fields!c_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>DarkKhaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -9401,9 +9901,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -9413,12 +9911,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -9433,14 +9925,10 @@
                         <Y>=Sum(Fields!p_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -9452,9 +9940,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -9464,12 +9950,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -9697,6 +10177,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -9771,7 +10255,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>WCC50</DataSetName>
+            <DataSetName>WCC52</DataSetName>
             <Top>12.60933in</Top>
             <Left>9.56405in</Left>
             <Height>1.97757in</Height>
@@ -9814,16 +10298,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>DarkKhaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -9835,9 +10315,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -9847,12 +10325,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -9867,14 +10339,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -9886,9 +10354,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -9898,12 +10364,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -10131,6 +10591,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -10205,7 +10669,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>InvAdj50</DataSetName>
+            <DataSetName>InvAdj52</DataSetName>
             <Top>12.61489in</Top>
             <Left>6.4203in</Left>
             <Height>1.97757in</Height>
@@ -10248,16 +10712,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>DarkKhaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -10269,9 +10729,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -10281,12 +10739,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -10301,28 +10753,22 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                       <ChartItemInLegend>
-                        <LegendText>2013</LegendText>
+                        <LegendText>2014</LegendText>
                       </ChartItemInLegend>
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -10332,12 +10778,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -10565,6 +11005,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -10639,7 +11083,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>IRR50</DataSetName>
+            <DataSetName>IRR52</DataSetName>
             <Top>12.61212in</Top>
             <Left>3.28348in</Left>
             <Height>1.97757in</Height>
@@ -10682,16 +11126,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>DarkKhaki</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -10703,9 +11143,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -10715,12 +11153,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -10735,14 +11167,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -10754,9 +11182,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -10766,12 +11192,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -10999,6 +11419,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -11073,7 +11497,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>RfActivity50</DataSetName>
+            <DataSetName>RfActivity52</DataSetName>
             <Top>12.60795in</Top>
             <Left>0.23837in</Left>
             <Height>1.97757in</Height>
@@ -11095,7 +11519,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>= "&lt;b&gt;" &amp;  "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value,"WCC52")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -11126,7 +11552,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value, "WCCCustCnt52")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -11135,7 +11563,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>15.4272in</Top>
+            <Top>15.4397in</Top>
             <Left>9.71752in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
@@ -11157,7 +11585,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCC52")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -11188,7 +11618,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCCCustCnt52")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -11290,7 +11722,7 @@
           </Textbox>
           <Line Name="Line24">
             <Top>15.10636in</Top>
-            <Left>0.27655in</Left>
+            <Left>0.28697in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
             <ZIndex>123</ZIndex>
@@ -11325,7 +11757,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;"&amp;  First(Fields!ElapsedTime.Value, "AvgTimePrior52") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -11356,7 +11790,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;" &amp; First(Fields!ElapsedTime.Value, "AvgTimeCurrent52") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -12042,6 +12478,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -12092,6 +12529,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -12205,7 +12643,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -12242,6 +12680,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -12255,7 +12694,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -12292,6 +12731,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -12394,16 +12834,12 @@
                         <Y>=Sum(Fields!c_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>PapayaWhip</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -12415,9 +12851,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -12427,12 +12861,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -12447,14 +12875,10 @@
                         <Y>=Sum(Fields!p_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -12466,9 +12890,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -12478,12 +12900,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -12711,6 +13127,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -12785,7 +13205,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>WCC50</DataSetName>
+            <DataSetName>WCC80</DataSetName>
             <Top>16.61607in</Top>
             <Left>9.48212in</Left>
             <Height>2in</Height>
@@ -12828,16 +13248,21 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc80/KPIchart_InvAdj80_CurrentDetails80</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>PapayaWhip</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -12849,9 +13274,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -12861,12 +13284,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -12881,14 +13298,19 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc80/KPIchart_InvAdj80_PriorDetails80</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -12900,9 +13322,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -12912,12 +13332,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -13145,6 +13559,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -13219,7 +13637,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>InvAdj50</DataSetName>
+            <DataSetName>InvAdj80</DataSetName>
             <Top>16.62461in</Top>
             <Left>6.42221in</Left>
             <Height>2in</Height>
@@ -13262,16 +13680,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>PapayaWhip</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -13283,9 +13697,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -13295,12 +13707,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -13315,14 +13721,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -13334,9 +13736,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -13346,12 +13746,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -13579,6 +13973,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -13653,7 +14051,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>IRR50</DataSetName>
+            <DataSetName>IRR80</DataSetName>
             <Top>16.65238in</Top>
             <Left>3.40365in</Left>
             <Height>2in</Height>
@@ -13696,16 +14094,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Tan</Color>
+                        <Color>PapayaWhip</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -13717,9 +14111,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -13729,12 +14121,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -13749,14 +14135,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -13768,9 +14150,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -13780,12 +14160,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -14013,6 +14387,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -14087,7 +14465,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>RfActivity50</DataSetName>
+            <DataSetName>RfActivity80</DataSetName>
             <Top>16.63849in</Top>
             <Left>0.3099in</Left>
             <Height>2in</Height>
@@ -14138,7 +14516,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>= "&lt;b&gt;" &amp;  "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value,"WCC80")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -14169,7 +14549,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value, "WCCCustCnt80")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -14178,7 +14560,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>19.42579in</Top>
+            <Top>19.43829in</Top>
             <Left>9.45295in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
@@ -14200,7 +14582,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCC80")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -14231,7 +14615,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCCCustCnt80")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -14361,37 +14747,6 @@
               </RightBorder>
             </Style>
           </Line>
-          <Textbox Name="Textbox111">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <MarkupType>HTML</MarkupType>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>19.74044in</Top>
-            <Left>9.50989in</Left>
-            <Height>0.25in</Height>
-            <Width>1.83333in</Width>
-            <ZIndex>161</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox112">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -14399,7 +14754,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;" &amp; First(Fields!ElapsedTime.Value, "AvgTimeCurrent80") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -14412,7 +14769,7 @@
             <Left>11.38489in</Left>
             <Height>0.25in</Height>
             <Width>1.91667in</Width>
-            <ZIndex>162</ZIndex>
+            <ZIndex>161</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -14428,7 +14785,7 @@
             <Left>9.48679in</Left>
             <Height>3.46791in</Height>
             <Width>0in</Width>
-            <ZIndex>163</ZIndex>
+            <ZIndex>162</ZIndex>
             <Style>
               <Border>
                 <Color>SlateBlue</Color>
@@ -14458,7 +14815,7 @@
             <Left>0.25026in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>164</ZIndex>
+            <ZIndex>163</ZIndex>
             <Style>
               <Border>
                 <Color>Silver</Color>
@@ -14509,7 +14866,7 @@
             <Left>6.45296in</Left>
             <Height>0.25in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>165</ZIndex>
+            <ZIndex>164</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -14547,7 +14904,7 @@
             <Left>3.36268in</Left>
             <Height>0.25in</Height>
             <Width>1.50485in</Width>
-            <ZIndex>166</ZIndex>
+            <ZIndex>165</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -14585,7 +14942,7 @@
             <Left>0.28212in</Left>
             <Height>0.25in</Height>
             <Width>1.52151in</Width>
-            <ZIndex>167</ZIndex>
+            <ZIndex>166</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -14623,7 +14980,7 @@
             <Left>7.9599in</Left>
             <Height>0.25in</Height>
             <Width>1.46459in</Width>
-            <ZIndex>168</ZIndex>
+            <ZIndex>167</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -14661,7 +15018,7 @@
             <Left>4.90435in</Left>
             <Height>0.25in</Height>
             <Width>1.45556in</Width>
-            <ZIndex>169</ZIndex>
+            <ZIndex>168</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -14699,7 +15056,7 @@
             <Left>1.84878in</Left>
             <Height>0.25in</Height>
             <Width>1.4896in</Width>
-            <ZIndex>170</ZIndex>
+            <ZIndex>169</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -14716,7 +15073,7 @@
             <Left>6.40832in</Left>
             <Height>3.48041in</Height>
             <Width>0in</Width>
-            <ZIndex>171</ZIndex>
+            <ZIndex>170</ZIndex>
             <Style>
               <Border>
                 <Color>SlateBlue</Color>
@@ -14746,7 +15103,7 @@
             <Left>3.34165in</Left>
             <Height>3.43875in</Height>
             <Width>0in</Width>
-            <ZIndex>172</ZIndex>
+            <ZIndex>171</ZIndex>
             <Style>
               <Border>
                 <Color>SlateBlue</Color>
@@ -14790,7 +15147,7 @@
             <Left>6.45296in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>173</ZIndex>
+            <ZIndex>172</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -14840,7 +15197,7 @@
             <Left>7.9599in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>174</ZIndex>
+            <ZIndex>173</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -14890,7 +15247,7 @@
             <Left>6.45296in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>175</ZIndex>
+            <ZIndex>174</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -14940,7 +15297,7 @@
             <Left>7.97796in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>176</ZIndex>
+            <ZIndex>175</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -14990,7 +15347,7 @@
             <Left>3.35991in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>177</ZIndex>
+            <ZIndex>176</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -15040,7 +15397,7 @@
             <Left>4.90435in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>178</ZIndex>
+            <ZIndex>177</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -15090,7 +15447,7 @@
             <Left>3.35991in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>179</ZIndex>
+            <ZIndex>178</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -15115,6 +15472,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -15140,7 +15498,7 @@
             <Left>4.90435in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>180</ZIndex>
+            <ZIndex>179</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -15165,6 +15523,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -15190,7 +15549,7 @@
             <Left>0.30992in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>181</ZIndex>
+            <ZIndex>180</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -15240,7 +15599,7 @@
             <Left>1.83074in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>182</ZIndex>
+            <ZIndex>181</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -15278,7 +15637,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -15288,6 +15647,57 @@
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>19.44246in</Top>
             <Left>0.30992in</Left>
+            <Height>0.21251in</Height>
+            <Width>1.47916in</Width>
+            <ZIndex>182</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox130">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value># Business Days ??</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>19.45078in</Top>
+            <Left>1.82935in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
             <ZIndex>183</ZIndex>
@@ -15315,56 +15725,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox130">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value># Business Days</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox15</rd:DefaultName>
-            <Top>19.45078in</Top>
-            <Left>1.82935in</Left>
-            <Height>0.21251in</Height>
-            <Width>1.47916in</Width>
-            <ZIndex>184</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-              <TopBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </TopBorder>
-              <BottomBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </BottomBorder>
-              <LeftBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </LeftBorder>
-              <RightBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -15398,7 +15759,7 @@
             <Left>0.26197in</Left>
             <Height>0.49875in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>185</ZIndex>
+            <ZIndex>184</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -15415,7 +15776,7 @@
             <Left>0.26197in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>186</ZIndex>
+            <ZIndex>185</ZIndex>
             <Style>
               <Border>
                 <Color>DarkBlue</Color>
@@ -15467,16 +15828,12 @@
                         <Y>=Sum(Fields!c_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Gainsboro</Color>
+                        <Color>Silver</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -15488,9 +15845,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -15500,12 +15855,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -15520,14 +15869,10 @@
                         <Y>=Sum(Fields!p_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -15539,9 +15884,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -15551,12 +15894,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -15784,6 +16121,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -15858,12 +16199,12 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>WCC50</DataSetName>
-            <Top>20.59453in</Top>
+            <DataSetName>WCC12</DataSetName>
+            <Top>20.58641in</Top>
             <Left>9.45571in</Left>
             <Height>2in</Height>
             <Width>3in</Width>
-            <ZIndex>187</ZIndex>
+            <ZIndex>186</ZIndex>
             <Style>
               <Border>
                 <Color>#7292cc</Color>
@@ -15901,16 +16242,21 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc12/KPIchart_InvAdj12_CurrentDetails12</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
-                        <Color>Gainsboro</Color>
+                        <Color>Silver</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -15922,9 +16268,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -15934,12 +16278,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -15954,14 +16292,19 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc12/KPIchart_InvAdj12_PriorDetails12</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -15973,9 +16316,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -15985,12 +16326,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -16218,6 +16553,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -16292,12 +16631,12 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>InvAdj50</DataSetName>
+            <DataSetName>InvAdj12</DataSetName>
             <Top>20.60009in</Top>
             <Left>6.38696in</Left>
             <Height>2in</Height>
             <Width>3in</Width>
-            <ZIndex>188</ZIndex>
+            <ZIndex>187</ZIndex>
             <Style>
               <Border>
                 <Color>#7292cc</Color>
@@ -16335,16 +16674,12 @@
                         <Y>=Sum(Fields!C_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Gainsboro</Color>
+                        <Color>Silver</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -16356,9 +16691,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -16368,12 +16701,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -16388,14 +16715,10 @@
                         <Y>=Sum(Fields!P_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -16407,9 +16730,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -16419,12 +16740,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -16652,6 +16967,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -16726,12 +17045,12 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>IRR50</DataSetName>
+            <DataSetName>IRR12</DataSetName>
             <Top>20.60982in</Top>
             <Left>3.3078in</Left>
             <Height>2in</Height>
             <Width>3in</Width>
-            <ZIndex>189</ZIndex>
+            <ZIndex>188</ZIndex>
             <Style>
               <Border>
                 <Color>Red</Color>
@@ -16753,32 +17072,28 @@
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>C cnt</Label>
+                  <Label>c cnt</Label>
                 </ChartMember>
                 <ChartMember>
-                  <Label>P cnt</Label>
+                  <Label>p cnt</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="C_cnt">
+                <ChartSeries Name="c_cnt">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!C_cnt.Value)</Y>
+                        <Y>=Sum(Fields!c_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style>
-                        <Color>Gainsboro</Color>
+                        <Color>Silver</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -16790,9 +17105,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -16802,12 +17115,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -16815,21 +17122,17 @@
                     <MinMovingDistance>0pt</MinMovingDistance>
                   </ChartSmartLabel>
                 </ChartSeries>
-                <ChartSeries Name="P_cnt">
+                <ChartSeries Name="p_cnt">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!P_cnt.Value)</Y>
+                        <Y>=Sum(Fields!p_cnt.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style>
-                          <FontFamily>Tahoma</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
+                        <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <ToolTip>#VALY</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -16841,9 +17144,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
-                  <Style>
-                    <ShadowOffset>1.5pt</ShadowOffset>
-                  </Style>
+                  <Style />
                   <ChartEmptyPoints>
                     <Style />
                     <ChartMarker>
@@ -16853,12 +17154,6 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
-                  <CustomProperties>
-                    <CustomProperty>
-                      <Name>PieDrawingStyle</Name>
-                      <Value>Concave</Value>
-                    </CustomProperty>
-                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -17086,6 +17381,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Rotation>90</Rotation>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>White</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -17160,12 +17459,12 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>RfActivity50</DataSetName>
+            <DataSetName>RfActivity12</DataSetName>
             <Top>20.59453in</Top>
             <Left>0.24113in</Left>
             <Height>2in</Height>
             <Width>3in</Width>
-            <ZIndex>190</ZIndex>
+            <ZIndex>189</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17179,7 +17478,7 @@
             <Left>0.21613in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>191</ZIndex>
+            <ZIndex>190</ZIndex>
             <Style>
               <Border>
                 <Color>Silver</Color>
@@ -17211,7 +17510,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>= "&lt;b&gt;" &amp;  "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value,"WCC12")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -17224,7 +17525,7 @@
             <Left>9.45571in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
-            <ZIndex>192</ZIndex>
+            <ZIndex>191</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17242,7 +17543,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!p_cnt.Value, "WCCCustCnt12")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -17251,11 +17554,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>23.41537in</Top>
+            <Top>23.42787in</Top>
             <Left>9.45571in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
-            <ZIndex>193</ZIndex>
+            <ZIndex>192</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17273,7 +17576,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Shipped Lines: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCC12")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -17286,7 +17591,7 @@
             <Left>11.35849in</Left>
             <Height>0.25in</Height>
             <Width>1.91667in</Width>
-            <ZIndex>194</ZIndex>
+            <ZIndex>193</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17304,7 +17609,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Customers Serviced: " &amp; "&lt;/b&gt;" &amp; Sum(Fields!c_cnt.Value, "WCCCustCnt12")
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -17317,7 +17624,7 @@
             <Left>11.35849in</Left>
             <Height>0.25in</Height>
             <Width>1.91667in</Width>
-            <ZIndex>195</ZIndex>
+            <ZIndex>194</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17354,7 +17661,7 @@
             <Left>9.45571in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
-            <ZIndex>196</ZIndex>
+            <ZIndex>195</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17392,7 +17699,7 @@
             <Left>11.35849in</Left>
             <Height>0.25in</Height>
             <Width>1.91667in</Width>
-            <ZIndex>197</ZIndex>
+            <ZIndex>196</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17409,7 +17716,7 @@
             <Left>0.24113in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>198</ZIndex>
+            <ZIndex>197</ZIndex>
             <Style>
               <Border>
                 <Color>Silver</Color>
@@ -17441,7 +17748,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;"&amp;  First(Fields!ElapsedTime.Value, "AvgTimePrior12") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -17454,7 +17763,7 @@
             <Left>9.45572in</Left>
             <Height>0.25in</Height>
             <Width>1.83333in</Width>
-            <ZIndex>199</ZIndex>
+            <ZIndex>198</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17472,7 +17781,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;" &amp; First(Fields!ElapsedTime.Value, "AvgTimeCurrent12") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
                     <MarkupType>HTML</MarkupType>
                     <Style />
                   </TextRun>
@@ -17485,7 +17796,7 @@
             <Left>11.35849in</Left>
             <Height>0.25in</Height>
             <Width>1.91667in</Width>
-            <ZIndex>200</ZIndex>
+            <ZIndex>199</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17501,7 +17812,7 @@
             <Left>9.42794in</Left>
             <Height>3.46791in</Height>
             <Width>0in</Width>
-            <ZIndex>201</ZIndex>
+            <ZIndex>200</ZIndex>
             <Style>
               <Border>
                 <Color>SlateBlue</Color>
@@ -17531,7 +17842,7 @@
             <Left>0.26197in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>202</ZIndex>
+            <ZIndex>201</ZIndex>
             <Style>
               <Border>
                 <Color>Silver</Color>
@@ -17582,7 +17893,7 @@
             <Left>6.38696in</Left>
             <Height>0.25in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>203</ZIndex>
+            <ZIndex>202</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17620,7 +17931,7 @@
             <Left>3.31057in</Left>
             <Height>0.25in</Height>
             <Width>1.50485in</Width>
-            <ZIndex>204</ZIndex>
+            <ZIndex>203</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17658,7 +17969,7 @@
             <Left>0.24113in</Left>
             <Height>0.25in</Height>
             <Width>1.52151in</Width>
-            <ZIndex>205</ZIndex>
+            <ZIndex>204</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17696,7 +18007,7 @@
             <Left>7.8939in</Left>
             <Height>0.25in</Height>
             <Width>1.46459in</Width>
-            <ZIndex>206</ZIndex>
+            <ZIndex>205</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17734,7 +18045,7 @@
             <Left>4.85224in</Left>
             <Height>0.25in</Height>
             <Width>1.45556in</Width>
-            <ZIndex>207</ZIndex>
+            <ZIndex>206</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17772,7 +18083,7 @@
             <Left>1.78419in</Left>
             <Height>0.25in</Height>
             <Width>1.4896in</Width>
-            <ZIndex>208</ZIndex>
+            <ZIndex>207</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -17789,7 +18100,7 @@
             <Left>6.34947in</Left>
             <Height>3.48041in</Height>
             <Width>0in</Width>
-            <ZIndex>209</ZIndex>
+            <ZIndex>208</ZIndex>
             <Style>
               <Border>
                 <Color>SlateBlue</Color>
@@ -17819,7 +18130,7 @@
             <Left>3.2828in</Left>
             <Height>3.43875in</Height>
             <Width>0in</Width>
-            <ZIndex>210</ZIndex>
+            <ZIndex>209</ZIndex>
             <Style>
               <Border>
                 <Color>SlateBlue</Color>
@@ -17863,7 +18174,7 @@
             <Left>6.38696in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>211</ZIndex>
+            <ZIndex>210</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17913,7 +18224,7 @@
             <Left>7.8939in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>212</ZIndex>
+            <ZIndex>211</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -17963,7 +18274,7 @@
             <Left>6.38696in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>213</ZIndex>
+            <ZIndex>212</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18013,7 +18324,7 @@
             <Left>7.91196in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>214</ZIndex>
+            <ZIndex>213</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18063,7 +18374,7 @@
             <Left>3.3078in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>215</ZIndex>
+            <ZIndex>214</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18113,7 +18424,7 @@
             <Left>4.85224in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>216</ZIndex>
+            <ZIndex>215</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18163,7 +18474,7 @@
             <Left>3.3078in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>217</ZIndex>
+            <ZIndex>216</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18188,6 +18499,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -18213,7 +18525,7 @@
             <Left>4.85224in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>218</ZIndex>
+            <ZIndex>217</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18238,6 +18550,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -18263,7 +18576,7 @@
             <Left>0.23837in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>219</ZIndex>
+            <ZIndex>218</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18313,7 +18626,7 @@
             <Left>1.75919in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
-            <ZIndex>220</ZIndex>
+            <ZIndex>219</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18351,7 +18664,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value># Business Days</Value>
+                    <Value># Business Days ??</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -18361,6 +18674,57 @@
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>23.43204in</Top>
             <Left>0.25087in</Left>
+            <Height>0.21251in</Height>
+            <Width>1.47916in</Width>
+            <ZIndex>220</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox156">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value># Business Days ??</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>23.44036in</Top>
+            <Left>1.7578in</Left>
             <Height>0.21251in</Height>
             <Width>1.47916in</Width>
             <ZIndex>221</ZIndex>
@@ -18388,56 +18752,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox156">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value># Business Days</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox15</rd:DefaultName>
-            <Top>23.44036in</Top>
-            <Left>1.7578in</Left>
-            <Height>0.21251in</Height>
-            <Width>1.47916in</Width>
-            <ZIndex>222</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-              <TopBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </TopBorder>
-              <BottomBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </BottomBorder>
-              <LeftBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </LeftBorder>
-              <RightBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </RightBorder>
+              <BackgroundColor>LightGrey</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -18449,7 +18764,7 @@
             <Left>0.26823in</Left>
             <Height>24.00406in</Height>
             <Width>0in</Width>
-            <ZIndex>223</ZIndex>
+            <ZIndex>222</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -18461,7 +18776,7 @@
             <Left>0.31197in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>224</ZIndex>
+            <ZIndex>223</ZIndex>
             <Style>
               <Border>
                 <Color>DarkBlue</Color>
@@ -18491,7 +18806,7 @@
             <Left>0.26613in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>225</ZIndex>
+            <ZIndex>224</ZIndex>
             <Style>
               <Border>
                 <Color>DarkBlue</Color>
@@ -18521,7 +18836,7 @@
             <Left>0.26823in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>226</ZIndex>
+            <ZIndex>225</ZIndex>
             <Style>
               <Border>
                 <Color>DarkBlue</Color>
@@ -18551,7 +18866,7 @@
             <Left>0.27031in</Left>
             <Height>0in</Height>
             <Width>13.70833in</Width>
-            <ZIndex>227</ZIndex>
+            <ZIndex>226</ZIndex>
             <Style>
               <Border>
                 <Color>DarkBlue</Color>
@@ -18576,6 +18891,39 @@
               </RightBorder>
             </Style>
           </Line>
+          <Textbox Name="Textbox111">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="&lt;b&gt;" &amp; "Average Time: " &amp; "&lt;/b&gt;"&amp;  First(Fields!ElapsedTime.Value, "AvgTimePrior80") 
+'-------------------------------------------------------------
+'Added HTML tags for Bold</Value>
+                    <MarkupType>HTML</MarkupType>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>19.71746in</Top>
+            <Left>9.51613in</Left>
+            <Height>0.25in</Height>
+            <Width>1.83333in</Width>
+            <ZIndex>227</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>24.06884in</Height>
         <Style>
@@ -18585,7 +18933,7 @@
           <BackgroundColor>WhiteSmoke</BackgroundColor>
         </Style>
       </Body>
-      <Width>14.32238in</Width>
+      <Width>14.0203in</Width>
       <Page>
         <InteractiveHeight>0in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
