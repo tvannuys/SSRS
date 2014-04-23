@@ -15,16 +15,15 @@
 BEGIN
  SELECT *
  FROM OPENQUERY(GSFL2K,	
-	'SELECT idco
-			,idloc
-			,idbin
-			,blgrp
-			,iditem
-			,idserl
-			,idqoh
-			,idqoo
-			,blzone AS Zone
-			,blgrp AS section
+	'SELECT idco		AS Co
+			,idloc		AS Loc
+			,idbin		AS Bin
+			,blgrp		AS Section
+			,iditem		AS Item
+			,idserl		AS Serl
+			,idqoh		AS QOH
+			,idqoo		AS Committed
+
 
 	
 	FROM binloc bl
@@ -34,13 +33,11 @@ BEGIN
 
 	WHERE blndbn = ''N''
 		AND idqoh > 0
-		AND blbin != ''SHIPD''
 		AND idqoo < 1
 
 
 	ORDER BY idco
 			,blloc
-			,blzone
 			,iditem
 			,blbin
 	')
