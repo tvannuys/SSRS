@@ -19,6 +19,7 @@ vmvend as VendorID,
 vmname as Vendor,
 a.imitem as Item, 
 i.imdesc as ItemDesc,
+i.imcolr as Color,
 b.imsi as MasterStockAfter,
 a.imsi as MasterStockBefore,
 a.immusr as User,
@@ -66,6 +67,10 @@ order by a.imitem, a.immtim
           <DataField>MASTERSTOCKAFTER</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="COLOR">
+          <DataField>COLOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="MASTERSTOCKBEFORE">
           <DataField>MASTERSTOCKBEFORE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -93,6 +98,7 @@ vmvend as VendorID,
 vmname as Vendor,
 a.imitem as Item, 
 i.imdesc as ItemDesc,
+i.imcolr as Color,
 
 a.imsi as MasterStock,
 a.immusr as User,
@@ -135,6 +141,10 @@ and a.imsi = ''Y''
           <DataField>MASTERSTOCK</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="COLOR">
+          <DataField>COLOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="USER">
           <DataField>USER</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -168,6 +178,9 @@ and a.imsi = ''Y''
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.52083in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.1875in</Width>
@@ -313,6 +326,42 @@ and a.imsi = ''Y''
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox26</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#869286</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#708270</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Color</Value>
+                                  <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#869286</Color>
@@ -578,6 +627,40 @@ and a.imsi = ''Y''
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="COLOR1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!COLOR.Value</Value>
+                                  <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <Color>Green</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>COLOR1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="MASTERSTOCK">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -691,6 +774,7 @@ and a.imsi = ''Y''
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -707,7 +791,7 @@ and a.imsi = ''Y''
             <DataSetName>dsAddedMasterStockItems</DataSetName>
             <Top>2.1625in</Top>
             <Height>0.5in</Height>
-            <Width>10.19791in</Width>
+            <Width>11.19791in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -732,6 +816,9 @@ and a.imsi = ''Y''
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.52083in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.1875in</Width>
@@ -883,6 +970,42 @@ and a.imsi = ''Y''
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#4e648a</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#384c70</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Color</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#4e648a</Color>
@@ -1256,6 +1379,40 @@ and a.imsi = ''Y''
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="COLOR">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!COLOR.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>COLOR</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="MASTERSTOCKAFTER">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1444,6 +1601,7 @@ and a.imsi = ''Y''
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1460,7 +1618,7 @@ and a.imsi = ''Y''
             <DataSetName>dsMasterStockChanges</DataSetName>
             <Top>0.4in</Top>
             <Height>0.82292in</Height>
-            <Width>12.38542in</Width>
+            <Width>13.38542in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1544,7 +1702,7 @@ and a.imsi = ''Y''
           </Border>
         </Style>
       </Body>
-      <Width>12.38542in</Width>
+      <Width>13.38542in</Width>
       <Page>
         <PageFooter>
           <Height>0.23125in</Height>
