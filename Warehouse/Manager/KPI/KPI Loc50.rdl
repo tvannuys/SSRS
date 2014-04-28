@@ -800,6 +800,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc50/KPIchartWCC_ShipCurrnetDetails</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -845,6 +854,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc50/KPIchartWCC_ShipPriorDetails</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -1230,6 +1248,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc50/KPIchart_InvAdj50_CurrentDetails50</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -1275,6 +1302,15 @@
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <ToolTip>#VALY</ToolTip>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc50/KPIchart_InvAdj50_PriorDetails50</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -3913,6 +3949,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc60/KPIchartWCC_ShipCurrentDetails60</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>LightCoral</Color>
                       </Style>
@@ -3954,6 +3999,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc60/KPIchartWCC_ShipPriorDetails60</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -6910,6 +6964,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc4/KPIchartWCC_ShipCurrentDetails</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>Khaki</Color>
                       </Style>
@@ -6951,6 +7014,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc4/KPIchart_InvAdj4_PriorDetails4</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -9906,6 +9978,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc41/KPIchartWCC_ShipCurrentDetails41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>DarkKhaki</Color>
                       </Style>
@@ -9947,6 +10028,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc41/KPIchartWCC_ShipPriorDetails41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -12874,6 +12964,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc41/KPIchartWCC_ShipCurrentDetails41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>PapayaWhip</Color>
                       </Style>
@@ -12915,6 +13014,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc41/KPIchartWCC_ShipPriorDetails41</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -15868,6 +15976,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc12/KPIchartWCC_ShipCurrentDetails12</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style>
                         <Color>Silver</Color>
                       </Style>
@@ -15909,6 +16026,15 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Drillthrough>
+                              <ReportName>/Warehouse/Manager/KPI/KPI Detail Reports/Loc12/KPIchartWCC_ShipPriorDetails12</ReportName>
+                            </Drillthrough>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
                       <Style />
                       <ChartMarker>
                         <Style />

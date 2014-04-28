@@ -31,12 +31,23 @@ idqoh 'On Hand'
 
 FROM OPENQUERY (GSFL2K, '
 select * 
-from itemdetl id INNER JOIN binloc bl ON idbin = blbin AND idloc = blloc
-WHERE idqoh > 0.07 
-AND idqoo <= 0 
-AND blgrp IN (''XXXXX'', ''WCSTG'', ''BLIND'')')
+from itemdetl id 
+LEFT JOIN binloc bl ON ( id.idbin = bl.blbin 
+					  AND id.idloc = bl.blloc 
+					  AND id.idco = bl.blco )
+LEFT JOIN itemrech ir ON ( ir.irco = id.idco
+					  AND ir.irloc = id.idloc
+					  AND ir.irbin = id.idbin 
+					  AND ir.iritem = id.iditem 
+					  AND ir.irky = id.idky )
 
-ORDER BY idloc, idbin  ASC
+
+WHERE idqoh > 0.07 
+	AND idqoo <= 0 
+	AND blgrp IN (''XXXXX'', ''WCSTG'', ''BLIND'')')
+
+ORDER BY idloc, 
+		 idbin  ASC
 
 -- END --
 GO
