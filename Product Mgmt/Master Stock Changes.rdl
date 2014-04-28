@@ -26,12 +26,11 @@ a.immtim as Time,
 
 ISYS$ as YTDSales
 
-
 from ITEMMAIN a
 join itemmain b on (a.imitem = b.imitem and a.immusr = b.immusr and a.immtim = b.immtim)
 left join itemmast i on a.imitem = i.imitem
 left join vendmast on i.imvend = vmvend
-left join itemstat on isitem = i.imitem
+left join itemstat on (isitem = i.imitem and isloc = 98)
 
 where a.imsi &lt;&gt; b.imsi
 and a.immact = ''C''
@@ -104,13 +103,12 @@ ISYS$ as YTDSales
 from ITEMMAIN a
 left join itemmast i on a.imitem = i.imitem
 left join vendmast on i.imvend = vmvend
-left join itemstat on isitem = i.imitem
+left join itemstat on (isitem = i.imitem and isloc = 98)
 
 where a.immact = ''A''
 and a.imsi = ''Y''
 
-')
-</CommandText>
+')</CommandText>
       </Query>
       <Fields>
         <Field Name="IMMCOD">
@@ -1458,6 +1456,7 @@ and a.imsi = ''Y''
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <NoRowsMessage>None</NoRowsMessage>
             <DataSetName>dsMasterStockChanges</DataSetName>
             <Top>0.4in</Top>
             <Height>0.82292in</Height>
@@ -1467,6 +1466,9 @@ and a.imsi = ''Y''
               <Border>
                 <Style>None</Style>
               </Border>
+              <FontStyle>Italic</FontStyle>
+              <FontSize>16pt</FontSize>
+              <PaddingLeft>6pt</PaddingLeft>
             </Style>
           </Tablix>
           <Textbox Name="ReportTitle">
@@ -1545,7 +1547,7 @@ and a.imsi = ''Y''
       <Width>12.38542in</Width>
       <Page>
         <PageFooter>
-          <Height>0.93958in</Height>
+          <Height>0.23125in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <Style>
