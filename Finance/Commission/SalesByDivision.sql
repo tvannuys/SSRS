@@ -149,7 +149,7 @@ case
 	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * 1
 
 --  New Items, Not Armstrong Direct Orders		
-	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * .8
+	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * 1
 end as Commission,
 
 case	
