@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "MonthlyCallReport", "MonthlyCallReport\MonthlyCallReport.dtproj", "{79BC57C0-61BF-4527-A07E-1D7902D8C408}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+		Production|Default = Production|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79BC57C0-61BF-4527-A07E-1D7902D8C408}.Development|Default.ActiveCfg = Development
+		{79BC57C0-61BF-4527-A07E-1D7902D8C408}.Development|Default.Build.0 = Development
+		{79BC57C0-61BF-4527-A07E-1D7902D8C408}.Production|Default.ActiveCfg = Production
+		{79BC57C0-61BF-4527-A07E-1D7902D8C408}.Production|Default.Build.0 = Production
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
