@@ -13,6 +13,8 @@ Run CallLogImport Job in SQL
 
 28800 seconds in an 8 hour day
 
+truncate table dbo.CDR_Report
+
 */
 
 with CTE as (select distinct Extension, Agent from acd_report)
