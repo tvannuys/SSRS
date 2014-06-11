@@ -1,10 +1,10 @@
 /* 
 
 File from Fonality Report:  CDR reports, options inbound, outbound and InterOffice
-	CDR_Report.csv \\tas3\Shared\Departmental Data\Sales Marketing\Customer Service\Fonality Call Logs
+	CDR_Report.csv \\storage01\Shared\Departmental Data\Sales Marketing\Customer Service\Fonality Call Logs
 	
 File from Fonality Report: ACD report:  Completed Calls :: Detail  
-	acd_report.csv \\tas3\Shared\Departmental Data\Sales Marketing\Customer Service\Fonality Call Logs
+	acd_report.csv \\storage01\Shared\Departmental Data\Sales Marketing\Customer Service\Fonality Call Logs
 
 When a new agent needs to be tracked, edit the CallLogImport Job, last step, so the agent name is 
 associated with the proper extension.
@@ -12,6 +12,8 @@ associated with the proper extension.
 Run CallLogImport Job in SQL
 
 28800 seconds in an 8 hour day
+
+truncate table dbo.CDR_Report
 
 */
 

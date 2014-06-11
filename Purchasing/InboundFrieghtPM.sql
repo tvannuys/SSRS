@@ -64,7 +64,7 @@ AND Poline.PLCO = 2
 and poline.plloc in (41)
 AND Poline.PLDELT <> ''''C''''
 AND Poline.PLDIRS <> ''''Y'''' 
-and ((poline.plvend in (22666,16088,22816,22887,22204,22949,22686,22674,22859)) or
+and ((poline.plvend in (22666,16088,22816,22887,22204,22949,22686,22674,22859,24293)) or
 	 (poline.plvend = 22674 and imfmcd = ''''LV'''') or
 	 (poline.plvend = 24005 and imfmcd in (''''L0'''',''''LV'''')) or
 	 (poline.plvend = 16006 and imfmcd = ''''V4'''' and imsi = ''''Y'''') or

@@ -1,3 +1,13 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[TA_Key_Products]    Script Date: 05/01/2014 13:17:22 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 /* SR 13449
 
 Uses CUSTSEG table to identify key customers
@@ -8,7 +18,7 @@ TA_Key_Products '01/01/2014','01/15/2014'
 
 */
 
-alter proc TA_Key_Products 
+ALTER proc [dbo].[TA_Key_Products] 
 
 @StartDate varchar(10),
 @EndDate varchar(10)
@@ -34,6 +44,10 @@ end as KeyCustomer,
 case 
 	when pcprcd in (34056,34057, 34058) then ''''EvoStrand Bamboo''''
 	when pcprcd = 22647 then ''''Quick Loc Bamboo''''
+	
+	when pcprcd = 13902 then ''''Odyssey''''
+	when pcprcd = 13900 then ''''Catalina''''
+
 	
 	when pcprcd = 13700 then ''''Crystal Ridge''''
 	when pcprcd = 6392 then ''''Tru Loc''''
@@ -78,9 +92,9 @@ from CUSTMAST billto
 		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
 		left join custmast soldto on shhead.shcust = soldto.cmcust
 		
-where (slprcd in (13700,6392,82141,82142,82144,34056,34057,34058,22647,13622,13620,13440,13609,13646, 82145,82146,13597,13592,84022,13594,13595)  
+where (slprcd in (13700,6392,82141,82142,82144,22647,13622,13620,13440,13609,13646, 82145,82146,13597,13592,84022,13594,13595,13902,13900)  
 		or
-	   slvend in (22859,24020)
+	   slvend in (24020)
 	   )
  
 and shidat between ''''' + @StartDate + ''''' and ''''' + @EndDate + ''''' 
@@ -130,3 +144,6 @@ order by cmname,smname
 '')'
 
 exec(@sql)
+GO
+
+

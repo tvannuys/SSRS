@@ -16,7 +16,7 @@ declare @MSsql varchar(max)
 declare @ReportMonth varchar(2)
 declare @ReportYear varchar(4)
 
-set @ReportMonth = '2'  
+set @ReportMonth = '4'  
 set @ReportYear = '2014'  -- use 4 digit year
 
 
@@ -114,9 +114,14 @@ Calculations and lookup to CommissionRate table
 
 select t3.*,c.basedon,
 case	
+--  Old Items, Not Armstrong Direct Orders		
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then t3.ExtendedPrice * c.Rate 
+	
+--  All Items, Armstrong Direct Orders - should be none for company 1
 	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * 1
-	else t3.ExtendedPrice * .0125
+
+--  All Items not captured above.  Should be New Items, not Armstrong Direct	
+	else t3.ExtendedPrice * c.Rate * .8
 end as Commission,
 
 case	
@@ -131,13 +136,19 @@ and t3.shco = 1
 
 union all
 
+-- Company 1
 -- Based on Gross Margin
 
 select t3.*,c.basedon,
 case	
+
+--  Old Items, Not Armstrong Direct Orders		
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate 
+	
+--  New Items, Armstrong Direct Orders - should be none for company 1
 	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * 1
 
+--  New Items, Not Armstrong Direct Orders		
 	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * 1
 end as Commission,
 
@@ -162,9 +173,14 @@ union all
 -- =============================================================================
 
 select t3.*,c.basedon,
-case	
+case
+--  Old Items, Not Armstrong Direct Orders		
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then t3.ExtendedPrice * c.Rate 
+
+--	All Items, Armstrong Direct 
 	when (BillTo = '4100000') then t3.ExtendedPrice * c.Rate * 1
+
+--	New Items, Not Armstrong Direct
 	else t3.ExtendedPrice * c.Rate * 1
 end as Commission,
 
@@ -188,9 +204,13 @@ union all
 
 select t3.*,c.basedon,
 case	
+--  Old Items, Not Armstrong Direct Orders		
 	when (cast(ItemSetupDate as DATE) < '1/1/2014' and BillTo <> '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate 
+
+--  New Items, Armstrong Direct Orders		
 	when (BillTo = '4100000') then (t3.ExtendedPrice-t3.ExtendedCost) * c.Rate * 1
 
+--  New Items, Not Armstrong Direct Orders		
 	else (t3.ExtendedPrice -t3.ExtendedCost) * c.Rate * 1
 end as Commission,
 
