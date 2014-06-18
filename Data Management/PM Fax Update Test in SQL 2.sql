@@ -1,7 +1,7 @@
 --=========================================================================================
 --   DETAIL RECORDS
 --=========================================================================================
-
+/*
 --Dataset A
 
 	update TAV_CUSTCNDTL set TAV_CUSTCNDTL.CCDDELMETH  = 'FAX',
@@ -87,19 +87,26 @@
 		and left(ccdcus,1) = ''4''
 		and CCDDELMETH = ''EML''
 
-
+*/
 --Dataset test
 
 	update TAV_CUSTCNDTL set CCDDELMETH  = 'FAX',
 		CCDFAX = cast('1' + left(CCDE_MAIL,10) as numeric)
 		
 		where ccde_mail like '%METROFAX%'
-		and CCDFAX = 0 
+		--and CCDFAX = 0 
 		and left(ccdcus,1) = '4'
-		and CCDDELMETH = 'EML'
+		--and CCDDELMETH = 'EML'
+		
+		and CCDCONTID in (42262,42266,42267,42272)
+
+-- Strip the 1 from these
 		
 select * 
 from TAV_CUSTCNDTL
 		where ccde_mail like '%METROFAX%'
 		and left(ccdcus,1) = '4'
+		and CCDFAX like '1253%'
+		and left(CCDFAX,7) not in ('1253476', '1253581', '1253583', '1253826', '1253922',
+									'1425483', '1425576', '1425645', '1425885')
 		
