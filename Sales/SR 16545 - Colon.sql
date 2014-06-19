@@ -1,4 +1,4 @@
-
+create proc spCorlonSales as
 
 --CONNECTION CORLON 6'
 
