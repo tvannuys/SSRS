@@ -16,6 +16,11 @@ Combine with results of a second query to 'Seed Customer List'
 
 TA_Key_Products '01/01/2014','01/15/2014'
 
+--==================================================
+SR 22843 - For June, would you please drop Tru Loc and add Columbia ( a new LVT), per Danny’s request?
+
+
+
 */
 
 ALTER proc [dbo].[TA_Key_Products] 
@@ -50,7 +55,8 @@ case
 
 	
 	when pcprcd = 13700 then ''''Crystal Ridge''''
-	when pcprcd = 6392 then ''''Tru Loc''''
+/* 	when pcprcd = 6392 then ''''Tru Loc''''              SR 22843  */
+	when pcprcd = 82148 then ''''Columbia LVT''''
 	when pcprcd = 82141 then ''''Bentley''''
 	when pcprcd = 82142 then ''''Carrera''''
 	when pcprcd = 82144 then ''''Nature''''
@@ -92,7 +98,7 @@ from CUSTMAST billto
 		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
 		left join custmast soldto on shhead.shcust = soldto.cmcust
 		
-where (slprcd in (13700,6392,82141,82142,82144,22647,13622,13620,13440,13609,13646, 82145,82146,13597,13592,84022,13594,13595,13902,13900)  
+where (slprcd in (13700,82148,82141,82142,82144,22647,13622,13620,13440,13609,13646, 82145,82146,13597,13592,84022,13594,13595,13902,13900)  
 		or
 	   slvend in (24020)
 	   )
