@@ -9,11 +9,11 @@ File from Fonality Report: ACD report:  Completed Calls :: Detail
 When a new agent needs to be tracked, edit the CallLogImport Job, last step, so the agent name is 
 associated with the proper extension.
 
-Run CallLogImport Job in SQL
-
 28800 seconds in an 8 hour day
 
-truncate table dbo.CDR_Report
+Run CallLogImport Job in SQL:
+EXEC MSDB.dbo.sp_start_job @Job_Name = 'CallLogImport'
+EXEC MSDB.dbo.sp_help_job @job_name = 'CallLogImport', @job_aspect = 'JOB'
 
 */
 
