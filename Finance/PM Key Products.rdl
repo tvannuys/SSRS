@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
-  <Description>Monthly Report for Kathy</Description>
+  <Description>Monthly Report for Kathy.  YTD Totals</Description>
   <Author>Thomas</Author>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -111,6 +111,9 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox21</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>=Globals!RenderFormat.Name = "EXCEL"</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -141,6 +144,9 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox17</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>=Globals!RenderFormat.Name = "EXCEL"</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -163,7 +169,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>SMNAME3</Value>
+                                <Value>Sales Person</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
@@ -176,6 +182,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -193,7 +200,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>CMCUST1</Value>
+                                <Value>Acct #</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
@@ -206,6 +213,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -223,7 +231,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>CMNAME1</Value>
+                                <Value>Customer</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
@@ -236,6 +244,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -250,7 +259,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>2in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -336,6 +345,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -393,6 +403,9 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>KEYCUSTOMER1</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>=Globals!RenderFormat.Name = "EXCEL"</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -436,6 +449,9 @@
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>SMNAME11</rd:DefaultName>
+                            <Visibility>
+                              <Hidden>=Globals!RenderFormat.Name = "EXCEL"</Hidden>
+                            </Visibility>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -462,7 +478,7 @@
                             </SortExpression>
                           </SortExpressions>
                           <TablixHeader>
-                            <Size>1.36458in</Size>
+                            <Size>2.2in</Size>
                             <CellContents>
                               <Textbox Name="SMNAME2">
                                 <CanGrow>true</CanGrow>
@@ -538,7 +554,7 @@
                                     </SortExpression>
                                   </SortExpressions>
                                   <TablixHeader>
-                                    <Size>2.02083in</Size>
+                                    <Size>2.5in</Size>
                                     <CellContents>
                                       <Textbox Name="CMNAME1">
                                         <CanGrow>true</CanGrow>
@@ -586,9 +602,10 @@
             <PageBreak>
               <BreakLocation>Start</BreakLocation>
             </PageBreak>
+            <PageName>Key Customer</PageName>
             <Top>0.79792in</Top>
             <Height>0.5in</Height>
-            <Width>11.35416in</Width>
+            <Width>13.66875in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -608,7 +625,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>SalesPerson</Value>
+                                <Value>SMNAME</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
@@ -616,6 +633,9 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox7</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>=Globals!RenderFormat.Name = "EXCEL"</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -638,7 +658,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>SMNAME</Value>
+                                <Value>Sales Person</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
@@ -651,6 +671,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -681,6 +702,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -711,6 +733,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -725,7 +748,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.02083in</Width>
+                  <Width>2in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -815,6 +838,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>LightSteelBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -860,6 +884,9 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>SMNAME</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>=Globals!RenderFormat.Name = "EXCEL"</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -886,7 +913,7 @@
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>2.04167in</Size>
+                        <Size>2.2in</Size>
                         <CellContents>
                           <Textbox Name="SMNAME1">
                             <CanGrow>true</CanGrow>
@@ -962,7 +989,7 @@
                                 </SortExpression>
                               </SortExpressions>
                               <TablixHeader>
-                                <Size>2.42708in</Size>
+                                <Size>2.5in</Size>
                                 <CellContents>
                                   <Textbox Name="CMNAME">
                                     <CanGrow>true</CanGrow>
@@ -1005,8 +1032,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
+            <PageName>All Customers</PageName>
             <Height>0.5in</Height>
-            <Width>10.35416in</Width>
+            <Width>10.56458in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1022,7 +1050,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>11.35417in</Width>
+      <Width>13.66875in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
@@ -1045,10 +1073,20 @@
   <ReportParameters>
     <ReportParameter Name="StartDate">
       <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=DateAdd("d",-DatePart(DateInterval.DayOfYear,Today,0,0)+1,Today)</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
       <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=dateadd("m",0,dateserial(year(Today),month(Today),0))</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>End Date</Prompt>
     </ReportParameter>
   </ReportParameters>
