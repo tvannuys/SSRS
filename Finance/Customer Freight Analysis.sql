@@ -64,7 +64,7 @@ APDLCOMT as Customer,
 from apdist
 join apdetail on (apdlbat = apdebat and apdekey = apdlkey)
 where apdlgl in (''610700'',''610500'',''610600'')
-and apdidt >= ''6/1/2013''
+and apdidt >= ''1/1/2014''
 and (apdlcomt like ''1%'' or apdlcomt like ''4%'' or apdlcomt like ''6%'')
 
 ')
@@ -95,10 +95,10 @@ sHOTYP as OrderType,
 left(sHSTA3,23) as DeliveryCity,
 right(sHSTA3,2) as DeliveryState,
 
-''Header Misc Charge'' as Source
+''Header Delivery Charge'' as Source
 
 from shhead
-where shidat > ''6/1/2013''
+where shidat > ''1/1/2014''
 /* and shbil# = ''1002104'' */
 and shsam1 <> 0
 ')
@@ -129,10 +129,10 @@ sHOTYP as OrderType,
 left(sHSTA3,23) as DeliveryCity,
 right(sHSTA3,2) as DeliveryState,
 
-''Header Misc Charge 2'' as Source
+''Header Freight Charge'' as Source
 
 from shhead
-where shidat > ''6/1/2013''
+where shidat > ''1/1/2014''
 /* and shbil# = ''1002104'' */
 and shsam4 <> 0
 ')
@@ -179,7 +179,7 @@ left JOIN SHHEAD ON (SHLINE.SLCO = SHHEAD.SHCO
 									AND SHLINE.SLORD# = SHHEAD.SHORD# 
 									AND SHLINE.SLREL# = SHHEAD.SHREL# 
 									AND SHLINE.SLINV# = SHHEAD.SHINV#) 
-where shidat > ''6/1/2013''
+where shidat > ''1/1/2014''
 /* and shbil# = ''1002104'' */
 and slsam2 <>0
 ')
@@ -224,13 +224,13 @@ left JOIN SHHEAD ON (SHLINE.SLCO = SHHEAD.SHCO
 									AND SHLINE.SLORD# = SHHEAD.SHORD# 
 									AND SHLINE.SLREL# = SHHEAD.SHREL# 
 									AND SHLINE.SLINV# = SHHEAD.SHINV#) 
-where shidat > ''6/1/2013''
+where shidat > ''1/1/2014''
 /* and shbil# = ''1002104''  */
 and slprcd in (640,742,743)
 and sleprc <> 0
 ')
 
-/* Expand on Customer Attributes */
+/* Expand on Customer Attributes - put in Temp table proper order */
 
 IF EXISTS(SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID (N'tempdb..#CustomerFreightAnalysis2'))
 	BEGIN
@@ -250,12 +250,12 @@ left join openquery(gsfl2k,' select cmcust,cmname
 			on OQ.cmcust = A.Customer
 order by A.Invoice, A.TranAmt
 
---=============  TESTING  =======================--
+--====================================================================================
+--
+--  CURSOR TO MARK DUPLICATE INVOICES - PREVENT OVERSTATED SALES JOIN IN FINAL QUERY
+--
+--====================================================================================
 
-
-
-
---=============  TESTING  =======================--
 declare @TempInvoice char(6), 
 	@PreviousInvoice char(6),
 	@TempInvoiceCount int
@@ -291,16 +291,21 @@ end
 close Freight_cursor
 deallocate Freight_cursor
 
---=============  TESTING  =======================--
+--====================================================================================
+--
+--  FINAL QUERY - join to get sales
+--
+--====================================================================================
+
 -- SHEMDS = Material Sales only in header
 
 
-select A.*, B.SHEMDS as Sales, B.shcost as Cost
+select A.*, B.SHEMDS as MaterialSales, B.shcost as Cost
 from #CustomerFreightAnalysis2 A
 left join openquery(gsfl2k,'select shinv#,SHEMDS,shcost 
 							from shhead 
-							where shidat > ''6/1/2013''
+							where shidat > ''1/1/2014''
 							') B on (B.shinv# = A.Invoice and A.InvoiceCount = 1)
-where A.Invoice = '933223'
+where A.InvoiceCount = 0
 
 
