@@ -8,6 +8,14 @@ Process in AP to add customer to comment field in AP started 6/1/2013
 
 SR 23051
 
+sales - SHTOTL
+COGS - SHCOST
+
+Left(CMADR3,23) AS City, 
+/* FIELD 8 */
+CMZIP AS ZipCode, 
+/* FIELD 9 */
+Right(CMADR3,2) AS State,
 */
 
 -- drop table #CustomerFreightAnalysis
@@ -28,6 +36,9 @@ create table #CustomerFreightAnalysis (
 	ShipViaCode char(1) null,
 	Invoice char(6) null,
 	OrderRoute char(5) null,
+	OrderType char(2) null,
+	DeliveryCity char(23) null,
+	DeliveryState char(2) null,
 	[Source] char(25) null
 	)
 
@@ -37,6 +48,9 @@ select TranDate,TranAmt,Customer,
 ' ' as ShipViaCode,
 ' ' as Invoice,
 ' ' as OrderRoute,
+' ' as OrderType,
+' ' as DeliveryCity,
+' ' as DeliveryState,
 
  [Source]
 from openquery(gsfl2k,'
@@ -59,6 +73,10 @@ and (apdlcomt like ''1%'' or apdlcomt like ''4%'' or apdlcomt like ''6%'')
 insert into #CustomerFreightAnalysis
 select TranDate,TranAmt,Customer,ShipVia,ShipViaCode, 
 Invoice,OrderRoute,
+OrderType,
+DeliveryCity,
+DeliveryState,
+
 [Source]
 
  from openquery(gsfl2k,'
@@ -69,6 +87,9 @@ SHVIA as ShipVia,
 shviac as ShipViaCode,
 shinv# as Invoice,
 shrout as OrderRoute,
+sHOTYP as OrderType,
+left(sHSTA3,23) as DeliveryCity,
+right(sHSTA3,2) as DeliveryState,
 
 ''Header Misc Charge'' as Source
 
@@ -83,6 +104,10 @@ and shsam1 <> 0
 insert into #CustomerFreightAnalysis
 select TranDate,TranAmt,Customer,ShipVia,ShipViaCode,  
 Invoice,OrderRoute,
+OrderType,
+DeliveryCity,
+DeliveryState,
+
 [Source]
 
  from openquery(gsfl2k,'
@@ -93,6 +118,10 @@ shvia as ShipVia,
 shviac as ShipViaCode,
 shinv# as invoice,
 shrout as OrderRoute,
+
+sHOTYP as OrderType,
+left(sHSTA3,23) as DeliveryCity,
+right(sHSTA3,2) as DeliveryState,
 
 ''Header Misc Charge 2'' as Source
 
@@ -116,6 +145,10 @@ ShipViaCode,
 --' ' as ShipViaCode,
 Invoice,
 OrderRoute,
+OrderType,
+DeliveryCity,
+DeliveryState,
+
 [Source]
 
  from openquery(gsfl2k,'
@@ -127,6 +160,9 @@ shrout as OrderRoute,
 SHVIA as ShipVia,
 shviac as ShipViaCode,
 
+sHOTYP as OrderType,
+left(sHSTA3,23) as DeliveryCity,
+right(sHSTA3,2) as DeliveryState,
 
 ''Line Misc Charge'' as Source
 
@@ -154,6 +190,10 @@ ShipViaCode,
 Invoice,
 OrderRoute,
 
+OrderType,
+DeliveryCity,
+DeliveryState,
+
 [Source]
  from openquery(gsfl2k,'
 select shidat as TranDate,
@@ -163,6 +203,10 @@ shvia as ShipVia,
 shviac as ShipViaCode,
 shinv# as invoice,
 shrout as OrderRoute,
+
+sHOTYP as OrderType,
+left(sHSTA3,23) as DeliveryCity,
+right(sHSTA3,2) as DeliveryState,
 
 ''Freight Invoice Lines'' as Source
 
@@ -180,8 +224,23 @@ and sleprc <> 0
 
 /* Expand on Customer Attributes */
 
-select A.Customer, OQ.cmname as CustName, A.TranDate, A.TranAmt, A.[Source], A.ShipVia, A.ShipViaCode, A.Invoice, A.OrderRoute
+select A.Customer, OQ.cmname as CustName, A.TranDate, A.TranAmt, A.[Source], 
+A.ShipVia, A.ShipViaCode, A.Invoice, A.OrderRoute,
+A.OrderType, A.DeliveryCity, A.DeliveryState
+
 from #CustomerFreightAnalysis A
 left join openquery(gsfl2k,' select cmcust,cmname from custmast ') OQ on OQ.cmcust = A.Customer
 
+--=============  TESTING  =======================--
+select FA2.Invoice, OQ.shtotl
+from  openquery(GSFL2k, 'select shinv#,shtotl, shcost	
+						from shhead
+						where shidat > ''6/1/2013''
+						') OQ
+cross apply (						
+				select top 1 #CustomerFreightAnalysis.Invoice
+				from #CustomerFreightAnalysis
+				where #CustomerFreightAnalysis.Invoice = OQ.shinv#
+			) FA2
+				
 
