@@ -35,6 +35,7 @@ create table #CustomerFreightAnalysis (
 	ShipVia char(15) null,
 	ShipViaCode char(1) null,
 	Invoice char(6) null,
+	InvoiceCount int,
 	OrderRoute char(5) null,
 	OrderType char(2) null,
 	DeliveryCity char(23) null,
@@ -47,6 +48,7 @@ select TranDate,TranAmt,Customer,
 ' ' as ShipVia,
 ' ' as ShipViaCode,
 ' ' as Invoice,
+0 as InvoiceCount,
 ' ' as OrderRoute,
 ' ' as OrderType,
 ' ' as DeliveryCity,
@@ -68,11 +70,13 @@ and (apdlcomt like ''1%'' or apdlcomt like ''4%'' or apdlcomt like ''6%'')
 ')
 
 
-/* HEADER Charges 1 */
+/* HEADER Charges 1 - Delivery Charge */
 
 insert into #CustomerFreightAnalysis
 select TranDate,TranAmt,Customer,ShipVia,ShipViaCode, 
-Invoice,OrderRoute,
+Invoice,
+0 as InvoiceCount,
+OrderRoute,
 OrderType,
 DeliveryCity,
 DeliveryState,
@@ -99,11 +103,13 @@ where shidat > ''6/1/2013''
 and shsam1 <> 0
 ')
 
-/* HEADER Charges 2 */
+/* HEADER Charges 2 - Freight / Handling */
 
 insert into #CustomerFreightAnalysis
 select TranDate,TranAmt,Customer,ShipVia,ShipViaCode,  
-Invoice,OrderRoute,
+Invoice,
+0 as InvoiceCount,
+OrderRoute,
 OrderType,
 DeliveryCity,
 DeliveryState,
@@ -144,6 +150,7 @@ ShipViaCode,
 --' ' as ShipVia,
 --' ' as ShipViaCode,
 Invoice,
+0 as InvoiceCount,
 OrderRoute,
 OrderType,
 DeliveryCity,
@@ -188,6 +195,7 @@ ShipViaCode,
 --' ' as ShipVia,
 --' ' as ShipViaCode,
 Invoice,
+0 as InvoiceCount,
 OrderRoute,
 
 OrderType,
@@ -224,23 +232,75 @@ and sleprc <> 0
 
 /* Expand on Customer Attributes */
 
+IF EXISTS(SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID (N'tempdb..#CustomerFreightAnalysis2'))
+	BEGIN
+		DROP TABLE #CustomerFreightAnalysis2
+	END;
+
+
 select A.Customer, OQ.cmname as CustName, A.TranDate, A.TranAmt, A.[Source], 
-A.ShipVia, A.ShipViaCode, A.Invoice, A.OrderRoute,
+A.ShipVia, A.ShipViaCode, A.Invoice, A.InvoiceCount,A.OrderRoute,
 A.OrderType, A.DeliveryCity, A.DeliveryState
 
+into #CustomerFreightAnalysis2
+
 from #CustomerFreightAnalysis A
-left join openquery(gsfl2k,' select cmcust,cmname from custmast ') OQ on OQ.cmcust = A.Customer
+left join openquery(gsfl2k,' select cmcust,cmname 
+							from custmast ') OQ 
+			on OQ.cmcust = A.Customer
+order by A.Invoice, A.TranAmt
 
 --=============  TESTING  =======================--
-select FA2.Invoice, OQ.shtotl
-from  openquery(GSFL2k, 'select shinv#,shtotl, shcost	
-						from shhead
-						where shidat > ''6/1/2013''
-						') OQ
-cross apply (						
-				select top 1 #CustomerFreightAnalysis.Invoice
-				from #CustomerFreightAnalysis
-				where #CustomerFreightAnalysis.Invoice = OQ.shinv#
-			) FA2
-				
+
+
+
+
+--=============  TESTING  =======================--
+declare @TempInvoice char(6), 
+	@PreviousInvoice char(6),
+	@TempInvoiceCount int
+
+declare Freight_cursor cursor
+	for select invoice, invoicecount
+		from #CustomerFreightAnalysis2
+		where invoice <> ' ' 
+--		order by invoice
+	for update of invoicecount;
+
+open Freight_cursor
+
+fetch Freight_cursor
+	into @TempInvoice, @TempInvoiceCount
+
+while @@FETCH_STATUS = 0
+begin
+
+	if @TempInvoice <> @PreviousInvoice
+	begin
+		update #CustomerFreightAnalysis2 
+		set invoicecount = 1
+		where current of Freight_cursor
+	end
+
+	set @PreviousInvoice = @TempInvoice
+
+	fetch Freight_cursor
+		into @TempInvoice, @TempInvoiceCount
+end
+
+close Freight_cursor
+deallocate Freight_cursor
+
+--=============  TESTING  =======================--
+-- SHEMDS = Material Sales only in header
+
+
+select A.*, B.SHEMDS as Sales, B.shcost as Cost
+from #CustomerFreightAnalysis2 A
+left join openquery(gsfl2k,'select shinv#,SHEMDS,shcost 
+							from shhead 
+							where shidat > ''6/1/2013''
+							') B on (B.shinv# = A.Invoice and A.InvoiceCount = 1)
+where A.Invoice = '933223'
+
 
