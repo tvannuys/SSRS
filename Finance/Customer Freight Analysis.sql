@@ -300,12 +300,16 @@ deallocate Freight_cursor
 -- SHEMDS = Material Sales only in header
 
 
-select A.*, B.SHEMDS as MaterialSales, B.shcost as Cost
+select A.*, 
+isnull(B.SHEMDS,0) as MaterialSales, 
+isnull(B.shcost,0) as Cost
+
 from #CustomerFreightAnalysis2 A
 left join openquery(gsfl2k,'select shinv#,SHEMDS,shcost 
 							from shhead 
 							where shidat > ''1/1/2014''
 							') B on (B.shinv# = A.Invoice and A.InvoiceCount = 1)
-where A.InvoiceCount = 0
+
+
 
 
