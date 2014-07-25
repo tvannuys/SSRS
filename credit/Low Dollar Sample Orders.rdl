@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>To Sara.  &lt;1 &gt;0</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
-      <DataSourceReference>GartmanReports</DataSourceReference>
+      <DataSourceReference>/Data Sources/GartmanReports</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>3944b2e9-372e-4453-aac5-b9c4b1ff0d98</rd:DataSourceID>
     </DataSource>
@@ -888,10 +889,20 @@ set nocount off</CommandText>
     </ReportParameter>
     <ReportParameter Name="OrderTotalLessThan">
       <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>OrderTotal &lt;</Prompt>
     </ReportParameter>
     <ReportParameter Name="OrderTotalGreaterThan">
       <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Order Total &gt;</Prompt>
     </ReportParameter>
   </ReportParameters>
