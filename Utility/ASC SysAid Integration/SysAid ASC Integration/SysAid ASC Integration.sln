@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "SysAid ASC Integration", "SysAid ASC Integration.dtproj", "{C3104C39-477F-4980-8316-223911AD4971}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "SR ASC Reporting", "..\SR ASC Reporting\SR ASC Reporting.rptproj", "{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Development|Default = Development|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3104C39-477F-4980-8316-223911AD4971}.Debug|Default.ActiveCfg = Development
+		{C3104C39-477F-4980-8316-223911AD4971}.Debug|Default.Build.0 = Development
+		{C3104C39-477F-4980-8316-223911AD4971}.DebugLocal|Default.ActiveCfg = Development
+		{C3104C39-477F-4980-8316-223911AD4971}.DebugLocal|Default.Build.0 = Development
+		{C3104C39-477F-4980-8316-223911AD4971}.Development|Default.ActiveCfg = Development
+		{C3104C39-477F-4980-8316-223911AD4971}.Development|Default.Build.0 = Development
+		{C3104C39-477F-4980-8316-223911AD4971}.Release|Default.ActiveCfg = Development
+		{C3104C39-477F-4980-8316-223911AD4971}.Release|Default.Build.0 = Development
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Debug|Default.ActiveCfg = Debug
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Debug|Default.Build.0 = DebugLocal
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Debug|Default.Deploy.0 = DebugLocal
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.DebugLocal|Default.Build.0 = DebugLocal
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Development|Default.ActiveCfg = DebugLocal
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Development|Default.Build.0 = DebugLocal
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Release|Default.ActiveCfg = Release
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Release|Default.Build.0 = Release
+		{B794E558-F5EE-4F3D-975C-05DDFCEB49FE}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
