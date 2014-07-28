@@ -1,24 +1,15 @@
-/*
-
-7-28-14 - SR# 23712 - exclude transfers from On Order total, line below removed
-	sum(IBQOOV) as QtyOnOrder,
-	
-spPurchasingItemStatus 'GAGVGM82012'
-
-	
-*/
-
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spPurchasingItemStatus]    Script Date: 07/28/2014 10:01:02 ******/
+/****** Object:  StoredProcedure [dbo].[spPurchasingItemStatus]    Script Date: 07/28/2014 15:49:02 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER proc [dbo].[spPurchasingItemStatus] 
+--[spPurchasingItemStatus] 'GR1020961B'
+alter proc [dbo].[spPurchasingItemStatus] 
 
 @Item varchar(30)
 
@@ -32,7 +23,10 @@ imdesc,
 imcolr,
 sum(ibqoh) as OnHand,
 
-sum(IBQOOV) - (select sum(OLQORD) from ooline where OLOTYP <> ''''TR'''' and OLITEM = ibitem) as QtyOnOrder,
+(select sum(PLQORD - PLQREC) from poline
+	where PLDELT <> ''''C''''
+	and plitem = ibitem) as QtyOnOrder,
+
 sum(IBQOH-IBQOO) AS QtyAvailable
 
 from itembal
@@ -45,6 +39,7 @@ where ibitem = ' + '''''' + @Item + '''''' +
 
 --select @sql
 exec (@sql)
+
 
 GO
 
