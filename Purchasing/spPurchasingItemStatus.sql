@@ -3,6 +3,9 @@
 7-28-14 - SR# 23712 - exclude transfers from On Order total, line below removed
 	sum(IBQOOV) as QtyOnOrder,
 	
+spPurchasingItemStatus 'GAGVGM82012'
+
+	
 */
 
 USE [GartmanReport]
@@ -29,7 +32,7 @@ imdesc,
 imcolr,
 sum(ibqoh) as OnHand,
 
-sum(IBQOOV) - (select sum(OLQORD) from ooline where OLOTYP <> ''TR'' and OLITEM = ibitem) as QtyOnOrder,
+sum(IBQOOV) - (select sum(OLQORD) from ooline where OLOTYP <> ''''TR'''' and OLITEM = ibitem) as QtyOnOrder,
 sum(IBQOH-IBQOO) AS QtyAvailable
 
 from itembal
