@@ -1,3 +1,13 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[InboundFrieghtTA]    Script Date: 07/28/2014 10:51:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 
 
   
@@ -21,7 +31,7 @@
   
   
   
-ALTER Proc [dbo].[InboundFrieghtTA] as  
+alter Proc [dbo].[InboundFrieghtTA] as  
   
 select OQ.*,MT.MTSTATUS  
 from openquery(GSFL2K,'  
@@ -38,12 +48,12 @@ Poline.PLDESC As Description,
 Itemmast.IMCOLR As Color,   
 Poline.PLQORD As UnitsOrdered,  
 
-Poline.plqord - (select sum(pboqty) from poboline
+Poline.plqord - ifnull((select sum(pboqty) from poboline
 	where pbco = poline.plco
 	and pbloc = poline.plloc
 	and pbpo# = poline.plpo#
 	and PBREL# = poline.plrel#
-	and pbitem = poline.plitem) as NotAttachedQty,
+	and pbitem = poline.plitem),0) as NotAttachedQty,
 
 Itemfact.IFFACA as UnitsPerPallet,   
 Itemfact.IFUMC,   
@@ -89,4 +99,6 @@ Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM
 LEFT join (select * from openquery(GSFL2K,'select * from MANTRACK')) MT on OQ.Manifest = MT.MTMAN#  
 
   
-  
+GO
+
+
