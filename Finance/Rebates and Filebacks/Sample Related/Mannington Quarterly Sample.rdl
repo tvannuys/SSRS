@@ -1143,10 +1143,20 @@
   <ReportParameters>
     <ReportParameter Name="StartDate">
       <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=dateadd("m",-3,dateserial(year(Today),month(Today),1))</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
       <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=dateadd("m",0,dateserial(year(Today),month(Today),0))</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>End Date</Prompt>
     </ReportParameter>
   </ReportParameters>

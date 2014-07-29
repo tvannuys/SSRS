@@ -1214,10 +1214,20 @@
   <ReportParameters>
     <ReportParameter Name="pBeginDate">
       <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=dateadd("m",-3,dateserial(year(Today),month(Today),1))</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Begin Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="pEndDate">
       <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=dateadd("m",0,dateserial(year(Today),month(Today),0))</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>End Date</Prompt>
     </ReportParameter>
   </ReportParameters>
