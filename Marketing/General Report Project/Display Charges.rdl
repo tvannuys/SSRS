@@ -3,7 +3,7 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
-      <DataSourceReference>GartmanReports</DataSourceReference>
+      <DataSourceReference>/Data Sources/GartmanReports</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>97384cb2-a676-462a-aac4-c570f1171feb</rd:DataSourceID>
     </DataSource>
@@ -42,6 +42,7 @@
 	LEFT JOIN itemmast im ON ol.olitem = im.imitem
 
 	WHERE im.imclas = ''DI''
+	and ohco=1
 
 	')</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
@@ -80,7 +81,7 @@
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="PRICE1">
-          <DataField>Price1</DataField>
+          <DataField>PRICE1</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Price2">
@@ -88,15 +89,15 @@
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="PRICE3">
-          <DataField>Price3</DataField>
+          <DataField>PRICE3</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="PRICE4">
-          <DataField>Price4</DataField>
+          <DataField>PRICE4</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="PRICE5">
-          <DataField>Price5</DataField>
+          <DataField>PRICE5</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="SMNO">
