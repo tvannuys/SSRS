@@ -865,7 +865,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.69792in</Height>
+        <Height>0.5in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -875,7 +875,7 @@
       <Width>18.03125in</Width>
       <Page>
         <PageFooter>
-          <Height>2.27084in</Height>
+          <Height>0.01042in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <Style>
@@ -897,7 +897,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>4/1/2014</Value>
+          <Value>=format(dateadd("m",-1,dateserial(year(Today),month(Today),1)),"MM/dd/yyyy")</Value>
         </Values>
       </DefaultValue>
       <Prompt>Start Date</Prompt>
@@ -906,7 +906,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>4/30/2014</Value>
+          <Value>=format(dateadd("m",0,dateserial(year(Today),month(Today),0)),"MM/dd/yyyy")</Value>
         </Values>
       </DefaultValue>
       <Prompt>End Date</Prompt>
