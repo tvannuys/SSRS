@@ -44,7 +44,7 @@
     </Configuration>
   </Configurations>
   <DTSPackages>
-    <DtsPackage FormatVersion="0">
+    <DtsPackage FormatVersion="3">
       <Name>TarketSalesInfo.dtsx</Name>
       <FullPath>TarketSalesInfo.dtsx</FullPath>
       <References />
