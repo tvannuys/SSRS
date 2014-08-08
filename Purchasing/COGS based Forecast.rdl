@@ -56,7 +56,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.2in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5in</Width>
@@ -462,7 +462,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>7in</Width>
+            <Width>7.2in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -477,7 +477,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>7in</Width>
+      <Width>7.2in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
@@ -521,6 +521,6 @@
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01.tasupply.com/reportserver</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>30cc8e60-0032-4479-8632-41f819ecc0ab</rd:ReportID>
 </Report>
