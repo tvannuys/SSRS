@@ -16,7 +16,7 @@ declare @MSsql varchar(max)
 declare @ReportMonth varchar(2)
 declare @ReportYear varchar(4)
 
-set @ReportMonth = '6'  
+set @ReportMonth = '7'  
 set @ReportYear = '2014'  -- use 4 digit year
 
 
