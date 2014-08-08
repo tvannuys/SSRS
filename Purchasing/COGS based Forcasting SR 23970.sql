@@ -1,3 +1,13 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spCOGSForecast]    Script Date: 08/06/2014 09:38:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 /* 
 
 
@@ -12,7 +22,7 @@ sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) as SOCOGS,
 -- want COGS for last 3 complete months
  
 */
-alter proc spCOGSForecast 
+ALTER proc [dbo].[spCOGSForecast] 
 
 @StartDate as varchar(15), 
 @EndDate as varchar(15) 
@@ -37,7 +47,11 @@ LEFT JOIN ITEMMAST i1 ON SHLINE.SLITEM = i1.IMITEM
 		
 where SLDATE >= ''''' + @StartDate + '''''
  and SLDATE <= ''''' + @EndDate + '''''
- and i1.IMCLAS = ''''IM''''
+ and i1.IMCLAS in (''''IM'''',''''NL'''')
+ and i1.IMFCRG <> ''''S''''
+ and i1.imsi = ''''Y''''
+ and i1.imfmcd not in (''''L2'''',''''W2'''')
+ and i1.imdrop <> ''''D''''
 
 group by i1.imitem,
 i1.imdesc,
@@ -46,5 +60,9 @@ i1.imcolr
 '')'
 
 exec(@sql)
+
+
+
+GO
 
 
