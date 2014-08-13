@@ -48,13 +48,13 @@ end as KeyCustomer,
 
 case 
 	when pcprcd in (34056,34057, 34058) then ''''EvoStrand Bamboo''''
-	when pcprcd = 22647 then ''''Quick Loc Bamboo''''
+/*	when pcprcd = 22647 then ''''Quick Loc Bamboo''''   SR 24210  */
 	
 	when pcprcd = 13902 then ''''Odyssey''''
 	when pcprcd = 13900 then ''''Catalina''''
 
 	
-	when pcprcd = 13700 then ''''Crystal Ridge''''
+/*	when pcprcd = 13700 then ''''Crystal Ridge''''       SR 24210  */
 /* 	when pcprcd = 6392 then ''''Tru Loc''''              SR 22843  */
 	when pcprcd = 82148 then ''''Columbia LVT''''
 	when pcprcd = 82141 then ''''Bentley''''
@@ -65,7 +65,7 @@ case
 	when pcprcd = 34500 then ''''Canyon Creek''''
 	when pcprcd = 82140 then ''''Titan Grand Plank''''
 	when pcprcd = 13622 then ''''Grand Mesa Plus''''
-	when pcprcd = 13620 then ''''At Home Splendor''''
+/*	when pcprcd = 13620 then ''''At Home Splendor''''     SR 24210  */
 	when pcprcd = 13440 then ''''Lido''''
 	when pcprcd = 13609 then ''''Savannah Laminate''''
 	when pcprcd = 13646 then ''''Bourbon Street Laminate''''
@@ -76,6 +76,12 @@ case
 	
 	when imvend = 22859 then ''''Bear Mountain''''
 	when imvend = 24020 then ''''PureColor''''
+	
+	when pcprcd in (6307,6308,6309) then ''''LVS''''
+	when pcprcd = 13990 then ''''Nat Urban Design''''
+	when pcprcd = 14550 then ''''Development''''
+	when pcprcd = 13950 then ''''Tandem''''
+	when pcprcd = 13804 then ''''Loft''''
 	
 	else ''''Unknown Prod Code''''
 	
@@ -98,7 +104,9 @@ from CUSTMAST billto
 		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
 		left join custmast soldto on shhead.shcust = soldto.cmcust
 		
-where (slprcd in (13700,82148,82141,82142,82144,22647,13622,13620,13440,13609,13646, 82145,82146,13597,13592,84022,13594,13595,13902,13900)  
+where (slprcd in (82148,82141,82142,82144,13622,13440,13609,13646,
+					82145,82146,13597,13592,84022,13594,13595,13902,13900,
+					13804, 13950, 14550, 13990, 6307, 6308, 6309)  
 		or
 	   slvend in (24020)
 	   )
