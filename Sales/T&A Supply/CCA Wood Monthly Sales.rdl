@@ -42,7 +42,7 @@ FROM 	SHLINE
 			INNER JOIN CUSTMAST ON CUSTMAST.CMCUST=SHLINE.SLCUST
 			inner join mkcdmast on mkcdmast.mcmkcd=custmktg.cmkmkc
 			
-WHERE 	SHHEAD.SHCUST &lt;&gt; ''1008342''
+WHERE 	SHHEAD.SHCUST not in (''1008342'',''1000382'',''1000383'',''1000384'',''1000381'')
 			AND (year(shline.sldate) = year(current_date - 1 month)
 				 and month(shline.sldate) = month(current_date - 1 month))
 			and (
