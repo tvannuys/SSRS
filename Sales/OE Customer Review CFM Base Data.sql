@@ -62,6 +62,7 @@ case
 	when soldto.cmcust = ''1020262'' then ''REDMOND''
 	when soldto.cmcust = ''1020263'' then ''EVERETT''
 	when soldto.cmcust = ''1020264'' then ''HILLSBORO''
+	when soldto.cmcust = ''1000266'' then ''BEAVERTON''
 
 	when soldto.cmcust = ''1006824'' then ''Idaho''
 	when soldto.cmcust = ''1020066'' then ''North''
@@ -144,11 +145,7 @@ where (
 		(year(shline.sldate) = year(current_date - 1 month) or year(shline.sldate) = year(current_date - 1 month)-1)
 				 and month(shline.sldate) <= month(current_date - 1 month))  /* last full month this year and last year */
 
-and billto.cmcust in (''1010663'',
-''1012346'',
-''1020125'',
-''1020127'',
-''1024324'') 
+and billto.cmcust in (''1009785'')
 
 
 ')
