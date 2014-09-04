@@ -22,7 +22,7 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>spCOGSForecast</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spCOGSForecast"><Parameter Name="@StartDate"><Value>05/01/2014</Value></Parameter><Parameter Name="@EndDate"><Value>05/01/2014</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMITEM" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMDESC" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMCOLR" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="SOCOGS" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="BOVALUE" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spCOGSForecast"><Parameter Name="@StartDate"><Value>05/01/2014</Value></Parameter><Parameter Name="@EndDate"><Value>05/01/2014</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMVEND" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMFMCD" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMITEM" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMDESC" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMCOLR" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMMD" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMMD2" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMFACT" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMFAC2" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="IMCOST" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="SOCOGS" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="BOQTY" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="YTDSALES" /><ColumnExpression ColumnOwner="spCOGSForecast" ColumnName="BOValue" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="IMITEM">
@@ -33,17 +33,53 @@
           <DataField>IMDESC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="IMFMCD">
+          <DataField>IMFMCD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="IMCOLR">
           <DataField>IMCOLR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IMMD">
+          <DataField>IMMD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IMMD2">
+          <DataField>IMMD2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IMFACT">
+          <DataField>IMFACT</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="IMFAC2">
+          <DataField>IMFAC2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="IMCOST">
+          <DataField>IMCOST</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="SOCOGS">
           <DataField>SOCOGS</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="BOVALUE">
-          <DataField>BOVALUE</DataField>
+        <Field Name="BOQTY">
+          <DataField>BOQTY</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="YTDSALES">
+          <DataField>YTDSALES</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="BOValue">
+          <DataField>BOValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="IMVEND">
+          <DataField>IMVEND</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
         </Field>
       </Fields>
     </DataSet>
@@ -56,7 +92,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.2in</Width>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.3875in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5in</Width>
@@ -70,11 +112,88 @@
                 <TablixColumn>
                   <Width>1in</Width>
                 </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.25in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>IMVEND</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#4e648a</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#384c70</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>IMFMCD</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#4e648a</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#384c70</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox2">
@@ -261,11 +380,117 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>YTDSALES</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#4e648a</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#384c70</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
                   <Height>0.25in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="IMVEND">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!IMVEND.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>IMVEND</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="IMFMCD">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!IMFMCD.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>IMFMCD</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="IMITEM">
@@ -403,14 +628,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="BOVALUE">
+                        <Textbox Name="BOValue">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!BOVALUE.Value</Value>
+                                  <Value>=Fields!BOValue.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Format>n2</Format>
@@ -423,7 +648,42 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>BOVALUE</rd:DefaultName>
+                          <rd:DefaultName>BOValue</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="YTDSALES">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!YTDSALES.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>YTDSALES</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -448,6 +708,9 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -462,7 +725,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>7.2in</Width>
+            <Width>10.3875in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -477,7 +740,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>7.2in</Width>
+      <Width>10.3875in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
