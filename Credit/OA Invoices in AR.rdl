@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>POA Report - Janice Tomko</Description>
+  <Author>Thomas</Author>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
@@ -12,20 +14,23 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
-        <CommandText>select * from openquery(gsfl2k,'
+        <CommandText>/*  Payment on Accts - POA Report */
+
+select * from openquery(gsfl2k,'
 select o.oicust as Acct,
 c.cmname as Customer,
 o.oidate as EntryDate,
 o.oiinv# as InvoiceNum,
-oiord# as OrderNum,
+
 oiamt as GrossAmt,
 oinet as NetAmt
-
 
 from openitem o
 join custmast c on oicust = cmcust
 
 where oiinv# like ''OA%''
+
+and OICode = ''2''
 
 order by oicust,oiinv#,oitype desc
 
@@ -50,10 +55,6 @@ order by oicust,oiinv#,oitype desc
           <DataField>INVOICENUM</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ORDERNUM">
-          <DataField>ORDERNUM</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="GROSSAMT">
           <DataField>GROSSAMT</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -77,9 +78,6 @@ order by oicust,oiinv#,oitype desc
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.42708in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -224,41 +222,6 @@ order by oicust,oiinv#,oitype desc
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox7</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#4e648a</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>#384c70</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox9">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>ORDER #</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#4e648a</Color>
@@ -486,39 +449,6 @@ order by oicust,oiinv#,oitype desc
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ORDERNUM">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!ORDERNUM.Value</Value>
-                                  <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <Color>#4d4d4d</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>ORDERNUM</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#e5e5e5</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="GROSSAMT">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -599,7 +529,6 @@ order by oicust,oiinv#,oitype desc
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -614,7 +543,7 @@ order by oicust,oiinv#,oitype desc
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>8.42708in</Width>
+            <Width>7.42708in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -629,7 +558,7 @@ order by oicust,oiinv#,oitype desc
           </Border>
         </Style>
       </Body>
-      <Width>8.42708in</Width>
+      <Width>7.42708in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
@@ -650,6 +579,6 @@ order by oicust,oiinv#,oitype desc
     </ReportSection>
   </ReportSections>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportServerUrl>http://sql01.tasupply.com/reportserver</rd:ReportServerUrl>
+  <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>d6bbbc6c-35d9-477b-80d3-871e8ebeac7a</rd:ReportID>
 </Report>
