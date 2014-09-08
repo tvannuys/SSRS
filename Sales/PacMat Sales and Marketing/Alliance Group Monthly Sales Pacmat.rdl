@@ -42,6 +42,7 @@ FROM 	SHLINE
 			inner join mkcdmast on mkcdmast.mcmkcd=custmktg.cmkmkc
 			
 WHERE 	shline.slvend in (22666,22674,22204,22887,22859,17000,22728,22906,21861,16088,16006)
+		and slfmcd not in (''W2'',''L2'',''V&amp;'')
 		AND (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date - 1 month))
 		and cmkmkc in (''CO'',''CP'')
 		and shco=2

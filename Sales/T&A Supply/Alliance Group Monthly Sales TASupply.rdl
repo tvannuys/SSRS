@@ -44,6 +44,7 @@ FROM 	SHLINE
 WHERE 	shco=1
 		and (shline.slvend in (22674,22666,22204,22887,22859,22728,22906,16006,17000)
 			or slprcd between 34056 and 34058)
+		and slfmcd not in (''W2'',''L2'',''V&amp;'')
 		AND (year(shline.sldate)=year(current_date - 1 month) and month(shline.sldate)=month(current_date - 1 month))
 		and cmkmkc in (''CO'',''CP'')
 		and shotyp not in (''SA'',''DP'',''SR'')
@@ -1409,7 +1410,7 @@ WHERE 	shco=1
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.25in</Height>
+        <Height>0.52083in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1418,49 +1419,6 @@ WHERE 	shco=1
       </Body>
       <Width>24.70833in</Width>
       <Page>
-        <PageFooter>
-          <Height>0.45in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="ExecutionTime">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!ExecutionTime</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.2in</Top>
-              <Left>4in</Left>
-              <Height>0.25in</Height>
-              <Width>2in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
