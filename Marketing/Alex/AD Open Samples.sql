@@ -1,11 +1,13 @@
 USE [GartmanReport]
 GO
 
+/****** Object:  StoredProcedure [dbo].[spOpenADSampleOrders]    Script Date: 09/19/2014 15:33:41 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 /*==============================================================================
@@ -30,6 +32,12 @@ GO
 6100500	TONJA DICENZO SAMPLES
 6142088	TONJA DICENZO SAMPLES
 1002118	TONJA DICENZO SAMPLES 506
+
+TAV - Added 9/19/2014:
+
+1001178    SABRINA PARK  SAMPLES  
+4101178    SABRINA PARK  SAMPLES  
+6101178    SABRINA PARK  SAMPLES  
 
 --
 --
@@ -76,13 +84,17 @@ SELECT ohotyp		AS Order_Type
 		JOIN salesman sm ON cm.cmslmn = sm.smno
 		WHERE oh.ohotyp IN(''DP'',''SA'')
 		
-		and cmcust in (''1000121'',''1000214'',''6101245'',''1002135'',''6100500'',''6142088'',''1002118'',''1002001'',''1002101'',''1002100'',''4102100'',''6102100'')
+		and cmcust in (''1000121'',''1000214'',''6101245'',''1002135'',
+					''6100500'',''6142088'',''1002118'',''1002001'',
+					''1002101'',''1002100'',''4102100'',''6102100'',
+					''1001178'',''4101178'',''6101178'')
 	
 		ORDER BY cm.cmname
 				,oh.ohodat DESC
 		')
 
 END
+
 
 
 
