@@ -21,8 +21,6 @@ Unused join
 		LEFT JOIN CLASCODE ON SHLINE.SLCLS# = CLASCODE.CCCLAS 
 */
 
--- drop table #CustomerFreightAnalysis
-
 IF EXISTS(SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID (N'tempdb..#TempCompany2Summary'))
 	BEGIN
 		DROP TABLE #TempCompany2Summary
@@ -35,7 +33,7 @@ IF EXISTS(SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID (N'tempdb..#T
 =====================================================================================	
 */
 
-select *,
+select OQ.*,
 CONVERT(datetime, CONVERT(VARCHAR(10), shidat)) as OrderDate,
 0 as OpenOrders,
 0 as OnPO,
@@ -50,6 +48,8 @@ salesman.smname as SalesPerson,
 billto.cmcust as Acct,
 billto.cmname as BillToCustomer,
 soldto.cmname as SoldToCustomer,
+vmname as Vendor,
+fmdesc as Family,
 shidat,
 sldiv,
 dvdesc as Division,
@@ -72,7 +72,9 @@ from shline
 		left join custmast soldto on shhead.shcust = soldto.cmcust
 		LEFT JOIN ITEMMAST ON SHLINE.SLITEM = ITEMMAST.IMITEM 
 		LEFT JOIN DIVISION ON SHLINE.SLDIV = DIVISION.DVDIV 
+		left join family on imfmcd = fmfmcd
 		LEFT JOIN PRODCODE ON SHLINE.SLPRCD = PRODCODE.PCPRCD 
+		left join vendmast on imvend = vmvend
 		left join salesman on shline.SLSLMN = salesman.smno
 		
 where year(shidat) in (2014)
@@ -85,6 +87,8 @@ salesman.smname,
 billto.cmcust,
 billto.cmname,
 soldto.cmname,
+vmname,
+fmdesc,
 shidat,
 sldiv,
 dvdesc,
@@ -92,11 +96,11 @@ dvdesc,
 slprcd,
 pcdesc
 
-')
+') OQ
 
 /*
 =====================================================================================	
-
+select * from #TempCompany2Summary
 Update Open order Value
 
 =====================================================================================	
@@ -108,6 +112,8 @@ SALESPERSON,
 ACCT,
 BILLTOCUSTOMER,
 SOLDTOCUSTOMER,
+Vendor,
+Family,
 SHIDAT,
 SLDIV,
 DIVISION,
@@ -125,6 +131,8 @@ i2.SALESPERSON,
 i2.ACCT,
 i2.BILLTOCUSTOMER,
 i2.SOLDTOCUSTOMER,
+i2.vendor,
+i2.family,
 i2.OpenOrderDate,
 i2.oLDIV,
 i2.DIVISION,
@@ -145,6 +153,8 @@ from openquery(gsfl2k,'select  olslmn,
 						current_date as OpenOrderDate,
 						oldiv,
 						dvdesc as Division,
+						fmdesc as Family,
+						vmname as Vendor,
 
 						olprcd,
 						pcdesc as ProductCode,
@@ -164,6 +174,8 @@ from openquery(gsfl2k,'select  olslmn,
 								LEFT JOIN ITEMMAST ON ooLINE.olITEM = ITEMMAST.IMITEM 
 								LEFT JOIN DIVISION ON ooLINE.olDIV = DIVISION.DVDIV 
 								LEFT JOIN PRODCODE ON ooLINE.olPRCD = PRODCODE.PCPRCD 
+								left join family on imfmcd = fmfmcd
+								left join vendmast on imvend = vmvend
 								left join salesman on ooline.olSLMN = salesman.smno
 								
 						where ohco=2
@@ -176,6 +188,8 @@ from openquery(gsfl2k,'select  olslmn,
 						current_date,
 						oldiv,
 						dvdesc,
+						fmdesc,
+						vmname,
 
 						olprcd,
 						pcdesc') as i2
@@ -195,6 +209,8 @@ salesperson,
 ACCT,
 BILLTOCUSTOMER,
 SOLDTOCUSTOMER,
+Vendor,
+Family,
 EXTENDEDCOST,
 EXTENDEDPRICE,
 
@@ -214,6 +230,8 @@ select
 ' ',			-- Acct
 ' ',			-- BillToCustomer
 ' ',			-- SoldToCustomer
+i3.vmname,
+i3.fmdesc,
 0,				-- ExtendedCost
 0,				-- ExtendedPrice
 
@@ -222,6 +240,7 @@ i3.dvdiv,
 i3.dvdesc,
 i3.imprcd,
 i3.pcdesc,
+
 GETDATE(),
 0,
 i3.OnPOValue,
@@ -230,14 +249,18 @@ i3.OnPOValue,
 from openquery(gsfl2k,'select imprcd, dvdiv,
 						dvdesc,
 						pcdesc,
+						vmname,
+						fmdesc,
 						sum((PLBLUO-PLBLUR)*plcost) as OnPOValue
 						from poline
 						join itemmast on plitem = imitem
 						left join division on imdiv = dvdiv
 						left join prodcode on imprcd = pcprcd
+						left join vendmast on imvend = vmvend
+						left join family on imfmcd = fmfmcd
 						where plco = 2
 						and PLDELT <> ''C''
-						group by imprcd,dvdiv,dvdesc,pcdesc
+						group by imprcd,dvdiv,dvdesc,pcdesc,vmname,fmdesc
 						
 						') i3 
 
@@ -257,6 +280,8 @@ salesperson,
 ACCT,
 BILLTOCUSTOMER,
 SOLDTOCUSTOMER,
+Vendor,
+Family,
 EXTENDEDCOST,
 EXTENDEDPRICE,
 
@@ -276,6 +301,9 @@ select
 ' ',			-- Acct
 ' ',			-- BillToCustomer
 ' ',			-- SoldToCustomer
+i4.vmname,
+i4.fmdesc,
+
 0,				-- ExtendedCost
 0,				-- ExtendedPrice
 
@@ -292,6 +320,8 @@ i4.SalesUOMOnHand*imrcst
 FROM OPENQUERY(GSFL2K, 'select imprcd, dvdiv,
 						dvdesc,
 						pcdesc,
+						vmname,
+						fmdesc,
 						imrcst,
 						
 						case 
@@ -304,10 +334,12 @@ FROM OPENQUERY(GSFL2K, 'select imprcd, dvdiv,
 						JOIN itemmast ON ibitem = imitem
 						left join division on imdiv = dvdiv
 						left join prodcode on imprcd = pcprcd
+						left join vendmast on imvend = vmvend
+						left join family on imfmcd = fmfmcd
 						
 						WHERE ibco = 2
 						AND  ibqoh - ibqoo > 0	
-						group by imprcd,dvdiv,dvdesc,pcdesc,imrcst,immd,immd2
+						group by imprcd,dvdiv,dvdesc,pcdesc,vmname,fmdesc,imrcst,immd,immd2
 						
 					') i4
 					
