@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ts</Title>
+      <Shortcut>ts</Shortcut>
+      <Description>TESTSIDE SELECT for Gartman File</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>file</ID>
+          <ToolTip>file in Gartman</ToolTip>
+          <Default>file</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[SELECT *
+FROM OPENQUERY(TSGSFL2K,'
+	SELECT * 
+	FROM $file$
+')
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

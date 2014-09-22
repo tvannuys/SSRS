@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>olr</Title>
+      <Shortcut>olr</Shortcut>
+      <Description>OOLRFHST file</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[SELECT *
+FROM OPENQUERY(GSFL2K,'
+	SELECT * 
+	FROM oolrfhst olr 
+')]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
