@@ -15,6 +15,7 @@
         <CommandText>select * from openquery (gsfl2k,'
 select *
 from itemmain
+where IMMWS&lt;&gt;''IMLEADTM''
 ')</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
