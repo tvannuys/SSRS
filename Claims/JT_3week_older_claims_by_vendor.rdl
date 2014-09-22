@@ -1452,6 +1452,16 @@
       </DefaultValue>
       <Prompt>Company</Prompt>
     </ReportParameter>
+    <ReportParameter Name="SuppressEmail">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSet1</DataSetName>
+          <ValueField>VEND_</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>SuppressEmail</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
