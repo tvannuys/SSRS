@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateProcedure</Title>
+      <Shortcut>CreateProcedure</Shortcut>
+      <Description>Create a stored procedure.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[-- Date $DATE$ $TIME$
+-- Database '$DB$'
+
+CREATE PROCEDURE $schema$.$procedure_name$
+	$CARET$--@parameter_name AS data_type ( = default_value ), ...
+-- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
+AS
+  
+RETURN 0
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
